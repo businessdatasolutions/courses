@@ -1,0 +1,11 @@
+fig:title-fig
+tab:unnamed-chunk-1
+fig:datascience-fig
+fig:dikw-fig
+thinking
+literature
+methods
+applications
+example-one
+example-two
+final-words

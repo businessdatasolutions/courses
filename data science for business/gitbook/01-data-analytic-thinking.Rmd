@@ -1,0 +1,23 @@
+# Data-analytic thinking {#thinking}
+
+What is Data Science and what is not?
+
+```{r datascience-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Data Science diagram taken from: https://towardsdatascience.com/introduction-to-statistics-e9d72d818745', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/datascience.png'))
+```
+
+What is the ultimate purpose of a Data Science effort?
+
+What is Data Mining?
+```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Cross-industry standard process for data mining taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/crisp.png'))
+```
+
+What is Data Driven Decision Making in relation to other types of decision making? (relation with What is proof or evidence?)
+
+```{r dikw-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='DIKW pyramid taken from: https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/pyramid.png'))
+```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+

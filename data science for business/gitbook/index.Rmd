@@ -1,0 +1,61 @@
+--- 
+title: "Data Science for Business"
+author: "Witek ten hove"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [lit.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a compagnon to the course Data Science for Business."
+---
+
+# Preface {-}
+
+```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/crisp.png'))
+```
+## Prerequisites {-}
+
+Before starting this module make sure you have:
+
+* access to the book *Provost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.*
+* installed R and RStudio
+* a Github account
+
+## Purpose of this course {-}
+
+The general learning outcome of this course is:
+
+> The student is able to perform a well-defined task independently in a relatively clearly arranged situation, or is able to perform in a complex and unpredictable situation under supervision.
+
+The course will provide you with a non-technical overview of data science, and types of techniques. The focus will lie on critical thinking and the full DS process (based on CRISP).
+
+## Structure of the course {-}
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+weeknr <- c("1", "2-3", "4-5", "6-7")
+module <- c("Onboarding and introduction to course", "Data-Analytic Thinking", "Business Problems and Data Science Solutions", "Data Science and Business Strategy")
+reading <- c("", "Provost / Fawcett Ch.1", "Provost / Fawcett Ch.2", "Provost / Fawcett Ch.13")
+headers <- c("Week nr.", "Module name", "Readings")
+programmeDF <- data.frame(weeknr, module, reading)
+colnames(programmeDF) <- headers
+
+knitr::kable(
+  programmeDF, longtable = TRUE, booktabs = TRUE,
+  caption = 'Course overview'
+)
+```
+
+# About the author {-}
+
+![](images/me.png)
+
+Witek ten Hove is a senior instructor and researcher at [HAN University of Applied Sciences](https://hanuniversity.com/en/). His main areas of expertise are Data en Web Technologies.
+
+Through his extensive business experience in Finance and International Trade and thorough knowledge of modern data technologies, he is able to make connections between technology and business. As an open source evangelist he firmly believe in the power of knowledge sharing. His mission is to inspire business professionals and help them exploit the full potential of smart technologies.
+
+
+
+
+
