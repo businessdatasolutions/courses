@@ -3,6 +3,7 @@ tab:unnamed-chunk-1
 fig:datascience-fig
 fig:crisp-fig
 fig:dikw-fig
+fig:azure-fig
 thinking
 businessproblems
 businessstrategy

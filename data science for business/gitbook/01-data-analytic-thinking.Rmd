@@ -1,4 +1,4 @@
-# Data-analytic thinking {#thinking}
+# Data-Analytic Thinking {#thinking}
 
 What is Data Science and what is not?
 
@@ -20,4 +20,12 @@ knitr::include_graphics(rep('images/pyramid.png'))
 ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+What are the challenges and opportunities that Big Data creates?
+
+What are Big Data technologies?
+```{r azure-fig, echo=FALSE, fig.align='center', fig.asp=1, fig.cap='Big Data pipelines taken from: https://azure.microsoft.com/en-gb/blog/the-emerging-big-data-architectural-pattern/', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/azure.png'))
+```
+
 
