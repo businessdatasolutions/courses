@@ -1,31 +1,43 @@
 # Data-Analytic Thinking {#thinking}
 
-What is Data Science and what is not?
+```{r lesson-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Lesson Map (own work)', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics('images/lesson.png')
+```
+
+## What is Data Science and what is not?
 
 ```{r datascience-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Data Science diagram taken from: https://towardsdatascience.com/introduction-to-statistics-e9d72d818745', message=TRUE, warning=TRUE, out.width='80%'}
-knitr::include_graphics(rep('images/datascience.png'))
+knitr::include_graphics('images/datascience.png')
 ```
 
 What is the ultimate purpose of a Data Science effort?
 
-What is Data Mining?
+## What is Data Mining?
 ```{r crisp-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Cross-industry standard process for data mining taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
-knitr::include_graphics(rep('images/crisp.png'))
+knitr::include_graphics('images/crisp.png')
 ```
 
-What is Data Driven Decision Making in relation to other types of decision making? (relation with What is proof or evidence?)
+## What is Data Driven Decision Making
+
+What are other types of decision making? (relation with What is proof or evidence?)
 
 ```{r dikw-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='DIKW pyramid taken from: https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg', message=TRUE, warning=TRUE, out.width='80%'}
-knitr::include_graphics(rep('images/pyramid.png'))
+knitr::include_graphics('images/pyramid.png')
 ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-What are the challenges and opportunities that Big Data creates?
+## What are the challenges and opportunities that Big Data creates?
 
-What are Big Data technologies?
+## What are Big Data technologies?
 ```{r azure-fig, echo=FALSE, fig.align='center', fig.asp=1, fig.cap='Big Data pipelines taken from: https://azure.microsoft.com/en-gb/blog/the-emerging-big-data-architectural-pattern/', message=TRUE, warning=TRUE, out.width='80%'}
-knitr::include_graphics(rep('images/azure.png'))
+knitr::include_graphics('images/azure.png')
 ```
 
+```{r technoslavia-fig, echo=FALSE, fig.align='center', fig.asp=1, fig.cap='Big Data pipelines taken from: https://blog.dataiku.com/technoslavia-the-fragmented-world-of-data-infrastructure-in-2020', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics('images/technoslavia.jpg')
+```
 
+## Case Study: Ubernomics
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/63wt3TgGGxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
