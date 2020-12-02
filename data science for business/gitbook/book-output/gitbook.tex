@@ -1,0 +1,214 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Data Science for Business},
+  pdfauthor={Witek ten hove},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{Data Science for Business}
+\author{Witek ten hove}
+\date{2020-12-02}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.8\linewidth]{images/crisp}
+
+\}
+
+\textbackslash caption\{CRISP-DM Model taken from: \url{https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png}\}\label{fig:title-fig}
+\textbackslash end\{figure\}
+\#\# Prerequisites \{-\}
+
+Before starting this module make sure you have:
+
+\begin{itemize}
+\tightlist
+\item
+  access to the book \emph{Provost, F., \& Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.}
+\item
+  installed R and RStudio
+\item
+  a Github account
+\end{itemize}
+
+\hypertarget{purpose-of-this-course}{%
+\section*{Purpose of this course}\label{purpose-of-this-course}}
+\addcontentsline{toc}{section}{Purpose of this course}
+
+The general learning outcome of this course is:
+
+\begin{quote}
+The student is able to perform a well-defined task independently in a relatively clearly arranged situation, or is able to perform in a complex and unpredictable situation under supervision.
+\end{quote}
+
+The course will provide you with a non-technical overview of data science, and types of techniques. The focus will lie on critical thinking and the full DS process (based on CRISP).
+
+\hypertarget{structure-of-the-course}{%
+\section*{Structure of the course}\label{structure-of-the-course}}
+\addcontentsline{toc}{section}{Structure of the course}
+
+\begin{longtable}[t]{lll}
+\caption{\label{tab:unnamed-chunk-1}Course overview}\\
+\toprule
+Week nr. & Module name & Readings\\
+\midrule
+1 & Onboarding and introduction to course & \\
+2-3 & Data-Analytic Thinking & Provost / Fawcett Ch.1\\
+4-5 & Business Problems and Data Science Solutions & Provost / Fawcett Ch.2\\
+6-7 & Data Science and Business Strategy & Provost / Fawcett Ch.13\\
+\bottomrule
+\end{longtable}
+
+\hypertarget{about-the-author}{%
+\chapter*{About the author}\label{about-the-author}}
+\addcontentsline{toc}{chapter}{About the author}
+
+\includegraphics{images/me.png}
+
+Witek ten Hove is a senior instructor and researcher at \href{https://hanuniversity.com/en/}{HAN University of Applied Sciences}. His main areas of expertise are Data en Web Technologies.
+
+Through his extensive business experience in Finance and International Trade and thorough knowledge of modern data technologies, he is able to make connections between technology and business. As an open source evangelist he firmly believe in the power of knowledge sharing. His mission is to inspire business professionals and help them exploit the full potential of smart technologies.
+
+\hypertarget{thinking}{%
+\chapter{Data-analytic thinking}\label{thinking}}
+
+What is Data Science and what is not?
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{images/datascience} 
+
+}
+
+\caption{Data Science diagram taken from: https://towardsdatascience.com/introduction-to-statistics-e9d72d818745}\label{fig:datascience-fig}
+\end{figure}
+
+What is the ultimate purpose of a Data Science effort?
+
+What is Data Mining?
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.8\linewidth]{images/crisp}
+
+\}
+
+\textbackslash caption\{Cross-industry standard process for data mining taken from: \url{https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png}\}\label{fig:crisp-fig}
+\textbackslash end\{figure\}
+
+What is Data Driven Decision Making in relation to other types of decision making? (relation with What is proof or evidence?)
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.8\linewidth]{images/pyramid}
+
+\}
+
+\textbackslash caption\{DIKW pyramid taken from: \url{https://en.wikipedia.org/wiki/DIKW_pyramid\#/media/File:DIKW_Pyramid.svg}\}\label{fig:dikw-fig}
+\textbackslash end\{figure\}
+
+\hypertarget{businessproblems}{%
+\chapter{Business Problems and Data Science Solutions}\label{businessproblems}}
+
+Here is a review of existing methods.
+
+\hypertarget{businessstrategy}{%
+\chapter{Data Science and Business Strategy}\label{businessstrategy}}
+
+We describe our methods in this chapter.
+
+\hypertarget{applications}{%
+\chapter{Applications}\label{applications}}
+
+Some \emph{significant} applications are demonstrated in this chapter.
+
+\hypertarget{example-one}{%
+\section{Example one}\label{example-one}}
+
+\hypertarget{example-two}{%
+\section{Example two}\label{example-two}}
+
+\hypertarget{final-words}{%
+\chapter{Final Words}\label{final-words}}
+
+We have finished a nice book.
+
+  \bibliography{lit.bib}
+
+\end{document}

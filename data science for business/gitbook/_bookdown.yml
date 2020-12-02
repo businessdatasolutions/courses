@@ -1,5 +1,5 @@
 book_filename: "gitbook"
-output_dir: "book"
+output_dir: "book-output"
 delete_merged_file: true
 language:
   ui:

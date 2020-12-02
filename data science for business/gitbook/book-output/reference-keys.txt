@@ -1,0 +1,12 @@
+fig:title-fig
+tab:unnamed-chunk-1
+fig:datascience-fig
+fig:crisp-fig
+fig:dikw-fig
+thinking
+businessproblems
+businessstrategy
+applications
+example-one
+example-two
+final-words
