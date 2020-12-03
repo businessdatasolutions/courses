@@ -1,8 +1,93 @@
-# Data-Analytic Thinking {#thinking}
+```{r message=TRUE, warning=TRUE, include=FALSE}
+library(tidyverse)
+library(plotly)
+```
+
+
+# Data Driven Decision Making{#dddm}
 
 ```{r lesson-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Lesson Map (own work)', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/lesson.png')
 ```
+## Thinking and Deciding
+
+### The Monty Hall Problem
+
+Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?
+
+```{r montyhall-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='The Monty Hall Problem taken from https://en.wikipedia.org/wiki/Monty_Hall_problem', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics('images/montyhall.png')
+```
+
+  <h3>Solution</h3>
+  <p>Before checking, try to derive a solution yourself.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#solution">Solution</button>
+  <div id="solution" class="collapse">
+  <hr>
+    <p>Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run</p>
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+## Initialize doors
+doors <- function(cat=TRUE) {
+  d <- sample(c(1,0,0), 3)
+  if(cat) { cat("There are 3 doors: ", d, "\n") }
+  return(d)
+}
+
+## Player's choice
+choice <- function(doors, cat=TRUE) {
+  i <-sample(c(1, 2, 3), 1)
+  r <- doors[i]
+  if(cat) { cat("Player chose door nr:", i, ", with reward:", r, "\n") }
+  return(c(i, r))
+}
+
+## Host opens door
+open <- function(doors, i, cat=TRUE) {
+  doors <- doors[-i]
+  r <- sum(doors)
+  if(cat) { cat("Host opens door. Remaining door has reward", r, "\n") }
+  return(r)
+}
+
+start <- doors()
+player <- choice(start)
+host <- open(start, player[1])
+```
+
+<p>and the total wins when eached strategy is tried a 100,000 times.</p>
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+n <- 100000
+score <- 0
+
+play <- function(n, switch = FALSE) {
+  
+  total <- 0
+  
+  for (i in 1:n) {
+    start <- doors(cat = FALSE)
+    player <- choice(start, cat = FALSE)
+    host <- open(start, player[1], cat = FALSE)
+    score <- if(switch) { host } else { player[2] }
+    total <- total + score
+  }
+  
+  return(total)
+}
+
+hold <- play(n, switch = FALSE)
+switch <- play(n, switch = TRUE)
+mhDF <- data.frame(hold, switch) %>% pivot_longer(cols = c("hold", "switch"), names_to = "strategy")
+
+p <- ggplot(mhDF, aes(x = strategy, y = value, fill = strategy)) +
+  geom_col() + 
+  theme(legend.position="none")
+
+ggplotly(p)
+```
+</div>
+  </div>
 
 ## What is Data Science and what is not?
 
@@ -25,9 +110,8 @@ What are other types of decision making? (relation with What is proof or evidenc
 knitr::include_graphics('images/pyramid.png')
 ```
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What are the challenges and opportunities that Big Data creates?
 
@@ -42,6 +126,5 @@ knitr::include_graphics('images/technoslavia.jpg')
 
 ## Case Study: Ubernomics
 
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/63wt3TgGGxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/63wt3TgGGxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

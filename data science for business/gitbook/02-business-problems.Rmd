@@ -1,3 +1,17 @@
 # Business Problems and Data Science Solutions  {#businessproblems}
 
-Here is a review of existing methods.
+Formulating a business problem using ECLIPSE [@wildridge_eclipse_2002]
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+mnemonic <- c("E", "C", "L", "I", "P", "SE")
+description <- c("Expectation: Why does the user want the information?", "C - Client Group: For whom is the service intended?", "L –   Location:  Where is the service physically sited?", "Impact: What would represent success?  How is this measured?", "P –   Professionals: Who provides or improves the service?", "SE – Service: What type of service is under consideration?")
+
+headers <- c("Mnemonic", "Description")
+programmeDF <- data.frame(mnemonic, description)
+colnames(programmeDF) <- headers
+
+knitr::kable(
+  programmeDF, longtable = TRUE, booktabs = TRUE,
+  caption = 'ECLIPSE questions'
+)
+```
