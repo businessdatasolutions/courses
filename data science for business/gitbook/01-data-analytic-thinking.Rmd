@@ -57,6 +57,7 @@ host <- open(start, player[1])
 
 <p>and the total wins when eached strategy is tried a 100,000 times.</p>
 
+
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 n <- 100000
 score <- 0
@@ -86,8 +87,8 @@ p <- ggplot(mhDF, aes(x = strategy, y = value, fill = strategy)) +
 
 ggplotly(p)
 ```
+
 </div>
-  </div>
 
 ## What is Data Science and what is not?
 
