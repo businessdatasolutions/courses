@@ -24,4 +24,3 @@ applications
 example-one
 example-two
 final-words
-tab:unnamed-chunk-4
