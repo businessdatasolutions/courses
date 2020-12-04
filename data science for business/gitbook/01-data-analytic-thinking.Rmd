@@ -175,7 +175,7 @@ According to the simulation the reliability of the witness when he states that h
 
 Most subjects gave probabilities over 50%, and some gave answers over 80%. The correct answer is lower than these estimates.
 
-**Think**: Suppose that at the start of the trial the Blue Taxi Company tells the judge that they are not guilty. The witness is heard. How much do you think this would help the judge in his or her decision? How much do you think it should influence the opinion of the judge?
+**Think**: Suppose that at the start of the trial the Blue Taxi Company tells the judge that they are not guilty. The witness is heard. How much do you think this would influence the opinion of a typical person? How much do you think it should influence? Do you think all judges have the analytical skills to calculate probabilities?
 
 </div>
 
