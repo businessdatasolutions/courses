@@ -112,8 +112,6 @@ In a study done by Tversky and Kahneman [@tversky1981evidential], subjects were 
   <div id="taxicab" class="collapse">
   <hr>
 
-Most subjects gave probabilities over 50%, and some gave answers over 80%. The correct answer, found using [Bayes' theorem](https://plus.maths.org/content/solution-taxi-problem-revisited#:~:text=We%20have%20seen%20that%20Bayes,have%20been%20taken%20into%20account.), is lower than these estimates:
-
 * There is a 12% chance (15% times 80%) of the witness correctly identifying a blue cab.
 * There is a 17% chance (85% times 20%) of the witness incorrectly identifying a green cab as blue.
 * There is therefore a 29% chance (12% plus 17%) the witness will identify the cab as blue.
@@ -174,6 +172,10 @@ ggplotly(p2)
 perctrue <- mean(as.numeric(bluecabs$quality))
 ```
 According to the simulation the reliability of the witness when he states that he saw a blue cab is `r round(100*perctrue)`%.
+
+Most subjects gave probabilities over 50%, and some gave answers over 80%. The correct answer is lower than these estimates.
+
+**Think**: Suppose that at the start of the trial the Blue Taxi Company tells the judge that they are not guilty. The witness is heard. How much do you think this would help the judge in his or her decision? How much do you think it should influence the opinion of the judge?
 
 </div>
 
