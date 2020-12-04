@@ -6,7 +6,7 @@ library(plotly)
 
 # Data Driven Decision Making{#dddm}
 
-```{r lesson-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Lesson Map (own work)', message=TRUE, warning=TRUE, out.width='80%'}
+```{r lesson-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Lesson Map taken from @provost_data_2013', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/lesson.png')
 ```
 ## Thinking and Deciding
@@ -92,13 +92,13 @@ ggplotly(p1)
 
 Apparently you have a `r round(mhDF$value[2]/1000)`% chance of winning when switching doors.
 
-**Think**: The problem was simple. Was it also a simple cognitive task? Do you trust the solution above?
+**Think**: The problem was simple. Was it also a simple cognitive task? How much do you trust the solution above?
 
 </div>
 
 ### Taxicab problem
 
-In a study done by Tversky and Kahneman [@tversky1981evidential], subjects were given the following problem:
+In a study done by @tversky1981evidential subjects were given the following problem:
 
 *A cab was involved in a hit and run accident at night. Two cab companies, the Green and the Blue, operate in the city. 85% of the cabs in the city are Green and 15% are Blue.*
 
