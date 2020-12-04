@@ -88,6 +88,10 @@ p <- ggplot(mhDF, aes(x = strategy, y = value, fill = strategy)) +
 ggplotly(p)
 ```
 
+<hr>
+
+Apparently you have a `r round(mhDF$value[2]/1000)`% chance of winning when switching doors.
+
 </div>
 
 ## What is Data Science and what is not?
