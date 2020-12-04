@@ -7,10 +7,11 @@ fig:crisp-fig
 fig:dikw-fig
 fig:azure-fig
 fig:technoslavia-fig
-tab:unnamed-chunk-5
+tab:unnamed-chunk-6
 dddm
 thinking-and-deciding
 the-monty-hall-problem
+taxicab-problem
 what-is-data-science-and-what-is-not
 what-is-data-mining
 what-is-data-driven-decision-making
@@ -24,5 +25,3 @@ applications
 example-one
 example-two
 final-words
-tab:unnamed-chunk-4
-taxicab-problem
