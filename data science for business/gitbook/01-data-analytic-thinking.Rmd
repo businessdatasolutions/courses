@@ -21,8 +21,8 @@ knitr::include_graphics('images/montyhall.png')
 
   <h3>Solution</h3>
   <p>Before checking, try to derive a solution yourself.</p>
-  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#solution">Solution</button>
-  <div id="solution" class="collapse">
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#montyhall">Solution</button>
+  <div id="montyhall" class="collapse">
   <hr>
     <p>Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run</p>
 
@@ -93,6 +93,31 @@ ggplotly(p)
 Apparently you have a `r round(mhDF$value[2]/1000)`% chance of winning when switching doors.
 
 **Think**: The problem was simple. Was it also a simple cognitive task? Do you trust the solution above?
+
+</div>
+
+### Taxicab problem
+
+In a study done by Tversky and Kahneman [@tversky1981evidential], subjects were given the following problem:
+
+*A cab was involved in a hit and run accident at night. Two cab companies, the Green and the Blue, operate in the city. 85% of the cabs in the city are Green and 15% are Blue.*
+
+*A witness identified the cab as Blue. The court tested the reliability of the witness under the same circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.*
+
+*What is the probability that the cab involved in the accident was Blue rather than Green knowing that this witness identified it as Blue?*
+
+<h3>Solution</h3>
+  <p>Before checking, try to derive a solution yourself.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#taxicab">Solution</button>
+  <div id="taxicab" class="collapse">
+  <hr>
+
+Most subjects gave probabilities over 50%, and some gave answers over 80%. The correct answer, found using [Bayes' theorem](https://plus.maths.org/content/solution-taxi-problem-revisited#:~:text=We%20have%20seen%20that%20Bayes,have%20been%20taken%20into%20account.), is lower than these estimates:
+
+There is a 12% chance (15% times 80%) of the witness correctly identifying a blue cab.
+There is a 17% chance (85% times 20%) of the witness incorrectly identifying a green cab as blue.
+There is therefore a 29% chance (12% plus 17%) the witness will identify the cab as blue.
+This results in a 41% chance (12% divided by 29%) that the cab identified as blue is actually blue.
 
 </div>
 
