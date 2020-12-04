@@ -92,6 +92,8 @@ ggplotly(p)
 
 Apparently you have a `r round(mhDF$value[2]/1000)`% chance of winning when switching doors.
 
+**Think**: The problem was simple. Was it also a simple cognitive task? Do you trust the solution above?
+
 </div>
 
 ## What is Data Science and what is not?
