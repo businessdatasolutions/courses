@@ -19,10 +19,11 @@ what-are-the-challenges-and-opportunities-that-big-data-creates
 what-are-big-data-technologies
 case-study-ubernomics
 businessproblems
+formulating-a-business-problem
+connecting-business-to-data
 businessstrategy
 case-study-ai-business
 applications
 example-one
 example-two
 final-words
-tab:unnamed-chunk-5
