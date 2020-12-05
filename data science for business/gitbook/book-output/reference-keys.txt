@@ -27,3 +27,5 @@ applications
 example-one
 example-two
 final-words
+tab:unnamed-chunk-5
+case-study-ai-for-small-business

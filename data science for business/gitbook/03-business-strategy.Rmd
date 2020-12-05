@@ -3,3 +3,7 @@
 ## Case Study: AI Business
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NKpuX_yzdYs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Case Study: AI for small business
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

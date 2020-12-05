@@ -22,7 +22,7 @@ knitr::include_graphics('images/montyhall.png')
   <h3>Solution</h3>
   <p>Before checking, try to derive a solution yourself.</p>
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#montyhall">Solution</button>
-  <div id="montyhall" class="collapse">
+  <div id="montyhall" class="collapse container">
   <hr>
     <p>Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run</p>
 
@@ -58,7 +58,7 @@ host <- open(start, player[1])
 <p>and the total wins when eached strategy is tried a 100,000 times.</p>
 
 
-```{r echo=FALSE, message=TRUE, warning=TRUE}
+```{r echo=FALSE, message=TRUE, warning=TRUE, out.width = "70%"}
 n <- 100000
 score <- 0
 
@@ -119,7 +119,7 @@ In a study done by @tversky1981evidential subjects were given the following prob
 
 Again we could write a simulation where we present 10,000 cabs to the witness and let him assess the color. Below you see one run of the simulation and in the chart the total count per cab. The red color represents all the cabs that were wrongly assessed.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.width = "70%"}
 cabgenerator <- function(p) {
   cabspool <- c(rep("G", 100*p), rep("B", 100*(1-p)))
   cab <- sample(cabspool, 1)
