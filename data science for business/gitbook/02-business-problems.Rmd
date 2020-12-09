@@ -1,6 +1,26 @@
 # Business Problems and Data Science Solutions  {#businessproblems}
 
-## Formulating a business problem
+
+## Connecting business to data
+
+In the following video you'll hear an expert's thoughts on the relation between business problems and data challenges. What is this relationship? What questions could be asked during data understanding?
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xo0bsiiQ9cM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Big Data is not reserved for Big Business. In the following video you'll see a case of a small retailer using data to improve his business decisions. What were the business questions the company had? How did they use data to support their decisions?  
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Supervised, Unsupervised and Reinforcement Learning
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kopoLzvh5jY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## The Data Mining Process
+
+```{r datamining-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/crisp.png'))
+```
+
+### Formulating a business problem
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 mnemonic <- c("E", "C", "L", "I", "P", "SE")
@@ -16,19 +36,27 @@ knitr::kable(
 )
 ```
 
-## Connecting business to data
+### Data Understanding
 
-In the following video you'll hear an expert's thoughts on the relation between business problems and data challenges. What is this relationship? What questions could be asked during data understanding?
+### Data Preparation
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xo0bsiiQ9cM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+### Modeling
 
-Big Data is not reserved for Big Business. In the following video you see a case of a small retailer using data to improve his business decisions. What were the business questions the company had. How did they use data to support their decisions?  
+### Evaluation
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+### Deployment
 
-## Supervised, Unsupervised and Reinforcement Learning
+## Data Science vs Software Development
 
+## Other Data Science Skills and Tooling
 
+### Math and Statistics
 
+### Databases
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kopoLzvh5jY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#### SQL
+
+### NoSQL
+
+#### Graph
+
