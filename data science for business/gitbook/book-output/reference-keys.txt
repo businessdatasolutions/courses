@@ -21,11 +21,11 @@ case-study-ubernomics
 businessproblems
 formulating-a-business-problem
 connecting-business-to-data
+supervised-unsupervised-and-reinforcement-learning
 businessstrategy
 case-study-ai-business
+case-study-ai-for-small-business
 applications
 example-one
 example-two
 final-words
-tab:unnamed-chunk-5
-case-study-ai-for-small-business
