@@ -48,6 +48,11 @@ knitr::kable(
 
 [MNIST Handwriting](https://codepen.io/arguiot/pen/xPYRKZ)
 
+<iframe height="600" style="width: 100%;" scrolling="no" title="MNIST handwritten digits - ML" src="https://codepen.io/arguiot/embed/xPYRKZ?height=600&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/arguiot/pen/xPYRKZ'>MNIST handwritten digits - ML</a> by Arthur  Guiot
+  (<a href='https://codepen.io/arguiot'>@arguiot</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## Data Science vs Software Development
 
 ## Other Data Science Skills and Tooling
