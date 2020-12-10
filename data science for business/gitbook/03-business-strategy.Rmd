@@ -1,9 +1,15 @@
 # Data Science and Business Strategy {#businessstrategy}
 
+## Machine Intelligence in Business
+
+```{r aicompanies-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: @noauthor_artificial_2020', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/aicompanies.png'))
+```
+
 ## Case Study: AI Business
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NKpuX_yzdYs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Case Study: AI for small business
+## Case Study: Data Culture in Practice
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G3IW5RNSGcE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -9,6 +9,7 @@ fig:azure-fig
 fig:technoslavia-fig
 fig:datamining-fig
 tab:unnamed-chunk-6
+fig:aicompanies-fig
 dddm
 thinking-and-deciding
 the-monty-hall-problem
@@ -21,7 +22,10 @@ what-are-big-data-technologies
 case-study-ubernomics
 businessproblems
 connecting-business-to-data
-supervised-unsupervised-and-reinforcement-learning
+supervised-unsupervised-and-reinforcement-methods
+supervised-methods
+unsupervised-methods
+reinforcement-methods
 the-data-mining-process
 formulating-a-business-problem
 data-understanding
@@ -37,5 +41,6 @@ sql
 nosql
 graph
 businessstrategy
+machine-intelligence-in-business
 case-study-ai-business
-case-study-ai-for-small-business
+case-study-data-culture-in-practice

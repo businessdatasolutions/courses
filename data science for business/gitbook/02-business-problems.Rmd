@@ -11,7 +11,17 @@ Big Data is not reserved for Big Business. In the following video you'll see a c
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Supervised, Unsupervised and Reinforcement Learning
+## Supervised, Unsupervised and Reinforcement Methods
+
+### Supervised Methods
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bQI5uDxrFfA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Unsupervised Methods
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jAA2g9ItoAc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Reinforcement Methods
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kopoLzvh5jY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## The Data Mining Process
