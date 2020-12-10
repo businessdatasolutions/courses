@@ -35,7 +35,7 @@ The course will provide you with a non-technical overview of data science, and t
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 weeknr <- c("1", "2-3", "4-5", "6-7")
-module <- c("Onboarding and introduction to course", "Data-Analytic Thinking", "Business Problems and Data Science Solutions", "Data Science and Business Strategy")
+module <- c("Onboarding and Introduction to the Course", "Data-Analytic Thinking", "Business Problems and Data Science Solutions", "Data Science and Business Strategy")
 reading <- c("", "Provost / Fawcett Ch.1", "Provost / Fawcett Ch.2", "Provost / Fawcett Ch.13")
 headers <- c("Week nr.", "Module name", "Readings")
 programmeDF <- data.frame(weeknr, module, reading)

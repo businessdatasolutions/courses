@@ -23,8 +23,7 @@ case-study-ubernomics
 businessproblems
 connecting-business-to-data
 supervised-unsupervised-and-reinforcement-methods
-supervised-methods
-unsupervised-methods
+supervised-vs-unsupervised-methods
 reinforcement-methods
 the-data-mining-process
 formulating-a-business-problem
@@ -44,4 +43,3 @@ businessstrategy
 machine-intelligence-in-business
 case-study-ai-business
 case-study-data-culture-in-practice
-supervised-vs-unsupervised-methods
