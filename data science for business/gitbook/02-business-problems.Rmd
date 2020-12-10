@@ -46,6 +46,8 @@ knitr::kable(
 
 ### Deployment
 
+[MNIST Handwriting](https://codepen.io/arguiot/pen/xPYRKZ)
+
 ## Data Science vs Software Development
 
 ## Other Data Science Skills and Tooling
@@ -56,7 +58,7 @@ knitr::kable(
 
 #### SQL
 
-### NoSQL
+#### NoSQL
 
 #### Graph
 
