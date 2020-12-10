@@ -39,7 +39,3 @@ graph
 businessstrategy
 case-study-ai-business
 case-study-ai-for-small-business
-applications
-example-one
-example-two
-final-words
