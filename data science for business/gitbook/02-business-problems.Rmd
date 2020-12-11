@@ -43,14 +43,16 @@ knitr::kable(
 ```
 
 ### Data Understanding
+Example Mnist @robinson_exploring_2018
 
 ### Data Preparation
+Example Mnist @robinson_exploring_2018
 
 ### Modeling
+Example Mnist @robinson_exploring_2018
 
-### Evaluation
-
-### Deployment
+### Evaluation and Deployment
+Example Mnist @robinson_exploring_2018
 
 [MNIST Handwriting](https://codepen.io/arguiot/pen/xPYRKZ)
 

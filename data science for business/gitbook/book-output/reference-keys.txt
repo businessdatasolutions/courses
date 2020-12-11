@@ -43,3 +43,4 @@ businessstrategy
 machine-intelligence-in-business
 case-study-ai-business
 case-study-data-culture-in-practice
+evaluation-and-deployment

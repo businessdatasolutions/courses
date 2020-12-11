@@ -31,6 +31,12 @@ The general learning outcome of this course is:
 
 The course will provide you with a non-technical overview of data science, and types of techniques. The focus will lie on critical thinking and the full DS process (based on CRISP).
 
+After a successful completion of the course, a student:
+
+* is able to translate a business problem into an appropriate setup of the data mining process
+* is able to list commonly applied data mining methods
+* can describe drivers of success for creating a data driven business
+
 ## Structure of the course {-}
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
@@ -46,6 +52,8 @@ knitr::kable(
   caption = 'Course overview'
 )
 ```
+
+The program has been divided into three blocks, each covering two weeks. During each block you'll be working individually on case study. The whole program you'll be cooperating within a team where you will combine and compare the results of the different case studies. At the end of the course you will present with your team what you have learned from analyzing and comparing the different case studies.
 
 # About the author {-}
 
