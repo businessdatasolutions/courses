@@ -18,13 +18,14 @@ Suppose you're on a game show, and you're given the choice of three doors: Behin
 ```{r montyhall-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='The Monty Hall Problem taken from https://en.wikipedia.org/wiki/Monty_Hall_problem', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/montyhall.png')
 ```
-
   <h3>Solution</h3>
   <p>Before checking, try to derive a solution yourself.</p>
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#montyhall">Solution</button>
-  <div id="montyhall" class="collapse container">
+  <div id="montyhall" class="collapse">
   <hr>
-<div class="container">Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run. </div>
+  
+<p>Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run.</p>
+
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 ## Initialize doors
