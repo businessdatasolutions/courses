@@ -24,7 +24,7 @@ knitr::include_graphics('images/montyhall.png')
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#montyhall">Solution</button>
   <div id="montyhall" class="collapse container">
   <hr>
-    <p>Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run</p>
+<div class="container">Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run. </div>
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 ## Initialize doors
@@ -55,7 +55,7 @@ player <- choice(start)
 host <- open(start, player[1])
 ```
 
-<p>and the total wins when eached strategy is tried a 100,000 times.</p>
+and the total wins when eached strategy is tried a 100,000 times.
 
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE, out.width = "70%"}

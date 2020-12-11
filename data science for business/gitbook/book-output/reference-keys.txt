@@ -30,8 +30,7 @@ formulating-a-business-problem
 data-understanding
 data-preparation
 modeling
-evaluation
-deployment
+evaluation-and-deployment
 data-science-vs-software-development
 other-data-science-skills-and-tooling
 math-and-statistics
@@ -43,4 +42,3 @@ businessstrategy
 machine-intelligence-in-business
 case-study-ai-business
 case-study-data-culture-in-practice
-evaluation-and-deployment
