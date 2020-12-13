@@ -203,11 +203,16 @@ Comparisons that are largely white may be more difficult. We can see 4/9 looks p
   </div>
   <hr>
 
-### Modeling
-Example Mnist @robinson_exploring_2018
+### Modeling and Evaluation
+For modeling we can use a neural network. Follow this [link](https://minorsmart.github.io/bigdata/tensorflow/) and let thee model run. When finished you'll see a table resembling the following:
 
-### Evaluation and Deployment
-Example Mnist @robinson_exploring_2018
+```{r tensorflow-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Example Machine Learning output', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/tf.png'))
+```
+
+*Have we reached the target accuracy?*
+
+### Deployment
 
 [MNIST Handwriting](https://codepen.io/arguiot/pen/xPYRKZ)
 
