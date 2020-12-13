@@ -1,3 +1,11 @@
+```{r}
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(tidyr)
+```
+
+
 # Business Problems and Data Science Solutions  {#businessproblems}
 
 
@@ -28,12 +36,15 @@ knitr::include_graphics(rep('images/crisp.png'))
 
 ### Formulating a business problem
 
+**Business Case:** Recognizing hand-written digits
+
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 mnemonic <- c("E", "C", "L", "I", "P", "SE")
-description <- c("Expectation: Why does the user want the information?", "Client Group: For whom is the service / product intended?", "Location:  Where is the service / product sited?", "Impact: What would represent success?  How is this measured?", "Professionals: Who provides or improves the service / product?", "Service: What type of service / product is under consideration?")
+question <- c("Expectation: Why does the user want the information?", "Client Group: For whom is the service / product intended?", "Location:  Where is the service / product sited?", "Impact: What would represent success?  How is this measured?", "Professionals: Who provides or improves the service / product?", "Service: What type of service / product is under consideration?")
+answer <- c("A utility company wants to scan the electricity meter readings it receives from clients by paper forms and put it into a database", "Electricity consumers", "This is an internal process", "An accuracy of 99%", "At the moment this is done by hand", "The readings are used to prepare invoices")
 
-headers <- c("Mnemonic", "Description")
-programmeDF <- data.frame(mnemonic, description)
+headers <- c("Mnemonic", "Question", "Answer")
+programmeDF <- data.frame(mnemonic, question, answer)
 colnames(programmeDF) <- headers
 
 knitr::kable(
@@ -42,12 +53,101 @@ knitr::kable(
 )
 ```
 
+
 ### Data Understanding
-Example Mnist @robinson_exploring_2018
+
+We are going to train a model on data from the MNIST database [@lecun1998mnist]. The original dataset contains 60000 images of handwritten digits. The size of each images is 28x28 pixel and each pixel has a grayscale value between 0 (white) en 255 (black).
+
+```{r echo=FALSE, fig.cap="Example taken from @robinson_exploring_2018", message=FALSE, warning=FALSE}
+mnist_raw <- read_csv("datasets/mnist.csv")
+
+pixels_gathered <- mnist_raw %>%
+  rename(label = X1) %>%
+  mutate(instance = row_number()) %>%
+  gather(pixel, value, -label, -instance) %>%
+  tidyr::extract(pixel, "pixel", "(\\d+)", convert = TRUE) %>%
+  mutate(pixel = pixel - 2, x = pixel %% 28, y = 28 - pixel %/% 28)
+
+theme_set(theme_light())
+pixels_gathered %>%
+  filter(instance <= 12) %>%
+  ggplot(aes(x, y, fill = value)) +
+  geom_tile() +
+  facet_wrap(~ instance + label)
+```
 
 ### Data Preparation
-Example Mnist @robinson_exploring_2018
 
+*How much gray is there in the set of images?*
+
+Example Mnist @robinson_exploring_2018
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
+ggplot(pixels_gathered, aes(value)) +
+  geom_histogram()
+```
+
+<h3>Solution</h3>
+  <p>Before checking, analyze the chart and draw your own conclusions.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#grayscale">Solution</button>
+  <div id="grayscale" class="collapse">
+  <hr>
+Most pixels in the dataset are completely white, along with another set of pixels that are completely dark, with relatively few in between.
+
+**Think**: Let's assume the images were black and whit photographs of landscapes or faces. Would you expect the same color distribution as above?
+
+</div>
+<hr>
+
+*How much variability there is within each digit label. Do all 3s look like each other, and what is the “most typical” example of a 6?*
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
+pixel_summary <- pixels_gathered %>%
+  group_by(x, y, label) %>%
+  summarize(mean_value = mean(value)) %>%
+  ungroup()
+
+pixel_summary %>%
+  ggplot(aes(x, y, fill = mean_value)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "white", high = "black", mid = "gray", midpoint = 127.5) +
+  facet_wrap(~ label, nrow = 2) +
+  labs(title = "Average value of each pixel in 10 MNIST digits", fill = "Average value") +
+  theme_void()
+```
+
+<h3>Solution</h3>
+  <p>Before checking, analyze the chart and draw your own conclusions.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#variability">Solution</button>
+  <div id="variability" class="collapse">
+  <hr>
+Already we have some suspicions about which digits might be easier to separate. Distinguishing 0 and 1 looks pretty straightforward: you could pick a few pixels at the center (always dark in 1 but not 0), or at the left and right edges (often dark in 0 but not 1), and you’d have a pretty great classifier. Pairs like 4/9, or 3/8, have a lot more overlap and will be a more challenging problem.
+</div>
+<hr>
+
+*Which digits have more variability on average?*
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
+pixels_joined <- pixels_gathered %>%
+  inner_join(pixel_summary, by = c("label", "x", "y"))
+image_distances <- pixels_joined %>%
+  group_by(label, instance) %>%
+  summarize(euclidean_distance = sqrt(mean((value - mean_value) ^ 2)))
+
+ggplot(image_distances, aes(factor(label), euclidean_distance)) +
+  geom_boxplot() +
+  labs(x = "Digit", y = "Euclidean distance to the digit centroid")
+```
+<h3>Solution</h3>
+  <p>Before checking, analyze the chart and draw your own conclusions.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atypical">Solution</button>
+  <div id="atypical" class="collapse">
+  <hr>
+  It looks like 1s have especially low distances to their centroid: for the most part there’s not a ton of variability in how people draw that digit. It looks like the most variability by this measure are in 0s and 2s. But every digit has at least a few cases with an unusually large distance from their centroid. I wonder what those look like?
+
+To discover this, we can visualize the six digit instances that had the least resemblance to their central digit.
+</div>
+<hr>
 ### Modeling
 Example Mnist @robinson_exploring_2018
 

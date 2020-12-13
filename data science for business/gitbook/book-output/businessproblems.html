@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2020-12-11" />
+<meta name="date" content="2020-12-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,6 +63,70 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -176,49 +240,127 @@ Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wi
 </div>
 <div id="formulating-a-business-problem" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Formulating a business problem</h3>
+<p><strong>Business Case:</strong> Recognizing hand-written digits</p>
 <table>
-<caption><span id="tab:unnamed-chunk-6">Table 2.1: </span>ECLIPSE questions taken from <span class="citation">Wildridge and Bell (<a href="#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
+<caption><span id="tab:unnamed-chunk-7">Table 2.1: </span>ECLIPSE questions taken from <span class="citation">Wildridge and Bell (<a href="#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
+<colgroup>
+<col width="4%" />
+<col width="31%" />
+<col width="64%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Mnemonic</th>
-<th align="left">Description</th>
+<th align="left">Question</th>
+<th align="left">Answer</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">E</td>
 <td align="left">Expectation: Why does the user want the information?</td>
+<td align="left">A utility company wants to scan the electricity meter readings it receives from clients by paper forms and put it into a database</td>
 </tr>
 <tr class="even">
 <td align="left">C</td>
 <td align="left">Client Group: For whom is the service / product intended?</td>
+<td align="left">Electricity consumers</td>
 </tr>
 <tr class="odd">
 <td align="left">L</td>
 <td align="left">Location: Where is the service / product sited?</td>
+<td align="left">This is an internal process</td>
 </tr>
 <tr class="even">
 <td align="left">I</td>
 <td align="left">Impact: What would represent success? How is this measured?</td>
+<td align="left">An accuracy of 99%</td>
 </tr>
 <tr class="odd">
 <td align="left">P</td>
 <td align="left">Professionals: Who provides or improves the service / product?</td>
+<td align="left">At the moment this is done by hand</td>
 </tr>
 <tr class="even">
 <td align="left">SE</td>
 <td align="left">Service: What type of service / product is under consideration?</td>
+<td align="left">The readings are used to prepare invoices</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="data-understanding" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Data Understanding</h3>
-<p>Example Mnist <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span></p>
+<p>We are going to train a model on data from the MNIST database <span class="citation">(LeCun <a href="#ref-lecun1998mnist" role="doc-biblioref">1998</a>)</span>. The original dataset contains 60000 images of handwritten digits. The size of each images is 28x28 pixel and each pixel has a grayscale value between 0 (white) en 255 (black).</p>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-8-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.2: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
 </div>
 <div id="data-preparation" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Data Preparation</h3>
-<p>Example Mnist <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span></p>
+<p><em>How much gray is there in the set of images?</em></p>
+Example Mnist <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-9-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.3: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#grayscale">Solution</button>
+<div id="grayscale" class="collapse">
+<hr>
+<p>Most pixels in the dataset are completely white, along with another set of pixels that are completely dark, with relatively few in between.</p>
+<p><strong>Think</strong>: Let’s assume the images were black and whit photographs of landscapes or faces. Would you expect the same color distribution as above?</p>
+</div>
+<hr>
+<p><em>How much variability there is within each digit label. Do all 3s look like each other, and what is the “most typical” example of a 6?</em></p>
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-10-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.4: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#variability">Solution</button>
+<div id="variability" class="collapse">
+<hr>
+Already we have some suspicions about which digits might be easier to separate. Distinguishing 0 and 1 looks pretty straightforward: you could pick a few pixels at the center (always dark in 1 but not 0), or at the left and right edges (often dark in 0 but not 1), and you’d have a pretty great classifier. Pairs like 4/9, or 3/8, have a lot more overlap and will be a more challenging problem.
+</div>
+<hr>
+<p><em>Which digits have more variability on average?</em></p>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-11-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.5: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atypical">Solution</button>
+<div id="atypical" class="collapse">
+<hr>
+<p>It looks like 1s have especially low distances to their centroid: for the most part there’s not a ton of variability in how people draw that digit. It looks like the most variability by this measure are in 0s and 2s. But every digit has at least a few cases with an unusually large distance from their centroid. I wonder what those look like?</p>
+To discover this, we can visualize the six digit instances that had the least resemblance to their central digit.
+</div>
+<hr>
 </div>
 <div id="modeling" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Modeling</h3>
@@ -259,6 +401,9 @@ See the Pen <a href='https://codepen.io/arguiot/pen/xPYRKZ'>MNIST handwritten di
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
+<div id="ref-lecun1998mnist">
+<p>LeCun, Yann. 1998. “The Mnist Database of Handwritten Digits.” <em>Http://Yann. Lecun. Com/Exdb/Mnist/</em>.</p>
+</div>
 <div id="ref-robinson_exploring_2018">
 <p>Robinson, David. 2018. “Exploring Handwritten Digit Classification: A Tidy Analysis of the MNIST Dataset.” <em>R-Bloggers</em>. <a href="https://www.r-bloggers.com/2018/01/exploring-handwritten-digit-classification-a-tidy-analysis-of-the-mnist-dataset/">https://www.r-bloggers.com/2018/01/exploring-handwritten-digit-classification-a-tidy-analysis-of-the-mnist-dataset/</a>.</p>
 </div>

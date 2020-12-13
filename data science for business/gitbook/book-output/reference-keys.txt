@@ -8,7 +8,11 @@ fig:dikw-fig
 fig:azure-fig
 fig:technoslavia-fig
 fig:datamining-fig
-tab:unnamed-chunk-6
+tab:unnamed-chunk-7
+fig:unnamed-chunk-8
+fig:unnamed-chunk-9
+fig:unnamed-chunk-10
+fig:unnamed-chunk-11
 fig:aicompanies-fig
 dddm
 thinking-and-deciding
