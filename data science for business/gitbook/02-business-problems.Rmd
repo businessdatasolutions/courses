@@ -100,6 +100,8 @@ Most pixels in the dataset are completely white, along with another set of pixel
 
 *How much variability there is within each digit label. Do all 3s look like each other, and what is the “most typical” example of a 6?*
 
+To answer this, we can find the mean value for each position within each label and visualize these average digits as ten separate facets. These averaged images are called centroids. We’re treating each image as a 784-dimensional point (28 by 28), and then taking the average of all points in each dimension individually.
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
 pixel_summary <- pixels_gathered %>%
   group_by(x, y, label) %>%
@@ -126,6 +128,9 @@ Already we have some suspicions about which digits might be easier to separate. 
 
 *Which digits have more variability on average?*
 
+So far, this machine learning problem might seem a bit easy: we have some very “typical” versions of each digit. But one of the reasons classification can be challenging is that some digits will fall widely outside the norm. It’s useful to explore atypical cases, since it could help us understand why the method fails and help us choose a method and engineer features.
+
+In this case, we could consider the Euclidean distance (square root of the sum of squares) of each image to its label’s centroid.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
 pixels_joined <- pixels_gathered %>%
@@ -146,8 +151,58 @@ ggplot(image_distances, aes(factor(label), euclidean_distance)) +
   It looks like 1s have especially low distances to their centroid: for the most part there’s not a ton of variability in how people draw that digit. It looks like the most variability by this measure are in 0s and 2s. But every digit has at least a few cases with an unusually large distance from their centroid. I wonder what those look like?
 
 To discover this, we can visualize the six digit instances that had the least resemblance to their central digit.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
+worst_instances <- image_distances %>%
+  top_n(6, euclidean_distance) %>%
+  mutate(number = rank(-euclidean_distance))
+pixels_gathered %>%
+  inner_join(worst_instances, by = c("label", "instance")) %>%
+  ggplot(aes(x, y, fill = value)) +
+  geom_tile(show.legend = FALSE) +
+  scale_fill_gradient2(low = "white", high = "black", mid = "gray", midpoint = 127.5) +
+  facet_grid(label ~ number) +
+  labs(title = "Least typical digits", subtitle = "The 6 digits within each label that had the greatest distance to the centroid") +
+  theme_void() +
+  theme(strip.text = element_blank())
+```
+This is a useful way to understand what kinds of problems the data could have. For instance, while most 1s looked the same, they could be drawn diagonally, or with a flat line and a flag on top. A 7 could be drawn with a bar in the middle. (And what is up with that 9 on the lower left?)
+
+This also gives us a realistic sense of how accurate our classifier can get. Even humans would have a hard time classifying some of these sloppy digits, so we can’t expect a 100% success rate. (Conversely, if one of our classifiers does get a 100% success rate, we should examine whether we’re overfitting!).
 </div>
 <hr>
+
+*How easy it is to tell pairs of digits apart?8
+
+To examine this, we could try overlapping pairs of our centroid digits, and taking the difference between them. If two centroids have very little overlap, this means they’ll probably be easy to distinguish.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Example taken from @robinson_exploring_2018"}
+digit_differences <- crossing(compare1 = 0:9, compare2 = 0:9) %>%
+  filter(compare1 != compare2) %>%
+  mutate(negative = compare1, positive = compare2) %>%
+  gather(class, label, positive, negative) %>%
+  inner_join(pixel_summary, by = "label") %>%
+  select(-label) %>%
+  spread(class, mean_value)
+ggplot(digit_differences, aes(x, y, fill = positive - negative)) +
+  geom_tile() +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = .5) +
+  facet_grid(compare2 ~ compare1) +
+  theme_void() +
+  labs(title = "Pixels that distinguish pairs of MNIST images", subtitle = "Red means the pixel is darker for that row's digit, and blue means the pixel is darker for that column's digit.")
+```
+
+<h3>Solution</h3>
+  <p>Before checking, analyze the chart and draw your own conclusions.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atypical">Solution</button>
+  <div id="atypical" class="collapse">
+  <hr>
+  Pairs with very red or very blue regions will be easy to classify, since they describe features that divide the datasets neatly. This confirms our suspicion about 0/1 being easy to classify: it has substantial regions than are deeply red or blue.
+
+Comparisons that are largely white may be more difficult. We can see 4/9 looks pretty challenging, which makes sense (a handwritten 4 and 9 really differ only by a small region at the top). 7/9 shows a similar challenge.
+  </div>
+  <hr>
+
 ### Modeling
 Example Mnist @robinson_exploring_2018
 
