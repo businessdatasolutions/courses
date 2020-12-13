@@ -36,7 +36,7 @@ knitr::include_graphics(rep('images/crisp.png'))
 
 ### Formulating a business problem
 
-**Business Case:** Recognizing hand-written digits
+**Business Case:** Recognizing handwritten digits
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 mnemonic <- c("E", "C", "L", "I", "P", "SE")
@@ -98,7 +98,7 @@ Most pixels in the dataset are completely white, along with another set of pixel
 </div>
 <hr>
 
-*How much variability there is within each digit label. Do all 3s look like each other, and what is the “most typical” example of a 6?*
+*How much variability is there within each digit label? Do all 3s look like each other, and what is the “most typical” example of a 6?*
 
 To answer this, we can find the mean value for each position within each label and visualize these average digits as ten separate facets. These averaged images are called centroids. We’re treating each image as a 784-dimensional point (28 by 28), and then taking the average of all points in each dimension individually.
 
@@ -172,7 +172,7 @@ This also gives us a realistic sense of how accurate our classifier can get. Eve
 </div>
 <hr>
 
-*How easy it is to tell pairs of digits apart?8
+*How easy it is to tell pairs of digits apart?*
 
 To examine this, we could try overlapping pairs of our centroid digits, and taking the difference between them. If two centroids have very little overlap, this means they’ll probably be easy to distinguish.
 

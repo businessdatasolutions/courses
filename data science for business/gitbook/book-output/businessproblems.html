@@ -51,6 +51,13 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -142,6 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="dddm.html"><a href="dddm.html"><i class="fa fa-check"></i><b>1</b> Data Driven Decision Making</a><ul>
 <li class="chapter" data-level="1.1" data-path="dddm.html"><a href="dddm.html#thinking-and-deciding"><i class="fa fa-check"></i><b>1.1</b> Thinking and Deciding</a><ul>
 <li class="chapter" data-level="1.1.1" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.1.1</b> The Monty Hall Problem</a></li>
@@ -232,9 +240,9 @@ Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wi
 </div>
 <div id="formulating-a-business-problem" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Formulating a business problem</h3>
-<p><strong>Business Case:</strong> Recognizing hand-written digits</p>
+<p><strong>Business Case:</strong> Recognizing handwritten digits</p>
 <table>
-<caption><span id="tab:unnamed-chunk-2">Table 2.1: </span>ECLIPSE questions taken from <span class="citation">Wildridge and Bell (<a href="#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
+<caption><span id="tab:unnamed-chunk-7">Table 2.1: </span>ECLIPSE questions taken from <span class="citation">Wildridge and Bell (<a href="#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
 <colgroup>
 <col width="4%" />
 <col width="31%" />
@@ -284,8 +292,8 @@ Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wi
 <div id="data-understanding" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Data Understanding</h3>
 <p>We are going to train a model on data from the MNIST database <span class="citation">(LeCun <a href="#ref-lecun1998mnist" role="doc-biblioref">1998</a>)</span>. The original dataset contains 60000 images of handwritten digits. The size of each images is 28x28 pixel and each pixel has a grayscale value between 0 (white) en 255 (black).</p>
-<div class="figure"><span id="fig:unnamed-chunk-3"></span>
-<img src="gitbook_files/figure-html/unnamed-chunk-3-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-8-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
 Figure 2.2: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
@@ -295,8 +303,8 @@ Figure 2.2: Example taken from <span class="citation">Robinson (<a href="#ref-ro
 <h3><span class="header-section-number">2.3.3</span> Data Preparation</h3>
 <p><em>How much gray is there in the set of images?</em></p>
 Example Mnist <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
-<div class="figure"><span id="fig:unnamed-chunk-4"></span>
-<img src="gitbook_files/figure-html/unnamed-chunk-4-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-9"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-9-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
 Figure 2.3: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
@@ -314,10 +322,10 @@ Before checking, analyze the chart and draw your own conclusions.
 <p><strong>Think</strong>: Let’s assume the images were black and whit photographs of landscapes or faces. Would you expect the same color distribution as above?</p>
 </div>
 <hr>
-<p><em>How much variability there is within each digit label. Do all 3s look like each other, and what is the “most typical” example of a 6?</em></p>
+<p><em>How much variability is there within each digit label? Do all 3s look like each other, and what is the “most typical” example of a 6?</em></p>
 <p>To answer this, we can find the mean value for each position within each label and visualize these average digits as ten separate facets. These averaged images are called centroids. We’re treating each image as a 784-dimensional point (28 by 28), and then taking the average of all points in each dimension individually.</p>
-<div class="figure"><span id="fig:unnamed-chunk-5"></span>
-<img src="gitbook_files/figure-html/unnamed-chunk-5-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-10-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
 Figure 2.4: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
@@ -337,8 +345,8 @@ Already we have some suspicions about which digits might be easier to separate. 
 <p><em>Which digits have more variability on average?</em></p>
 <p>So far, this machine learning problem might seem a bit easy: we have some very “typical” versions of each digit. But one of the reasons classification can be challenging is that some digits will fall widely outside the norm. It’s useful to explore atypical cases, since it could help us understand why the method fails and help us choose a method and engineer features.</p>
 <p>In this case, we could consider the Euclidean distance (square root of the sum of squares) of each image to its label’s centroid.</p>
-<div class="figure"><span id="fig:unnamed-chunk-6"></span>
-<img src="gitbook_files/figure-html/unnamed-chunk-6-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-11-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
 Figure 2.5: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
@@ -354,8 +362,8 @@ Before checking, analyze the chart and draw your own conclusions.
 <hr>
 <p>It looks like 1s have especially low distances to their centroid: for the most part there’s not a ton of variability in how people draw that digit. It looks like the most variability by this measure are in 0s and 2s. But every digit has at least a few cases with an unusually large distance from their centroid. I wonder what those look like?</p>
 <p>To discover this, we can visualize the six digit instances that had the least resemblance to their central digit.</p>
-<div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="gitbook_files/figure-html/unnamed-chunk-7-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-12"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-12-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
 Figure 2.6: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
@@ -364,10 +372,10 @@ Figure 2.6: Example taken from <span class="citation">Robinson (<a href="#ref-ro
 This also gives us a realistic sense of how accurate our classifier can get. Even humans would have a hard time classifying some of these sloppy digits, so we can’t expect a 100% success rate. (Conversely, if one of our classifiers does get a 100% success rate, we should examine whether we’re overfitting!).
 </div>
 <hr>
-<p>*How easy it is to tell pairs of digits apart?8</p>
+<p><em>How easy it is to tell pairs of digits apart?</em></p>
 <p>To examine this, we could try overlapping pairs of our centroid digits, and taking the difference between them. If two centroids have very little overlap, this means they’ll probably be easy to distinguish.</p>
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="gitbook_files/figure-html/unnamed-chunk-8-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<div class="figure"><span id="fig:unnamed-chunk-13"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-13-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
 Figure 2.7: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
