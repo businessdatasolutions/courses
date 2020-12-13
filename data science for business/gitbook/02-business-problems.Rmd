@@ -1,13 +1,10 @@
-```{r}
+# Business Problems and Data Science Solutions  {#businessproblems}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library(ggplot2)
 library(readr)
 library(dplyr)
 library(tidyr)
 ```
-
-
-# Business Problems and Data Science Solutions  {#businessproblems}
-
 
 ## Connecting business to data
 
@@ -41,7 +38,7 @@ knitr::include_graphics(rep('images/crisp.png'))
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 mnemonic <- c("E", "C", "L", "I", "P", "SE")
 question <- c("Expectation: Why does the user want the information?", "Client Group: For whom is the service / product intended?", "Location:  Where is the service / product sited?", "Impact: What would represent success?  How is this measured?", "Professionals: Who provides or improves the service / product?", "Service: What type of service / product is under consideration?")
-answer <- c("A utility company wants to scan the electricity meter readings it receives from clients by paper forms and put it into a database", "Electricity consumers", "This is an internal process", "An accuracy of 99%", "At the moment this is done by hand", "The readings are used to prepare invoices")
+answer <- c("A utility company wants to scan the electricity meter readings it receives from clients through paper forms and save them to a database", "The Billing Department", "This is an internal process", "An accuracy of 99%", "At the moment this is done by hand", "The readings are used to prepare invoices")
 
 headers <- c("Mnemonic", "Question", "Answer")
 programmeDF <- data.frame(mnemonic, question, answer)
