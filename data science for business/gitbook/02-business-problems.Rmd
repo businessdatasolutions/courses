@@ -189,13 +189,13 @@ ggplot(digit_differences, aes(x, y, fill = positive - negative)) +
   scale_fill_gradient2(low = "blue", high = "red", mid = "white", midpoint = .5) +
   facet_grid(compare2 ~ compare1) +
   theme_void() +
-  labs(title = "Pixels that distinguish pairs of MNIST images", subtitle = "Red means the pixel is darker for that row's digit, and blue means the pixel is darker for that column's digit.")
+  labs(title = "Pixels that distinguish pairs of MNIST images", subtitle = "Red: the pixel is darker for that row's digit / Blue: the pixel is darker for that column's digit.")
 ```
 
 <h3>Solution</h3>
   <p>Before checking, analyze the chart and draw your own conclusions.</p>
-  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atypical">Solution</button>
-  <div id="atypical" class="collapse">
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#pairs">Solution</button>
+  <div id="pairs" class="collapse">
   <hr>
   Pairs with very red or very blue regions will be easy to classify, since they describe features that divide the datasets neatly. This confirms our suspicion about 0/1 being easy to classify: it has substantial regions than are deeply red or blue.
 
