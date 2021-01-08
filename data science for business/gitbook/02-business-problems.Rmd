@@ -4,6 +4,10 @@ library(ggplot2)
 library(readr)
 library(dplyr)
 library(tidyr)
+library(purrr)
+library(XML)
+library(jsonlite)
+library(knitr)
 ```
 
 ## Connecting business to data
@@ -222,13 +226,114 @@ knitr::include_graphics(rep('images/tf.png'))
 
 ## Other Data Science Skills and Tooling
 
-### Math and Statistics
-
 ### Databases
 
-#### SQL
-
 #### NoSQL
+If you work with Excel or store your data in MySQL, you are used to storing data in rows and columns. For example, if you store customer data:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+voorVec <- c("Witold", "Caroline")
+achterVec <- c("ten Hove", "Tensen")
+naamDF <- data.frame(Voornaam = voorVec, Achternaam = achterVec, stringsAsFactors = FALSE)
+kable(naamDF, caption = "Een data-tabel")
+```
+
+Each line is a customer, each column a variable, and each cell contains one value.
+
+However, suppose you want to store all of your customers' phone numbers and some customers have multiple phone numbers. One option is to store all telephone numbers in one cell:
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+voorVec <- c("Witek", "Caroline")
+achterVec <- c("ten Hove", "Tensen")
+telVec <- c("06111111; 06222222", "06333333")
+naamDF <- data.frame(First = voorVec, Achternaam = achterVec, Telefoon = telVec, stringsAsFactors = FALSE)
+kable(naamDF, caption = "Een data-tabel met meerdere waarden in één cel")
+```
+
+However, this can cause a problem when exporting or searching the data. As soon as your data seems to become asymmetric, you should consider a NoSQL format. The most important formats in terms of popularity are XML and JSON.
+
+#### XML
+By annotating data, meaning can be added to individual data elements. One data format that makes use of this is Extensible Markup Language (XML). For example, in our example, a <firstname> tag can be added to the data relating to the first name and each telephone number can be individually identified as such.
+
+```{r}
+data<- naamDF
+xml <- xmlTree()
+# names(xml)
+xml$addTag("customers", close=FALSE)
+for (i in 1:nrow(data)) {
+    xml$addTag("klant", close=FALSE)
+    for (j in names(data)) {
+      celldata <- unlist(strsplit(data[i, j], "[;]"))
+       for (k in celldata){
+          xml$addTag(j, trimws(k))
+       }
+       
+    }
+    xml$closeTag()
+}
+xml$closeTag()
+cat(saveXML(xml, prefix = ''))
+```
+
+Via deze methode kan makkelijk data worden toegevoegd, bijvoorbeeld een tweede voornaam:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+data[1,1] <- "Witold; Frederik"
+data[2,1] <- "Caroline; Egbertine"
+xml <- xmlTree()
+# names(xml)
+xml$addTag("klanten", close=FALSE)
+for (i in 1:nrow(data)) {
+    xml$addTag("klant", close=FALSE)
+    for (j in names(data)) {
+      celldata <- unlist(strsplit(data[i, j], "[;]"))
+       for (k in celldata){
+          xml$addTag(j, trimws(k))
+       }
+       
+    }
+    xml$closeTag()
+}
+xml$closeTag()
+cat(saveXML(xml, prefix = ''))
+```
+
+#### JSON
+
+Tot voor kort was XML de standaardmethode om data vast te leggen in een webomgeving. Echter inmiddels is deze functie overgenomen door Javascript Object Notation (JSON).
+
+```{r json-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2Cxml" target="_blank">Stack Overflow</a>', message=FALSE, warning=FALSE, out.width='80%'}
+knitr::include_graphics(rep('images/jsonxml.svg'))
+```
+
+De belangrijkste reden hiervoor is de opkomst van zogenaamde Application Programming Interfaces (APIs). Veel online aanbieders van diensten bieden de gelegenheid om toegang te krijgen tot hun data. De data wordt meestal als JSON verstuurd. Aangezien moderne webapplicaties al in Javascript zijn geschreven kan JSON zonder verdere bewerking gebruikt worden. Zo kan heel makkelijk in één webapplicatie data worden gecombineerd: bijvoorbeeld tweets van [Twitter](https://developer.twitter.com/en/products/products-overview) gecombineerd met [weersvoorspellingen](https://openweathermap.org/api) en het nieuws via [CNN](http://developer.cnn.com/).
+
+JSON werkt met zogenaamde key: value sets:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
+voorList <- list(c("Witold"), c("Caroline"))
+achterList <- list(c("ten Hove"), c("Tefsen"))
+telList <- list(c("06111111"), c("06333333"))
+klantDF <- tibble(Voornaam = voorList, Achternaam = achterList, Telefoon = telList)
+klantJSON = toJSON(klantDF, pretty = TRUE, auto_unbox = TRUE)
+klantJSON
+```
+
+
+Als een waarde (value) uit meerdere elementen bestaat, worden ze in reeksen (arrays) opgeslagen.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+voorList <- list(c("Witold", "Frederik"), c("Caroline", "Egbertine"))
+achterList <- list(c("ten Hove"), c("Tefsen"))
+telList <- list(c("06111111", 06222222), c("06333333"))
+klantDF <- tibble(Voornaam = voorList, Achternaam = achterList, Telefoon = telList)
+klantJSON = toJSON(klantDF, pretty = TRUE, auto_unbox = TRUE)
+klantJSON
+```
+
+De reeksen zijn geindexeerd en zo kan ieder element makkelijk worden opgehaald
+
 
 #### Graph
 

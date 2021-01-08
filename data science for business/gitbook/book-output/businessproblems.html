@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2020-12-22" />
+<meta name="date" content="2021-01-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -63,6 +63,70 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -113,8 +177,7 @@
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#data-science-vs-software-development"><i class="fa fa-check"></i><b>2.4</b> Data Science vs Software Development</a></li>
 <li class="chapter" data-level="2.5" data-path="businessproblems.html"><a href="businessproblems.html#other-data-science-skills-and-tooling"><i class="fa fa-check"></i><b>2.5</b> Other Data Science Skills and Tooling</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="businessproblems.html"><a href="businessproblems.html#math-and-statistics"><i class="fa fa-check"></i><b>2.5.1</b> Math and Statistics</a></li>
-<li class="chapter" data-level="2.5.2" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.5.2</b> Databases</a></li>
+<li class="chapter" data-level="2.5.1" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.5.1</b> Databases</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a><ul>
@@ -355,19 +418,149 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 </div>
 <div id="other-data-science-skills-and-tooling" class="section level2">
 <h2><span class="header-section-number">2.5</span> Other Data Science Skills and Tooling</h2>
-<div id="math-and-statistics" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Math and Statistics</h3>
-</div>
 <div id="databases" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Databases</h3>
-<div id="sql" class="section level4">
-<h4><span class="header-section-number">2.5.2.1</span> SQL</h4>
-</div>
+<h3><span class="header-section-number">2.5.1</span> Databases</h3>
 <div id="nosql" class="section level4">
-<h4><span class="header-section-number">2.5.2.2</span> NoSQL</h4>
+<h4><span class="header-section-number">2.5.1.1</span> NoSQL</h4>
+<p>If you work with Excel or store your data in MySQL, you are used to storing data in rows and columns. For example, if you store customer data:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 2.2: </span>Een data-tabel</caption>
+<thead>
+<tr class="header">
+<th align="left">Voornaam</th>
+<th align="left">Achternaam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Witold</td>
+<td align="left">ten Hove</td>
+</tr>
+<tr class="even">
+<td align="left">Caroline</td>
+<td align="left">Tensen</td>
+</tr>
+</tbody>
+</table>
+<p>Each line is a customer, each column a variable, and each cell contains one value.</p>
+<p>However, suppose you want to store all of your customers’ phone numbers and some customers have multiple phone numbers. One option is to store all telephone numbers in one cell:</p>
+<table>
+<caption><span id="tab:unnamed-chunk-15">Table 2.3: </span>Een data-tabel met meerdere waarden in één cel</caption>
+<thead>
+<tr class="header">
+<th align="left">First</th>
+<th align="left">Achternaam</th>
+<th align="left">Telefoon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Witek</td>
+<td align="left">ten Hove</td>
+<td align="left">06111111; 06222222</td>
+</tr>
+<tr class="even">
+<td align="left">Caroline</td>
+<td align="left">Tensen</td>
+<td align="left">06333333</td>
+</tr>
+</tbody>
+</table>
+<p>However, this can cause a problem when exporting or searching the data. As soon as your data seems to become asymmetric, you should consider a NoSQL format. The most important formats in terms of popularity are XML and JSON.</p>
+</div>
+<div id="xml" class="section level4">
+<h4><span class="header-section-number">2.5.1.2</span> XML</h4>
+<p>By annotating data, meaning can be added to individual data elements. One data format that makes use of this is Extensible Markup Language (XML). For example, in our example, a <firstname> tag can be added to the data relating to the first name and each telephone number can be individually identified as such.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="businessproblems.html#cb6-1"></a>data&lt;-<span class="st"> </span>naamDF</span>
+<span id="cb6-2"><a href="businessproblems.html#cb6-2"></a>xml &lt;-<span class="st"> </span><span class="kw">xmlTree</span>()</span>
+<span id="cb6-3"><a href="businessproblems.html#cb6-3"></a><span class="co"># names(xml)</span></span>
+<span id="cb6-4"><a href="businessproblems.html#cb6-4"></a>xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;customers&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Warning in xmlRoot.XMLInternalDocument(currentNodes[[1]]): empty XML document</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="businessproblems.html#cb8-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data)) {</span>
+<span id="cb8-2"><a href="businessproblems.html#cb8-2"></a>    xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;klant&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span>
+<span id="cb8-3"><a href="businessproblems.html#cb8-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="kw">names</span>(data)) {</span>
+<span id="cb8-4"><a href="businessproblems.html#cb8-4"></a>      celldata &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">strsplit</span>(data[i, j], <span class="st">&quot;[;]&quot;</span>))</span>
+<span id="cb8-5"><a href="businessproblems.html#cb8-5"></a>       <span class="cf">for</span> (k <span class="cf">in</span> celldata){</span>
+<span id="cb8-6"><a href="businessproblems.html#cb8-6"></a>          xml<span class="op">$</span><span class="kw">addTag</span>(j, <span class="kw">trimws</span>(k))</span>
+<span id="cb8-7"><a href="businessproblems.html#cb8-7"></a>       }</span>
+<span id="cb8-8"><a href="businessproblems.html#cb8-8"></a>       </span>
+<span id="cb8-9"><a href="businessproblems.html#cb8-9"></a>    }</span>
+<span id="cb8-10"><a href="businessproblems.html#cb8-10"></a>    xml<span class="op">$</span><span class="kw">closeTag</span>()</span>
+<span id="cb8-11"><a href="businessproblems.html#cb8-11"></a>}</span>
+<span id="cb8-12"><a href="businessproblems.html#cb8-12"></a>xml<span class="op">$</span><span class="kw">closeTag</span>()</span>
+<span id="cb8-13"><a href="businessproblems.html#cb8-13"></a><span class="kw">cat</span>(<span class="kw">saveXML</span>(xml, <span class="dt">prefix =</span> <span class="st">&#39;&#39;</span>))</span></code></pre></div>
+<pre><code>## 
+## &lt;customers&gt;
+##   &lt;klant&gt;
+##     &lt;First&gt;Witek&lt;/First&gt;
+##     &lt;Achternaam&gt;ten Hove&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06111111&lt;/Telefoon&gt;
+##     &lt;Telefoon&gt;06222222&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+##   &lt;klant&gt;
+##     &lt;First&gt;Caroline&lt;/First&gt;
+##     &lt;Achternaam&gt;Tensen&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06333333&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+## &lt;/customers&gt;</code></pre>
+<p>Via deze methode kan makkelijk data worden toegevoegd, bijvoorbeeld een tweede voornaam:</p>
+<pre><code>## 
+## &lt;klanten&gt;
+##   &lt;klant&gt;
+##     &lt;First&gt;Witold&lt;/First&gt;
+##     &lt;First&gt;Frederik&lt;/First&gt;
+##     &lt;Achternaam&gt;ten Hove&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06111111&lt;/Telefoon&gt;
+##     &lt;Telefoon&gt;06222222&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+##   &lt;klant&gt;
+##     &lt;First&gt;Caroline&lt;/First&gt;
+##     &lt;First&gt;Egbertine&lt;/First&gt;
+##     &lt;Achternaam&gt;Tensen&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06333333&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+## &lt;/klanten&gt;</code></pre>
+</div>
+<div id="json" class="section level4">
+<h4><span class="header-section-number">2.5.1.3</span> JSON</h4>
+<p>Tot voor kort was XML de standaardmethode om data vast te leggen in een webomgeving. Echter inmiddels is deze functie overgenomen door Javascript Object Notation (JSON).</p>
+<div class="figure" style="text-align: center"><span id="fig:json-fig"></span>
+<img src="images/jsonxml.svg" alt="Bron: &lt;a href=&quot;https://insights.stackoverflow.com/trends?tags=json%2Cxml&quot; target=&quot;_blank&quot;&gt;Stack Overflow&lt;/a&gt;" width="80%" />
+<p class="caption">
+Figure 2.9: Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2Cxml" target="_blank">Stack Overflow</a>
+</p>
+</div>
+<p>De belangrijkste reden hiervoor is de opkomst van zogenaamde Application Programming Interfaces (APIs). Veel online aanbieders van diensten bieden de gelegenheid om toegang te krijgen tot hun data. De data wordt meestal als JSON verstuurd. Aangezien moderne webapplicaties al in Javascript zijn geschreven kan JSON zonder verdere bewerking gebruikt worden. Zo kan heel makkelijk in één webapplicatie data worden gecombineerd: bijvoorbeeld tweets van <a href="https://developer.twitter.com/en/products/products-overview">Twitter</a> gecombineerd met <a href="https://openweathermap.org/api">weersvoorspellingen</a> en het nieuws via <a href="http://developer.cnn.com/">CNN</a>.</p>
+<p>JSON werkt met zogenaamde key: value sets:</p>
+<pre><code>## [
+##   {
+##     &quot;Voornaam&quot;: &quot;Witold&quot;,
+##     &quot;Achternaam&quot;: &quot;ten Hove&quot;,
+##     &quot;Telefoon&quot;: &quot;06111111&quot;
+##   },
+##   {
+##     &quot;Voornaam&quot;: &quot;Caroline&quot;,
+##     &quot;Achternaam&quot;: &quot;Tefsen&quot;,
+##     &quot;Telefoon&quot;: &quot;06333333&quot;
+##   }
+## ]</code></pre>
+<p>Als een waarde (value) uit meerdere elementen bestaat, worden ze in reeksen (arrays) opgeslagen.</p>
+<pre><code>## [
+##   {
+##     &quot;Voornaam&quot;: [&quot;Witold&quot;, &quot;Frederik&quot;],
+##     &quot;Achternaam&quot;: &quot;ten Hove&quot;,
+##     &quot;Telefoon&quot;: [&quot;06111111&quot;, &quot;6222222&quot;]
+##   },
+##   {
+##     &quot;Voornaam&quot;: [&quot;Caroline&quot;, &quot;Egbertine&quot;],
+##     &quot;Achternaam&quot;: &quot;Tefsen&quot;,
+##     &quot;Telefoon&quot;: &quot;06333333&quot;
+##   }
+## ]</code></pre>
+<p>De reeksen zijn geindexeerd en zo kan ieder element makkelijk worden opgehaald</p>
 </div>
 <div id="graph" class="section level4">
-<h4><span class="header-section-number">2.5.2.3</span> Graph</h4>
+<h4><span class="header-section-number">2.5.1.4</span> Graph</h4>
 
 </div>
 </div>

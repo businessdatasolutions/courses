@@ -16,6 +16,9 @@ fig:unnamed-chunk-11
 fig:unnamed-chunk-12
 fig:unnamed-chunk-13
 fig:tensorflow-fig
+tab:unnamed-chunk-14
+tab:unnamed-chunk-15
+fig:json-fig
 fig:aicompanies-fig
 dddm
 thinking-and-deciding
@@ -40,10 +43,10 @@ modeling-and-evaluation
 deployment
 data-science-vs-software-development
 other-data-science-skills-and-tooling
-math-and-statistics
 databases
-sql
 nosql
+xml
+json
 graph
 businessstrategy
 machine-intelligence-in-business

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 1 Data Driven Decision Making | Data Science for Business</title>
+  <meta name="description" content="This is a compagnon to the course Data Science for Business." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 1 Data Driven Decision Making | Data Science for Business" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a compagnon to the course Data Science for Business." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 1 Data Driven Decision Making | Data Science for Business" />
+  
+  <meta name="twitter:description" content="This is a compagnon to the course Data Science for Business." />
+  
+
+<meta name="author" content="Witek ten hove" />
+
+
+<meta name="date" content="2020-12-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="about-the-author.html"/>
+<link rel="next" href="businessproblems.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for Business</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
+<li class="chapter" data-level="1" data-path="dddm.html"><a href="dddm.html"><i class="fa fa-check"></i><b>1</b> Data Driven Decision Making</a><ul>
+<li class="chapter" data-level="1.1" data-path="dddm.html"><a href="dddm.html#thinking-and-deciding"><i class="fa fa-check"></i><b>1.1</b> Thinking and Deciding</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.1.1</b> The Monty Hall Problem</a></li>
+<li class="chapter" data-level="1.1.2" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.1.2</b> Taxicab problem</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="dddm.html"><a href="dddm.html#what-is-data-science-and-what-is-not"><i class="fa fa-check"></i><b>1.2</b> What is Data Science and what is not?</a></li>
+<li class="chapter" data-level="1.3" data-path="dddm.html"><a href="dddm.html#what-is-data-mining"><i class="fa fa-check"></i><b>1.3</b> What is Data Mining?</a></li>
+<li class="chapter" data-level="1.4" data-path="dddm.html"><a href="dddm.html#what-is-data-driven-decision-making"><i class="fa fa-check"></i><b>1.4</b> What is Data Driven Decision Making</a></li>
+<li class="chapter" data-level="1.5" data-path="dddm.html"><a href="dddm.html#what-are-the-challenges-and-opportunities-that-big-data-creates"><i class="fa fa-check"></i><b>1.5</b> What are the challenges and opportunities that Big Data creates?</a></li>
+<li class="chapter" data-level="1.6" data-path="dddm.html"><a href="dddm.html#what-are-big-data-technologies"><i class="fa fa-check"></i><b>1.6</b> What are Big Data technologies?</a></li>
+<li class="chapter" data-level="1.7" data-path="dddm.html"><a href="dddm.html#case-study-ubernomics"><i class="fa fa-check"></i><b>1.7</b> Case Study: Ubernomics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="businessproblems.html"><a href="businessproblems.html"><i class="fa fa-check"></i><b>2</b> Business Problems and Data Science Solutions</a><ul>
+<li class="chapter" data-level="2.1" data-path="businessproblems.html"><a href="businessproblems.html#connecting-business-to-data"><i class="fa fa-check"></i><b>2.1</b> Connecting business to data</a></li>
+<li class="chapter" data-level="2.2" data-path="businessproblems.html"><a href="businessproblems.html#supervised-unsupervised-and-reinforcement-methods"><i class="fa fa-check"></i><b>2.2</b> Supervised, Unsupervised and Reinforcement Methods</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="businessproblems.html"><a href="businessproblems.html#supervised-vs-unsupervised-methods"><i class="fa fa-check"></i><b>2.2.1</b> Supervised vs Unsupervised Methods</a></li>
+<li class="chapter" data-level="2.2.2" data-path="businessproblems.html"><a href="businessproblems.html#reinforcement-methods"><i class="fa fa-check"></i><b>2.2.2</b> Reinforcement Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="businessproblems.html"><a href="businessproblems.html#the-data-mining-process"><i class="fa fa-check"></i><b>2.3</b> The Data Mining Process</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="businessproblems.html"><a href="businessproblems.html#formulating-a-business-problem"><i class="fa fa-check"></i><b>2.3.1</b> Formulating a business problem</a></li>
+<li class="chapter" data-level="2.3.2" data-path="businessproblems.html"><a href="businessproblems.html#data-understanding"><i class="fa fa-check"></i><b>2.3.2</b> Data Understanding</a></li>
+<li class="chapter" data-level="2.3.3" data-path="businessproblems.html"><a href="businessproblems.html#data-preparation"><i class="fa fa-check"></i><b>2.3.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="businessproblems.html"><a href="businessproblems.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.3.4</b> Modeling and Evaluation</a></li>
+<li class="chapter" data-level="2.3.5" data-path="businessproblems.html"><a href="businessproblems.html#deployment"><i class="fa fa-check"></i><b>2.3.5</b> Deployment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#data-science-vs-software-development"><i class="fa fa-check"></i><b>2.4</b> Data Science vs Software Development</a></li>
+<li class="chapter" data-level="2.5" data-path="businessproblems.html"><a href="businessproblems.html#other-data-science-skills-and-tooling"><i class="fa fa-check"></i><b>2.5</b> Other Data Science Skills and Tooling</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="businessproblems.html"><a href="businessproblems.html#math-and-statistics"><i class="fa fa-check"></i><b>2.5.1</b> Math and Statistics</a></li>
+<li class="chapter" data-level="2.5.2" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.5.2</b> Databases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a><ul>
+<li class="chapter" data-level="3.1" data-path="businessstrategy.html"><a href="businessstrategy.html#machine-intelligence-in-business"><i class="fa fa-check"></i><b>3.1</b> Machine Intelligence in Business</a></li>
+<li class="chapter" data-level="3.2" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-ai-business"><i class="fa fa-check"></i><b>3.2</b> Case Study: AI Business</a></li>
+<li class="chapter" data-level="3.3" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-data-culture-in-practice"><i class="fa fa-check"></i><b>3.3</b> Case Study: Data Culture in Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science for Business</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dddm" class="section level1">
+<h1><span class="header-section-number">Module 1</span> Data Driven Decision Making</h1>
+<div class="figure" style="text-align: center"><span id="fig:lesson-fig"></span>
+<img src="images/lesson.png" alt="Lesson Map taken from @provost_data_2013" width="80%" />
+<p class="caption">
+Figure 1.1: Lesson Map taken from <span class="citation">Provost and Fawcett (<a href="#ref-provost_data_2013" role="doc-biblioref">2013</a>)</span>
+</p>
+</div>
+<div id="thinking-and-deciding" class="section level2">
+<h2><span class="header-section-number">1.1</span> Thinking and Deciding</h2>
+<div id="the-monty-hall-problem" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> The Monty Hall Problem</h3>
+<p>Suppose you’re on a game show, and you’re given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what’s behind the doors, opens another door, say No. 3, which has a goat. He then says to you, “Do you want to pick door No. 2?” Is it to your advantage to switch your choice?</p>
+<div class="figure" style="text-align: center"><span id="fig:montyhall-fig"></span>
+<img src="images/montyhall.png" alt="The Monty Hall Problem taken from https://en.wikipedia.org/wiki/Monty_Hall_problem" width="80%" />
+<p class="caption">
+Figure 1.2: The Monty Hall Problem taken from <a href="https://en.wikipedia.org/wiki/Monty_Hall_problem" class="uri">https://en.wikipedia.org/wiki/Monty_Hall_problem</a>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, try to derive a solution yourself.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#montyhall">Solution</button>
+<div id="montyhall" class="collapse">
+<hr>
+<p>
+Instead of trying to find an answer by reasoning we could write an algorithm that would play the game for us. Below you see one run.
+</p>
+<pre><code>## There are 3 doors:  1 0 0</code></pre>
+<pre><code>## Player chose door nr: 2 , with reward: 0</code></pre>
+<pre><code>## Host opens door. Remaining door has reward 1</code></pre>
+<p>and the total wins when eached strategy is tried a 100,000 times.</p>
+<div id="htmlwidget-1d0bd96fe830c2ff5c45" style="width:70%;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1d0bd96fe830c2ff5c45">{"x":{"data":[{"orientation":"v","width":0.9,"base":0,"x":[1],"y":[33153],"text":"strategy: hold<br />value: 33153<br />strategy: hold","type":"bar","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"hold","legendgroup":"hold","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.9,"base":0,"x":[2],"y":[66827],"text":"strategy: switch<br />value: 66827<br />strategy: switch","type":"bar","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"switch","legendgroup":"switch","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":54.7945205479452},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,2.6],"tickmode":"array","ticktext":["hold","switch"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["hold","switch"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"strategy","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3341.35,70168.35],"tickmode":"array","ticktext":["0","20000","40000","60000"],"tickvals":[-4.54747350886464e-13,20000,40000,60000],"categoryorder":"array","categoryarray":["0","20000","40000","60000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"value","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"128b6105e8ea4":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"128b6105e8ea4","visdat":{"128b6105e8ea4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<hr>
+<p>Apparently you have a 67% chance of winning when switching doors.</p>
+<p><strong>Think</strong>: The problem was simple. Was it also a simple cognitive task? How much do you trust the solution above?</p>
+</div>
+</div>
+<div id="taxicab-problem" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Taxicab problem</h3>
+<p>In a study done by <span class="citation">Tversky and Kahneman (<a href="#ref-tversky1981evidential" role="doc-biblioref">1981</a>)</span> subjects were given the following problem:</p>
+<p><em>A cab was involved in a hit and run accident at night. Two cab companies, the Green and the Blue, operate in the city. 85% of the cabs in the city are Green and 15% are Blue.</em></p>
+<p><em>A witness identified the cab as Blue. The court tested the reliability of the witness under the same circumstances that existed on the night of the accident and concluded that the witness correctly identified each one of the two colors 80% of the time and failed 20% of the time.</em></p>
+<p><em>What is the probability that the cab involved in the accident was Blue rather than Green knowing that this witness identified it as Blue?</em></p>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, try to derive a solution yourself.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#taxicab">Solution</button>
+<div id="taxicab" class="collapse">
+<hr>
+<ul>
+<li>There is a 12% chance (15% times 80%) of the witness correctly identifying a blue cab.</li>
+<li>There is a 17% chance (85% times 20%) of the witness incorrectly identifying a green cab as blue.</li>
+<li>There is therefore a 29% chance (12% plus 17%) the witness will identify the cab as blue.</li>
+<li>This results in a 41% chance (12% divided by 29%) that the cab identified as blue is actually blue.</li>
+</ul>
+<p>Again we could write a simulation where we present 10,000 cabs to the witness and let him assess the color. Below you see one run of the simulation and in the chart the total count per cab. The red color represents all the cabs that were wrongly assessed.</p>
+<pre><code>## Cab was B 
+##  and witness saw G</code></pre>
+<pre><code>##      cab observed 
+##      &quot;B&quot;      &quot;G&quot;</code></pre>
+<p><div id="htmlwidget-a49d39d373069875e3a4" style="width:70%;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a49d39d373069875e3a4">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[1178,6879],"x":[1,2],"y":[275,1668],"text":["count:  275<br />cab: B<br />quality: 0","count: 1668<br />cab: G<br />quality: 0"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"0","legendgroup":"0","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9],"base":[0,0],"x":[1,2],"y":[1178,6879],"text":["count: 1178<br />cab: B<br />quality: 1","count: 6879<br />cab: G<br />quality: 1"],"type":"bar","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"1","legendgroup":"1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,2.6],"tickmode":"array","ticktext":["B","G"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["B","G"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"cab","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-427.35,8974.35],"tickmode":"array","ticktext":["0","2500","5000","7500"],"tickvals":[0,2500,5000,7500],"categoryorder":"array","categoryarray":["0","2500","5000","7500"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"count","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"128b627a916ce":{"x":{},"fill":{},"type":"bar"}},"cur_data":"128b627a916ce","visdat":{"128b627a916ce":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+According to the simulation the reliability of the witness when he states that he saw a blue cab is 41%.</p>
+<p>Most subjects gave probabilities over 50%, and some gave answers over 80%. The correct answer is lower than these estimates.</p>
+<p><strong>Think</strong>: Suppose that at the start of the trial the Blue Taxi Company tells the judge that they are not guilty. The witness is heard. How much do you think this would influence the opinion of a typical person? How much do you think it should influence? Do you think all judges have the analytical skills to calculate probabilities?</p>
+</div>
+</div>
+</div>
+<div id="what-is-data-science-and-what-is-not" class="section level2">
+<h2><span class="header-section-number">1.2</span> What is Data Science and what is not?</h2>
+<div class="figure" style="text-align: center"><span id="fig:datascience-fig"></span>
+<img src="images/datascience.png" alt="Data Science diagram taken from: https://towardsdatascience.com/introduction-to-statistics-e9d72d818745" width="80%" />
+<p class="caption">
+Figure 1.3: Data Science diagram taken from: <a href="https://towardsdatascience.com/introduction-to-statistics-e9d72d818745" class="uri">https://towardsdatascience.com/introduction-to-statistics-e9d72d818745</a>
+</p>
+</div>
+<p>What is the ultimate purpose of a Data Science effort?</p>
+</div>
+<div id="what-is-data-mining" class="section level2">
+<h2><span class="header-section-number">1.3</span> What is Data Mining?</h2>
+<div class="figure" style="text-align: center"><span id="fig:crisp-fig"></span>
+<img src="images/crisp.png" alt="Cross-industry standard process for data mining taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png" width="80%" />
+<p class="caption">
+Figure 1.4: Cross-industry standard process for data mining taken from: <a href="https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png" class="uri">https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png</a>
+</p>
+</div>
+</div>
+<div id="what-is-data-driven-decision-making" class="section level2">
+<h2><span class="header-section-number">1.4</span> What is Data Driven Decision Making</h2>
+<p>What are other types of decision making? (relation with What is proof or evidence?)</p>
+<div class="figure" style="text-align: center"><span id="fig:dikw-fig"></span>
+<img src="images/pyramid.png" alt="DIKW pyramid taken from: https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg" width="80%" />
+<p class="caption">
+Figure 1.5: DIKW pyramid taken from: <a href="https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg" class="uri">https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg</a>
+</p>
+</div>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="what-are-the-challenges-and-opportunities-that-big-data-creates" class="section level2">
+<h2><span class="header-section-number">1.5</span> What are the challenges and opportunities that Big Data creates?</h2>
+</div>
+<div id="what-are-big-data-technologies" class="section level2">
+<h2><span class="header-section-number">1.6</span> What are Big Data technologies?</h2>
+<div class="figure" style="text-align: center"><span id="fig:azure-fig"></span>
+<img src="images/azure.png" alt="Big Data pipelines taken from: https://azure.microsoft.com/en-gb/blog/the-emerging-big-data-architectural-pattern/" width="80%" />
+<p class="caption">
+Figure 1.6: Big Data pipelines taken from: <a href="https://azure.microsoft.com/en-gb/blog/the-emerging-big-data-architectural-pattern/" class="uri">https://azure.microsoft.com/en-gb/blog/the-emerging-big-data-architectural-pattern/</a>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:technoslavia-fig"></span>
+<img src="images/technoslavia.jpg" alt="Big Data pipelines taken from: https://blog.dataiku.com/technoslavia-the-fragmented-world-of-data-infrastructure-in-2020" width="80%" />
+<p class="caption">
+Figure 1.7: Big Data pipelines taken from: <a href="https://blog.dataiku.com/technoslavia-the-fragmented-world-of-data-infrastructure-in-2020" class="uri">https://blog.dataiku.com/technoslavia-the-fragmented-world-of-data-infrastructure-in-2020</a>
+</p>
+</div>
+</div>
+<div id="case-study-ubernomics" class="section level2">
+<h2><span class="header-section-number">1.7</span> Case Study: Ubernomics</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/63wt3TgGGxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-provost_data_2013">
+<p>Provost, Foster, and Tom Fawcett. 2013. <em>Data Science for Business: What You Need to Know About Data Mining and Data-Analytic Thinking</em>. " O’Reilly Media, Inc.".</p>
+</div>
+<div id="ref-tversky1981evidential">
+<p>Tversky, Amos, and Daniel Kahneman. 1981. “Evidential Impact of Base Rates.” Stanford Univ Ca Dept Of Psychology.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="about-the-author.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="businessproblems.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gitbook.pdf", "gitbook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

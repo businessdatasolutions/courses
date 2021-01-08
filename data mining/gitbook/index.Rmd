@@ -1,0 +1,73 @@
+--- 
+title: "Data Mining"
+author: "Witek ten hove"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [lit.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a compagnon to the course Data Mining."
+---
+
+# Preface {-}
+
+```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/crisp.png'))
+```
+## Prerequisites {-}
+
+Before starting this module make sure you have:
+
+* access to the book *Provost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.*
+* installed R and RStudio
+* a Github account
+
+We will be using selected chapters from:
+
+*[Lewis, N. D. C. (2016). Deep learning made easy with R: A gentle introduction for data science. AusCov.](https://drive.google.com/file/d/1p_PtuD6BGGTKTwNL9LUo9DEADWFskImK/view?usp=sharing)*
+
+## Purpose of this course {-}
+
+The general learning outcome of this course is:
+
+> The student is able to perform a well-defined task independently in a relatively clearly arranged situation, or is able to perform in a complex and unpredictable situation under supervision.
+
+The course will provide you with a few essential data mining skills. The focus will lie on non-linear modeling techniques - k-Nearest Neighbors (kNN) and Naive Bayes classification.
+
+After a successful completion of the course, a student:
+
+* is able to prepare data for a given non-linear model
+* train en test a non-linear model
+* evaluate the quality of a trained model
+
+## Structure of the course {-}
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+weeknr <- c("1", "2-3", "4-5", "6-7")
+module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Kearning with Naive Bayes classification", "Neural Networks Basics")
+reading <- c("Provost / Fawcett Ch.3", "Provost / Fawcett Ch.6 + 7", "Provost / Fawcett Ch.9", "Lewis")
+headers <- c("Week nr.", "Module name", "Readings")
+programmeDF <- data.frame(weeknr, module, reading)
+colnames(programmeDF) <- headers
+
+knitr::kable(
+  programmeDF, longtable = TRUE, booktabs = TRUE,
+  caption = 'Course overview'
+)
+```
+
+The program has been divided into three blocks, each covering two weeks. During each block you'll be working individually on a case study. Through the whole of the program you'll be cooperating within a team where you will combine and compare the results of the different case studies. At the end of the course you will present with your team what you have learned from analyzing and comparing the different case studies.
+
+# About the author {-}
+
+![](images/me.png)
+
+Witek ten Hove is a senior instructor and researcher at [HAN University of Applied Sciences](https://hanuniversity.com/en/). His main areas of expertise are Data en Web Technologies.
+
+Through his extensive business experience in Finance and International Trade and thorough knowledge of modern data technologies, he is able to make connections between technology and business. As an open source evangelist he firmly believe in the power of knowledge sharing. His mission is to inspire business professionals and help them exploit the full potential of smart technologies.
+
+
+
+
+

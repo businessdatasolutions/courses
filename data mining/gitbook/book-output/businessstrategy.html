@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 3 Data Science and Business Strategy | Data Science for Business</title>
+  <meta name="description" content="This is a compagnon to the course Data Science for Business." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 3 Data Science and Business Strategy | Data Science for Business" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a compagnon to the course Data Science for Business." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 3 Data Science and Business Strategy | Data Science for Business" />
+  
+  <meta name="twitter:description" content="This is a compagnon to the course Data Science for Business." />
+  
+
+<meta name="author" content="Witek ten hove" />
+
+
+<meta name="date" content="2020-12-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="businessproblems.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for Business</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
+<li class="chapter" data-level="1" data-path="dddm.html"><a href="dddm.html"><i class="fa fa-check"></i><b>1</b> Data Driven Decision Making</a><ul>
+<li class="chapter" data-level="1.1" data-path="dddm.html"><a href="dddm.html#thinking-and-deciding"><i class="fa fa-check"></i><b>1.1</b> Thinking and Deciding</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.1.1</b> The Monty Hall Problem</a></li>
+<li class="chapter" data-level="1.1.2" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.1.2</b> Taxicab problem</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="dddm.html"><a href="dddm.html#what-is-data-science-and-what-is-not"><i class="fa fa-check"></i><b>1.2</b> What is Data Science and what is not?</a></li>
+<li class="chapter" data-level="1.3" data-path="dddm.html"><a href="dddm.html#what-is-data-mining"><i class="fa fa-check"></i><b>1.3</b> What is Data Mining?</a></li>
+<li class="chapter" data-level="1.4" data-path="dddm.html"><a href="dddm.html#what-is-data-driven-decision-making"><i class="fa fa-check"></i><b>1.4</b> What is Data Driven Decision Making</a></li>
+<li class="chapter" data-level="1.5" data-path="dddm.html"><a href="dddm.html#what-are-the-challenges-and-opportunities-that-big-data-creates"><i class="fa fa-check"></i><b>1.5</b> What are the challenges and opportunities that Big Data creates?</a></li>
+<li class="chapter" data-level="1.6" data-path="dddm.html"><a href="dddm.html#what-are-big-data-technologies"><i class="fa fa-check"></i><b>1.6</b> What are Big Data technologies?</a></li>
+<li class="chapter" data-level="1.7" data-path="dddm.html"><a href="dddm.html#case-study-ubernomics"><i class="fa fa-check"></i><b>1.7</b> Case Study: Ubernomics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="businessproblems.html"><a href="businessproblems.html"><i class="fa fa-check"></i><b>2</b> Business Problems and Data Science Solutions</a><ul>
+<li class="chapter" data-level="2.1" data-path="businessproblems.html"><a href="businessproblems.html#connecting-business-to-data"><i class="fa fa-check"></i><b>2.1</b> Connecting business to data</a></li>
+<li class="chapter" data-level="2.2" data-path="businessproblems.html"><a href="businessproblems.html#supervised-unsupervised-and-reinforcement-methods"><i class="fa fa-check"></i><b>2.2</b> Supervised, Unsupervised and Reinforcement Methods</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="businessproblems.html"><a href="businessproblems.html#supervised-vs-unsupervised-methods"><i class="fa fa-check"></i><b>2.2.1</b> Supervised vs Unsupervised Methods</a></li>
+<li class="chapter" data-level="2.2.2" data-path="businessproblems.html"><a href="businessproblems.html#reinforcement-methods"><i class="fa fa-check"></i><b>2.2.2</b> Reinforcement Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="businessproblems.html"><a href="businessproblems.html#the-data-mining-process"><i class="fa fa-check"></i><b>2.3</b> The Data Mining Process</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="businessproblems.html"><a href="businessproblems.html#formulating-a-business-problem"><i class="fa fa-check"></i><b>2.3.1</b> Formulating a business problem</a></li>
+<li class="chapter" data-level="2.3.2" data-path="businessproblems.html"><a href="businessproblems.html#data-understanding"><i class="fa fa-check"></i><b>2.3.2</b> Data Understanding</a></li>
+<li class="chapter" data-level="2.3.3" data-path="businessproblems.html"><a href="businessproblems.html#data-preparation"><i class="fa fa-check"></i><b>2.3.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="businessproblems.html"><a href="businessproblems.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.3.4</b> Modeling and Evaluation</a></li>
+<li class="chapter" data-level="2.3.5" data-path="businessproblems.html"><a href="businessproblems.html#deployment"><i class="fa fa-check"></i><b>2.3.5</b> Deployment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#data-science-vs-software-development"><i class="fa fa-check"></i><b>2.4</b> Data Science vs Software Development</a></li>
+<li class="chapter" data-level="2.5" data-path="businessproblems.html"><a href="businessproblems.html#other-data-science-skills-and-tooling"><i class="fa fa-check"></i><b>2.5</b> Other Data Science Skills and Tooling</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="businessproblems.html"><a href="businessproblems.html#math-and-statistics"><i class="fa fa-check"></i><b>2.5.1</b> Math and Statistics</a></li>
+<li class="chapter" data-level="2.5.2" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.5.2</b> Databases</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a><ul>
+<li class="chapter" data-level="3.1" data-path="businessstrategy.html"><a href="businessstrategy.html#machine-intelligence-in-business"><i class="fa fa-check"></i><b>3.1</b> Machine Intelligence in Business</a></li>
+<li class="chapter" data-level="3.2" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-ai-business"><i class="fa fa-check"></i><b>3.2</b> Case Study: AI Business</a></li>
+<li class="chapter" data-level="3.3" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-data-culture-in-practice"><i class="fa fa-check"></i><b>3.3</b> Case Study: Data Culture in Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science for Business</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="businessstrategy" class="section level1">
+<h1><span class="header-section-number">Module 3</span> Data Science and Business Strategy</h1>
+<div id="machine-intelligence-in-business" class="section level2">
+<h2><span class="header-section-number">3.1</span> Machine Intelligence in Business</h2>
+<div class="figure" style="text-align: center"><span id="fig:aicompanies-fig"></span>
+<img src="images/aicompanies.png" alt="CRISP-DM Model taken from: @noauthor_artificial_2020" width="80%" />
+<p class="caption">
+Figure 3.1: CRISP-DM Model taken from: <span class="citation">(“Artificial Intelligence Companies &amp; Startups L CB Insights” <a href="#ref-noauthor_artificial_2020" role="doc-biblioref">2020</a>)</span>
+</p>
+</div>
+</div>
+<div id="case-study-ai-business" class="section level2">
+<h2><span class="header-section-number">3.2</span> Case Study: AI Business</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NKpuX_yzdYs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="case-study-data-culture-in-practice" class="section level2">
+<h2><span class="header-section-number">3.3</span> Case Study: Data Culture in Practice</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G3IW5RNSGcE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-noauthor_artificial_2020">
+<p>“Artificial Intelligence Companies &amp; Startups L CB Insights.” 2020. <em>CB Insights Research</em>. <a href="https://www.cbinsights.com/research/artificial-intelligence-top-startups/">https://www.cbinsights.com/research/artificial-intelligence-top-startups/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="businessproblems.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gitbook.pdf", "gitbook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

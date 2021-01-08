@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 2 Business Problems and Data Science Solutions | Data Science for Business</title>
+  <meta name="description" content="This is a compagnon to the course Data Science for Business." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 2 Business Problems and Data Science Solutions | Data Science for Business" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a compagnon to the course Data Science for Business." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 2 Business Problems and Data Science Solutions | Data Science for Business" />
+  
+  <meta name="twitter:description" content="This is a compagnon to the course Data Science for Business." />
+  
+
+<meta name="author" content="Witek ten hove" />
+
+
+<meta name="date" content="2021-01-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dddm.html"/>
+<link rel="next" href="businessstrategy.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for Business</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="dddm.html"><a href="dddm.html"><i class="fa fa-check"></i><b>1</b> Data Driven Decision Making</a><ul>
+<li class="chapter" data-level="1.1" data-path="dddm.html"><a href="dddm.html#thinking-and-deciding"><i class="fa fa-check"></i><b>1.1</b> Thinking and Deciding</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.1.1</b> The Monty Hall Problem</a></li>
+<li class="chapter" data-level="1.1.2" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.1.2</b> Taxicab problem</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="dddm.html"><a href="dddm.html#what-is-data-science-and-what-is-not"><i class="fa fa-check"></i><b>1.2</b> What is Data Science and what is not?</a></li>
+<li class="chapter" data-level="1.3" data-path="dddm.html"><a href="dddm.html#what-is-data-mining"><i class="fa fa-check"></i><b>1.3</b> What is Data Mining?</a></li>
+<li class="chapter" data-level="1.4" data-path="dddm.html"><a href="dddm.html#what-is-data-driven-decision-making"><i class="fa fa-check"></i><b>1.4</b> What is Data Driven Decision Making</a></li>
+<li class="chapter" data-level="1.5" data-path="dddm.html"><a href="dddm.html#what-are-the-challenges-and-opportunities-that-big-data-creates"><i class="fa fa-check"></i><b>1.5</b> What are the challenges and opportunities that Big Data creates?</a></li>
+<li class="chapter" data-level="1.6" data-path="dddm.html"><a href="dddm.html#what-are-big-data-technologies"><i class="fa fa-check"></i><b>1.6</b> What are Big Data technologies?</a></li>
+<li class="chapter" data-level="1.7" data-path="dddm.html"><a href="dddm.html#case-study-ubernomics"><i class="fa fa-check"></i><b>1.7</b> Case Study: Ubernomics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="businessproblems.html"><a href="businessproblems.html"><i class="fa fa-check"></i><b>2</b> Business Problems and Data Science Solutions</a><ul>
+<li class="chapter" data-level="2.1" data-path="businessproblems.html"><a href="businessproblems.html#connecting-business-to-data"><i class="fa fa-check"></i><b>2.1</b> Connecting business to data</a></li>
+<li class="chapter" data-level="2.2" data-path="businessproblems.html"><a href="businessproblems.html#supervised-unsupervised-and-reinforcement-methods"><i class="fa fa-check"></i><b>2.2</b> Supervised, Unsupervised and Reinforcement Methods</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="businessproblems.html"><a href="businessproblems.html#supervised-vs-unsupervised-methods"><i class="fa fa-check"></i><b>2.2.1</b> Supervised vs Unsupervised Methods</a></li>
+<li class="chapter" data-level="2.2.2" data-path="businessproblems.html"><a href="businessproblems.html#reinforcement-methods"><i class="fa fa-check"></i><b>2.2.2</b> Reinforcement Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="businessproblems.html"><a href="businessproblems.html#the-data-mining-process"><i class="fa fa-check"></i><b>2.3</b> The Data Mining Process</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="businessproblems.html"><a href="businessproblems.html#formulating-a-business-problem"><i class="fa fa-check"></i><b>2.3.1</b> Formulating a business problem</a></li>
+<li class="chapter" data-level="2.3.2" data-path="businessproblems.html"><a href="businessproblems.html#data-understanding"><i class="fa fa-check"></i><b>2.3.2</b> Data Understanding</a></li>
+<li class="chapter" data-level="2.3.3" data-path="businessproblems.html"><a href="businessproblems.html#data-preparation"><i class="fa fa-check"></i><b>2.3.3</b> Data Preparation</a></li>
+<li class="chapter" data-level="2.3.4" data-path="businessproblems.html"><a href="businessproblems.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.3.4</b> Modeling and Evaluation</a></li>
+<li class="chapter" data-level="2.3.5" data-path="businessproblems.html"><a href="businessproblems.html#deployment"><i class="fa fa-check"></i><b>2.3.5</b> Deployment</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#data-science-vs-software-development"><i class="fa fa-check"></i><b>2.4</b> Data Science vs Software Development</a></li>
+<li class="chapter" data-level="2.5" data-path="businessproblems.html"><a href="businessproblems.html#other-data-science-skills-and-tooling"><i class="fa fa-check"></i><b>2.5</b> Other Data Science Skills and Tooling</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.5.1</b> Databases</a></li>
+<li class="chapter" data-level="2.5.2" data-path="businessproblems.html"><a href="businessproblems.html#xml"><i class="fa fa-check"></i><b>2.5.2</b> XML</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a><ul>
+<li class="chapter" data-level="3.1" data-path="businessstrategy.html"><a href="businessstrategy.html#machine-intelligence-in-business"><i class="fa fa-check"></i><b>3.1</b> Machine Intelligence in Business</a></li>
+<li class="chapter" data-level="3.2" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-ai-business"><i class="fa fa-check"></i><b>3.2</b> Case Study: AI Business</a></li>
+<li class="chapter" data-level="3.3" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-data-culture-in-practice"><i class="fa fa-check"></i><b>3.3</b> Case Study: Data Culture in Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science for Business</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="businessproblems" class="section level1">
+<h1><span class="header-section-number">Module 2</span> Business Problems and Data Science Solutions</h1>
+<div id="connecting-business-to-data" class="section level2">
+<h2><span class="header-section-number">2.1</span> Connecting business to data</h2>
+<p>In the following video you’ll hear an expert’s thoughts on the relation between business problems and data challenges. What is this relationship? What questions could be asked during data understanding?</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xo0bsiiQ9cM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>Big Data is not reserved for Big Business. In the following video you’ll see a case of a small retailer using data to improve his business decisions. What were the business questions the company had? How did they use data to support their decisions?</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="supervised-unsupervised-and-reinforcement-methods" class="section level2">
+<h2><span class="header-section-number">2.2</span> Supervised, Unsupervised and Reinforcement Methods</h2>
+<div id="supervised-vs-unsupervised-methods" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Supervised vs Unsupervised Methods</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1XG1b85zPUk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="reinforcement-methods" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Reinforcement Methods</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kopoLzvh5jY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+<div id="the-data-mining-process" class="section level2">
+<h2><span class="header-section-number">2.3</span> The Data Mining Process</h2>
+<div class="figure" style="text-align: center"><span id="fig:datamining-fig"></span>
+<img src="images/crisp.png" alt="CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png" width="80%" />
+<p class="caption">
+Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png" class="uri">https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png</a>
+</p>
+</div>
+<div id="formulating-a-business-problem" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Formulating a business problem</h3>
+<p><strong>Business Case:</strong> Recognizing handwritten digits</p>
+<table>
+<caption><span id="tab:unnamed-chunk-2">Table 2.1: </span>ECLIPSE questions taken from <span class="citation">Wildridge and Bell (<a href="#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
+<colgroup>
+<col width="4%" />
+<col width="30%" />
+<col width="65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Mnemonic</th>
+<th align="left">Question</th>
+<th align="left">Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">E</td>
+<td align="left">Expectation: Why does the user want the information?</td>
+<td align="left">A utility company wants to scan the electricity meter readings it receives from clients through paper forms and save them to a database</td>
+</tr>
+<tr class="even">
+<td align="left">C</td>
+<td align="left">Client Group: For whom is the service / product intended?</td>
+<td align="left">The Billing Department</td>
+</tr>
+<tr class="odd">
+<td align="left">L</td>
+<td align="left">Location: Where is the service / product sited?</td>
+<td align="left">This is an internal process</td>
+</tr>
+<tr class="even">
+<td align="left">I</td>
+<td align="left">Impact: What would represent success? How is this measured?</td>
+<td align="left">An accuracy of 99%</td>
+</tr>
+<tr class="odd">
+<td align="left">P</td>
+<td align="left">Professionals: Who provides or improves the service / product?</td>
+<td align="left">At the moment this is done by hand</td>
+</tr>
+<tr class="even">
+<td align="left">SE</td>
+<td align="left">Service: What type of service / product is under consideration?</td>
+<td align="left">The readings are used to prepare invoices</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="data-understanding" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Data Understanding</h3>
+<p>We are going to train a model on data from the MNIST database <span class="citation">(LeCun <a href="#ref-lecun1998mnist" role="doc-biblioref">1998</a>)</span>. The original dataset contains 60000 images of handwritten digits. The size of each images is 28x28 pixel and each pixel has a grayscale value between 0 (white) en 255 (black).</p>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-3-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.2: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+</div>
+<div id="data-preparation" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Data Preparation</h3>
+<p><em>How much gray is there in the set of images?</em></p>
+Example Mnist <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-4-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.3: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#grayscale">Solution</button>
+<div id="grayscale" class="collapse">
+<hr>
+<p>Most pixels in the dataset are completely white, along with another set of pixels that are completely dark, with relatively few in between.</p>
+<p><strong>Think</strong>: Let’s assume the images were black and whit photographs of landscapes or faces. Would you expect the same color distribution as above?</p>
+</div>
+<hr>
+<p><em>How much variability is there within each digit label? Do all 3s look like each other, and what is the “most typical” example of a 6?</em></p>
+<p>To answer this, we can find the mean value for each position within each label and visualize these average digits as ten separate facets. These averaged images are called centroids. We’re treating each image as a 784-dimensional point (28 by 28), and then taking the average of all points in each dimension individually.</p>
+<div class="figure"><span id="fig:unnamed-chunk-5"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-5-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.4: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#variability">Solution</button>
+<div id="variability" class="collapse">
+<hr>
+Already we have some suspicions about which digits might be easier to separate. Distinguishing 0 and 1 looks pretty straightforward: you could pick a few pixels at the center (always dark in 1 but not 0), or at the left and right edges (often dark in 0 but not 1), and you’d have a pretty great classifier. Pairs like 4/9, or 3/8, have a lot more overlap and will be a more challenging problem.
+</div>
+<hr>
+<p><em>Which digits have more variability on average?</em></p>
+<p>So far, this machine learning problem might seem a bit easy: we have some very “typical” versions of each digit. But one of the reasons classification can be challenging is that some digits will fall widely outside the norm. It’s useful to explore atypical cases, since it could help us understand why the method fails and help us choose a method and engineer features.</p>
+<p>In this case, we could consider the Euclidean distance (square root of the sum of squares) of each image to its label’s centroid.</p>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-6-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.5: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#atypical">Solution</button>
+<div id="atypical" class="collapse">
+<hr>
+<p>It looks like 1s have especially low distances to their centroid: for the most part there’s not a ton of variability in how people draw that digit. It looks like the most variability by this measure are in 0s and 2s. But every digit has at least a few cases with an unusually large distance from their centroid. I wonder what those look like?</p>
+<p>To discover this, we can visualize the six digit instances that had the least resemblance to their central digit.</p>
+<div class="figure"><span id="fig:unnamed-chunk-7"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-7-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.6: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<p>This is a useful way to understand what kinds of problems the data could have. For instance, while most 1s looked the same, they could be drawn diagonally, or with a flat line and a flag on top. A 7 could be drawn with a bar in the middle. (And what is up with that 9 on the lower left?)</p>
+This also gives us a realistic sense of how accurate our classifier can get. Even humans would have a hard time classifying some of these sloppy digits, so we can’t expect a 100% success rate. (Conversely, if one of our classifiers does get a 100% success rate, we should examine whether we’re overfitting!).
+</div>
+<hr>
+<p><em>How easy it is to tell pairs of digits apart?</em></p>
+<p>To examine this, we could try overlapping pairs of our centroid digits, and taking the difference between them. If two centroids have very little overlap, this means they’ll probably be easy to distinguish.</p>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="gitbook_files/figure-html/unnamed-chunk-8-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
+<p class="caption">
+Figure 2.7: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+</p>
+</div>
+<h3>
+Solution
+</h3>
+<p>
+Before checking, analyze the chart and draw your own conclusions.
+</p>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#pairs">Solution</button>
+<div id="pairs" class="collapse">
+<hr>
+<p>Pairs with very red or very blue regions will be easy to classify, since they describe features that divide the datasets neatly. This confirms our suspicion about 0/1 being easy to classify: it has substantial regions than are deeply red or blue.</p>
+Comparisons that are largely white may be more difficult. We can see 4/9 looks pretty challenging, which makes sense (a handwritten 4 and 9 really differ only by a small region at the top). 7/9 shows a similar challenge.
+</div>
+<hr>
+</div>
+<div id="modeling-and-evaluation" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Modeling and Evaluation</h3>
+<p>For modeling we can use a neural network. Follow this <a href="https://minorsmart.github.io/bigdata/tensorflow/">link</a> and let thee model run. When finished you’ll see a table resembling the following:</p>
+<div class="figure" style="text-align: center"><span id="fig:tensorflow-fig"></span>
+<img src="images/tf.png" alt="Example Machine Learning output" width="80%" />
+<p class="caption">
+Figure 2.8: Example Machine Learning output
+</p>
+</div>
+<p><em>Have we reached the target accuracy?</em></p>
+</div>
+<div id="deployment" class="section level3">
+<h3><span class="header-section-number">2.3.5</span> Deployment</h3>
+<p><a href="https://codepen.io/Witusj/pen/xxEXxqV">MNIST Handwriting</a></p>
+<iframe height="467" style="width: 100%;" scrolling="no" title="MNIST handwritten digits - ML" src="https://codepen.io/Witusj/embed/xxEXxqV?height=467&amp;theme-id=light&amp;default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten digits - ML</a> by Witusj
+(<a href='https://codepen.io/Witusj'><span class="citation">(<span class="citeproc-not-found" data-reference-id="Witusj"><strong>???</strong></span>)</span></a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+</div>
+</div>
+<div id="data-science-vs-software-development" class="section level2">
+<h2><span class="header-section-number">2.4</span> Data Science vs Software Development</h2>
+</div>
+<div id="other-data-science-skills-and-tooling" class="section level2">
+<h2><span class="header-section-number">2.5</span> Other Data Science Skills and Tooling</h2>
+<div id="databases" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Databases</h3>
+<div id="nosql" class="section level4">
+<h4><span class="header-section-number">2.5.1.1</span> NoSQL</h4>
+<p>Als u met Excel werkt of uw data bewaart in MySQL bent u gewend om data op te slaan in rijen en kolommen. Bijvoorbeeld als u klantgegevens opslaat:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="businessproblems.html#cb1-1"></a>voorVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Witold&quot;</span>, <span class="st">&quot;Caroline&quot;</span>)</span>
+<span id="cb1-2"><a href="businessproblems.html#cb1-2"></a>achterVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ten Hove&quot;</span>, <span class="st">&quot;Tensen&quot;</span>)</span>
+<span id="cb1-3"><a href="businessproblems.html#cb1-3"></a>naamDF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Voornaam =</span> voorVec, <span class="dt">Achternaam =</span> achterVec, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb1-4"><a href="businessproblems.html#cb1-4"></a><span class="kw">kable</span>(naamDF, <span class="dt">caption =</span> <span class="st">&quot;Een data-tabel&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 2.2: </span>Een data-tabel</caption>
+<thead>
+<tr class="header">
+<th align="left">Voornaam</th>
+<th align="left">Achternaam</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Witold</td>
+<td align="left">ten Hove</td>
+</tr>
+<tr class="even">
+<td align="left">Caroline</td>
+<td align="left">Tensen</td>
+</tr>
+</tbody>
+</table>
+<p>Iedere regel is een klant, iedere kolom een variabele en in iedere cel staat één waarde.</p>
+<p>Stel echter dat u alle telefoonnumers van uw klanten wilt opslaan en dat sommige klanten meerdere telefoonnummers hebben. Een mogelijkheid is dan om in één cel alle telefoonnummers op te slaan:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="businessproblems.html#cb2-1"></a>voorVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Witek&quot;</span>, <span class="st">&quot;Caroline&quot;</span>)</span>
+<span id="cb2-2"><a href="businessproblems.html#cb2-2"></a>achterVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ten Hove&quot;</span>, <span class="st">&quot;Tensen&quot;</span>)</span>
+<span id="cb2-3"><a href="businessproblems.html#cb2-3"></a>telVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;06111111; 06222222&quot;</span>, <span class="st">&quot;06333333&quot;</span>)</span>
+<span id="cb2-4"><a href="businessproblems.html#cb2-4"></a>naamDF &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Voornaam =</span> voorVec, <span class="dt">Achternaam =</span> achterVec, <span class="dt">Telefoon =</span> telVec, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb2-5"><a href="businessproblems.html#cb2-5"></a><span class="kw">kable</span>(naamDF, <span class="dt">caption =</span> <span class="st">&quot;Een data-tabel met meerdere waarden in één cel&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 2.3: </span>Een data-tabel met meerdere waarden in één cel</caption>
+<thead>
+<tr class="header">
+<th align="left">Voornaam</th>
+<th align="left">Achternaam</th>
+<th align="left">Telefoon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Witek</td>
+<td align="left">ten Hove</td>
+<td align="left">06111111; 06222222</td>
+</tr>
+<tr class="even">
+<td align="left">Caroline</td>
+<td align="left">Tensen</td>
+<td align="left">06333333</td>
+</tr>
+</tbody>
+</table>
+<p>Dit kan echter een probleem gaan veroorzaken bij het exporteren of doorzoeken van de data. Zodra uw data asymmetrisch dreigt te worden, is het verstandiger om een NoSQL formaat te overwegen. De belangrijkste formaten qua populariteit zijn XML en JSON.</p>
+</div>
+</div>
+<div id="xml" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> XML</h3>
+<p>Door data te annoteren kan aan afzonderlijke data-elementen betekenis worden toegevoegd. Een data-formaat dat hier gebruik van maakt, is Extensible Markup Language (XML). Zo kan in ons voorbeeld aan de data die betrekking heeft op de voornaam een tag <voornaam> worden toegevoegd en ieder telefoonnummer apart als zodanig worden gekenmerkt.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="businessproblems.html#cb3-1"></a>data&lt;-<span class="st"> </span>naamDF</span>
+<span id="cb3-2"><a href="businessproblems.html#cb3-2"></a>xml &lt;-<span class="st"> </span><span class="kw">xmlTree</span>()</span>
+<span id="cb3-3"><a href="businessproblems.html#cb3-3"></a><span class="co"># names(xml)</span></span>
+<span id="cb3-4"><a href="businessproblems.html#cb3-4"></a>xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;klanten&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<pre><code>## Warning in xmlRoot.XMLInternalDocument(currentNodes[[1]]): empty XML document</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="businessproblems.html#cb5-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data)) {</span>
+<span id="cb5-2"><a href="businessproblems.html#cb5-2"></a>    xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;klant&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span>
+<span id="cb5-3"><a href="businessproblems.html#cb5-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="kw">names</span>(data)) {</span>
+<span id="cb5-4"><a href="businessproblems.html#cb5-4"></a>      celldata &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">strsplit</span>(data[i, j], <span class="st">&quot;[;]&quot;</span>))</span>
+<span id="cb5-5"><a href="businessproblems.html#cb5-5"></a>       <span class="cf">for</span> (k <span class="cf">in</span> celldata){</span>
+<span id="cb5-6"><a href="businessproblems.html#cb5-6"></a>          xml<span class="op">$</span><span class="kw">addTag</span>(j, <span class="kw">trimws</span>(k))</span>
+<span id="cb5-7"><a href="businessproblems.html#cb5-7"></a>       }</span>
+<span id="cb5-8"><a href="businessproblems.html#cb5-8"></a>       </span>
+<span id="cb5-9"><a href="businessproblems.html#cb5-9"></a>    }</span>
+<span id="cb5-10"><a href="businessproblems.html#cb5-10"></a>    xml<span class="op">$</span><span class="kw">closeTag</span>()</span>
+<span id="cb5-11"><a href="businessproblems.html#cb5-11"></a>}</span>
+<span id="cb5-12"><a href="businessproblems.html#cb5-12"></a>xml<span class="op">$</span><span class="kw">closeTag</span>()</span>
+<span id="cb5-13"><a href="businessproblems.html#cb5-13"></a><span class="kw">cat</span>(<span class="kw">saveXML</span>(xml, <span class="dt">prefix =</span> <span class="st">&#39;&#39;</span>))</span></code></pre></div>
+<pre><code>## 
+## &lt;klanten&gt;
+##   &lt;klant&gt;
+##     &lt;Voornaam&gt;Witek&lt;/Voornaam&gt;
+##     &lt;Achternaam&gt;ten Hove&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06111111&lt;/Telefoon&gt;
+##     &lt;Telefoon&gt;06222222&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+##   &lt;klant&gt;
+##     &lt;Voornaam&gt;Caroline&lt;/Voornaam&gt;
+##     &lt;Achternaam&gt;Tensen&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06333333&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+## &lt;/klanten&gt;</code></pre>
+<p>Via deze methode kan makkelijk data worden toegevoegd, bijvoorbeeld een tweede voornaam:</p>
+<pre><code>## 
+## &lt;klanten&gt;
+##   &lt;klant&gt;
+##     &lt;Voornaam&gt;Witold&lt;/Voornaam&gt;
+##     &lt;Voornaam&gt;Frederik&lt;/Voornaam&gt;
+##     &lt;Achternaam&gt;ten Hove&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06111111&lt;/Telefoon&gt;
+##     &lt;Telefoon&gt;06222222&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+##   &lt;klant&gt;
+##     &lt;Voornaam&gt;Caroline&lt;/Voornaam&gt;
+##     &lt;Voornaam&gt;Egbertine&lt;/Voornaam&gt;
+##     &lt;Achternaam&gt;Tensen&lt;/Achternaam&gt;
+##     &lt;Telefoon&gt;06333333&lt;/Telefoon&gt;
+##   &lt;/klant&gt;
+## &lt;/klanten&gt;</code></pre>
+<div id="json" class="section level4">
+<h4><span class="header-section-number">2.5.2.1</span> JSON</h4>
+<p>Tot voor kort was XML de standaardmethode om data vast te leggen in een webomgeving. Echter inmiddels is deze functie overgenomen door Javascript Object Notation (JSON).</p>
+<div class="figure" style="text-align: center"><span id="fig:json-fig"></span>
+<img src="images/jsonxml.svg" alt="Bron: &lt;a href=&quot;https://insights.stackoverflow.com/trends?tags=json%2Cxml&quot; target=&quot;_blank&quot;&gt;Stack Overflow&lt;/a&gt;" width="80%" />
+<p class="caption">
+Figure 2.9: Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2Cxml" target="_blank">Stack Overflow</a>
+</p>
+</div>
+<p>De belangrijkste reden hiervoor is de opkomst van zogenaamde Application Programming Interfaces (APIs). Veel online aanbieders van diensten bieden de gelegenheid om toegang te krijgen tot hun data. De data wordt meestal als JSON verstuurd. Aangezien moderne webapplicaties al in Javascript zijn geschreven kan JSON zonder verdere bewerking gebruikt worden. Zo kan heel makkelijk in één webapplicatie data worden gecombineerd: bijvoorbeeld tweets van <a href="https://developer.twitter.com/en/products/products-overview">Twitter</a> gecombineerd met <a href="https://openweathermap.org/api">weersvoorspellingen</a> en het nieuws via <a href="http://developer.cnn.com/">CNN</a>.</p>
+<p>JSON werkt met zogenaamde key: value sets:</p>
+<pre><code>## [
+##   {
+##     &quot;Voornaam&quot;: &quot;Witold&quot;,
+##     &quot;Achternaam&quot;: &quot;ten Hove&quot;,
+##     &quot;Telefoon&quot;: &quot;06111111&quot;
+##   },
+##   {
+##     &quot;Voornaam&quot;: &quot;Caroline&quot;,
+##     &quot;Achternaam&quot;: &quot;Tefsen&quot;,
+##     &quot;Telefoon&quot;: &quot;06333333&quot;
+##   }
+## ]</code></pre>
+<p>Als een waarde (value) uit meerdere elementen bestaat, worden ze in reeksen (arrays) opgeslagen.</p>
+<pre><code>## [
+##   {
+##     &quot;Voornaam&quot;: [&quot;Witold&quot;, &quot;Frederik&quot;],
+##     &quot;Achternaam&quot;: &quot;ten Hove&quot;,
+##     &quot;Telefoon&quot;: [&quot;06111111&quot;, &quot;6222222&quot;]
+##   },
+##   {
+##     &quot;Voornaam&quot;: [&quot;Caroline&quot;, &quot;Egbertine&quot;],
+##     &quot;Achternaam&quot;: &quot;Tefsen&quot;,
+##     &quot;Telefoon&quot;: &quot;06333333&quot;
+##   }
+## ]</code></pre>
+<p>De reeksen zijn geindexeerd en zo kan ieder element makkelijk worden opgehaald</p>
+</div>
+<div id="graph" class="section level4">
+<h4><span class="header-section-number">2.5.2.2</span> Graph</h4>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-lecun1998mnist">
+<p>LeCun, Yann. 1998. “The Mnist Database of Handwritten Digits.” <em>Http://Yann. Lecun. Com/Exdb/Mnist/</em>.</p>
+</div>
+<div id="ref-robinson_exploring_2018">
+<p>Robinson, David. 2018. “Exploring Handwritten Digit Classification: A Tidy Analysis of the MNIST Dataset.” <em>R-Bloggers</em>. <a href="https://www.r-bloggers.com/2018/01/exploring-handwritten-digit-classification-a-tidy-analysis-of-the-mnist-dataset/">https://www.r-bloggers.com/2018/01/exploring-handwritten-digit-classification-a-tidy-analysis-of-the-mnist-dataset/</a>.</p>
+</div>
+<div id="ref-wildridge_eclipse_2002">
+<p>Wildridge, Valerie, and Lucy Bell. 2002. “How Clip Became Eclipse: A Mnemonic to Assist in Searching for Health Policy/Management Information.” <em>Health Information &amp; Libraries Journal</em> 19 (2): 113–15. <a href="https://doi.org/https://doi.org/10.1046/j.1471-1842.2002.00378.x">https://doi.org/https://doi.org/10.1046/j.1471-1842.2002.00378.x</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dddm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="businessstrategy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["gitbook.pdf", "gitbook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

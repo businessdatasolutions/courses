@@ -1,0 +1,10 @@
+bookdown::gitbook:
+  css: style.css
+  includes:
+      in_header: header.html
+  config:
+    toc:
+      before: |
+        <li><a href="./">Data Science for Business</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
