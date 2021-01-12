@@ -14,13 +14,13 @@ library(caret)
 Breast cancer is the top cancer in women both in the developed and the developing world. In the Netherlands it is the most pervasive form of cancer [@noauthor_who_nodate]. In order to improve breast cancer outcome and survival early detection remains the most important instrument for breast cancer control. If machine learning could automate the identification of cancer, it would improve efficiency of the detection process and might also increase its effectiveness by providing greater detection accuracy.
 
 ## Data Understanding
-The data we will be using comes from the University of Wisconsin and is available online as an open source dataset [@noauthor_uci_nodate]. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.
+The data we will be using comes from the University of Wisconsin and is available online as an open source dataset [@noauthor_uci_cancer_nodate]. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.
 
 The data is saved online as a Google Spreadsheet. We can access it directly using a function dedicated to reading Google Spreadsheets from the `googlesheets4` package.
 
 ```{r}
-gs4_deauth()
-rawDF <- read_sheet("https://docs.google.com/spreadsheets/d/1vnrj4nylo1X_yM3DBi-oQhBb2Cb2eVlbOdyWsxiqI9g/edit?usp=sharing")
+url <- "https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"
+rawDF <- read_csv(url)
 ```
 
 Using the `str()` function we can have some basic information about the dataset.
@@ -128,12 +128,11 @@ knitr::include_graphics(rep('images/diffusion.png'))
 
 Here is our own table:
 ```{r}
-caret::confusionMatrix(cleanDF_test_pred, testDF_labels[[1]], positive = NULL, dnn = c("Prediction", "True"))
+confusionMatrix(cleanDF_test_pred, testDF_labels[[1]], positive = NULL, dnn = c("Prediction", "True"))
 ```
 
-*Questions:* 
+**Questions:** 
 
-1. How accurate is our model?
-2. How high is the False Negative rate?
-3. What would you assume as more costly a high False Negatives or high False Positives and why?
+1. *How would you assess the overall performance of the model?*
+3. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
 

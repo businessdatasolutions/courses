@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2021-01-08" />
+<meta name="date" content="2021-01-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,16 +142,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="dm.html"><a href="dm.html"><i class="fa fa-check"></i><b>1</b> Introduction to Predictive Modeling</a></li>
+<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
+<li class="chapter" data-level="1" data-path="dm.html"><a href="dm.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="dm.html"><a href="dm.html#working-with-rmarkdown"><i class="fa fa-check"></i><b>1.1</b> Working with RMarkdown</a></li>
+<li class="chapter" data-level="1.2" data-path="dm.html"><a href="dm.html#working-with-git-and-github"><i class="fa fa-check"></i><b>1.2</b> Working with Git and Github</a></li>
+<li class="chapter" data-level="1.3" data-path="dm.html"><a href="dm.html#customizing-rmarkdown-with-html-and-css"><i class="fa fa-check"></i><b>1.3</b> Customizing RMarkdown with HTML and CSS</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="knn.html"><a href="knn.html"><i class="fa fa-check"></i><b>2</b> Lazy learning with k-Nearest Neighbors</a><ul>
 <li class="chapter" data-level="2.1" data-path="knn.html"><a href="knn.html#business-case-diagnosing-breast-cancer"><i class="fa fa-check"></i><b>2.1</b> Business Case: Diagnosing Breast Cancer</a></li>
 <li class="chapter" data-level="2.2" data-path="knn.html"><a href="knn.html#data-understanding"><i class="fa fa-check"></i><b>2.2</b> Data Understanding</a></li>
 <li class="chapter" data-level="2.3" data-path="knn.html"><a href="knn.html#preparation"><i class="fa fa-check"></i><b>2.3</b> Preparation</a></li>
 <li class="chapter" data-level="2.4" data-path="knn.html"><a href="knn.html#modeling"><i class="fa fa-check"></i><b>2.4</b> Modeling</a></li>
 <li class="chapter" data-level="2.5" data-path="knn.html"><a href="knn.html#evaluation"><i class="fa fa-check"></i><b>2.5</b> Evaluation</a></li>
-<li class="chapter" data-level="2.6" data-path="knn.html"><a href="knn.html#deployment"><i class="fa fa-check"></i><b>2.6</b> Deployment</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="naivebayes.html"><a href="naivebayes.html"><i class="fa fa-check"></i><b>3</b> Probabilistic Learning with Naive Bayes Classification</a></li>
+<li class="chapter" data-level="3" data-path="naivebayes.html"><a href="naivebayes.html"><i class="fa fa-check"></i><b>3</b> Probabilistic Learning with Naive Bayes Classification</a><ul>
+<li class="chapter" data-level="3.1" data-path="naivebayes.html"><a href="naivebayes.html#business-case-filtering-spam"><i class="fa fa-check"></i><b>3.1</b> Business Case: Filtering Spam</a></li>
+<li class="chapter" data-level="3.2" data-path="naivebayes.html"><a href="naivebayes.html#data-understanding-1"><i class="fa fa-check"></i><b>3.2</b> Data Understanding</a></li>
+<li class="chapter" data-level="3.3" data-path="naivebayes.html"><a href="naivebayes.html#preparation-1"><i class="fa fa-check"></i><b>3.3</b> Preparation</a></li>
+<li class="chapter" data-level="3.4" data-path="naivebayes.html"><a href="naivebayes.html#modeling-1"><i class="fa fa-check"></i><b>3.4</b> Modeling</a></li>
+<li class="chapter" data-level="3.5" data-path="naivebayes.html"><a href="naivebayes.html#evaluation-1"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="neuralnets.html"><a href="neuralnets.html"><i class="fa fa-check"></i><b>4</b> Neural Networks Basics</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -183,15 +193,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="data-understanding" class="section level2">
 <h2><span class="header-section-number">2.2</span> Data Understanding</h2>
-<p>The data we will be using comes from the University of Wisconsin and is available online as an open source dataset <span class="citation">(“UCI Machine Learning Repository: Breast Cancer Wisconsin (Diagnostic) Data Set” <a href="#ref-noauthor_uci_nodate" role="doc-biblioref">n.d.</a>)</span>. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.</p>
+<p>The data we will be using comes from the University of Wisconsin and is available online as an open source dataset <span class="citation">(“UCI Machine Learning Repository: Breast Cancer Wisconsin (Diagnostic) Data Set” <a href="#ref-noauthor_uci_cancer_nodate" role="doc-biblioref">n.d.</a>)</span>. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.</p>
 <p>The data is saved online as a Google Spreadsheet. We can access it directly using a function dedicated to reading Google Spreadsheets from the <code>googlesheets4</code> package.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="knn.html#cb1-1"></a><span class="kw">gs4_deauth</span>()</span>
-<span id="cb1-2"><a href="knn.html#cb1-2"></a>rawDF &lt;-<span class="st"> </span><span class="kw">read_sheet</span>(<span class="st">&quot;https://docs.google.com/spreadsheets/d/1vnrj4nylo1X_yM3DBi-oQhBb2Cb2eVlbOdyWsxiqI9g/edit?usp=sharing&quot;</span>)</span></code></pre></div>
-<pre><code>## Reading from &quot;Breast cancer&quot;</code></pre>
-<pre><code>## Range &quot;Sheet1&quot;</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="knn.html#cb1-1"></a>url &lt;-<span class="st"> &quot;https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv&quot;</span></span>
+<span id="cb1-2"><a href="knn.html#cb1-2"></a>rawDF &lt;-<span class="st"> </span><span class="kw">read_csv</span>(url)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   .default = col_double(),
+##   diagnosis = col_character()
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
 <p>Using the <code>str()</code> function we can have some basic information about the dataset.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="knn.html#cb4-1"></a><span class="kw">str</span>(rawDF)</span></code></pre></div>
-<pre><code>## tibble [569 × 32] (S3: tbl_df/tbl/data.frame)
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="knn.html#cb3-1"></a><span class="kw">str</span>(rawDF)</span></code></pre></div>
+<pre><code>## tibble [569 × 32] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 ##  $ id               : num [1:569] 87139402 8910251 905520 868871 9012568 ...
 ##  $ diagnosis        : chr [1:569] &quot;B&quot; &quot;B&quot; &quot;B&quot; &quot;B&quot; ...
 ##  $ radius_mean      : num [1:569] 12.3 10.6 11 11.3 15.2 ...
@@ -223,14 +238,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ concavity_worst  : num [1:569] 0.1242 0.1916 0.1067 0.0867 0.1362 ...
 ##  $ points_worst     : num [1:569] 0.0939 0.0793 0.0743 0.0861 0.0818 ...
 ##  $ symmetry_worst   : num [1:569] 0.283 0.294 0.3 0.21 0.249 ...
-##  $ dimension_worst  : num [1:569] 0.0677 0.0759 0.0788 0.0678 0.0677 ...</code></pre>
+##  $ dimension_worst  : num [1:569] 0.0677 0.0759 0.0788 0.0678 0.0677 ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   id = col_double(),
+##   ..   diagnosis = col_character(),
+##   ..   radius_mean = col_double(),
+##   ..   texture_mean = col_double(),
+##   ..   perimeter_mean = col_double(),
+##   ..   area_mean = col_double(),
+##   ..   smoothness_mean = col_double(),
+##   ..   compactness_mean = col_double(),
+##   ..   concavity_mean = col_double(),
+##   ..   points_mean = col_double(),
+##   ..   symmetry_mean = col_double(),
+##   ..   dimension_mean = col_double(),
+##   ..   radius_se = col_double(),
+##   ..   texture_se = col_double(),
+##   ..   perimeter_se = col_double(),
+##   ..   area_se = col_double(),
+##   ..   smoothness_se = col_double(),
+##   ..   compactness_se = col_double(),
+##   ..   concavity_se = col_double(),
+##   ..   points_se = col_double(),
+##   ..   symmetry_se = col_double(),
+##   ..   dimension_se = col_double(),
+##   ..   radius_worst = col_double(),
+##   ..   texture_worst = col_double(),
+##   ..   perimeter_worst = col_double(),
+##   ..   area_worst = col_double(),
+##   ..   smoothness_worst = col_double(),
+##   ..   compactness_worst = col_double(),
+##   ..   concavity_worst = col_double(),
+##   ..   points_worst = col_double(),
+##   ..   symmetry_worst = col_double(),
+##   ..   dimension_worst = col_double()
+##   .. )</code></pre>
 <p>The dataset has 32 variables (columns) and 569 observations (rows).</p>
 </div>
 <div id="preparation" class="section level2">
 <h2><span class="header-section-number">2.3</span> Preparation</h2>
 <p>The first variable, <code>id</code>, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="knn.html#cb6-1"></a>cleanDF &lt;-<span class="st"> </span>rawDF[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb6-2"><a href="knn.html#cb6-2"></a><span class="kw">head</span>(cleanDF)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="knn.html#cb5-1"></a>cleanDF &lt;-<span class="st"> </span>rawDF[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-2"><a href="knn.html#cb5-2"></a><span class="kw">head</span>(cleanDF)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 31
 ##   diagnosis radius_mean texture_mean perimeter_mean area_mean smoothness_mean
 ##   &lt;chr&gt;           &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;           &lt;dbl&gt;
@@ -249,20 +299,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   smoothness_worst &lt;dbl&gt;, compactness_worst &lt;dbl&gt;, concavity_worst &lt;dbl&gt;,
 ## #   points_worst &lt;dbl&gt;, symmetry_worst &lt;dbl&gt;, dimension_worst &lt;dbl&gt;</code></pre>
 <p>The variable named <code>diagnosis</code> contains the outcomes we would like to predict - ‘B’ for ‘Benign’ and ‘M’ for ‘Malignant’. The variable we would like to predict is called the ‘label’. We can look at the counts and proportions for both outcomes, using the <code>tables()</code> and <code>prop.tables()</code>functions.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="knn.html#cb8-1"></a>cntDiag &lt;-<span class="st"> </span><span class="kw">table</span>(cleanDF<span class="op">$</span>diagnosis)</span>
-<span id="cb8-2"><a href="knn.html#cb8-2"></a>propDiag &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">prop.table</span>(cntDiag) <span class="op">*</span><span class="st"> </span><span class="dv">100</span> , <span class="dt">digits =</span> <span class="dv">1</span>)</span>
-<span id="cb8-3"><a href="knn.html#cb8-3"></a></span>
-<span id="cb8-4"><a href="knn.html#cb8-4"></a>cntDiag</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="knn.html#cb7-1"></a>cntDiag &lt;-<span class="st"> </span><span class="kw">table</span>(cleanDF<span class="op">$</span>diagnosis)</span>
+<span id="cb7-2"><a href="knn.html#cb7-2"></a>propDiag &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">prop.table</span>(cntDiag) <span class="op">*</span><span class="st"> </span><span class="dv">100</span> , <span class="dt">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb7-3"><a href="knn.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="knn.html#cb7-4"></a>cntDiag</span></code></pre></div>
 <pre><code>## 
 ##   B   M 
 ## 357 212</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="knn.html#cb10-1"></a>propDiag</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="knn.html#cb9-1"></a>propDiag</span></code></pre></div>
 <pre><code>## 
 ##    B    M 
 ## 62.7 37.3</code></pre>
 <p>The variable is now coded as a type <code>character</code>. Many models require that the label is of type <code>factor</code>. This is easily solved using the <code>factor()</code> function.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="knn.html#cb12-1"></a>cleanDF<span class="op">$</span>diagnosis &lt;-<span class="st"> </span><span class="kw">factor</span>(cleanDF<span class="op">$</span>diagnosis, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;M&quot;</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Benign&quot;</span>, <span class="st">&quot;Malignant&quot;</span>))</span>
-<span id="cb12-2"><a href="knn.html#cb12-2"></a><span class="kw">head</span>(cleanDF, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="knn.html#cb11-1"></a>cleanDF<span class="op">$</span>diagnosis &lt;-<span class="st"> </span><span class="kw">factor</span>(cleanDF<span class="op">$</span>diagnosis, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;M&quot;</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Benign&quot;</span>, <span class="st">&quot;Malignant&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">relevel</span>(<span class="st">&quot;Malignant&quot;</span>)</span>
+<span id="cb11-2"><a href="knn.html#cb11-2"></a><span class="kw">head</span>(cleanDF, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 x 31
 ##    diagnosis radius_mean texture_mean perimeter_mean area_mean smoothness_mean
 ##    &lt;fct&gt;           &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;           &lt;dbl&gt;
@@ -285,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   smoothness_worst &lt;dbl&gt;, compactness_worst &lt;dbl&gt;, concavity_worst &lt;dbl&gt;,
 ## #   points_worst &lt;dbl&gt;, symmetry_worst &lt;dbl&gt;, dimension_worst &lt;dbl&gt;</code></pre>
 <p>The features consist of three different measurements of ten characteristics. We will take three characteristics and have a closer look.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="knn.html#cb14-1"></a><span class="kw">summary</span>(cleanDF[<span class="kw">c</span>(<span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;area_mean&quot;</span>, <span class="st">&quot;smoothness_mean&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="knn.html#cb13-1"></a><span class="kw">summary</span>(cleanDF[<span class="kw">c</span>(<span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;area_mean&quot;</span>, <span class="st">&quot;smoothness_mean&quot;</span>)])</span></code></pre></div>
 <pre><code>##   radius_mean       area_mean      smoothness_mean  
 ##  Min.   : 6.981   Min.   : 143.5   Min.   :0.05263  
 ##  1st Qu.:11.700   1st Qu.: 420.3   1st Qu.:0.08637  
@@ -295,29 +345,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Max.   :28.110   Max.   :2501.0   Max.   :0.16340</code></pre>
 <p>You’ll notice that the three variables have very different ranges and as a consequence <code>area_mean</code> will have a larger impact on the distance calculation than the <code>smootness_mean</code>. This could potentially cause problems for modeling. To solve this we’ll apply normalization to rescale all features to a standard range of values.</p>
 <p>We will write our own normalization function.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="knn.html#cb16-1"></a>normalize &lt;-<span class="st"> </span><span class="cf">function</span>(x) { <span class="co"># Function takes in a vector</span></span>
-<span id="cb16-2"><a href="knn.html#cb16-2"></a>  <span class="kw">return</span> ((x <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x)) <span class="op">/</span><span class="st"> </span>(<span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x))) <span class="co"># distance of item value - minimum vector value divided by the range of all vector values</span></span>
-<span id="cb16-3"><a href="knn.html#cb16-3"></a>}</span>
-<span id="cb16-4"><a href="knn.html#cb16-4"></a></span>
-<span id="cb16-5"><a href="knn.html#cb16-5"></a>testSet1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span>
-<span id="cb16-6"><a href="knn.html#cb16-6"></a>testSet2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span>
-<span id="cb16-7"><a href="knn.html#cb16-7"></a></span>
-<span id="cb16-8"><a href="knn.html#cb16-8"></a><span class="kw">cat</span>(<span class="st">&quot;testSet1:&quot;</span>, testSet1, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="knn.html#cb15-1"></a>normalize &lt;-<span class="st"> </span><span class="cf">function</span>(x) { <span class="co"># Function takes in a vector</span></span>
+<span id="cb15-2"><a href="knn.html#cb15-2"></a>  <span class="kw">return</span> ((x <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x)) <span class="op">/</span><span class="st"> </span>(<span class="kw">max</span>(x) <span class="op">-</span><span class="st"> </span><span class="kw">min</span>(x))) <span class="co"># distance of item value - minimum vector value divided by the range of all vector values</span></span>
+<span id="cb15-3"><a href="knn.html#cb15-3"></a>}</span>
+<span id="cb15-4"><a href="knn.html#cb15-4"></a></span>
+<span id="cb15-5"><a href="knn.html#cb15-5"></a>testSet1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span>
+<span id="cb15-6"><a href="knn.html#cb15-6"></a>testSet2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb15-7"><a href="knn.html#cb15-7"></a></span>
+<span id="cb15-8"><a href="knn.html#cb15-8"></a><span class="kw">cat</span>(<span class="st">&quot;testSet1:&quot;</span>, testSet1, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## testSet1: 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="knn.html#cb18-1"></a><span class="kw">cat</span>(<span class="st">&quot;testSet2:&quot;</span>, testSet2, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="knn.html#cb17-1"></a><span class="kw">cat</span>(<span class="st">&quot;testSet2:&quot;</span>, testSet2, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## testSet2: 10 20 30 40 50</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="knn.html#cb20-1"></a><span class="kw">cat</span>(<span class="st">&quot;Normalized testSet1:&quot;</span>, <span class="kw">normalize</span>(testSet1), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="knn.html#cb19-1"></a><span class="kw">cat</span>(<span class="st">&quot;Normalized testSet1:&quot;</span>, <span class="kw">normalize</span>(testSet1), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## Normalized testSet1: 0 0.25 0.5 0.75 1</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="knn.html#cb22-1"></a><span class="kw">cat</span>(<span class="st">&quot;Normalized testSet2:&quot;</span>, <span class="kw">normalize</span>(testSet2))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="knn.html#cb21-1"></a><span class="kw">cat</span>(<span class="st">&quot;Normalized testSet2:&quot;</span>, <span class="kw">normalize</span>(testSet2))</span></code></pre></div>
 <pre><code>## Normalized testSet2: 0 0.25 0.5 0.75 1</code></pre>
 <p>We’ll apply the <code>normalize()</code> function to each feature in the dataset (so, not on the label) using the <code>sapply()</code> function.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="knn.html#cb24-1"></a>nCols &lt;-<span class="st"> </span><span class="kw">dim</span>(cleanDF)[<span class="dv">2</span>]</span>
-<span id="cb24-2"><a href="knn.html#cb24-2"></a>cleanDF_n &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span>nCols,</span>
-<span id="cb24-3"><a href="knn.html#cb24-3"></a>                    <span class="cf">function</span>(x) {</span>
-<span id="cb24-4"><a href="knn.html#cb24-4"></a>  <span class="kw">normalize</span>(cleanDF[,x])</span>
-<span id="cb24-5"><a href="knn.html#cb24-5"></a>}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb24-6"><a href="knn.html#cb24-6"></a></span>
-<span id="cb24-7"><a href="knn.html#cb24-7"></a><span class="kw">summary</span>(cleanDF_n[<span class="kw">c</span>(<span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;area_mean&quot;</span>, <span class="st">&quot;smoothness_mean&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="knn.html#cb23-1"></a>nCols &lt;-<span class="st"> </span><span class="kw">dim</span>(cleanDF)[<span class="dv">2</span>]</span>
+<span id="cb23-2"><a href="knn.html#cb23-2"></a>cleanDF_n &lt;-<span class="st"> </span><span class="kw">sapply</span>(<span class="dv">2</span><span class="op">:</span>nCols,</span>
+<span id="cb23-3"><a href="knn.html#cb23-3"></a>                    <span class="cf">function</span>(x) {</span>
+<span id="cb23-4"><a href="knn.html#cb23-4"></a>  <span class="kw">normalize</span>(cleanDF[,x])</span>
+<span id="cb23-5"><a href="knn.html#cb23-5"></a>}) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
+<span id="cb23-6"><a href="knn.html#cb23-6"></a></span>
+<span id="cb23-7"><a href="knn.html#cb23-7"></a><span class="kw">summary</span>(cleanDF_n[<span class="kw">c</span>(<span class="st">&quot;radius_mean&quot;</span>, <span class="st">&quot;area_mean&quot;</span>, <span class="st">&quot;smoothness_mean&quot;</span>)])</span></code></pre></div>
 <pre><code>##   radius_mean       area_mean      smoothness_mean 
 ##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
 ##  1st Qu.:0.2233   1st Qu.:0.1174   1st Qu.:0.3046  
@@ -327,25 +377,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000</code></pre>
 <p>When we take the variables we selected earlier and look at the summary parameters again, we’ll see that the normalization was successful.</p>
 <p>We can now split our data into training and test sets.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="knn.html#cb26-1"></a>trainDF_feat &lt;-<span class="st"> </span>cleanDF_n[<span class="dv">1</span><span class="op">:</span><span class="dv">469</span>,  ]</span>
-<span id="cb26-2"><a href="knn.html#cb26-2"></a>testDF_feat &lt;-<span class="st"> </span>cleanDF_n[<span class="dv">470</span><span class="op">:</span><span class="dv">569</span>,  ]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="knn.html#cb25-1"></a>trainDF_feat &lt;-<span class="st"> </span>cleanDF_n[<span class="dv">1</span><span class="op">:</span><span class="dv">469</span>,  ]</span>
+<span id="cb25-2"><a href="knn.html#cb25-2"></a>testDF_feat &lt;-<span class="st"> </span>cleanDF_n[<span class="dv">470</span><span class="op">:</span><span class="dv">569</span>,  ]</span></code></pre></div>
 <p>When creating the training and test sets, we’ve excluded the labels. We’ll create separate training and tests sets for them too.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="knn.html#cb27-1"></a>trainDF_labels &lt;-<span class="st"> </span>cleanDF[<span class="dv">1</span><span class="op">:</span><span class="dv">469</span>,  <span class="dv">1</span>]</span>
-<span id="cb27-2"><a href="knn.html#cb27-2"></a>testDF_labels &lt;-<span class="st"> </span>cleanDF[<span class="dv">470</span><span class="op">:</span><span class="dv">569</span>,  <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="knn.html#cb26-1"></a>trainDF_labels &lt;-<span class="st"> </span>cleanDF[<span class="dv">1</span><span class="op">:</span><span class="dv">469</span>,  <span class="dv">1</span>]</span>
+<span id="cb26-2"><a href="knn.html#cb26-2"></a>testDF_labels &lt;-<span class="st"> </span>cleanDF[<span class="dv">470</span><span class="op">:</span><span class="dv">569</span>,  <span class="dv">1</span>]</span></code></pre></div>
 <p>Now we can train and evaluate our kNN model.</p>
 </div>
 <div id="modeling" class="section level2">
 <h2><span class="header-section-number">2.4</span> Modeling</h2>
 <p>To train the knn model we only need one single function from the <code>class</code> package. It takes the set with training features and the set with training label. The trained model is applied to the set with test features and the function gives back a set of predictions.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="knn.html#cb28-1"></a>cleanDF_test_pred &lt;-<span class="st"> </span><span class="kw">knn</span>(<span class="dt">train =</span> <span class="kw">as.matrix</span>(trainDF_feat), <span class="dt">test =</span> <span class="kw">as.matrix</span>(testDF_feat), <span class="dt">cl =</span> <span class="kw">as.matrix</span>(trainDF_labels), <span class="dt">k =</span> <span class="dv">21</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span>
-<span id="cb28-2"><a href="knn.html#cb28-2"></a><span class="kw">head</span>(cleanDF_test_pred)</span></code></pre></div>
-<pre><code>##           .
-## 1    Benign
-## 2    Benign
-## 3    Benign
-## 4    Benign
-## 5 Malignant
-## 6    Benign</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="knn.html#cb27-1"></a>cleanDF_test_pred &lt;-<span class="st"> </span><span class="kw">knn</span>(<span class="dt">train =</span> <span class="kw">as.matrix</span>(trainDF_feat), <span class="dt">test =</span> <span class="kw">as.matrix</span>(testDF_feat), <span class="dt">cl =</span> <span class="kw">as.matrix</span>(trainDF_labels), <span class="dt">k =</span> <span class="dv">21</span>)</span>
+<span id="cb27-2"><a href="knn.html#cb27-2"></a><span class="kw">head</span>(cleanDF_test_pred)</span></code></pre></div>
+<pre><code>## [1] Benign    Benign    Benign    Benign    Malignant Benign   
+## Levels: Benign Malignant</code></pre>
 </div>
 <div id="evaluation" class="section level2">
 <h2><span class="header-section-number">2.5</span> Evaluation</h2>
@@ -357,51 +402,48 @@ Figure 2.1: Standard diffusion table. Taken from: <a href="https://emj.bmj.com/c
 </p>
 </div>
 <p>Here is our own table:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="knn.html#cb30-1"></a>actual &lt;-<span class="st"> </span>testDF_labels[[<span class="dv">1</span>]]</span>
-<span id="cb30-2"><a href="knn.html#cb30-2"></a>predicted &lt;-<span class="st"> </span>cleanDF_test_pred[[<span class="dv">1</span>]]</span>
-<span id="cb30-3"><a href="knn.html#cb30-3"></a><span class="kw">CrossTable</span>(<span class="dt">x =</span> predicted, <span class="dt">y =</span> actual, <span class="dt">prop.chisq =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
-<pre><code>## 
-##  
-##    Cell Contents
-## |-------------------------|
-## |                       N |
-## |           N / Row Total |
-## |           N / Col Total |
-## |         N / Table Total |
-## |-------------------------|
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="knn.html#cb29-1"></a><span class="kw">confusionMatrix</span>(cleanDF_test_pred, testDF_labels[[<span class="dv">1</span>]], <span class="dt">positive =</span> <span class="ot">NULL</span>, <span class="dt">dnn =</span> <span class="kw">c</span>(<span class="st">&quot;Prediction&quot;</span>, <span class="st">&quot;True&quot;</span>))</span></code></pre></div>
+<pre><code>## Warning in confusionMatrix.default(cleanDF_test_pred, testDF_labels[[1]], :
+## Levels are not in the same order for reference and data. Refactoring data to
+## match.</code></pre>
+<pre><code>## Confusion Matrix and Statistics
 ## 
-##  
-## Total Observations in Table:  100 
-## 
-##  
-##              | actual 
-##    predicted |    Benign | Malignant | Row Total | 
-## -------------|-----------|-----------|-----------|
-##       Benign |        61 |         2 |        63 | 
-##              |     0.968 |     0.032 |     0.630 | 
-##              |     1.000 |     0.051 |           | 
-##              |     0.610 |     0.020 |           | 
-## -------------|-----------|-----------|-----------|
-##    Malignant |         0 |        37 |        37 | 
-##              |     0.000 |     1.000 |     0.370 | 
-##              |     0.000 |     0.949 |           | 
-##              |     0.000 |     0.370 |           | 
-## -------------|-----------|-----------|-----------|
-## Column Total |        61 |        39 |       100 | 
-##              |     0.610 |     0.390 |           | 
-## -------------|-----------|-----------|-----------|
-## 
+##            True
+## Prediction  Malignant Benign
+##   Malignant        37      0
+##   Benign            2     61
+##                                           
+##                Accuracy : 0.98            
+##                  95% CI : (0.9296, 0.9976)
+##     No Information Rate : 0.61            
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.9576          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.4795          
+##                                           
+##             Sensitivity : 0.9487          
+##             Specificity : 1.0000          
+##          Pos Pred Value : 1.0000          
+##          Neg Pred Value : 0.9683          
+##              Prevalence : 0.3900          
+##          Detection Rate : 0.3700          
+##    Detection Prevalence : 0.3700          
+##       Balanced Accuracy : 0.9744          
+##                                           
+##        &#39;Positive&#39; Class : Malignant       
 ## </code></pre>
-<p>We have reached an accuracy of 98%.</p>
-</div>
-<div id="deployment" class="section level2">
-<h2><span class="header-section-number">2.6</span> Deployment</h2>
+<p><strong>Questions:</strong></p>
+<ol style="list-style-type: decimal">
+<li><em>How would you assess the overall performance of the model?</em></li>
+<li><em>What would you consider as more costly: high false negatives or high false positives levels? Why?</em></li>
+</ol>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-noauthor_uci_nodate">
+<div id="ref-noauthor_uci_cancer_nodate">
 <p>“UCI Machine Learning Repository: Breast Cancer Wisconsin (Diagnostic) Data Set.” n.d. Accessed January 7, 2021. <a href="https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)">https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)</a>.</p>
 </div>
 <div id="ref-noauthor_who_nodate">
