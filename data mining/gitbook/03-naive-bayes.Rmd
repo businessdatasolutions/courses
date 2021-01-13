@@ -136,7 +136,7 @@ head(trainDTM[,1:10])
 ## Modeling
 
 ```{r}
-nbayesModel <-  naiveBayes(trainDTM, trainDF$type)
+nbayesModel <-  naiveBayes(trainDTM, trainDF$type, laplace = 1)
 predVec <- predict(nbayesModel, testDTM)
 ```
 

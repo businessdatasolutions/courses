@@ -340,35 +340,35 @@ Question:</p>
 </div>
 <div id="modeling-1" class="section level2">
 <h2><span class="header-section-number">3.4</span> Modeling</h2>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="naivebayes.html#cb62-1"></a>nbayesModel &lt;-<span class="st">  </span><span class="kw">naiveBayes</span>(trainDTM, trainDF<span class="op">$</span>type)</span>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="naivebayes.html#cb62-1"></a>nbayesModel &lt;-<span class="st">  </span><span class="kw">naiveBayes</span>(trainDTM, trainDF<span class="op">$</span>type, <span class="dt">laplace =</span> <span class="dv">1</span>)</span>
 <span id="cb62-2"><a href="naivebayes.html#cb62-2"></a>predVec &lt;-<span class="st"> </span><span class="kw">predict</span>(nbayesModel, testDTM)</span></code></pre></div>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="naivebayes.html#cb63-1"></a><span class="kw">confusionMatrix</span>(predVec, testDF<span class="op">$</span>type, <span class="dt">positive =</span> <span class="st">&quot;spam&quot;</span>, <span class="dt">dnn =</span> <span class="kw">c</span>(<span class="st">&quot;Prediction&quot;</span>, <span class="st">&quot;True&quot;</span>))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           True
 ## Prediction spam  ham
-##       spam  161    5
-##       ham    25 1201
-##                                           
-##                Accuracy : 0.9784          
-##                  95% CI : (0.9694, 0.9854)
-##     No Information Rate : 0.8664          
-##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
-##                                           
-##                   Kappa : 0.9025          
-##                                           
-##  Mcnemar&#39;s Test P-Value : 0.0005226       
-##                                           
-##             Sensitivity : 0.8656          
-##             Specificity : 0.9959          
-##          Pos Pred Value : 0.9699          
-##          Neg Pred Value : 0.9796          
-##              Prevalence : 0.1336          
-##          Detection Rate : 0.1157          
-##    Detection Prevalence : 0.1193          
-##       Balanced Accuracy : 0.9307          
-##                                           
-##        &#39;Positive&#39; Class : spam            
+##       spam  173   26
+##       ham    13 1180
+##                                         
+##                Accuracy : 0.972         
+##                  95% CI : (0.9619, 0.98)
+##     No Information Rate : 0.8664        
+##     P-Value [Acc &gt; NIR] : &lt; 2e-16       
+##                                         
+##                   Kappa : 0.8825        
+##                                         
+##  Mcnemar&#39;s Test P-Value : 0.05466       
+##                                         
+##             Sensitivity : 0.9301        
+##             Specificity : 0.9784        
+##          Pos Pred Value : 0.8693        
+##          Neg Pred Value : 0.9891        
+##              Prevalence : 0.1336        
+##          Detection Rate : 0.1243        
+##    Detection Prevalence : 0.1430        
+##       Balanced Accuracy : 0.9543        
+##                                         
+##        &#39;Positive&#39; Class : spam          
 ## </code></pre>
 </div>
 <div id="evaluation-1" class="section level2">
