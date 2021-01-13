@@ -6,6 +6,8 @@
 library(tidyverse)
 library(tm)
 library(caret)
+library(wordcloud)
+library(e1071)
 ```
 
 ## Business Case: Filtering Spam
@@ -29,6 +31,18 @@ rawDF$type <- rawDF$type %>% factor
 class(rawDF$type)
 ```
 
+We can also visually inspect the data by creating wordclouds for each sms type.
+
+```{r figures-side, fig.show="hold", message=FALSE, warning=FALSE, out.width="50%"}
+spam <- rawDF %>% filter(type == "spam")
+ham <- rawDF %>% filter(type == "ham")
+
+wordcloud(spam$text, max.words = 20, scale = c(4, 0.8), colors= c("indianred1","indianred2","indianred3","indianred"))
+wordcloud(ham$text, max.words = 20, scale = c(4, 0.8), colors= c("lightsteelblue1","lightsteelblue2","lightsteelblue3","lightsteelblue"))
+```
+Question:
+
+* *What differences do you notice?*
 
 ## Preparation
 First we need to create a corpus, which refers to a collection of text documents. In our case each sms is considered a text document. We'll use the `Corpus()` function from the`tm` package.
@@ -64,18 +78,81 @@ tibble(Raw = rawCorpus$content[1:3], Clean = cleanCorpus$content[1:3])
 Now that we have cleaned up the texts, we are going to transform the messages to a matrix. Each word in the each message will get its own column, each row will be a message and the cells of the matrix will contain a word count.
 
 ```{r}
-cleanDtm <- cleanCorpus %>% DocumentTermMatrix
-inspect(cleanDtm)
+cleanDTM <- cleanCorpus %>% DocumentTermMatrix
+inspect(cleanDTM)
 ```
+
+Before we start modeling we need to split all datasets into train and test sets. For this we will use a function from the `caret` package. The function `createDataPartition()` can be used to create balanced splits of the data. If the y argument to this function is a factor, the random sampling occurs within each class and should preserve the overall class distribution of the data. In this case we'll create a 75/25% split.
+
+```{r}
+
+# Create split indices
+set.seed(1234)
+trainIndex <- createDataPartition(rawDF$type, p = .75, 
+                                  list = FALSE, 
+                                  times = 1)
+head(trainIndex)
+
+# Apply split indices to DF
+trainDF <- rawDF[trainIndex, ]
+testDF <- rawDF[-trainIndex, ]
+
+# Apply split indices to Corpus
+trainCorpus <- cleanCorpus[trainIndex]
+testCorpus <- cleanCorpus[-trainIndex]
+
+# Apply split indices to DTM
+trainDTM <- cleanDTM[trainIndex, ]
+testDTM <- cleanDTM[-trainIndex, ]
+```
+
+As you can check (how?) the DTM has almost `r round(dim(cleanDTM)[2], -2)` features. Remember that each feature in the DTM is a word. Some words will have very few counts and therefore will have limited predictive power. To save on computation time we will eliminate words with low frequencies.
+
+```{r}
+freqWords <- trainDTM %>% findFreqTerms(5)
+trainDTM <-  DocumentTermMatrix(trainCorpus, list(dictionary = freqWords))
+testDTM <-  DocumentTermMatrix(testCorpus, list(dictionary = freqWords))
+```
+
+With this operation we've reduced the number of features to around `r round(dim(trainDTM)[2], -2)`.
+
+Another issue is that the Naive Bayes classifier is typically trained on categorical features. We now have numerical matrix with word counts. We will transform the counts into a factor that simply indicates whether the word appears in the document or not. We'll first build our own function for this and then apply it to each column in the DTM.
+
+```{r}
+convert_counts <- function(x) {
+  x <- ifelse(x > 0, 1, 0) %>% factor(levels = c(0,1), labels = c("No", "Yes"))
+}
+
+nColsDTM <- dim(trainDTM)[2]
+trainDTM <- apply(trainDTM, MARGIN = 2, convert_counts)
+testDTM <- apply(testDTM, MARGIN = 2, convert_counts)
+
+head(trainDTM[,1:10])
+```
+
+
 
 
 ## Modeling
 
+```{r}
+nbayesModel <-  naiveBayes(trainDTM, trainDF$type)
+predVec <- predict(nbayesModel, testDTM)
+```
+
+```{r}
+confusionMatrix(predVec, testDF$type, positive = "spam", dnn = c("Prediction", "True"))
+```
+
 
 
 ## Evaluation
-
+```{r difftable1-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/diffusion.png'))
+```
 
 **Questions:** 
 
+1. *How would you assess the overall performance of the model?*
+3. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
 
