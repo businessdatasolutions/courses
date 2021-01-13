@@ -1,6 +1,7 @@
 fig:title-fig
 tab:unnamed-chunk-1
 fig:difftable-fig
+fig:difftable1-fig
 dm
 working-with-rmarkdown
 working-with-git-and-github
@@ -17,5 +18,3 @@ data-understanding-1
 preparation-1
 modeling-1
 evaluation-1
-neuralnets
-fig:difftable1-fig

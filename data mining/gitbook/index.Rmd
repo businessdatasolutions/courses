@@ -44,9 +44,9 @@ After a successful completion of the course, a student:
 ## Structure of the course {-}
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
-weeknr <- c("1", "2-3", "4-5", "6-7")
-module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Kearning with Naive Bayes classification", "Neural Networks Basics")
-reading <- c("Provost / Fawcett Ch.3", "Provost / Fawcett Ch.6 + 7", "Provost / Fawcett Ch.9", "Lewis")
+weeknr <- c("2", "3-4", "5-6", "7")
+module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Kearning with Naive Bayes classification", "Toepassing Project")
+reading <- c("Provost / Fawcett Ch.3", "Provost / Fawcett Ch.6 + 7", "Provost / Fawcett Ch.9", "")
 headers <- c("Week nr.", "Module name", "Readings")
 programmeDF <- data.frame(weeknr, module, reading)
 colnames(programmeDF) <- headers

@@ -27,7 +27,7 @@ The dataset has `r dim(rawDF)[2]` variables (columns) and `r dim(rawDF)[1]` obse
 The variable `type` is of class `character`. As it indicates whether the message belongs to the category ham or spam we should convert it to a factor variable.
 
 ```{r}
-rawDF$type <- rawDF$type %>% factor
+rawDF$type <- rawDF$type %>% factor %>% relevel("spam")
 class(rawDF$type)
 ```
 
@@ -155,4 +155,6 @@ knitr::include_graphics(rep('images/diffusion.png'))
 
 1. *How would you assess the overall performance of the model?*
 3. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
+
+
 
