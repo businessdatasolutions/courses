@@ -142,7 +142,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
 <li class="chapter" data-level="1" data-path="dm.html"><a href="dm.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="dm.html"><a href="dm.html#working-with-rmarkdown"><i class="fa fa-check"></i><b>1.1</b> Working with RMarkdown</a></li>
 <li class="chapter" data-level="1.2" data-path="dm.html"><a href="dm.html#working-with-git-and-github"><i class="fa fa-check"></i><b>1.2</b> Working with Git and Github</a></li>
@@ -193,15 +192,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-understanding-1" class="section level2">
 <h2><span class="header-section-number">3.2</span> Data Understanding</h2>
 <p>The data we’ll use comes from the SMS Spam Collection <span class="citation">(“UCI Machine Learning Repository: SMS Spam Collection Data Set” <a href="#ref-noauthor_uci_spam_nodate" role="doc-biblioref">n.d.</a>)</span>. It contains a set SMS messages that are label ‘ham’ or ‘spam’. and is a standard data set for testing spam filtering methods.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="naivebayes.html#cb32-1"></a>url &lt;-<span class="st"> &quot;datasets/smsspam.csv&quot;</span></span>
-<span id="cb32-2"><a href="naivebayes.html#cb32-2"></a>rawDF &lt;-<span class="st"> </span><span class="kw">read_csv</span>(url)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="naivebayes.html#cb1-1"></a>url &lt;-<span class="st"> &quot;datasets/smsspam.csv&quot;</span></span>
+<span id="cb1-2"><a href="naivebayes.html#cb1-2"></a>rawDF &lt;-<span class="st"> </span><span class="kw">read_csv</span>(url)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
 ## cols(
 ##   type = col_character(),
 ##   text = col_character()
 ## )</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="naivebayes.html#cb34-1"></a><span class="kw">head</span>(rawDF)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="naivebayes.html#cb3-1"></a><span class="kw">head</span>(rawDF)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 2
 ##   type  text                                                                    
 ##   &lt;chr&gt; &lt;chr&gt;                                                                   
@@ -213,15 +212,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 6 spam  FreeMsg Hey there darling it&#39;s been 3 week&#39;s now and no word back! I&#39;d …</code></pre>
 <p>The dataset has 2 variables (columns) and 5572 observations (rows).</p>
 <p>The variable <code>type</code> is of class <code>character</code>. As it indicates whether the message belongs to the category ham or spam we should convert it to a factor variable.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="naivebayes.html#cb36-1"></a>rawDF<span class="op">$</span>type &lt;-<span class="st"> </span>rawDF<span class="op">$</span>type <span class="op">%&gt;%</span><span class="st"> </span>factor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">relevel</span>(<span class="st">&quot;spam&quot;</span>)</span>
-<span id="cb36-2"><a href="naivebayes.html#cb36-2"></a><span class="kw">class</span>(rawDF<span class="op">$</span>type)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="naivebayes.html#cb5-1"></a>rawDF<span class="op">$</span>type &lt;-<span class="st"> </span>rawDF<span class="op">$</span>type <span class="op">%&gt;%</span><span class="st"> </span>factor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">relevel</span>(<span class="st">&quot;spam&quot;</span>)</span>
+<span id="cb5-2"><a href="naivebayes.html#cb5-2"></a><span class="kw">class</span>(rawDF<span class="op">$</span>type)</span></code></pre></div>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <p>We can also visually inspect the data by creating wordclouds for each sms type.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="naivebayes.html#cb38-1"></a>spam &lt;-<span class="st"> </span>rawDF <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &quot;spam&quot;</span>)</span>
-<span id="cb38-2"><a href="naivebayes.html#cb38-2"></a>ham &lt;-<span class="st"> </span>rawDF <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &quot;ham&quot;</span>)</span>
-<span id="cb38-3"><a href="naivebayes.html#cb38-3"></a></span>
-<span id="cb38-4"><a href="naivebayes.html#cb38-4"></a><span class="kw">wordcloud</span>(spam<span class="op">$</span>text, <span class="dt">max.words =</span> <span class="dv">20</span>, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>), <span class="dt">colors=</span> <span class="kw">c</span>(<span class="st">&quot;indianred1&quot;</span>,<span class="st">&quot;indianred2&quot;</span>,<span class="st">&quot;indianred3&quot;</span>,<span class="st">&quot;indianred&quot;</span>))</span>
-<span id="cb38-5"><a href="naivebayes.html#cb38-5"></a><span class="kw">wordcloud</span>(ham<span class="op">$</span>text, <span class="dt">max.words =</span> <span class="dv">20</span>, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>), <span class="dt">colors=</span> <span class="kw">c</span>(<span class="st">&quot;lightsteelblue1&quot;</span>,<span class="st">&quot;lightsteelblue2&quot;</span>,<span class="st">&quot;lightsteelblue3&quot;</span>,<span class="st">&quot;lightsteelblue&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="naivebayes.html#cb7-1"></a>spam &lt;-<span class="st"> </span>rawDF <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &quot;spam&quot;</span>)</span>
+<span id="cb7-2"><a href="naivebayes.html#cb7-2"></a>ham &lt;-<span class="st"> </span>rawDF <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> &quot;ham&quot;</span>)</span>
+<span id="cb7-3"><a href="naivebayes.html#cb7-3"></a></span>
+<span id="cb7-4"><a href="naivebayes.html#cb7-4"></a><span class="kw">wordcloud</span>(spam<span class="op">$</span>text, <span class="dt">max.words =</span> <span class="dv">20</span>, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>), <span class="dt">colors=</span> <span class="kw">c</span>(<span class="st">&quot;indianred1&quot;</span>,<span class="st">&quot;indianred2&quot;</span>,<span class="st">&quot;indianred3&quot;</span>,<span class="st">&quot;indianred&quot;</span>))</span>
+<span id="cb7-5"><a href="naivebayes.html#cb7-5"></a><span class="kw">wordcloud</span>(ham<span class="op">$</span>text, <span class="dt">max.words =</span> <span class="dv">20</span>, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>), <span class="dt">colors=</span> <span class="kw">c</span>(<span class="st">&quot;lightsteelblue1&quot;</span>,<span class="st">&quot;lightsteelblue2&quot;</span>,<span class="st">&quot;lightsteelblue3&quot;</span>,<span class="st">&quot;lightsteelblue&quot;</span>))</span></code></pre></div>
 <p><img src="gitbook_files/figure-html/figures-side-1.png" width="50%" /><img src="gitbook_files/figure-html/figures-side-2.png" width="50%" />
 Question:</p>
 <ul>
@@ -231,8 +230,8 @@ Question:</p>
 <div id="preparation-1" class="section level2">
 <h2><span class="header-section-number">3.3</span> Preparation</h2>
 <p>First we need to create a corpus, which refers to a collection of text documents. In our case each sms is considered a text document. We’ll use the <code>Corpus()</code> function from the<code>tm</code> package.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="naivebayes.html#cb39-1"></a>rawCorpus &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(rawDF<span class="op">$</span>text))</span>
-<span id="cb39-2"><a href="naivebayes.html#cb39-2"></a><span class="kw">inspect</span>(rawCorpus[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="naivebayes.html#cb8-1"></a>rawCorpus &lt;-<span class="st"> </span><span class="kw">Corpus</span>(<span class="kw">VectorSource</span>(rawDF<span class="op">$</span>text))</span>
+<span id="cb8-2"><a href="naivebayes.html#cb8-2"></a><span class="kw">inspect</span>(rawCorpus[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
 <pre><code>## &lt;&lt;SimpleCorpus&gt;&gt;
 ## Metadata:  corpus specific: 1, document level (indexed): 0
 ## Content:  documents: 3
@@ -242,22 +241,22 @@ Question:</p>
 ## [3] Free entry in 2 a wkly comp to win FA Cup final tkts 21st May 2005. Text FA to 87121 to receive entry question(std txt rate)T&amp;C&#39;s apply 08452810075over18&#39;s</code></pre>
 <p>The corpus contains 5572 documents. Which obviously matches with the number of rows in our dataset.</p>
 <p>We will use the function <code>tm_map()</code> to do some first cleaning up. First we’ll change everything to lowercase. We’ll also remove numbers as these will contain litle information on a message being spam or not.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="naivebayes.html#cb41-1"></a>cleanCorpus &lt;-<span class="st"> </span>rawCorpus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(tolower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(removeNumbers)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="naivebayes.html#cb10-1"></a>cleanCorpus &lt;-<span class="st"> </span>rawCorpus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(tolower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(removeNumbers)</span></code></pre></div>
 <pre><code>## Warning in tm_map.SimpleCorpus(., tolower): transformation drops documents</code></pre>
 <pre><code>## Warning in tm_map.SimpleCorpus(., removeNumbers): transformation drops documents</code></pre>
 <p>For computation efficiency it is important to eliminate all items from a dataset of which you’re rather confident that they’ do’ll add little information to your model. In our case we can expect that words like “and” or “but” will be equally common in both ham and spam messages. We should therefore filter them out before we start modeling. We’ll also remove punctuation.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="naivebayes.html#cb44-1"></a>cleanCorpus &lt;-<span class="st"> </span>cleanCorpus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(tolower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(removeWords, <span class="kw">stopwords</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(removePunctuation)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="naivebayes.html#cb13-1"></a>cleanCorpus &lt;-<span class="st"> </span>cleanCorpus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(tolower) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(removeWords, <span class="kw">stopwords</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(removePunctuation)</span></code></pre></div>
 <pre><code>## Warning in tm_map.SimpleCorpus(., tolower): transformation drops documents</code></pre>
 <pre><code>## Warning in tm_map.SimpleCorpus(., removeWords, stopwords()): transformation
 ## drops documents</code></pre>
 <pre><code>## Warning in tm_map.SimpleCorpus(., removePunctuation): transformation drops
 ## documents</code></pre>
 <p>Now that we have removed certain items, the text lines contain a lot of whitespaces where these items used to be. In our last step we will remove additional whitespace.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="naivebayes.html#cb48-1"></a>cleanCorpus &lt;-<span class="st"> </span>cleanCorpus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(stripWhitespace)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="naivebayes.html#cb17-1"></a>cleanCorpus &lt;-<span class="st"> </span>cleanCorpus <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tm_map</span>(stripWhitespace)</span></code></pre></div>
 <pre><code>## Warning in tm_map.SimpleCorpus(., stripWhitespace): transformation drops
 ## documents</code></pre>
 <p>Let’s inspect the corpus again. Compare it to the raw version.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="naivebayes.html#cb50-1"></a><span class="kw">tibble</span>(<span class="dt">Raw =</span> rawCorpus<span class="op">$</span>content[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">Clean =</span> cleanCorpus<span class="op">$</span>content[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="naivebayes.html#cb19-1"></a><span class="kw">tibble</span>(<span class="dt">Raw =</span> rawCorpus<span class="op">$</span>content[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">Clean =</span> cleanCorpus<span class="op">$</span>content[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</span></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   Raw                                     Clean                                 
 ##   &lt;chr&gt;                                   &lt;chr&gt;                                 
@@ -265,8 +264,8 @@ Question:</p>
 ## 2 Ok lar... Joking wif u oni...           ok lar joking wif u oni               
 ## 3 Free entry in 2 a wkly comp to win FA … free entry wkly comp win fa cup final…</code></pre>
 <p>Now that we have cleaned up the texts, we are going to transform the messages to a matrix. Each word in the each message will get its own column, each row will be a message and the cells of the matrix will contain a word count.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="naivebayes.html#cb52-1"></a>cleanDTM &lt;-<span class="st"> </span>cleanCorpus <span class="op">%&gt;%</span><span class="st"> </span>DocumentTermMatrix</span>
-<span id="cb52-2"><a href="naivebayes.html#cb52-2"></a><span class="kw">inspect</span>(cleanDTM)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="naivebayes.html#cb21-1"></a>cleanDTM &lt;-<span class="st"> </span>cleanCorpus <span class="op">%&gt;%</span><span class="st"> </span>DocumentTermMatrix</span>
+<span id="cb21-2"><a href="naivebayes.html#cb21-2"></a><span class="kw">inspect</span>(cleanDTM)</span></code></pre></div>
 <pre><code>## &lt;&lt;DocumentTermMatrix (documents: 5572, terms: 7829)&gt;&gt;
 ## Non-/sparse entries: 42822/43580366
 ## Sparsity           : 100%
@@ -286,12 +285,12 @@ Question:</p>
 ##   3016    0   0    0   0    0    0    0    2   0    0
 ##   5105    0   0    1   0    0    0    1    0   0    0</code></pre>
 <p>Before we start modeling we need to split all datasets into train and test sets. For this we will use a function from the <code>caret</code> package. The function <code>createDataPartition()</code> can be used to create balanced splits of the data. If the y argument to this function is a factor, the random sampling occurs within each class and should preserve the overall class distribution of the data. In this case we’ll create a 75/25% split.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="naivebayes.html#cb54-1"></a><span class="co"># Create split indices</span></span>
-<span id="cb54-2"><a href="naivebayes.html#cb54-2"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb54-3"><a href="naivebayes.html#cb54-3"></a>trainIndex &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(rawDF<span class="op">$</span>type, <span class="dt">p =</span> <span class="fl">.75</span>, </span>
-<span id="cb54-4"><a href="naivebayes.html#cb54-4"></a>                                  <span class="dt">list =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb54-5"><a href="naivebayes.html#cb54-5"></a>                                  <span class="dt">times =</span> <span class="dv">1</span>)</span>
-<span id="cb54-6"><a href="naivebayes.html#cb54-6"></a><span class="kw">head</span>(trainIndex)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="naivebayes.html#cb23-1"></a><span class="co"># Create split indices</span></span>
+<span id="cb23-2"><a href="naivebayes.html#cb23-2"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb23-3"><a href="naivebayes.html#cb23-3"></a>trainIndex &lt;-<span class="st"> </span><span class="kw">createDataPartition</span>(rawDF<span class="op">$</span>type, <span class="dt">p =</span> <span class="fl">.75</span>, </span>
+<span id="cb23-4"><a href="naivebayes.html#cb23-4"></a>                                  <span class="dt">list =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb23-5"><a href="naivebayes.html#cb23-5"></a>                                  <span class="dt">times =</span> <span class="dv">1</span>)</span>
+<span id="cb23-6"><a href="naivebayes.html#cb23-6"></a><span class="kw">head</span>(trainIndex)</span></code></pre></div>
 <pre><code>##      Resample1
 ## [1,]         3
 ## [2,]         4
@@ -299,36 +298,36 @@ Question:</p>
 ## [4,]         6
 ## [5,]         7
 ## [6,]        10</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="naivebayes.html#cb56-1"></a><span class="co"># Apply split indices to DF</span></span>
-<span id="cb56-2"><a href="naivebayes.html#cb56-2"></a>trainDF &lt;-<span class="st"> </span>rawDF[trainIndex, ]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="naivebayes.html#cb25-1"></a><span class="co"># Apply split indices to DF</span></span>
+<span id="cb25-2"><a href="naivebayes.html#cb25-2"></a>trainDF &lt;-<span class="st"> </span>rawDF[trainIndex, ]</span></code></pre></div>
 <pre><code>## Warning: The `i` argument of ``[`()` can&#39;t be a matrix as of tibble 3.0.0.
 ## Convert to a vector.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="naivebayes.html#cb58-1"></a>testDF &lt;-<span class="st"> </span>rawDF[<span class="op">-</span>trainIndex, ]</span>
-<span id="cb58-2"><a href="naivebayes.html#cb58-2"></a></span>
-<span id="cb58-3"><a href="naivebayes.html#cb58-3"></a><span class="co"># Apply split indices to Corpus</span></span>
-<span id="cb58-4"><a href="naivebayes.html#cb58-4"></a>trainCorpus &lt;-<span class="st"> </span>cleanCorpus[trainIndex]</span>
-<span id="cb58-5"><a href="naivebayes.html#cb58-5"></a>testCorpus &lt;-<span class="st"> </span>cleanCorpus[<span class="op">-</span>trainIndex]</span>
-<span id="cb58-6"><a href="naivebayes.html#cb58-6"></a></span>
-<span id="cb58-7"><a href="naivebayes.html#cb58-7"></a><span class="co"># Apply split indices to DTM</span></span>
-<span id="cb58-8"><a href="naivebayes.html#cb58-8"></a>trainDTM &lt;-<span class="st"> </span>cleanDTM[trainIndex, ]</span>
-<span id="cb58-9"><a href="naivebayes.html#cb58-9"></a>testDTM &lt;-<span class="st"> </span>cleanDTM[<span class="op">-</span>trainIndex, ]</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="naivebayes.html#cb27-1"></a>testDF &lt;-<span class="st"> </span>rawDF[<span class="op">-</span>trainIndex, ]</span>
+<span id="cb27-2"><a href="naivebayes.html#cb27-2"></a></span>
+<span id="cb27-3"><a href="naivebayes.html#cb27-3"></a><span class="co"># Apply split indices to Corpus</span></span>
+<span id="cb27-4"><a href="naivebayes.html#cb27-4"></a>trainCorpus &lt;-<span class="st"> </span>cleanCorpus[trainIndex]</span>
+<span id="cb27-5"><a href="naivebayes.html#cb27-5"></a>testCorpus &lt;-<span class="st"> </span>cleanCorpus[<span class="op">-</span>trainIndex]</span>
+<span id="cb27-6"><a href="naivebayes.html#cb27-6"></a></span>
+<span id="cb27-7"><a href="naivebayes.html#cb27-7"></a><span class="co"># Apply split indices to DTM</span></span>
+<span id="cb27-8"><a href="naivebayes.html#cb27-8"></a>trainDTM &lt;-<span class="st"> </span>cleanDTM[trainIndex, ]</span>
+<span id="cb27-9"><a href="naivebayes.html#cb27-9"></a>testDTM &lt;-<span class="st"> </span>cleanDTM[<span class="op">-</span>trainIndex, ]</span></code></pre></div>
 <p>As you can check (how?) the DTM has almost 7800 features. Remember that each feature in the DTM is a word. Some words will have very few counts and therefore will have limited predictive power. To save on computation time we will eliminate words with low frequencies.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="naivebayes.html#cb59-1"></a>freqWords &lt;-<span class="st"> </span>trainDTM <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">findFreqTerms</span>(<span class="dv">5</span>)</span>
-<span id="cb59-2"><a href="naivebayes.html#cb59-2"></a>trainDTM &lt;-<span class="st">  </span><span class="kw">DocumentTermMatrix</span>(trainCorpus, <span class="kw">list</span>(<span class="dt">dictionary =</span> freqWords))</span>
-<span id="cb59-3"><a href="naivebayes.html#cb59-3"></a>testDTM &lt;-<span class="st">  </span><span class="kw">DocumentTermMatrix</span>(testCorpus, <span class="kw">list</span>(<span class="dt">dictionary =</span> freqWords))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="naivebayes.html#cb28-1"></a>freqWords &lt;-<span class="st"> </span>trainDTM <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">findFreqTerms</span>(<span class="dv">5</span>)</span>
+<span id="cb28-2"><a href="naivebayes.html#cb28-2"></a>trainDTM &lt;-<span class="st">  </span><span class="kw">DocumentTermMatrix</span>(trainCorpus, <span class="kw">list</span>(<span class="dt">dictionary =</span> freqWords))</span>
+<span id="cb28-3"><a href="naivebayes.html#cb28-3"></a>testDTM &lt;-<span class="st">  </span><span class="kw">DocumentTermMatrix</span>(testCorpus, <span class="kw">list</span>(<span class="dt">dictionary =</span> freqWords))</span></code></pre></div>
 <p>With this operation we’ve reduced the number of features to around 1200.</p>
 <p>Another issue is that the Naive Bayes classifier is typically trained on categorical features. We now have numerical matrix with word counts. We will transform the counts into a factor that simply indicates whether the word appears in the document or not. We’ll first build our own function for this and then apply it to each column in the DTM.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="naivebayes.html#cb60-1"></a>convert_counts &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb60-2"><a href="naivebayes.html#cb60-2"></a>  x &lt;-<span class="st"> </span><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>))</span>
-<span id="cb60-3"><a href="naivebayes.html#cb60-3"></a>}</span>
-<span id="cb60-4"><a href="naivebayes.html#cb60-4"></a></span>
-<span id="cb60-5"><a href="naivebayes.html#cb60-5"></a>nColsDTM &lt;-<span class="st"> </span><span class="kw">dim</span>(trainDTM)[<span class="dv">2</span>]</span>
-<span id="cb60-6"><a href="naivebayes.html#cb60-6"></a>trainDTM &lt;-<span class="st"> </span><span class="kw">apply</span>(trainDTM, <span class="dt">MARGIN =</span> <span class="dv">2</span>, convert_counts)</span>
-<span id="cb60-7"><a href="naivebayes.html#cb60-7"></a>testDTM &lt;-<span class="st"> </span><span class="kw">apply</span>(testDTM, <span class="dt">MARGIN =</span> <span class="dv">2</span>, convert_counts)</span>
-<span id="cb60-8"><a href="naivebayes.html#cb60-8"></a></span>
-<span id="cb60-9"><a href="naivebayes.html#cb60-9"></a><span class="kw">head</span>(trainDTM[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="naivebayes.html#cb29-1"></a>convert_counts &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb29-2"><a href="naivebayes.html#cb29-2"></a>  x &lt;-<span class="st"> </span><span class="kw">ifelse</span>(x <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>))</span>
+<span id="cb29-3"><a href="naivebayes.html#cb29-3"></a>}</span>
+<span id="cb29-4"><a href="naivebayes.html#cb29-4"></a></span>
+<span id="cb29-5"><a href="naivebayes.html#cb29-5"></a>nColsDTM &lt;-<span class="st"> </span><span class="kw">dim</span>(trainDTM)[<span class="dv">2</span>]</span>
+<span id="cb29-6"><a href="naivebayes.html#cb29-6"></a>trainDTM &lt;-<span class="st"> </span><span class="kw">apply</span>(trainDTM, <span class="dt">MARGIN =</span> <span class="dv">2</span>, convert_counts)</span>
+<span id="cb29-7"><a href="naivebayes.html#cb29-7"></a>testDTM &lt;-<span class="st"> </span><span class="kw">apply</span>(testDTM, <span class="dt">MARGIN =</span> <span class="dv">2</span>, convert_counts)</span>
+<span id="cb29-8"><a href="naivebayes.html#cb29-8"></a></span>
+<span id="cb29-9"><a href="naivebayes.html#cb29-9"></a><span class="kw">head</span>(trainDTM[,<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span></code></pre></div>
 <pre><code>##     Terms
 ## Docs apply comp  cup   entry final free  may   receive text  txt  
 ##    1 &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot;   &quot;Yes&quot; &quot;Yes&quot;
@@ -340,9 +339,9 @@ Question:</p>
 </div>
 <div id="modeling-1" class="section level2">
 <h2><span class="header-section-number">3.4</span> Modeling</h2>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="naivebayes.html#cb62-1"></a>nbayesModel &lt;-<span class="st">  </span><span class="kw">naiveBayes</span>(trainDTM, trainDF<span class="op">$</span>type, <span class="dt">laplace =</span> <span class="dv">1</span>)</span>
-<span id="cb62-2"><a href="naivebayes.html#cb62-2"></a>predVec &lt;-<span class="st"> </span><span class="kw">predict</span>(nbayesModel, testDTM)</span></code></pre></div>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="naivebayes.html#cb63-1"></a><span class="kw">confusionMatrix</span>(predVec, testDF<span class="op">$</span>type, <span class="dt">positive =</span> <span class="st">&quot;spam&quot;</span>, <span class="dt">dnn =</span> <span class="kw">c</span>(<span class="st">&quot;Prediction&quot;</span>, <span class="st">&quot;True&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="naivebayes.html#cb31-1"></a>nbayesModel &lt;-<span class="st">  </span><span class="kw">naiveBayes</span>(trainDTM, trainDF<span class="op">$</span>type, <span class="dt">laplace =</span> <span class="dv">1</span>)</span>
+<span id="cb31-2"><a href="naivebayes.html#cb31-2"></a>predVec &lt;-<span class="st"> </span><span class="kw">predict</span>(nbayesModel, testDTM)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="naivebayes.html#cb32-1"></a><span class="kw">confusionMatrix</span>(predVec, testDF<span class="op">$</span>type, <span class="dt">positive =</span> <span class="st">&quot;spam&quot;</span>, <span class="dt">dnn =</span> <span class="kw">c</span>(<span class="st">&quot;Prediction&quot;</span>, <span class="st">&quot;True&quot;</span>))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           True
