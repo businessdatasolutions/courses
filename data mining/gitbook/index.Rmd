@@ -57,7 +57,7 @@ knitr::kable(
 )
 ```
 
-The program has been divided into three blocks, each covering two weeks. During each block you'll be working individually on a case study. Through the whole of the program you'll be cooperating within a team where you will combine and compare the results of the different case studies. At the end of the course you will present with your team what you have learned from analyzing and comparing the different case studies.
+Through the whole of the program you'll be cooperating within a team where you will combine and compare the results of the different case studies. At the end of the course you will present with your team what you have learned from analyzing and comparing the different case studies.
 
 # About the author {-}
 
