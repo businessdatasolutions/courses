@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2021-01-13" />
+<meta name="date" content="2021-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,15 +152,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="knn.html"><a href="knn.html#business-case-diagnosing-breast-cancer"><i class="fa fa-check"></i><b>2.1</b> Business Case: Diagnosing Breast Cancer</a></li>
 <li class="chapter" data-level="2.2" data-path="knn.html"><a href="knn.html#data-understanding"><i class="fa fa-check"></i><b>2.2</b> Data Understanding</a></li>
 <li class="chapter" data-level="2.3" data-path="knn.html"><a href="knn.html#preparation"><i class="fa fa-check"></i><b>2.3</b> Preparation</a></li>
-<li class="chapter" data-level="2.4" data-path="knn.html"><a href="knn.html#modeling"><i class="fa fa-check"></i><b>2.4</b> Modeling</a></li>
-<li class="chapter" data-level="2.5" data-path="knn.html"><a href="knn.html#evaluation"><i class="fa fa-check"></i><b>2.5</b> Evaluation</a></li>
+<li class="chapter" data-level="2.4" data-path="knn.html"><a href="knn.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.4</b> Modeling and Evaluation</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="naivebayes.html"><a href="naivebayes.html"><i class="fa fa-check"></i><b>3</b> Probabilistic Learning with Naive Bayes Classification</a><ul>
 <li class="chapter" data-level="3.1" data-path="naivebayes.html"><a href="naivebayes.html#business-case-filtering-spam"><i class="fa fa-check"></i><b>3.1</b> Business Case: Filtering Spam</a></li>
 <li class="chapter" data-level="3.2" data-path="naivebayes.html"><a href="naivebayes.html#data-understanding-1"><i class="fa fa-check"></i><b>3.2</b> Data Understanding</a></li>
 <li class="chapter" data-level="3.3" data-path="naivebayes.html"><a href="naivebayes.html#preparation-1"><i class="fa fa-check"></i><b>3.3</b> Preparation</a></li>
-<li class="chapter" data-level="3.4" data-path="naivebayes.html"><a href="naivebayes.html#modeling-1"><i class="fa fa-check"></i><b>3.4</b> Modeling</a></li>
-<li class="chapter" data-level="3.5" data-path="naivebayes.html"><a href="naivebayes.html#evaluation-1"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
+<li class="chapter" data-level="3.4" data-path="naivebayes.html"><a href="naivebayes.html#modeling-and-evaluation-1"><i class="fa fa-check"></i><b>3.4</b> Modeling and Evaluation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -383,16 +381,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-2"><a href="knn.html#cb26-2"></a>testDF_labels &lt;-<span class="st"> </span>cleanDF[<span class="dv">470</span><span class="op">:</span><span class="dv">569</span>,  <span class="dv">1</span>]</span></code></pre></div>
 <p>Now we can train and evaluate our kNN model.</p>
 </div>
-<div id="modeling" class="section level2">
-<h2><span class="header-section-number">2.4</span> Modeling</h2>
+<div id="modeling-and-evaluation" class="section level2">
+<h2><span class="header-section-number">2.4</span> Modeling and Evaluation</h2>
 <p>To train the knn model we only need one single function from the <code>class</code> package. It takes the set with training features and the set with training label. The trained model is applied to the set with test features and the function gives back a set of predictions.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="knn.html#cb27-1"></a>cleanDF_test_pred &lt;-<span class="st"> </span><span class="kw">knn</span>(<span class="dt">train =</span> <span class="kw">as.matrix</span>(trainDF_feat), <span class="dt">test =</span> <span class="kw">as.matrix</span>(testDF_feat), <span class="dt">cl =</span> <span class="kw">as.matrix</span>(trainDF_labels), <span class="dt">k =</span> <span class="dv">21</span>)</span>
 <span id="cb27-2"><a href="knn.html#cb27-2"></a><span class="kw">head</span>(cleanDF_test_pred)</span></code></pre></div>
 <pre><code>## [1] Benign    Benign    Benign    Benign    Malignant Benign   
 ## Levels: Benign Malignant</code></pre>
-</div>
-<div id="evaluation" class="section level2">
-<h2><span class="header-section-number">2.5</span> Evaluation</h2>
 <p>Now that we have a set of predicted labels we can compare these with the actual labels. A diffusion table shows how well the model performed.</p>
 <div class="figure" style="text-align: center"><span id="fig:difftable-fig"></span>
 <img src="images/diffusion.png" alt="Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg" width="80%" />

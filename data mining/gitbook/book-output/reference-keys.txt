@@ -10,11 +10,9 @@ knn
 business-case-diagnosing-breast-cancer
 data-understanding
 preparation
-modeling
-evaluation
+modeling-and-evaluation
 naivebayes
 business-case-filtering-spam
 data-understanding-1
 preparation-1
-modeling-1
-evaluation-1
+modeling-and-evaluation-1

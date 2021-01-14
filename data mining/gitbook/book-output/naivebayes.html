@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2021-01-13" />
+<meta name="date" content="2021-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,15 +152,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="knn.html"><a href="knn.html#business-case-diagnosing-breast-cancer"><i class="fa fa-check"></i><b>2.1</b> Business Case: Diagnosing Breast Cancer</a></li>
 <li class="chapter" data-level="2.2" data-path="knn.html"><a href="knn.html#data-understanding"><i class="fa fa-check"></i><b>2.2</b> Data Understanding</a></li>
 <li class="chapter" data-level="2.3" data-path="knn.html"><a href="knn.html#preparation"><i class="fa fa-check"></i><b>2.3</b> Preparation</a></li>
-<li class="chapter" data-level="2.4" data-path="knn.html"><a href="knn.html#modeling"><i class="fa fa-check"></i><b>2.4</b> Modeling</a></li>
-<li class="chapter" data-level="2.5" data-path="knn.html"><a href="knn.html#evaluation"><i class="fa fa-check"></i><b>2.5</b> Evaluation</a></li>
+<li class="chapter" data-level="2.4" data-path="knn.html"><a href="knn.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.4</b> Modeling and Evaluation</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="naivebayes.html"><a href="naivebayes.html"><i class="fa fa-check"></i><b>3</b> Probabilistic Learning with Naive Bayes Classification</a><ul>
 <li class="chapter" data-level="3.1" data-path="naivebayes.html"><a href="naivebayes.html#business-case-filtering-spam"><i class="fa fa-check"></i><b>3.1</b> Business Case: Filtering Spam</a></li>
 <li class="chapter" data-level="3.2" data-path="naivebayes.html"><a href="naivebayes.html#data-understanding-1"><i class="fa fa-check"></i><b>3.2</b> Data Understanding</a></li>
 <li class="chapter" data-level="3.3" data-path="naivebayes.html"><a href="naivebayes.html#preparation-1"><i class="fa fa-check"></i><b>3.3</b> Preparation</a></li>
-<li class="chapter" data-level="3.4" data-path="naivebayes.html"><a href="naivebayes.html#modeling-1"><i class="fa fa-check"></i><b>3.4</b> Modeling</a></li>
-<li class="chapter" data-level="3.5" data-path="naivebayes.html"><a href="naivebayes.html#evaluation-1"><i class="fa fa-check"></i><b>3.5</b> Evaluation</a></li>
+<li class="chapter" data-level="3.4" data-path="naivebayes.html"><a href="naivebayes.html#modeling-and-evaluation-1"><i class="fa fa-check"></i><b>3.4</b> Modeling and Evaluation</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -223,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-4"><a href="naivebayes.html#cb38-4"></a><span class="kw">wordcloud</span>(spam<span class="op">$</span>text, <span class="dt">max.words =</span> <span class="dv">20</span>, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>), <span class="dt">colors=</span> <span class="kw">c</span>(<span class="st">&quot;indianred1&quot;</span>,<span class="st">&quot;indianred2&quot;</span>,<span class="st">&quot;indianred3&quot;</span>,<span class="st">&quot;indianred&quot;</span>))</span>
 <span id="cb38-5"><a href="naivebayes.html#cb38-5"></a><span class="kw">wordcloud</span>(ham<span class="op">$</span>text, <span class="dt">max.words =</span> <span class="dv">20</span>, <span class="dt">scale =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="fl">0.8</span>), <span class="dt">colors=</span> <span class="kw">c</span>(<span class="st">&quot;lightsteelblue1&quot;</span>,<span class="st">&quot;lightsteelblue2&quot;</span>,<span class="st">&quot;lightsteelblue3&quot;</span>,<span class="st">&quot;lightsteelblue&quot;</span>))</span></code></pre></div>
 <p><img src="gitbook_files/figure-html/figures-side-1.png" width="50%" /><img src="gitbook_files/figure-html/figures-side-2.png" width="50%" />
-Question:</p>
+<strong>Question:</strong></p>
 <ul>
 <li><em>What differences do you notice?</em></li>
 </ul>
@@ -338,11 +336,19 @@ Question:</p>
 ##    5 &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;    &quot;No&quot;  &quot;No&quot; 
 ##    6 &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;No&quot;  &quot;Yes&quot; &quot;No&quot;  &quot;No&quot;    &quot;No&quot;  &quot;No&quot;</code></pre>
 </div>
-<div id="modeling-1" class="section level2">
-<h2><span class="header-section-number">3.4</span> Modeling</h2>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="naivebayes.html#cb62-1"></a>nbayesModel &lt;-<span class="st">  </span><span class="kw">naiveBayes</span>(trainDTM, trainDF<span class="op">$</span>type, <span class="dt">laplace =</span> <span class="dv">1</span>)</span>
-<span id="cb62-2"><a href="naivebayes.html#cb62-2"></a>predVec &lt;-<span class="st"> </span><span class="kw">predict</span>(nbayesModel, testDTM)</span></code></pre></div>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="naivebayes.html#cb63-1"></a><span class="kw">confusionMatrix</span>(predVec, testDF<span class="op">$</span>type, <span class="dt">positive =</span> <span class="st">&quot;spam&quot;</span>, <span class="dt">dnn =</span> <span class="kw">c</span>(<span class="st">&quot;Prediction&quot;</span>, <span class="st">&quot;True&quot;</span>))</span></code></pre></div>
+<div id="modeling-and-evaluation-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Modeling and Evaluation</h2>
+<p>We have now everything in place to start training our model and evaluate against our test dataset. The <code>naiveBayes()</code> function is part of the <code>e1071</code> package. It takes in the features and labels of our training dataset and returns a trained model.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="naivebayes.html#cb62-1"></a>nbayesModel &lt;-<span class="st">  </span><span class="kw">naiveBayes</span>(trainDTM, trainDF<span class="op">$</span>type, <span class="dt">laplace =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>The model van be applied to the test features using the <code>predict()</code> funtion which generates a vector of predictions. Using a confusion matrix we can analyze the performance of our model.</p>
+<div class="figure" style="text-align: center"><span id="fig:difftable1-fig"></span>
+<img src="images/diffusion.png" alt="Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg" width="80%" />
+<p class="caption">
+Figure 3.1: Standard diffusion table. Taken from: <a href="https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg" class="uri">https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg</a>
+</p>
+</div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="naivebayes.html#cb63-1"></a>predVec &lt;-<span class="st"> </span><span class="kw">predict</span>(nbayesModel, testDTM)</span>
+<span id="cb63-2"><a href="naivebayes.html#cb63-2"></a><span class="kw">confusionMatrix</span>(predVec, testDF<span class="op">$</span>type, <span class="dt">positive =</span> <span class="st">&quot;spam&quot;</span>, <span class="dt">dnn =</span> <span class="kw">c</span>(<span class="st">&quot;Prediction&quot;</span>, <span class="st">&quot;True&quot;</span>))</span></code></pre></div>
 <pre><code>## Confusion Matrix and Statistics
 ## 
 ##           True
@@ -370,17 +376,9 @@ Question:</p>
 ##                                         
 ##        &#39;Positive&#39; Class : spam          
 ## </code></pre>
-</div>
-<div id="evaluation-1" class="section level2">
-<h2><span class="header-section-number">3.5</span> Evaluation</h2>
-<div class="figure" style="text-align: center"><span id="fig:difftable1-fig"></span>
-<img src="images/diffusion.png" alt="Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg" width="80%" />
-<p class="caption">
-Figure 3.1: Standard diffusion table. Taken from: <a href="https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg" class="uri">https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg</a>
-</p>
-</div>
 <p><strong>Questions:</strong></p>
 <ol style="list-style-type: decimal">
+<li><em>What do you think is the role of the <code>laplace</code> parameter in the <code>naiveBayes()</code> function?</em></li>
 <li><em>How would you assess the overall performance of the model?</em></li>
 <li><em>What would you consider as more costly: high false negatives or high false positives levels? Why?</em></li>
 </ol>

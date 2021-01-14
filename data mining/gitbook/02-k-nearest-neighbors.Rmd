@@ -109,7 +109,7 @@ testDF_labels <- cleanDF[470:569,  1]
 
 Now we can train and evaluate our kNN model.
 
-## Modeling
+## Modeling and Evaluation
 
 To train the knn model we only need one single function from the `class` package. It takes the set with training features and the set with training label. The trained model is applied to the set with test features and the function gives back a set of predictions.
 
@@ -117,8 +117,6 @@ To train the knn model we only need one single function from the `class` package
 cleanDF_test_pred <- knn(train = as.matrix(trainDF_feat), test = as.matrix(testDF_feat), cl = as.matrix(trainDF_labels), k = 21)
 head(cleanDF_test_pred)
 ```
-
-## Evaluation
 
 Now that we have a set of predicted labels we can compare these with the actual labels. A diffusion table shows how well the model performed.
 

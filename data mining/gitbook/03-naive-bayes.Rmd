@@ -40,7 +40,7 @@ ham <- rawDF %>% filter(type == "ham")
 wordcloud(spam$text, max.words = 20, scale = c(4, 0.8), colors= c("indianred1","indianred2","indianred3","indianred"))
 wordcloud(ham$text, max.words = 20, scale = c(4, 0.8), colors= c("lightsteelblue1","lightsteelblue2","lightsteelblue3","lightsteelblue"))
 ```
-Question:
+**Question:**
 
 * *What differences do you notice?*
 
@@ -131,29 +131,29 @@ head(trainDTM[,1:10])
 ```
 
 
+## Modeling and Evaluation
 
-
-## Modeling
+We have now everything in place to start training our model and evaluate against our test dataset. The `naiveBayes()` function is part of the `e1071` package. It takes in the features and labels of our training dataset and returns a trained model.
 
 ```{r}
 nbayesModel <-  naiveBayes(trainDTM, trainDF$type, laplace = 1)
-predVec <- predict(nbayesModel, testDTM)
 ```
 
-```{r}
-confusionMatrix(predVec, testDF$type, positive = "spam", dnn = c("Prediction", "True"))
-```
+The model van be applied to the test features using the `predict()` funtion which generates a vector of predictions. Using a confusion matrix we can analyze the performance of our model.
 
-
-
-## Evaluation
 ```{r difftable1-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics(rep('images/diffusion.png'))
 ```
 
+```{r}
+predVec <- predict(nbayesModel, testDTM)
+confusionMatrix(predVec, testDF$type, positive = "spam", dnn = c("Prediction", "True"))
+```
+
 **Questions:** 
 
-1. *How would you assess the overall performance of the model?*
+1. *What do you think is the role of the `laplace` parameter in the `naiveBayes()` function?*
+2. *How would you assess the overall performance of the model?*
 3. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
 
 
