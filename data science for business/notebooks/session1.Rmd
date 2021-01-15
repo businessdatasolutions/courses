@@ -17,7 +17,7 @@ Gebruik hiervoor de standaard functies in R: `mean()`, `sd()` en `cor()`.
 ```{r}
 
 ## Vul het nummer van de dataset in die je toegewezen is. Bijvoorbeeld: 8
-setNr <- 11
+setNr <- 8
 
 ## Data inlezen - Hier niks aanpassen!
 myDF <- readRDS("session1.rds")[[setNr]]$data
@@ -33,3 +33,4 @@ y <- myDF$y
 
 ```
 Vergelijk jouw uitkomsten met die van andere studenten en beschrijf in hoeverre je verwacht dat de sample uit dezelfde populatie (bijvoorbeeld een productieproces) is genomen.
+

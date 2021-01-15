@@ -1771,19 +1771,19 @@ summary {
 <p>Gebruik hiervoor de standaard functies in R: <code>mean()</code>, <code>sd()</code> en <code>cor()</code>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIyBWdWwgaGV0IG51bW1lciB2YW4gZGUgZGF0YXNldCBpbiBkaWUgamUgdG9lZ2V3ZXplbiBpcy4gQmlqdm9vcmJlZWxkOiA4XG5zZXROciA8LSAxMVxuXG4jIyBEYXRhIGlubGV6ZW4gLSBIaWVyIG5pa3MgYWFucGFzc2VuIVxubXlERiA8LSByZWFkUkRTKFwic2Vzc2lvbjEucmRzXCIpW1tzZXROcl1dJGRhdGFcbmhlYWQobXlERilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jIyBWdWwgaGV0IG51bW1lciB2YW4gZGUgZGF0YXNldCBpbiBkaWUgamUgdG9lZ2V3ZXplbiBpcy4gQmlqdm9vcmJlZWxkOiA4XG5zZXROciA8LSA4XG5cbiMjIERhdGEgaW5sZXplbiAtIEhpZXIgbmlrcyBhYW5wYXNzZW4hXG5teURGIDwtIHJlYWRSRFMoXCJzZXNzaW9uMS5yZHNcIilbW3NldE5yXV0kZGF0YVxuaGVhZChteURGKVxuYGBgIn0= -->
 <pre class="r"><code>
 ## Vul het nummer van de dataset in die je toegewezen is. Bijvoorbeeld: 8
-setNr &lt;- 11
+setNr &lt;- 8
 
 ## Data inlezen - Hier niks aanpassen!
 myDF &lt;- readRDS(&quot;session1.rds&quot;)[[setNr]]$data
 head(myDF)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERtaXVCaVlHQmdabUFCWW1aV0lKT0JOVFRFVGRlQ2dZR0ZDY2hoQkVwd2d1Z0tvQ0poSUFNa3lBZkViQTZDL1Z5OHl6YlpPZ2d1OEZ5NWoyMjJnK0JURHlucDhPY09RcEpzN3hKREhqb0lXYmVwOWY5dGR4QnFhSm4yMXU4K1RKLzkxNlF2TTB5aW0rMi9IbllzajFWbXN2K21FSndkVXZYRS9sdGRKVFBiRHduN2IzdHQ5dForazdYL2JuWEVLUHRUTUpwRFdQTVNjMU9MZ1F3QnNHUGdyb015S3RHVWN4YmxsK3ZCdFBDQ3REUXdnQUVidXJuSk9ZbkZNSE5oZ2x3cGlTV0plbWxGUVAxQTNqODBMZXo1QlNXWitYbEFUVXlna0dGRjA4eFloQ2JBWDVvSGNrbUtibkpHYVY2MnJpSElBckEwQlBOQ2FUWWtOaFBFU3FiL1VLTllvVWF4cGVhbForYWx3dHllazVpVW1nUGw4QUY5RFBhd1hrRlJabDRKekNkQTBXSzlrdnlTUkpnNnJ1VDhISmdJMkc4TS93QnNWY3ZtRUFJQUFBPT0ifQ== -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6NiwibmNvbCI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUF3dHlpVERtaXVCaVlHQmdabUFCWW1aV0lKT0JOVFRFVGRlQ2dZR0ZDY2hoQkVwd2d1Z0tvQ0poSUFNa3lBZkViQTdTSDJ5bXRwV1dPOGlJSGlnNW4yM3FJT1BINXJ6bjluVUhtWVFUeG9saEd4MVVoV2RKaUo3YzdxRHFmZjg1czVVZlhCOTNuUHJFbHBuTEhiZzlLK04yTGVkeDRQYlpwajhsdE4yQnUvZzJ1L1hKQkFlZTBDbFBUU2ZPY2VDUlZ6ZTd1VGdkelNHc2VZbTVxY1ZBaGdEWU1YRFhRUm1WYU1vNWkvTEw5V0JhZUVGYUdoakFnQTNkM09TY3hHS1l1VEJCcnBURWtrUzl0Q0tnZmlEdkg1b1c5dnlDa3N6OFBLQW1KbERJc0tKcFppeENFK0F2elFPNUpFVTNPYU0wTDF2WEVHUUJXQnFDZWFFMEd4S2JDV0lsMDMrb1VheFFvOWhTODlJejgxSmhiczlKVEVyTmdYTDRnRDRHZTFpdm9DZ3pyd1RtRTZCb3NWNUpma2tpVEIxWGNuNE9UQVRzTjRaL0FIcTNGZDBRQWdBQSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["x"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"4.389687","2":"1.336659","_rn_":"1"},{"1":"4.406531","2":"1.360170","_rn_":"2"},{"1":"4.473908","2":"1.382892","_rn_":"3"},{"1":"4.524441","2":"1.405877","_rn_":"4"},{"1":"4.558129","2":"1.421201","_rn_":"5"},{"1":"4.625506","2":"1.451847","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["x"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["y"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"6.984606","2":"3.420974","_rn_":"1"},{"1":"7.021242","2":"3.410876","_rn_":"2"},{"1":"7.076196","2":"3.412457","_rn_":"3"},{"1":"7.094514","2":"3.431570","_rn_":"4"},{"1":"10.538285","2":"3.541788","_rn_":"5"},{"1":"10.648193","2":"3.515212","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
   </script>
 </div>
 <!-- rnb-frame-end -->
@@ -1803,7 +1803,7 @@ y &lt;- myDF$y
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiU2Vzc2lvbiAxIC0gSG9tZXdvcmsiCnN1YnRpdGxlOiBEYXRhIFVuZGVyc3RhbmRpbmcKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyMgT3BkcmFjaHQKCkJlcmVrZW4gdm9vciBkZSBnZWtvemVuIGRhdGFzZXQgZGUgdm9sZ2VuZGUgc3RhdGlzdGlzY2hlIHBhcmFtZXRlcnM6CgoqIEdlbWlkZGVsZGUKKiBTdGFuZGFhcmQgZGV2aWF0aWUKKiBDb3JyZWxhdGllCgpHZWJydWlrIGhpZXJ2b29yIGRlIHN0YW5kYWFyZCBmdW5jdGllcyBpbiBSOiBgbWVhbigpYCwgYHNkKClgIGVuIGBjb3IoKWAuCgpgYGB7cn0KCiMjIFZ1bCBoZXQgbnVtbWVyIHZhbiBkZSBkYXRhc2V0IGluIGRpZSBqZSB0b2VnZXdlemVuIGlzLiBCaWp2b29yYmVlbGQ6IDgKc2V0TnIgPC0gMTEKCiMjIERhdGEgaW5sZXplbiAtIEhpZXIgbmlrcyBhYW5wYXNzZW4hCm15REYgPC0gcmVhZFJEUygic2Vzc2lvbjEucmRzIilbW3NldE5yXV0kZGF0YQpoZWFkKG15REYpCnggPC0gbXlERiR4CnkgPC0gbXlERiR5CgojIyBCZXJla2VuIHZvb3IgeCBlbiB5IGhldCBnZW1pZGRlbGRlIGVuIGRlIHN0YW5kYWFyZCBkZXZpYXRpZSAtIFZvZWcgamUgY29kZSBoaWVyb25kZXIgdG9lLgoKCiMjIEJlcmVrZW4gZGUgY29ycmVsYXRpZSB0dXNzZW4geCBlbiB5IC0gVm9lZyBqZSBjb2RlIGhpZXJvbmRlciB0b2UuCgoKYGBgClZlcmdlbGlqayBqb3V3IHVpdGtvbXN0ZW4gbWV0IGRpZSB2YW4gYW5kZXJlIHN0dWRlbnRlbiBlbiBiZXNjaHJpamYgaW4gaG9ldmVycmUgamUgdmVyd2FjaHQgZGF0IGRlIHNhbXBsZSB1aXQgZGV6ZWxmZGUgcG9wdWxhdGllIChiaWp2b29yYmVlbGQgZWVuIHByb2R1Y3RpZXByb2NlcykgaXMgZ2Vub21lbi4=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiU2Vzc2lvbiAxIC0gSG9tZXdvcmsiCnN1YnRpdGxlOiBEYXRhIFVuZGVyc3RhbmRpbmcKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyMgT3BkcmFjaHQKCkJlcmVrZW4gdm9vciBkZSBnZWtvemVuIGRhdGFzZXQgZGUgdm9sZ2VuZGUgc3RhdGlzdGlzY2hlIHBhcmFtZXRlcnM6CgoqIEdlbWlkZGVsZGUKKiBTdGFuZGFhcmQgZGV2aWF0aWUKKiBDb3JyZWxhdGllCgpHZWJydWlrIGhpZXJ2b29yIGRlIHN0YW5kYWFyZCBmdW5jdGllcyBpbiBSOiBgbWVhbigpYCwgYHNkKClgIGVuIGBjb3IoKWAuCgpgYGB7cn0KCiMjIFZ1bCBoZXQgbnVtbWVyIHZhbiBkZSBkYXRhc2V0IGluIGRpZSBqZSB0b2VnZXdlemVuIGlzLiBCaWp2b29yYmVlbGQ6IDgKc2V0TnIgPC0gOAoKIyMgRGF0YSBpbmxlemVuIC0gSGllciBuaWtzIGFhbnBhc3NlbiEKbXlERiA8LSByZWFkUkRTKCJzZXNzaW9uMS5yZHMiKVtbc2V0TnJdXSRkYXRhCmhlYWQobXlERikKeCA8LSBteURGJHgKeSA8LSBteURGJHkKCiMjIEJlcmVrZW4gdm9vciB4IGVuIHkgaGV0IGdlbWlkZGVsZGUgZW4gZGUgc3RhbmRhYXJkIGRldmlhdGllIC0gVm9lZyBqZSBjb2RlIGhpZXJvbmRlciB0b2UuCgoKIyMgQmVyZWtlbiBkZSBjb3JyZWxhdGllIHR1c3NlbiB4IGVuIHkgLSBWb2VnIGplIGNvZGUgaGllcm9uZGVyIHRvZS4KCgpgYGAKVmVyZ2VsaWprIGpvdXcgdWl0a29tc3RlbiBtZXQgZGllIHZhbiBhbmRlcmUgc3R1ZGVudGVuIGVuIGJlc2NocmlqZiBpbiBob2V2ZXJyZSBqZSB2ZXJ3YWNodCBkYXQgZGUgc2FtcGxlIHVpdCBkZXplbGZkZSBwb3B1bGF0aWUgKGJpanZvb3JiZWVsZCBlZW4gcHJvZHVjdGllcHJvY2VzKSBpcyBnZW5vbWVuLgoK</div>
 
 
 

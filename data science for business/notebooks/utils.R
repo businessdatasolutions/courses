@@ -21,3 +21,13 @@ dataSets <- list.files(path = "datasets/datasaur/.")
 ## Data wegschrijven - Hier niks aanpassen
 dataList <- createDataList(folderpath = "datasets/datasaur/")
 saveRDS(dataList, "session1.rds")
+
+## Plot alle datasets
+myData <- readRDS("session1.rds")
+
+par(pty="s")
+for(i in 1:length(myData)) {
+  x <- myData[[i]]$data$x
+  y <- myData[[i]]$data$y
+  plot(x,y)
+}
