@@ -1,0 +1,35 @@
+---
+title: "Session 1 - Homework"
+subtitle: Data Understanding
+output: html_notebook
+---
+
+## Opdracht
+
+Bereken voor de gekozen dataset de volgende statistische parameters:
+
+* Gemiddelde
+* Standaard deviatie
+* Correlatie
+
+Gebruik hiervoor de standaard functies in R: `mean()`, `sd()` en `cor()`.
+
+```{r}
+
+## Vul het nummer van de dataset in die je toegewezen is. Bijvoorbeeld: 8
+setNr <- 11
+
+## Data inlezen - Hier niks aanpassen!
+myDF <- readRDS("session1.rds")[[setNr]]$data
+head(myDF)
+x <- myDF$x
+y <- myDF$y
+
+## Bereken voor x en y het gemiddelde en de standaard deviatie - Voeg je code hieronder toe.
+
+
+## Bereken de correlatie tussen x en y - Voeg je code hieronder toe.
+
+
+```
+Vergelijk jouw uitkomsten met die van andere studenten en beschrijf in hoeverre je verwacht dat de sample uit dezelfde populatie (bijvoorbeeld een productieproces) is genomen.
