@@ -12,8 +12,8 @@ description: "This is a compagnon to the course Data Science for Business."
 
 # Preface {-}
 
-```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
-knitr::include_graphics(rep('images/crisp.png'))
+```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Example of a modern data architecture (MS Azure): https://blog.mashfords.com/2018/06/28/the-emerging-big-data-architectural-pattern/', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/azure.png'))
 ```
 ## Prerequisites {-}
 
