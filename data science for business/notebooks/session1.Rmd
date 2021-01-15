@@ -1,36 +1,37 @@
 ---
-title: "Session 1 - Homework"
+title: "Session 1 - Exercises"
 subtitle: Data Understanding
 output: html_notebook
 ---
 
-## Opdracht
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+## Read data - Do not change the code below!
+setNr <- sample(1:11, 1)
 
-Bereken voor de gekozen dataset de volgende statistische parameters:
-
-* Gemiddelde
-* Standaard deviatie
-* Correlatie
-
-Gebruik hiervoor de standaard functies in R: `mean()`, `sd()` en `cor()`.
+myDF <- readRDS("session1.rds")[[setNr]]$data
+```
 
 ```{r}
-
-## Vul het nummer van de dataset in die je toegewezen is. Bijvoorbeeld: 8
-setNr <- 8
-
-## Data inlezen - Hier niks aanpassen!
-myDF <- readRDS("session1.rds")[[setNr]]$data
 head(myDF)
+```
+
+## Opdracht
+Calculate for the given dataset the following statistical parameters:
+
+* Mean
+* Standard deviation
+* Correlation
+
+Use the functions from base R: `mean()`, `sd()` en `cor()`. Compare your results with the outcomes of other participants and discuss how likely it is that your samples are taken from the same dataset (e.g. manufacturing process).
+
+```{r}
 x <- myDF$x
 y <- myDF$y
 
-## Bereken voor x en y het gemiddelde en de standaard deviatie - Voeg je code hieronder toe.
+## Calculate the mean and standard deviation for x and y - Add your code below.
 
-
-## Bereken de correlatie tussen x en y - Voeg je code hieronder toe.
+  
+## Calculate the correlation between x and y - Add your code below.
 
 
 ```
-Vergelijk jouw uitkomsten met die van andere studenten en beschrijf in hoeverre je verwacht dat de sample uit dezelfde populatie (bijvoorbeeld een productieproces) is genomen.
-
