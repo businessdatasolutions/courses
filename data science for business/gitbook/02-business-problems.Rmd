@@ -16,10 +16,6 @@ In the following video you'll hear an expert's thoughts on the relation between 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xo0bsiiQ9cM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Big Data is not reserved for Big Business. In the following video you'll see a case of a small retailer using data to improve his business decisions. What were the business questions the company had? How did they use data to support their decisions?  
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## Supervised, Unsupervised and Reinforcement Methods
 
 ### Supervised vs Unsupervised Methods
@@ -342,3 +338,13 @@ The arrays are indexed, so each element can be easily retrieved.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/REVkXVxvMQE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+## Business Case
+Big Data is not reserved for Big Business. In the following video you'll see a case of a small retailer using data to improve his business decisions.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Answer the following questions.** Use the information from the course literature as a starting point for your argumentation. Find other reliable sources that support your analysis.
+
+- *What was the business problem?*
+- *How was it translated into a data mining problem?*
+- *What the realized business value?*

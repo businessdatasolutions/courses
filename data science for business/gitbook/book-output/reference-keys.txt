@@ -46,6 +46,7 @@ sql-vs-nosql
 xml
 json
 graph
+business-case
 businessstrategy
 machine-intelligence-in-business
 case-study-ai-business
