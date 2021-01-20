@@ -347,4 +347,4 @@ Big Data is not reserved for Big Business. In the following video you'll see a c
 
 - *What was the business problem?*
 - *How was it translated into a data mining problem?*
-- *What the realized business value?*
+- *What is the realized business value?*

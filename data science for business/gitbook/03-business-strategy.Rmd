@@ -13,3 +13,9 @@ knitr::include_graphics(rep('images/aicompanies.png'))
 ## Case Study: Data Culture in Practice
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G3IW5RNSGcE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Answer the following questions.** Use the information from the course literature as a starting point for your argumentation. Find other reliable sources that support your analysis.
+
+- *What features define a mature data driven business?*
+- *What are the important features of a data culture?*
+- *What are the transformation steps towards a mature data driven business?*
