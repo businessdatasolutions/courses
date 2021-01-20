@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2021-01-15" />
+<meta name="date" content="2021-01-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -175,9 +175,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.4" data-path="businessproblems.html"><a href="businessproblems.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.3.4</b> Modeling and Evaluation</a></li>
 <li class="chapter" data-level="2.3.5" data-path="businessproblems.html"><a href="businessproblems.html#deployment"><i class="fa fa-check"></i><b>2.3.5</b> Deployment</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#data-science-vs-software-development"><i class="fa fa-check"></i><b>2.4</b> Data Science vs Software Development</a></li>
-<li class="chapter" data-level="2.5" data-path="businessproblems.html"><a href="businessproblems.html#other-data-science-skills-and-tooling"><i class="fa fa-check"></i><b>2.5</b> Other Data Science Skills and Tooling</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.5.1</b> Databases</a></li>
+<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.4</b> Databases</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="businessproblems.html"><a href="businessproblems.html#sql-vs-nosql"><i class="fa fa-check"></i><b>2.4.1</b> SQL vs NoSQL</a></li>
+<li class="chapter" data-level="2.4.2" data-path="businessproblems.html"><a href="businessproblems.html#graph"><i class="fa fa-check"></i><b>2.4.2</b> Graph</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a><ul>
@@ -413,22 +413,20 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 </iframe>
 </div>
 </div>
-<div id="data-science-vs-software-development" class="section level2">
-<h2><span class="header-section-number">2.4</span> Data Science vs Software Development</h2>
-</div>
-<div id="other-data-science-skills-and-tooling" class="section level2">
-<h2><span class="header-section-number">2.5</span> Other Data Science Skills and Tooling</h2>
-<div id="databases" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Databases</h3>
-<div id="nosql" class="section level4">
-<h4><span class="header-section-number">2.5.1.1</span> NoSQL</h4>
+<div id="databases" class="section level2">
+<h2><span class="header-section-number">2.4</span> Databases</h2>
+<div id="sql-vs-nosql" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> SQL vs NoSQL</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ruz-vK8IesE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<hr />
 <p>If you work with Excel or store your data in MySQL, you are used to storing data in rows and columns. For example, if you store customer data:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-14">Table 2.2: </span>Een data-tabel</caption>
+<caption><span id="tab:unnamed-chunk-14">Table 2.2: </span>A data table</caption>
 <thead>
 <tr class="header">
-<th align="left">Voornaam</th>
-<th align="left">Achternaam</th>
+<th align="left">First</th>
+<th align="left">Last</th>
 </tr>
 </thead>
 <tbody>
@@ -445,12 +443,12 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 <p>Each line is a customer, each column a variable, and each cell contains one value.</p>
 <p>However, suppose you want to store all of your customers’ phone numbers and some customers have multiple phone numbers. One option is to store all telephone numbers in one cell:</p>
 <table>
-<caption><span id="tab:unnamed-chunk-15">Table 2.3: </span>Een data-tabel met meerdere waarden in één cel</caption>
+<caption><span id="tab:unnamed-chunk-15">Table 2.3: </span>A data-table with mutiple values in one cell</caption>
 <thead>
 <tr class="header">
 <th align="left">First</th>
-<th align="left">Achternaam</th>
-<th align="left">Telefoon</th>
+<th align="left">Last</th>
+<th align="left">Telephone</th>
 </tr>
 </thead>
 <tbody>
@@ -467,17 +465,16 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 </tbody>
 </table>
 <p>However, this can cause a problem when exporting or searching the data. As soon as your data seems to become asymmetric, you should consider a NoSQL format. The most important formats in terms of popularity are XML and JSON.</p>
-</div>
 <div id="xml" class="section level4">
-<h4><span class="header-section-number">2.5.1.2</span> XML</h4>
+<h4><span class="header-section-number">2.4.1.1</span> XML</h4>
 <p>By annotating data, meaning can be added to individual data elements. One data format that makes use of this is Extensible Markup Language (XML). For example, in our example, a <firstname> tag can be added to the data relating to the first name and each telephone number can be individually identified as such.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="businessproblems.html#cb6-1"></a>data&lt;-<span class="st"> </span>naamDF</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="businessproblems.html#cb6-1"></a>data&lt;-<span class="st"> </span>nameDF</span>
 <span id="cb6-2"><a href="businessproblems.html#cb6-2"></a>xml &lt;-<span class="st"> </span><span class="kw">xmlTree</span>()</span>
 <span id="cb6-3"><a href="businessproblems.html#cb6-3"></a><span class="co"># names(xml)</span></span>
 <span id="cb6-4"><a href="businessproblems.html#cb6-4"></a>xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;customers&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## Warning in xmlRoot.XMLInternalDocument(currentNodes[[1]]): empty XML document</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="businessproblems.html#cb8-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data)) {</span>
-<span id="cb8-2"><a href="businessproblems.html#cb8-2"></a>    xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;klant&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span>
+<span id="cb8-2"><a href="businessproblems.html#cb8-2"></a>    xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;customer&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span>
 <span id="cb8-3"><a href="businessproblems.html#cb8-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="kw">names</span>(data)) {</span>
 <span id="cb8-4"><a href="businessproblems.html#cb8-4"></a>      celldata &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">strsplit</span>(data[i, j], <span class="st">&quot;[;]&quot;</span>))</span>
 <span id="cb8-5"><a href="businessproblems.html#cb8-5"></a>       <span class="cf">for</span> (k <span class="cf">in</span> celldata){</span>
@@ -491,78 +488,81 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 <span id="cb8-13"><a href="businessproblems.html#cb8-13"></a><span class="kw">cat</span>(<span class="kw">saveXML</span>(xml, <span class="dt">prefix =</span> <span class="st">&#39;&#39;</span>))</span></code></pre></div>
 <pre><code>## 
 ## &lt;customers&gt;
-##   &lt;klant&gt;
+##   &lt;customer&gt;
 ##     &lt;First&gt;Witek&lt;/First&gt;
-##     &lt;Achternaam&gt;ten Hove&lt;/Achternaam&gt;
-##     &lt;Telefoon&gt;06111111&lt;/Telefoon&gt;
-##     &lt;Telefoon&gt;06222222&lt;/Telefoon&gt;
-##   &lt;/klant&gt;
-##   &lt;klant&gt;
+##     &lt;Last&gt;ten Hove&lt;/Last&gt;
+##     &lt;Telephone&gt;06111111&lt;/Telephone&gt;
+##     &lt;Telephone&gt;06222222&lt;/Telephone&gt;
+##   &lt;/customer&gt;
+##   &lt;customer&gt;
 ##     &lt;First&gt;Caroline&lt;/First&gt;
-##     &lt;Achternaam&gt;Tensen&lt;/Achternaam&gt;
-##     &lt;Telefoon&gt;06333333&lt;/Telefoon&gt;
-##   &lt;/klant&gt;
+##     &lt;Last&gt;Tensen&lt;/Last&gt;
+##     &lt;Telephone&gt;06333333&lt;/Telephone&gt;
+##   &lt;/customer&gt;
 ## &lt;/customers&gt;</code></pre>
-<p>Via deze methode kan makkelijk data worden toegevoegd, bijvoorbeeld een tweede voornaam:</p>
+<p>Using this method we can easily add data. For instance a second name.</p>
 <pre><code>## 
-## &lt;klanten&gt;
-##   &lt;klant&gt;
+## &lt;customers&gt;
+##   &lt;customer&gt;
 ##     &lt;First&gt;Witold&lt;/First&gt;
 ##     &lt;First&gt;Frederik&lt;/First&gt;
-##     &lt;Achternaam&gt;ten Hove&lt;/Achternaam&gt;
-##     &lt;Telefoon&gt;06111111&lt;/Telefoon&gt;
-##     &lt;Telefoon&gt;06222222&lt;/Telefoon&gt;
-##   &lt;/klant&gt;
-##   &lt;klant&gt;
+##     &lt;Last&gt;ten Hove&lt;/Last&gt;
+##     &lt;Telephone&gt;06111111&lt;/Telephone&gt;
+##     &lt;Telephone&gt;06222222&lt;/Telephone&gt;
+##   &lt;/customer&gt;
+##   &lt;customer&gt;
 ##     &lt;First&gt;Caroline&lt;/First&gt;
 ##     &lt;First&gt;Egbertine&lt;/First&gt;
-##     &lt;Achternaam&gt;Tensen&lt;/Achternaam&gt;
-##     &lt;Telefoon&gt;06333333&lt;/Telefoon&gt;
-##   &lt;/klant&gt;
-## &lt;/klanten&gt;</code></pre>
+##     &lt;Last&gt;Tensen&lt;/Last&gt;
+##     &lt;Telephone&gt;06333333&lt;/Telephone&gt;
+##   &lt;/customer&gt;
+## &lt;/customers&gt;</code></pre>
 </div>
 <div id="json" class="section level4">
-<h4><span class="header-section-number">2.5.1.3</span> JSON</h4>
-<p>Tot voor kort was XML de standaardmethode om data vast te leggen in een webomgeving. Echter inmiddels is deze functie overgenomen door Javascript Object Notation (JSON).</p>
+<h4><span class="header-section-number">2.4.1.2</span> JSON</h4>
+<p>For a long time XML was the leading data format for web applications. However is has currently been overtaken by Javascript Object Notation (JSON).</p>
 <div class="figure" style="text-align: center"><span id="fig:json-fig"></span>
 <img src="images/jsonxml.svg" alt="Bron: &lt;a href=&quot;https://insights.stackoverflow.com/trends?tags=json%2Cxml&quot; target=&quot;_blank&quot;&gt;Stack Overflow&lt;/a&gt;" width="80%" />
 <p class="caption">
 Figure 2.9: Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2Cxml" target="_blank">Stack Overflow</a>
 </p>
 </div>
-<p>De belangrijkste reden hiervoor is de opkomst van zogenaamde Application Programming Interfaces (APIs). Veel online aanbieders van diensten bieden de gelegenheid om toegang te krijgen tot hun data. De data wordt meestal als JSON verstuurd. Aangezien moderne webapplicaties al in Javascript zijn geschreven kan JSON zonder verdere bewerking gebruikt worden. Zo kan heel makkelijk in één webapplicatie data worden gecombineerd: bijvoorbeeld tweets van <a href="https://developer.twitter.com/en/products/products-overview">Twitter</a> gecombineerd met <a href="https://openweathermap.org/api">weersvoorspellingen</a> en het nieuws via <a href="http://developer.cnn.com/">CNN</a>.</p>
-<p>JSON werkt met zogenaamde key: value sets:</p>
+<p>The main reason for this change has been the increasin popularity of so-called Application Programming Interfaces (APIs). Many online service providers offer also the possibility to access selected data. Most modern web applications are written using Javascript and can process JSON natively.</p>
+<p>This concept simplifies the integration of various datasources dramatically. For instance one application could combine tweets from <a href="https://developer.twitter.com/en/products/products-overview">Twitter</a> with <a href="https://openweathermap.org/api">weather forecasts</a> and with news from <a href="http://developer.cnn.com/">CNN</a>.</p>
+<p>JSON works through so-called key: value sets:</p>
 <pre><code>## [
 ##   {
-##     &quot;Voornaam&quot;: &quot;Witold&quot;,
-##     &quot;Achternaam&quot;: &quot;ten Hove&quot;,
-##     &quot;Telefoon&quot;: &quot;06111111&quot;
+##     &quot;First&quot;: &quot;Witold&quot;,
+##     &quot;Last&quot;: &quot;ten Hove&quot;,
+##     &quot;Telephone&quot;: &quot;06111111&quot;
 ##   },
 ##   {
-##     &quot;Voornaam&quot;: &quot;Caroline&quot;,
-##     &quot;Achternaam&quot;: &quot;Tefsen&quot;,
-##     &quot;Telefoon&quot;: &quot;06333333&quot;
+##     &quot;First&quot;: &quot;Caroline&quot;,
+##     &quot;Last&quot;: &quot;Tefsen&quot;,
+##     &quot;Telephone&quot;: &quot;06333333&quot;
 ##   }
 ## ]</code></pre>
-<p>Als een waarde (value) uit meerdere elementen bestaat, worden ze in reeksen (arrays) opgeslagen.</p>
+<p>If a value consists of many elements these are stored in arrays.</p>
 <pre><code>## [
 ##   {
-##     &quot;Voornaam&quot;: [&quot;Witold&quot;, &quot;Frederik&quot;],
-##     &quot;Achternaam&quot;: &quot;ten Hove&quot;,
-##     &quot;Telefoon&quot;: [&quot;06111111&quot;, &quot;6222222&quot;]
+##     &quot;First&quot;: [&quot;Witold&quot;, &quot;Frederik&quot;],
+##     &quot;Last&quot;: &quot;ten Hove&quot;,
+##     &quot;Telephone&quot;: [&quot;06111111&quot;, &quot;06222222&quot;]
 ##   },
 ##   {
-##     &quot;Voornaam&quot;: [&quot;Caroline&quot;, &quot;Egbertine&quot;],
-##     &quot;Achternaam&quot;: &quot;Tefsen&quot;,
-##     &quot;Telefoon&quot;: &quot;06333333&quot;
+##     &quot;First&quot;: [&quot;Caroline&quot;, &quot;Egbertine&quot;],
+##     &quot;Last&quot;: &quot;Tefsen&quot;,
+##     &quot;Telephone&quot;: &quot;06333333&quot;
 ##   }
 ## ]</code></pre>
-<p>De reeksen zijn geindexeerd en zo kan ieder element makkelijk worden opgehaald</p>
+<p>The arrays are indexed, so each element can be easily retrieved.</p>
 </div>
-<div id="graph" class="section level4">
-<h4><span class="header-section-number">2.5.1.4</span> Graph</h4>
+</div>
+<div id="graph" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Graph</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/REVkXVxvMQE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 
-</div>
 </div>
 </div>
 </div>

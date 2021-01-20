@@ -41,10 +41,8 @@ data-understanding
 data-preparation
 modeling-and-evaluation
 deployment
-data-science-vs-software-development
-other-data-science-skills-and-tooling
 databases
-nosql
+sql-vs-nosql
 xml
 json
 graph

@@ -217,3 +217,12 @@ knitr::include_graphics('images/technoslavia.jpg')
 
 ## Case Study: Ubernomics
 <iframe width="560" height="315" src="https://www.youtube.com/embed/63wt3TgGGxI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+**Answer the following questions.** Use the information from the course literature as a starting point for your argumentation. Find other reliable sources that support your analysis.
+
+- *Why was data driven decision making (3DM) useful in this business case?*
+- *How did the organization apply 3DM?*
+- *What can the organization do with 3DM that they couldn’t do before?*
+
