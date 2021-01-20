@@ -23,10 +23,6 @@ Before starting this module make sure you have:
 * installed R and RStudio
 * a Github account
 
-We will be using selected chapters from:
-
-*[Lewis, N. D. C. (2016). Deep learning made easy with R: A gentle introduction for data science. AusCov.](https://drive.google.com/file/d/1p_PtuD6BGGTKTwNL9LUo9DEADWFskImK/view?usp=sharing)*
-
 ## Purpose of this course {-}
 
 The general learning outcome of this course is:
@@ -45,7 +41,7 @@ After a successful completion of the course, a student:
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 weeknr <- c("2", "3-4", "5-6", "7")
-module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Kearning with Naive Bayes classification", "Project Applicaton")
+module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Kearning with Naive Bayes classification", "Project Application")
 reading <- c("Provost / Fawcett Ch.3", "Provost / Fawcett Ch.6 + 7", "Provost / Fawcett Ch.9", "")
 headers <- c("Week nr.", "Module name", "Readings")
 programmeDF <- data.frame(weeknr, module, reading)
