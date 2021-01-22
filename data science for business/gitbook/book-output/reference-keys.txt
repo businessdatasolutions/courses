@@ -5,7 +5,6 @@ fig:montyhall-fig
 fig:datascience-fig
 fig:crisp-fig
 fig:dikw-fig
-fig:azure-fig
 fig:technoslavia-fig
 fig:datamining-fig
 tab:unnamed-chunk-7
@@ -22,16 +21,16 @@ fig:json-fig
 fig:aicompanies-fig
 dddm
 thinking-and-deciding
+opening-business-case
 the-monty-hall-problem
 taxicab-problem
 what-is-data-science-and-what-is-not
 what-is-data-mining
 what-is-data-driven-decision-making
-what-are-the-challenges-and-opportunities-that-big-data-creates
 what-are-big-data-technologies
 case-study-ubernomics
 businessproblems
-connecting-business-to-data
+opening-case
 supervised-unsupervised-and-reinforcement-methods
 supervised-vs-unsupervised-methods
 reinforcement-methods
@@ -48,7 +47,7 @@ json
 graph
 business-case
 businessstrategy
+opening-business-case-1
 machine-intelligence-in-business
 case-study-ai-business
 case-study-data-culture-in-practice
-opening-business-case

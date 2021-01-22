@@ -11,6 +11,16 @@ knitr::include_graphics('images/lesson.png')
 ```
 ## Thinking and Deciding
 
+### Opening Business Case
+
+The following video is not about a business case, but provides some valuable basic insights for data driven decision making. Please watch the first 15 minutes and then aswer the questions.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Assignments**:
+- *Write down all associations you can discover between the study material (Provost Ch.1) and the video.*
+- *What are other methods for decision making?*
+
 ### The Monty Hall Problem
 
 Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?
@@ -195,7 +205,7 @@ knitr::include_graphics('images/crisp.png')
 
 ## What is Data Driven Decision Making
 
-What are other types of decision making? (relation with What is proof or evidence?)
+What are other types of decision making?
 
 ```{r dikw-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='DIKW pyramid taken from: https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/pyramid.png')
@@ -204,12 +214,7 @@ knitr::include_graphics('images/pyramid.png')
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## What are the challenges and opportunities that Big Data creates?
-
 ## What are Big Data technologies?
-```{r azure-fig, echo=FALSE, fig.align='center', fig.asp=1, fig.cap='Big Data pipelines taken from: https://azure.microsoft.com/en-gb/blog/the-emerging-big-data-architectural-pattern/', message=TRUE, warning=TRUE, out.width='80%'}
-knitr::include_graphics('images/azure.png')
-```
 
 ```{r technoslavia-fig, echo=FALSE, fig.align='center', fig.asp=1, fig.cap='Big Data pipelines taken from: https://blog.dataiku.com/technoslavia-the-fragmented-world-of-data-infrastructure-in-2020', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/technoslavia.jpg')
