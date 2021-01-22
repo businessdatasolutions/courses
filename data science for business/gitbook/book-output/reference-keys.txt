@@ -51,3 +51,6 @@ opening-business-case-2
 machine-intelligence-in-business
 case-study-ai-business
 case-study-data-culture-in-practice
+fig:jcarena-fig
+the-johan-cruyff-arena
+fig:arena-fig

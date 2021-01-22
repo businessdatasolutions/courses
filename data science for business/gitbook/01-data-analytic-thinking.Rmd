@@ -23,6 +23,26 @@ The following video is not about a business case, but provides some valuable bas
 
 ## Thinking and Deciding
 
+### The Johan Cruyff Arena
+```{r jcarena-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Johan Cuyff Arena Amsterdam taken from https://en.wikipedia.org/wiki/Johan_Cruyff_Arena#/media/File:Ajax_0_Chelsea_1_(23Oct19).jpg', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics('images/jcarena.jpg')
+```
+
+Suppose someone drops a water drop in de Johan Cruyff Arena on the center spot, a second later two drops, after another second four drops, etc. How long would it take to flood the Arena?
+
+<h3>Solution</h3>
+  <p>Before checking, make your own estimate.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#cruyff">Solution</button>
+  <div id="cruyff" class="collapse">
+  <hr>
+  
+  ```{r arena-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Simulation of Arena flooding - own work', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics('images/arena.gif')
+```
+**Think**: How well did you guess?
+
+  </div>
+
 ### The Monty Hall Problem
 
 Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?
