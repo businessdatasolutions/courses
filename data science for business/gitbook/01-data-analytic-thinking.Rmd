@@ -227,14 +227,9 @@ knitr::include_graphics('images/crisp.png')
 
 ## What is Data Driven Decision Making
 
-What are other types of decision making?
-
 ```{r dikw-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='DIKW pyramid taken from: https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/pyramid.png')
 ```
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/L3LMbpZIKhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## What are Big Data technologies?
 
