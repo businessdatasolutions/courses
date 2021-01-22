@@ -9,9 +9,8 @@ library(plotly)
 ```{r lesson-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Lesson Map taken from @provost_data_2013', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/lesson.png')
 ```
-## Thinking and Deciding
 
-### Opening Business Case
+## Opening Business Case
 
 The following video is not about a business case, but provides some valuable basic insights for data driven decision making. Please watch the first 15 minutes and then aswer the questions.
 
@@ -20,6 +19,8 @@ The following video is not about a business case, but provides some valuable bas
 **Assignments**:
 - *Write down all associations you can discover between the study material (Provost Ch.1) and the video.*
 - *What are other methods for decision making?*
+
+## Thinking and Deciding
 
 ### The Monty Hall Problem
 
