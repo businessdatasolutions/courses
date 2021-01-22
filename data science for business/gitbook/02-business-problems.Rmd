@@ -17,6 +17,7 @@ In the following video you'll hear an expert's thoughts on the relation between 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xo0bsiiQ9cM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Assignments**:
+
 - *Write down all associations you can discover between the study material (Provost Ch.2) and the video.*
 - *What is the relation between business problems and data challenges?*
 - *What questions could be asked during data understanding?*
