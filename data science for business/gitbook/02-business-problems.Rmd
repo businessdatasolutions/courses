@@ -10,7 +10,7 @@ library(jsonlite)
 library(knitr)
 ```
 
-## Opening Case
+## Opening Business Case
 
 In the following video you'll hear an expert's thoughts on the relation between business problems and data challenges. 
 
