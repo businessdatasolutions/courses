@@ -1,6 +1,8 @@
 fig:title-fig
 tab:unnamed-chunk-1
 fig:lesson-fig
+fig:jcarena-fig
+fig:arena-fig
 fig:montyhall-fig
 fig:datascience-fig
 fig:crisp-fig
@@ -22,6 +24,7 @@ fig:aicompanies-fig
 dddm
 opening-business-case
 thinking-and-deciding
+the-johan-cruyff-arena
 the-monty-hall-problem
 taxicab-problem
 what-is-data-science-and-what-is-not
@@ -51,6 +54,3 @@ opening-business-case-2
 machine-intelligence-in-business
 case-study-ai-business
 case-study-data-culture-in-practice
-fig:jcarena-fig
-the-johan-cruyff-arena
-fig:arena-fig

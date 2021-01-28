@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2021-01-22" />
+<meta name="date" content="2021-01-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="dddm.html"/>
 <link rel="next" href="businessstrategy.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +51,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.2.2/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
@@ -63,70 +63,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -144,17 +80,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Data Science for Business</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose-of-this-course"><i class="fa fa-check"></i>Purpose of this course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure-of-the-course"><i class="fa fa-check"></i>Structure of the course</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="about-the-author.html"><a href="about-the-author.html"><i class="fa fa-check"></i>About the author</a></li>
-<li class="chapter" data-level="1" data-path="dddm.html"><a href="dddm.html"><i class="fa fa-check"></i><b>1</b> Data Driven Decision Making</a><ul>
+<li class="chapter" data-level="1" data-path="dddm.html"><a href="dddm.html"><i class="fa fa-check"></i><b>1</b> Data Driven Decision Making</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="dddm.html"><a href="dddm.html#opening-business-case"><i class="fa fa-check"></i><b>1.1</b> Opening Business Case</a></li>
-<li class="chapter" data-level="1.2" data-path="dddm.html"><a href="dddm.html#thinking-and-deciding"><i class="fa fa-check"></i><b>1.2</b> Thinking and Deciding</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.2.1</b> The Monty Hall Problem</a></li>
-<li class="chapter" data-level="1.2.2" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.2.2</b> Taxicab problem</a></li>
+<li class="chapter" data-level="1.2" data-path="dddm.html"><a href="dddm.html#thinking-and-deciding"><i class="fa fa-check"></i><b>1.2</b> Thinking and Deciding</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="dddm.html"><a href="dddm.html#the-johan-cruyff-arena"><i class="fa fa-check"></i><b>1.2.1</b> The Johan Cruyff Arena</a></li>
+<li class="chapter" data-level="1.2.2" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.2.2</b> The Monty Hall Problem</a></li>
+<li class="chapter" data-level="1.2.3" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.2.3</b> Taxicab problem</a></li>
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="dddm.html"><a href="dddm.html#what-is-data-science-and-what-is-not"><i class="fa fa-check"></i><b>1.3</b> What is Data Science and what is not?</a></li>
 <li class="chapter" data-level="1.4" data-path="dddm.html"><a href="dddm.html#what-is-data-mining"><i class="fa fa-check"></i><b>1.4</b> What is Data Mining?</a></li>
@@ -162,26 +102,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.6" data-path="dddm.html"><a href="dddm.html#what-are-big-data-technologies"><i class="fa fa-check"></i><b>1.6</b> What are Big Data technologies?</a></li>
 <li class="chapter" data-level="1.7" data-path="dddm.html"><a href="dddm.html#case-study-ubernomics"><i class="fa fa-check"></i><b>1.7</b> Case Study: Ubernomics</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="businessproblems.html"><a href="businessproblems.html"><i class="fa fa-check"></i><b>2</b> Business Problems and Data Science Solutions</a><ul>
+<li class="chapter" data-level="2" data-path="businessproblems.html"><a href="businessproblems.html"><i class="fa fa-check"></i><b>2</b> Business Problems and Data Science Solutions</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="businessproblems.html"><a href="businessproblems.html#opening-business-case-1"><i class="fa fa-check"></i><b>2.1</b> Opening Business Case</a></li>
-<li class="chapter" data-level="2.2" data-path="businessproblems.html"><a href="businessproblems.html#supervised-unsupervised-and-reinforcement-methods"><i class="fa fa-check"></i><b>2.2</b> Supervised, Unsupervised and Reinforcement Methods</a><ul>
+<li class="chapter" data-level="2.2" data-path="businessproblems.html"><a href="businessproblems.html#supervised-unsupervised-and-reinforcement-methods"><i class="fa fa-check"></i><b>2.2</b> Supervised, Unsupervised and Reinforcement Methods</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="businessproblems.html"><a href="businessproblems.html#supervised-vs-unsupervised-methods"><i class="fa fa-check"></i><b>2.2.1</b> Supervised vs Unsupervised Methods</a></li>
 <li class="chapter" data-level="2.2.2" data-path="businessproblems.html"><a href="businessproblems.html#reinforcement-methods"><i class="fa fa-check"></i><b>2.2.2</b> Reinforcement Methods</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="businessproblems.html"><a href="businessproblems.html#the-data-mining-process"><i class="fa fa-check"></i><b>2.3</b> The Data Mining Process</a><ul>
+<li class="chapter" data-level="2.3" data-path="businessproblems.html"><a href="businessproblems.html#the-data-mining-process"><i class="fa fa-check"></i><b>2.3</b> The Data Mining Process</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="businessproblems.html"><a href="businessproblems.html#formulating-a-business-problem"><i class="fa fa-check"></i><b>2.3.1</b> Formulating a business problem</a></li>
 <li class="chapter" data-level="2.3.2" data-path="businessproblems.html"><a href="businessproblems.html#data-understanding"><i class="fa fa-check"></i><b>2.3.2</b> Data Understanding</a></li>
 <li class="chapter" data-level="2.3.3" data-path="businessproblems.html"><a href="businessproblems.html#data-preparation"><i class="fa fa-check"></i><b>2.3.3</b> Data Preparation</a></li>
 <li class="chapter" data-level="2.3.4" data-path="businessproblems.html"><a href="businessproblems.html#modeling-and-evaluation"><i class="fa fa-check"></i><b>2.3.4</b> Modeling and Evaluation</a></li>
 <li class="chapter" data-level="2.3.5" data-path="businessproblems.html"><a href="businessproblems.html#deployment"><i class="fa fa-check"></i><b>2.3.5</b> Deployment</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.4</b> Databases</a><ul>
+<li class="chapter" data-level="2.4" data-path="businessproblems.html"><a href="businessproblems.html#databases"><i class="fa fa-check"></i><b>2.4</b> Databases</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="businessproblems.html"><a href="businessproblems.html#sql-vs-nosql"><i class="fa fa-check"></i><b>2.4.1</b> SQL vs NoSQL</a></li>
 <li class="chapter" data-level="2.4.2" data-path="businessproblems.html"><a href="businessproblems.html#graph"><i class="fa fa-check"></i><b>2.4.2</b> Graph</a></li>
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="businessproblems.html"><a href="businessproblems.html#business-case"><i class="fa fa-check"></i><b>2.5</b> Business Case</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a><ul>
+<li class="chapter" data-level="3" data-path="businessstrategy.html"><a href="businessstrategy.html"><i class="fa fa-check"></i><b>3</b> Data Science and Business Strategy</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="businessstrategy.html"><a href="businessstrategy.html#opening-business-case-2"><i class="fa fa-check"></i><b>3.1</b> Opening Business Case</a></li>
 <li class="chapter" data-level="3.2" data-path="businessstrategy.html"><a href="businessstrategy.html#machine-intelligence-in-business"><i class="fa fa-check"></i><b>3.2</b> Machine Intelligence in Business</a></li>
 <li class="chapter" data-level="3.3" data-path="businessstrategy.html"><a href="businessstrategy.html#case-study-ai-business"><i class="fa fa-check"></i><b>3.3</b> Case Study: AI Business</a></li>
@@ -207,9 +152,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="businessproblems" class="section level1">
+<div id="businessproblems" class="section level1" number="2">
 <h1><span class="header-section-number">Module 2</span> Business Problems and Data Science Solutions</h1>
-<div id="opening-business-case-1" class="section level2">
+<div id="opening-business-case-1" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Opening Business Case</h2>
 <p>In the following video you’ll hear an expert’s thoughts on the relation between business problems and data challenges.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xo0bsiiQ9cM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -221,20 +166,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>What questions could be asked during data understanding?</em></li>
 </ul>
 </div>
-<div id="supervised-unsupervised-and-reinforcement-methods" class="section level2">
+<div id="supervised-unsupervised-and-reinforcement-methods" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Supervised, Unsupervised and Reinforcement Methods</h2>
-<div id="supervised-vs-unsupervised-methods" class="section level3">
+<div id="supervised-vs-unsupervised-methods" class="section level3" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Supervised vs Unsupervised Methods</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1XG1b85zPUk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
-<div id="reinforcement-methods" class="section level3">
+<div id="reinforcement-methods" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Reinforcement Methods</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kopoLzvh5jY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
 </div>
-<div id="the-data-mining-process" class="section level2">
+<div id="the-data-mining-process" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> The Data Mining Process</h2>
 <div class="figure" style="text-align: center"><span id="fig:datamining-fig"></span>
 <img src="images/crisp.png" alt="CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png" width="80%" />
@@ -242,11 +187,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png" class="uri">https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png</a>
 </p>
 </div>
-<div id="formulating-a-business-problem" class="section level3">
+<div id="formulating-a-business-problem" class="section level3" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Formulating a business problem</h3>
 <p><strong>Business Case:</strong> Recognizing handwritten digits</p>
 <table>
-<caption><span id="tab:unnamed-chunk-7">Table 2.1: </span>ECLIPSE questions taken from <span class="citation">Wildridge and Bell (<a href="#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
+<caption><span id="tab:unnamed-chunk-7">Table 2.1: </span>ECLIPSE questions taken from <span class="citation"><a href="references.html#ref-wildridge_eclipse_2002" role="doc-biblioref">Wildridge and Bell</a> (<a href="references.html#ref-wildridge_eclipse_2002" role="doc-biblioref">2002</a>)</span></caption>
 <colgroup>
 <col width="4%" />
 <col width="30%" />
@@ -278,7 +223,7 @@ Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wi
 <tr class="even">
 <td align="left">I</td>
 <td align="left">Impact: What would represent success? How is this measured?</td>
-<td align="left">An accuracy of 99%</td>
+<td align="left">To reach at least human accuracy</td>
 </tr>
 <tr class="odd">
 <td align="left">P</td>
@@ -293,24 +238,24 @@ Figure 2.1: CRISP-DM Model taken from: <a href="https://commons.wikimedia.org/wi
 </tbody>
 </table>
 </div>
-<div id="data-understanding" class="section level3">
+<div id="data-understanding" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Data Understanding</h3>
-<p>We are going to train a model on data from the MNIST database <span class="citation">(LeCun <a href="#ref-lecun1998mnist" role="doc-biblioref">1998</a>)</span>. The original dataset contains 60000 images of handwritten digits. The size of each images is 28x28 pixel and each pixel has a grayscale value between 0 (white) en 255 (black).</p>
+<p>We are going to train a model on data from the MNIST database <span class="citation">(<a href="references.html#ref-lecun1998mnist" role="doc-biblioref">LeCun 1998</a>)</span>. The original dataset contains 60000 images of handwritten digits. The size of each images is 28x28 pixel and each pixel has a grayscale value between 0 (white) en 255 (black).</p>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
 <img src="gitbook_files/figure-html/unnamed-chunk-8-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
-Figure 2.2: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Figure 2.2: Example taken from <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
 </div>
 </div>
-<div id="data-preparation" class="section level3">
+<div id="data-preparation" class="section level3" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Data Preparation</h3>
 <p><em>How much gray is there in the set of images?</em></p>
-Example Mnist <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Example Mnist <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
 <img src="gitbook_files/figure-html/unnamed-chunk-9-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
-Figure 2.3: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Figure 2.3: Example taken from <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
 </div>
 <h3>
@@ -331,7 +276,7 @@ Before checking, analyze the chart and draw your own conclusions.
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="gitbook_files/figure-html/unnamed-chunk-10-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
-Figure 2.4: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Figure 2.4: Example taken from <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
 </div>
 <h3>
@@ -352,7 +297,7 @@ Already we have some suspicions about which digits might be easier to separate. 
 <div class="figure"><span id="fig:unnamed-chunk-11"></span>
 <img src="gitbook_files/figure-html/unnamed-chunk-11-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
-Figure 2.5: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Figure 2.5: Example taken from <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
 </div>
 <h3>
@@ -369,11 +314,11 @@ Before checking, analyze the chart and draw your own conclusions.
 <div class="figure"><span id="fig:unnamed-chunk-12"></span>
 <img src="gitbook_files/figure-html/unnamed-chunk-12-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
-Figure 2.6: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Figure 2.6: Example taken from <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
 </div>
 <p>This is a useful way to understand what kinds of problems the data could have. For instance, while most 1s looked the same, they could be drawn diagonally, or with a flat line and a flag on top. A 7 could be drawn with a bar in the middle. (And what is up with that 9 on the lower left?)</p>
-This also gives us a realistic sense of how accurate our classifier can get. Even humans would have a hard time classifying some of these sloppy digits, so we can’t expect a 100% success rate. (Conversely, if one of our classifiers does get a 100% success rate, we should examine whether we’re overfitting!).
+This also gives us a realistic sense of how accurate our classifier can get. Even humans would have a hard time classifying some of these sloppy digits, so we can’t expect a 100% success rate. Conversely, if one of our classifiers does get a 100% success rate, we should examine whether we’re overfitting!
 </div>
 <hr>
 <p><em>How easy it is to tell pairs of digits apart?</em></p>
@@ -381,7 +326,7 @@ This also gives us a realistic sense of how accurate our classifier can get. Eve
 <div class="figure"><span id="fig:unnamed-chunk-13"></span>
 <img src="gitbook_files/figure-html/unnamed-chunk-13-1.png" alt="Example taken from @robinson_exploring_2018" width="672" />
 <p class="caption">
-Figure 2.7: Example taken from <span class="citation">Robinson (<a href="#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
+Figure 2.7: Example taken from <span class="citation"><a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">Robinson</a> (<a href="references.html#ref-robinson_exploring_2018" role="doc-biblioref">2018</a>)</span>
 </p>
 </div>
 <h3>
@@ -398,7 +343,7 @@ Comparisons that are largely white may be more difficult. We can see 4/9 looks p
 </div>
 <hr>
 </div>
-<div id="modeling-and-evaluation" class="section level3">
+<div id="modeling-and-evaluation" class="section level3" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> Modeling and Evaluation</h3>
 <p>For modeling we can use a neural network. Follow this <a href="https://minorsmart.github.io/bigdata/tensorflow/">link</a> and let thee model run. When finished you’ll see a table resembling the following:</p>
 <div class="figure" style="text-align: center"><span id="fig:tensorflow-fig"></span>
@@ -407,20 +352,20 @@ Comparisons that are largely white may be more difficult. We can see 4/9 looks p
 Figure 2.8: Example Machine Learning output
 </p>
 </div>
-<p><em>Have we reached the target accuracy?</em></p>
+<p><em>How well does the model perform?</em></p>
 </div>
-<div id="deployment" class="section level3">
+<div id="deployment" class="section level3" number="2.3.5">
 <h3><span class="header-section-number">2.3.5</span> Deployment</h3>
 <p><a href="https://codepen.io/Witusj/pen/xxEXxqV">MNIST Handwriting</a></p>
 <iframe height="467" style="width: 100%;" scrolling="no" title="MNIST handwritten digits - ML" src="https://codepen.io/Witusj/embed/xxEXxqV?height=467&amp;theme-id=light&amp;default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
 See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten digits - ML</a> by Witusj
-(<a href='https://codepen.io/Witusj'><span class="citation">(<span class="citeproc-not-found" data-reference-id="Witusj"><strong>???</strong></span>)</span></a>) on <a href='https://codepen.io'>CodePen</a>.
+(<a href='https://codepen.io/Witusj'><span class="citation">(<a href="#ref-Witusj" role="doc-biblioref"><strong>Witusj?</strong></a>)</span></a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 </div>
 </div>
-<div id="databases" class="section level2">
+<div id="databases" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Databases</h2>
-<div id="sql-vs-nosql" class="section level3">
+<div id="sql-vs-nosql" class="section level3" number="2.4.1">
 <h3><span class="header-section-number">2.4.1</span> SQL vs NoSQL</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ruz-vK8IesE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -470,27 +415,9 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 </tbody>
 </table>
 <p>However, this can cause a problem when exporting or searching the data. As soon as your data seems to become asymmetric, you should consider a NoSQL format. The most important formats in terms of popularity are XML and JSON.</p>
-<div id="xml" class="section level4">
+<div id="xml" class="section level4" number="2.4.1.1">
 <h4><span class="header-section-number">2.4.1.1</span> XML</h4>
 <p>By annotating data, meaning can be added to individual data elements. One data format that makes use of this is Extensible Markup Language (XML). For example, in our example, a <firstname> tag can be added to the data relating to the first name and each telephone number can be individually identified as such.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="businessproblems.html#cb6-1"></a>data&lt;-<span class="st"> </span>nameDF</span>
-<span id="cb6-2"><a href="businessproblems.html#cb6-2"></a>xml &lt;-<span class="st"> </span><span class="kw">xmlTree</span>()</span>
-<span id="cb6-3"><a href="businessproblems.html#cb6-3"></a><span class="co"># names(xml)</span></span>
-<span id="cb6-4"><a href="businessproblems.html#cb6-4"></a>xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;customers&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span></code></pre></div>
-<pre><code>## Warning in xmlRoot.XMLInternalDocument(currentNodes[[1]]): empty XML document</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="businessproblems.html#cb8-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(data)) {</span>
-<span id="cb8-2"><a href="businessproblems.html#cb8-2"></a>    xml<span class="op">$</span><span class="kw">addTag</span>(<span class="st">&quot;customer&quot;</span>, <span class="dt">close=</span><span class="ot">FALSE</span>)</span>
-<span id="cb8-3"><a href="businessproblems.html#cb8-3"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="kw">names</span>(data)) {</span>
-<span id="cb8-4"><a href="businessproblems.html#cb8-4"></a>      celldata &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">strsplit</span>(data[i, j], <span class="st">&quot;[;]&quot;</span>))</span>
-<span id="cb8-5"><a href="businessproblems.html#cb8-5"></a>       <span class="cf">for</span> (k <span class="cf">in</span> celldata){</span>
-<span id="cb8-6"><a href="businessproblems.html#cb8-6"></a>          xml<span class="op">$</span><span class="kw">addTag</span>(j, <span class="kw">trimws</span>(k))</span>
-<span id="cb8-7"><a href="businessproblems.html#cb8-7"></a>       }</span>
-<span id="cb8-8"><a href="businessproblems.html#cb8-8"></a>       </span>
-<span id="cb8-9"><a href="businessproblems.html#cb8-9"></a>    }</span>
-<span id="cb8-10"><a href="businessproblems.html#cb8-10"></a>    xml<span class="op">$</span><span class="kw">closeTag</span>()</span>
-<span id="cb8-11"><a href="businessproblems.html#cb8-11"></a>}</span>
-<span id="cb8-12"><a href="businessproblems.html#cb8-12"></a>xml<span class="op">$</span><span class="kw">closeTag</span>()</span>
-<span id="cb8-13"><a href="businessproblems.html#cb8-13"></a><span class="kw">cat</span>(<span class="kw">saveXML</span>(xml, <span class="dt">prefix =</span> <span class="st">&#39;&#39;</span>))</span></code></pre></div>
 <pre><code>## 
 ## &lt;customers&gt;
 ##   &lt;customer&gt;
@@ -523,7 +450,7 @@ See the Pen <a href='https://codepen.io/Witusj/pen/xxEXxqV'>MNIST handwritten di
 ##   &lt;/customer&gt;
 ## &lt;/customers&gt;</code></pre>
 </div>
-<div id="json" class="section level4">
+<div id="json" class="section level4" number="2.4.1.2">
 <h4><span class="header-section-number">2.4.1.2</span> JSON</h4>
 <p>For a long time XML was the leading data format for web applications. However is has currently been overtaken by Javascript Object Notation (JSON).</p>
 <div class="figure" style="text-align: center"><span id="fig:json-fig"></span>
@@ -563,13 +490,13 @@ Figure 2.9: Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2
 <p>The arrays are indexed, so each element can be easily retrieved.</p>
 </div>
 </div>
-<div id="graph" class="section level3">
+<div id="graph" class="section level3" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Graph</h3>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/REVkXVxvMQE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
 </div>
-<div id="business-case" class="section level2">
+<div id="business-case" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Business Case</h2>
 <p>Big Data is not reserved for Big Business. In the following video you’ll see a case of a small retailer using data to improve his business decisions.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hYoRMqkN_TI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -581,18 +508,6 @@ Figure 2.9: Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2
 <li><em>What is the realized business value?</em></li>
 </ul>
 
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-lecun1998mnist">
-<p>LeCun, Yann. 1998. “The Mnist Database of Handwritten Digits.” <em>Http://Yann. Lecun. Com/Exdb/Mnist/</em>.</p>
-</div>
-<div id="ref-robinson_exploring_2018">
-<p>Robinson, David. 2018. “Exploring Handwritten Digit Classification: A Tidy Analysis of the MNIST Dataset.” <em>R-Bloggers</em>. <a href="https://www.r-bloggers.com/2018/01/exploring-handwritten-digit-classification-a-tidy-analysis-of-the-mnist-dataset/">https://www.r-bloggers.com/2018/01/exploring-handwritten-digit-classification-a-tidy-analysis-of-the-mnist-dataset/</a>.</p>
-</div>
-<div id="ref-wildridge_eclipse_2002">
-<p>Wildridge, Valerie, and Lucy Bell. 2002. “How Clip Became Eclipse: A Mnemonic to Assist in Searching for Health Policy/Management Information.” <em>Health Information &amp; Libraries Journal</em> 19 (2): 113–15. <a href="https://doi.org/https://doi.org/10.1046/j.1471-1842.2002.00378.x">https://doi.org/https://doi.org/10.1046/j.1471-1842.2002.00378.x</a>.</p>
 </div>
 </div>
             </section>
