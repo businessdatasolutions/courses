@@ -18,7 +18,7 @@ The data we will be using comes from the University of Wisconsin and is availabl
 
 For convenience the data in csv format is stored on Github. We can access it directly using a function dedicated to reading csv from the `readr` package.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 url <- "https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"
 rawDF <- read_csv(url)
 ```
