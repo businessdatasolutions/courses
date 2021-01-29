@@ -16,7 +16,7 @@ Breast cancer is the top cancer in women both in the developed and the developin
 ## Data Understanding
 The data we will be using comes from the University of Wisconsin and is available online as an open source dataset [@noauthor_uci_cancer_nodate]. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.
 
-The data is saved online as a Google Spreadsheet. We can access it directly using a function dedicated to reading Google Spreadsheets from the `googlesheets4` package.
+For convenience the data in csv format is stored on Github. We can access it directly using a function dedicated to reading csv from the `readr` package.
 
 ```{r}
 url <- "https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"
