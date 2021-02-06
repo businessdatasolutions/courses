@@ -20,6 +20,7 @@ fig:tensorflow-fig
 tab:unnamed-chunk-14
 tab:unnamed-chunk-15
 fig:json-fig
+fig:json-chart
 fig:aicompanies-fig
 dddm
 opening-business-case

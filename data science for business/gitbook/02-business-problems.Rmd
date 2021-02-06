@@ -8,6 +8,9 @@ library(purrr)
 library(XML)
 library(jsonlite)
 library(knitr)
+library(plotly)
+library(maps)
+library(fuzzyjoin)
 ```
 
 ## Opening Business Case
@@ -311,9 +314,28 @@ For a long time XML was the leading data format for web applications. However is
 knitr::include_graphics(rep('images/jsonxml.svg'))
 ```
 
-The main reason for this change has been the increasin popularity of so-called Application Programming Interfaces (APIs). Many online service providers offer also the possibility to access selected data. Most modern web applications are written using Javascript and can process JSON natively.
+---
 
-This concept simplifies the integration of various datasources dramatically. For instance one application could combine tweets from  [Twitter](https://developer.twitter.com/en/products/products-overview) with [weather forecasts](https://openweathermap.org/api) and with news from [CNN](http://developer.cnn.com/).
+```{r json-chart, echo=FALSE, fig.align='center', fig.asp=.75, echo=FALSE, fig.cap='Percentage web searches JSON vs XML<br>Source:<a href="https://trends.google.com/trends/?geo=US"> Google Trends</a>', message=FALSE, warning=FALSE}
+## Country codes saved from https://laendercode.net/en/countries.html
+
+geoMap <- read_csv("datasets/geoMap.csv",
+                   skip = 2) %>%
+  rename(JSON = `JSON: (05/02/2020 - 05/02/2021)`, XML = `XML: (05/02/2020 - 05/02/2021)`) %>%
+  mutate(percJSON = as.numeric(gsub("%", "", JSON)))
+  
+countryDF <- read_csv("datasets/countries.csv") %>% rename(a2 = `ISO 3166 ALPHA-2`, a3 = `ISO 3166 ALPHA-3`)
+
+countryDF <- inner_join(x = countryDF, y = geoMap) %>% filter(!is.na(percJSON))
+
+fig <- plot_ly(countryDF, type="choropleth", locations=countryDF$a3, z=countryDF$percJSON, colors="Blues")
+
+fig
+```
+
+The main reason for this change has been the increase in popularity of so-called Application Programming Interfaces (APIs). Many online service providers offer also the possibility to access selected data. Most modern web applications are written using Javascript and can process JSON natively.
+
+This concept simplifies the integration of various data sources dramatically. For instance one application could combine tweets from  [Twitter](https://developer.twitter.com/en/products/products-overview) with [weather forecasts](https://openweathermap.org/api) and with news from [CNN](http://developer.cnn.com/).
 
 JSON works through so-called key: value sets:
 
