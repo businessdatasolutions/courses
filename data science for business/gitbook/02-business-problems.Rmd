@@ -310,7 +310,7 @@ cat(saveXML(xml, prefix = ''))
 
 For a long time XML was the leading data format for web applications. However is has currently been overtaken by Javascript Object Notation (JSON).
 
-```{r json-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Bron: <a href="https://insights.stackoverflow.com/trends?tags=json%2Cxml" target="_blank">Stack Overflow</a>', message=FALSE, warning=FALSE, out.width='80%'}
+```{r json-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Source: <a href="https://insights.stackoverflow.com/trends?tags=json%2Cxml" target="_blank">Stack Overflow</a>', message=FALSE, warning=FALSE, out.width='80%'}
 knitr::include_graphics(rep('images/jsonxml.svg'))
 ```
 
