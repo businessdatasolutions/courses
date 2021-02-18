@@ -228,7 +228,7 @@ knitr::include_graphics(rep('images/tf.png'))
   (<a href='https://codepen.io/Witusj'>@Witusj</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## Databases
+## Data Formats
 
 ### SQL vs NoSQL
 
