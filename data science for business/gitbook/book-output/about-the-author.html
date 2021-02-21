@@ -24,7 +24,7 @@
 <meta name="author" content="Witek ten hove" />
 
 
-<meta name="date" content="2021-02-18" />
+<meta name="date" content="2021-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,6 +51,13 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.2.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -70,7 +77,6 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li class="toc-logo"><a href="./"><img src="images/logo-name.png"></a></li>
 <li><a class="h4" href="./">Data Science for Business</a></li>
 
 <li class="divider"></li>
@@ -88,18 +94,13 @@
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="dddm.html"><a href="dddm.html#the-johan-cruyff-arena"><i class="fa fa-check"></i><b>1.2.1</b> The Johan Cruyff Arena</a></li>
 <li class="chapter" data-level="1.2.2" data-path="dddm.html"><a href="dddm.html#the-monty-hall-problem"><i class="fa fa-check"></i><b>1.2.2</b> The Monty Hall Problem</a></li>
+<li class="chapter" data-level="1.2.3" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.2.3</b> Taxicab problem</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="dddm.html"><a href="dddm.html#initialize-doors"><i class="fa fa-check"></i><b>1.3</b> Initialize doors</a></li>
-<li class="chapter" data-level="1.4" data-path="dddm.html"><a href="dddm.html#players-choice"><i class="fa fa-check"></i><b>1.4</b> Player’s choice</a></li>
-<li class="chapter" data-level="1.5" data-path="dddm.html"><a href="dddm.html#host-opens-door"><i class="fa fa-check"></i><b>1.5</b> Host opens door</a>
-<ul>
-<li class="chapter" data-level="1.5.1" data-path="dddm.html"><a href="dddm.html#taxicab-problem"><i class="fa fa-check"></i><b>1.5.1</b> Taxicab problem</a></li>
-</ul></li>
-<li class="chapter" data-level="1.6" data-path="dddm.html"><a href="dddm.html#what-is-data-science-and-what-is-not"><i class="fa fa-check"></i><b>1.6</b> What is Data Science and what is not?</a></li>
-<li class="chapter" data-level="1.7" data-path="dddm.html"><a href="dddm.html#what-is-data-mining"><i class="fa fa-check"></i><b>1.7</b> What is Data Mining?</a></li>
-<li class="chapter" data-level="1.8" data-path="dddm.html"><a href="dddm.html#what-is-data-driven-decision-making"><i class="fa fa-check"></i><b>1.8</b> What is Data Driven Decision Making</a></li>
-<li class="chapter" data-level="1.9" data-path="dddm.html"><a href="dddm.html#what-are-big-data-technologies"><i class="fa fa-check"></i><b>1.9</b> What are Big Data technologies?</a></li>
-<li class="chapter" data-level="1.10" data-path="dddm.html"><a href="dddm.html#case-study-ubernomics"><i class="fa fa-check"></i><b>1.10</b> Case Study: Ubernomics</a></li>
+<li class="chapter" data-level="1.3" data-path="dddm.html"><a href="dddm.html#what-is-data-science-and-what-is-not"><i class="fa fa-check"></i><b>1.3</b> What is Data Science and what is not?</a></li>
+<li class="chapter" data-level="1.4" data-path="dddm.html"><a href="dddm.html#what-is-data-mining"><i class="fa fa-check"></i><b>1.4</b> What is Data Mining?</a></li>
+<li class="chapter" data-level="1.5" data-path="dddm.html"><a href="dddm.html#what-is-data-driven-decision-making"><i class="fa fa-check"></i><b>1.5</b> What is Data Driven Decision Making</a></li>
+<li class="chapter" data-level="1.6" data-path="dddm.html"><a href="dddm.html#what-are-big-data-technologies"><i class="fa fa-check"></i><b>1.6</b> What are Big Data technologies?</a></li>
+<li class="chapter" data-level="1.7" data-path="dddm.html"><a href="dddm.html#case-study-ubernomics"><i class="fa fa-check"></i><b>1.7</b> Case Study: Ubernomics</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="businessproblems.html"><a href="businessproblems.html"><i class="fa fa-check"></i><b>2</b> Business Problems and Data Science Solutions</a>
 <ul>
@@ -134,6 +135,7 @@
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li class="toc-logo"><a href="https://www.businessdatasolutions.nl/" target="blank"><img src="images/logo-name.png"></a></li>
 </ul>
 
       </nav>
