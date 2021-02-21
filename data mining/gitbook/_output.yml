@@ -5,7 +5,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li class="toc-logo"><a href="./"><img src="images/logo-name.png"></a></li>
         <li><a class="h4" href="./">Data Mining</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li class="toc-logo"><a href="./"><img src="images/logo-name.png"></a></li>
