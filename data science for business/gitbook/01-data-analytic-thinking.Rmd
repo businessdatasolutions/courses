@@ -231,6 +231,8 @@ knitr::include_graphics('images/crisp.png')
 knitr::include_graphics('images/pyramid.png')
 ```
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EevYFzAqJ2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## What are Big Data technologies?
 
 ```{r technoslavia-fig, echo=FALSE, fig.align='center', fig.asp=1, fig.cap='Big Data pipelines taken from: https://blog.dataiku.com/technoslavia-the-fragmented-world-of-data-infrastructure-in-2020', message=TRUE, warning=TRUE, out.width='80%'}
