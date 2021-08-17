@@ -9,7 +9,7 @@
 
 ## Machine Intelligence in Business
 
-```{r aicompanies-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: @noauthor_artificial_2020', message=TRUE, warning=TRUE, out.width='80%'}
+```{r aicompanies-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='@noauthor_artificial_2020', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics(rep('images/aicompanies.png'))
 ```
 

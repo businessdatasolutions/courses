@@ -212,13 +212,17 @@ Most subjects gave probabilities over 50%, and some gave answers over 80%. The c
 
 </div>
 
-## What is Data Science and what is not?
+## What is Data Science?
 
 ```{r datascience-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Data Science diagram taken from: https://towardsdatascience.com/introduction-to-statistics-e9d72d818745', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics('images/datascience.png')
 ```
 
-What is the ultimate purpose of a Data Science effort?
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GbL-42kv5LI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Answer the following questions.** Use the information from the course literature as a starting point for your argumentation. Find other reliable sources that support your analysis.
+
+- *Describe the difference and relationships between Data Analytics, Analysis and Science*
 
 ## What is Data Mining?
 ```{r crisp-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Cross-industry standard process for data mining taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
@@ -232,6 +236,10 @@ knitr::include_graphics('images/pyramid.png')
 ```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EevYFzAqJ2M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+```{r lu-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='A process model for data-driven decision making taken from @lu2020data', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics('images/lu.png')
+```
 
 ## What are Big Data technologies?
 

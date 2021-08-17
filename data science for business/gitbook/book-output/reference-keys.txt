@@ -7,6 +7,7 @@ fig:montyhall-fig
 fig:datascience-fig
 fig:crisp-fig
 fig:dikw-fig
+fig:lu-fig
 fig:technoslavia-fig
 fig:datamining-fig
 tab:unnamed-chunk-7
@@ -28,7 +29,7 @@ thinking-and-deciding
 the-johan-cruyff-arena
 the-monty-hall-problem
 taxicab-problem
-what-is-data-science-and-what-is-not
+what-is-data-science
 what-is-data-mining
 what-is-data-driven-decision-making
 what-are-big-data-technologies
