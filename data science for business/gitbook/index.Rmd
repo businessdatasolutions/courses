@@ -1,6 +1,6 @@
 --- 
 title: "Data Science for Business"
-author: "Witek ten hove"
+author: "Witek ten hove & David Hartsuiker"
 date: "`r Sys.Date()`"
 output:
   html_document:
