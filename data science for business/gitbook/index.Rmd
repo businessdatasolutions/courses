@@ -2,12 +2,15 @@
 title: "Data Science for Business"
 author: "Witek ten hove"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
+output:
+  html_document:
+    df_print: paged
 documentclass: book
-bibliography: [lit.bib]
+bibliography: lit.bib
 biblio-style: apalike
 link-citations: yes
-description: "This is a compagnon to the course Data Science for Business."
+description: This is a compagnon to the course Data Science for Business.
+site: bookdown::bookdown_site
 ---
 
 # Preface {-}

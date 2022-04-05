@@ -2,7 +2,7 @@
 
 ## Opening Business Case
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KY8v-O5Buyc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5iphYe2OB78" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Assignment**: *Write down all associations you can discover between the study material (Provost Ch.13) and the video.*
 

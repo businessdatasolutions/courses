@@ -1,0 +1,636 @@
+---
+title: "M3DM R Tutorial 1"
+subtitle: "Based on DCU the WaRm Up! tutorial"
+author: "by Damien Dupré"
+output:
+  learnr::tutorial:
+    progressive: true
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+# options ----------------------------------------------------------------------
+knitr::opts_chunk$set(
+  scipen = 999,
+  echo = FALSE,
+  eval = TRUE,
+  fig.align='center'
+  )
+# libraries --------------------------------------------------------------------
+library(learnr)
+library(tidyverse)
+library(norris)
+
+# environement -----------------------------------------------------------------
+leinster_county <- c("Carlow", "Dublin", "Kildare", "Kilkenny", "Laois", "Longford", "Louth", "Meath", "Offaly", "Westmeath", "Wexford", "Wicklow")
+
+leinster_county_size <- c(896, 921, 1693, 2061, 1719, 1091, 820, 2342, 2000, 1838, 2352, 2024)
+
+leinster_county_population <- c(56932, 1347359, 222504, 99232, 84697, 40873, 128884, 195044, 77961, 88770, 149722, 142425)
+
+leinster_df <- data.frame(
+  name = leinster_county, 
+  size = leinster_county_size, 
+  population = leinster_county_population
+)
+
+url <- "https://raw.githubusercontent.com/handataprof/learnr_dcu/master/m3dm_r_basics/2019.csv"
+rawData <- read.csv(url)
+```
+
+```{r learnr-references}
+## setup -----------------------------------------------------------------------
+#https://blog.rstudio.com/2017/07/11/introducing-learnr/
+#https://bookdown.org/yihui/rmarkdown/learnr-start.html
+#https://teachdatascience.com/learnr/
+#https://rstudio.github.io/learnr/
+## examples --------------------------------------------------------------------
+#https://jjallaire.shinyapps.io/learnr-tutorial-01-data-basics/#section-help-pages
+#https://r.qhelp.eu/Glasgow/Learnr_regression/app/#section-linear-regression
+#https://rpruim.shinyapps.io/Less-Volume-JMM2019/#section-us-births-in-1978
+#https://raw.githubusercontent.com/rpruim/JMM2019/master/docs/less-volume/less-volume-slides.Rmd
+```
+
+```{r img1, out.width = '30%'}
+knitr::include_graphics("https://www.quotemaster.org/images/4d/4ddba5dfcaeb6bfcf0ac3da9a0f35585.png")
+```
+
+## Introduction
+
+If you are new to R and programming, you may be intimidated by the idea of writing code. You probably aren’t used to having to type commands to tell the computer what to do. You may be more comfortable using drop-down menus and other graphical user interfaces that allow you to pick what you’d like to do. So, why are so many companies, colleges, universities, and individuals of all disciplinary backgrounds shifting towards using R?
+
+There are many answers to this question, but some of the most important are:
+
+### 1. R and RStudio are free
+
+One of the biggest perks of working with R and RStudio is that both are available free of charge. Whereas other, proprietary statistics packages are often stuck in the dark ages of development (the 1990s, for example), and can be incredibly expensive to purchase, R is a free alternative that allows users of all experience levels to contribute to its development.
+
+### 2. Analyses done using R are reproducible
+
+As many scientific fields embrace the idea of reproducible analyses, proprietary point-and-click systems actually serve as a hindrance to this process. If you need to re-run your analysis using one of these systems, you’ll need to carefully copy-and-paste your results into your text editor, potentially from beginning to end. As anyone who has done this sort of copy-and-pasting knows, this approach is both prone to errors and incredibly tedious.
+
+If, on the other hand, you use the workflows described in this tutorial, your analyses will be reproducible, thus eliminating the copy-and-paste dance. And, as you can probably guess, it is much better to be able to update your code and data inputs and then re-run all of your analysis with the push of a button than to have to worry about manually moving your results from one program to another. Reproducibility also helps you as a programmer, since your most frequent collaborator is likely to be yourself a few months or years down the road. Instead of having to carefully write down all the steps you took to find the correct drop-down menu option, your entire code is stored, and immediately reusable.
+
+### 3. Using R makes collaboration easier
+
+This approach also helps with collaboration since, as you will see later, you can share a single R Markdown file containing all of your analysis, documentation, comments, and code with others. This reduces the time needed to work with others and reduces the likelihood of errors being made in following along with point-and-click analyses. The mantra here is to Say No to Copy-And-Paste! both for your sanity and for the sake of science.
+
+### 4. Finding answers to questions is much simpler
+
+If you have ever had an issue with software, you know how difficult it can be to find answers to your questions. “How can I describe the process to someone else? Do I need to take screenshots? Do I really need to call IT and wait for hours for someone to respond?” Because R is a programming language, it is much easier (after a bit of practice) to use Google or Stack Overflow to find answers to your questions. You’ll be amazed at how many other users have encountered the same sorts of errors you will see when you begin.
+
+I frequently (almost daily) Google things like “How do I make a side-by-side boxplot in R coloring by a third variable?”. You’ll become better at working with R by reaching out to others for help and by answering questions that others have.
+
+### 5. Struggling through programming helps you learn
+
+We all know that learning isn’t easy. Do you have trouble remembering how to follow a list of more than 10 steps or so? Do you find yourself going back over and over again because you can’t remember what step comes next in the process? This is extremely common, especially if you haven’t done the procedure in awhile. Learning by following a procedure is easy in the short-term, but can be extremely frustrating to remember in the long-term. If done well, programming promotes long-term thinking to short-term fixes.
+
+### References
+
+This tutorial uses contents and examples from the following free online books. They are perfect for beginners, feel free to check them out for further information:
+
+- [R for Data Science](https://r4ds.had.co.nz/) by Wickham and Grolemund (2017)
+- [A ModernDive into R and the tidyverse](https://moderndive.com/) by Ismay and Kim (2019)
+- [Learning statistics with R](https://learningstatisticswithr.com/book/) by Navarro (2019)
+- [Getting Used to R, RStudio, and R Markdown](https://rbasics.netlify.com/) by Kennedy (2019)
+- [Introduction to Open Data Science](https://ohi-science.org/data-science-training/) by the Ocean Health Index Team (2019)
+- [Statistical Thinking for the 21st Century](https://statsthinking21.org/) by Poldrack (2020)
+
+## Chapter 1: Getting Started with R
+
+Before starting, there are some key concepts you need to understand and to remember:
+
+1. What are **R** and **RStudio**?
+2. How do I **code** in R?
+3. What are **R packages**?
+
+### What are **R** and **RStudio**?
+
+R is a real programming language and has become one of the most popular programming languages for statistical analysis and “data science”. Unlike general-purpose programming languages such as Python or Java, R is purpose-built for statistics. That doesn’t mean that you can’t do more general things with it, but the place where it really shines is in data analysis and statistics.
+
+R is usually used via RStudio and First time users often confuse the two. At its simplest, **R is like a car’s engine** while **RStudio is like a car’s dashboard**.
+
+```{r img2, fig.show = "hold", out.width = "50%", fig.align = "default", fig.cap="R: The engine (left); RStudio: The dashboard (right)"}
+
+knitr::include_graphics("https://images.pexels.com/photos/159293/car-engine-motor-clean-customized-159293.jpeg")
+knitr::include_graphics("https://images.pexels.com/photos/1009871/pexels-photo-1009871.jpeg")
+```
+
+More precisely, **R is a programming language that runs computations**, while **RStudio is an integrated development environment (IDE) that provides an interface** by adding many convenient features and tools. So just as the way of having access to a speedometer, rearview mirrors, and a navigation system makes driving much easier, using RStudio’s interface makes using R much easier as well.
+
+For now, we are going to use R via a server not with RStudio but the presentation of RStudio and how to use RStudio will be introduced at the end of this tutorial.
+
+### How do I **code** in R?
+
+While it is not required to be an expert computer programmer to use R, there is still a set of basic programming concepts that new R users need to understand.
+
+To help you learn, we will always use a different font to distinguish regular text from `computer_code`. The best way to master these topics is through deliberate practice with R and lots of repetition.
+
+One thing that intimidates new R and RStudio users is how it reports **errors**, **warnings**, and **messages**. R reports errors, warnings, and messages in a glaring red font, which makes it seem like it is scolding you. However, seeing red text in the console is not always bad.
+
+- If the text starts with **“Error”**, figure out what’s causing it. Think of errors as a red traffic light: something is wrong!
+- If the text starts with **“Warning”**, figure out if it’s something to worry about. Think of warnings as a yellow traffic light: everything is working fine, but watch out/pay attention.
+- Otherwise, the text is just a **message**. Read it, wave back at R, and thank it for talking to you. Think of messages as a green traffic light: everything is working fine and keep on going!
+
+Learning to code/program is quite similar to learning a foreign language. It can be daunting and frustrating at first. Such frustrations are common and it is normal to feel discouraged as you learn. However, just as with learning a foreign language, if you put in the effort and are not afraid to make mistakes, anybody can learn and improve.
+
+Here are a few useful tips to keep in mind as you learn to program:
+
+1. **Remember that computers are not actually that smart**: The instructions you give your computer can’t have any mistakes in them, nor can they be ambiguous in any way.
+2. **Take the “copy, paste, and tweak” approach**: It is often much easier to take existing code that you know works and modify it to suit your ends.
+3. **The best way to learn to code is by doing**: Rather than learning to code for its own sake, we find that learning to code goes much smoother when you have a goal in mind or when you are working on a particular project, like analyzing data that you are interested in and that is important to you.
+4. **Practice is key**: Just as the only method to improve your foreign language skills is through lots of practice and speaking, the only method to improving your coding skills is through lots of practice.
+
+### What are **R packages**?
+
+Another point of confusion with many new R users is the idea of an R package. R packages extend the functionality of R by providing additional functions, data, and documentation. They are written by a worldwide community of R users and can be downloaded for free from the internet.
+
+A good analogy for **R packages are like apps you can download onto a mobile phone**.
+
+```{r img3, fig.show = "hold", out.width = "50%", fig.align = "default", fig.cap="R: A new phone (left); R Packages: Apps you can download (right)"}
+
+knitr::include_graphics("https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg")
+knitr::include_graphics("https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg")
+```
+
+So R is like a new mobile phone: while it has a certain amount of features when you use it for the first time, it doesn’t have everything. R packages are like the apps you can download onto your phone from Apple’s App Store or Android’s Google Play.
+
+Let’s continue this analogy by considering the Instagram app for editing and sharing pictures. Say you have purchased a new phone and you would like to share a photo you have just taken with friends on Instagram. You need to:
+
+- **Install the app**: Since your phone is new and does not include the Instagram app, you need to download the app from either the App Store or Google Play. You do this once and you’re set for the time being. You might need to do this again in the future when there is an update to the app.
+- **Open the app**: After you’ve installed Instagram, you need to open it.
+
+Once Instagram is open on your phone, you can then proceed to share your photo with your friends and family. The process is very similar for using an R package. You need to:
+
+- **Install the package**: This is like installing an app on your phone. Most packages are not installed by default when you install R and RStudio. Thus if you want to use a package for the first time, you need to install it first. Once you’ve installed a package, you likely won’t install it again unless you want to update it to a newer version.
+
+To install a package, you need to download it from CRAN and to make it available to your R system  with the function `install.packages()`.
+
+```{r echo=TRUE, eval=FALSE}
+install.packages("norris")
+```
+
+- **“Load” the package**: “Loading” a package is like opening an app on your phone. Packages are not “loaded” by default when you start RStudio on your computer; you need to “load” each package you want to use every time you start RStudio.
+
+To use a package that has been installed, you need to “load it.” In other words, you need to “open it.” We do this by using the `library()` command. 
+
+For example, to load the `norris` package, run the following code or hit the **Ctrl+Enter** keys (Windows) or **Cmd+Enter** (Mac) inside the code box.
+
+```{r package1, exercise=TRUE}
+library(norris)
+```
+
+Note: the package has already been loaded for you and will not generate any message.
+
+Once the package is loaded you can use all the functions from this package such as:
+
+```{r package2, exercise=TRUE}
+get_random_joke()
+```
+
+### What’s to come?
+
+As for a foreign language, before writing poems one has to learn the vocabulary and grammar and this is exactly what we have to do with R.
+
+## Chapter 2: Coding Basics
+
+### Arithmetic operations
+
+Let’s review some basics we’ve so far omitted in the interests of getting you plotting as quickly as possible. You can use R as a calculator.
+
+|Operator |Description             |
+|---------|------------------------|
+|+        |addition                |
+|-        |subtraction             |
+|*        |multiplication          |
+|/        |division                |
+
+Run the following code or hit the **Ctrl+Enter** keys (Windows) or **Cmd+Enter** (Mac) inside the code box.
+
+```{r calculator, exercise=TRUE}
+1 / 200 * 30
+
+(59 + 73 + 2) / 3
+
+sin(pi / 2)
+```
+
+R spits out the answer to whatever you type in, as long as it can figure it out.
+
+### Logical operations
+
+Another kind of object is known as a logical object, because it is based on the idea from logic that a statement can be either true or false. In R, these are capitalized (`TRUE` and `FALSE`).
+
+To determine whether a statement is true or not, we use logical operators. 
+
+|Operator |Description             |
+|---------|------------------------|
+|> and <  |greater than            |
+|>= and <=|greater than or equal to|
+|==       |exactly equal to        |
+|!=       |not equal to            |
+
+You are already familiar with some of these, like the greater-than (`>`) and less-than (`<`) operators. Run the following code or hit the **Ctrl+Enter** keys (Windows) or **Cmd+Enter** (Mac) inside the code box.
+
+```{r logical1, exercise=TRUE}
+1 < 3
+
+2 >= 4
+```
+
+Often we want to know whether two numbers are equal or not equal to one another. There are special operators in R to do this: `==` for equals, and `!=` for not-equals:
+
+```{r logical2, exercise=TRUE}
+3 == 3
+
+4 != 4
+```
+
+### Missing values
+
+One important feature of R that can make comparison tricky are missing values, or `NA`s (“not availables”). `NA` represents an unknown value so missing values are “contagious”: almost any operation involving an unknown value will also be unknown.
+
+```{r logical3, exercise=TRUE}
+NA > 5
+
+NA + 10
+
+NA / 2
+```
+
+### Objects
+
+An object is a content that can include anything (e.g., values, dataframes, figures, models) and has a name that you have to choose. We can create an object by **assigning a value** to it using the `<-` operator. If we then type the name of the object R will print out its value.
+
+```{r object1, exercise=TRUE}
+x <- 4
+x
+```
+
+The object now stands for the value that it contains, so we can perform operations on it and get the same answer as if we used the value itself.
+
+```{r object2, exercise=TRUE}
+x <- 4
+
+x + 3
+
+x == 5
+```
+
+We can change the value of an object by simply **assigning** a new value to it.
+
+```{r object3, exercise=TRUE}
+x <- 4
+
+x <- x + 1
+x
+```
+
+All R statements where you create objects, **assignment statements**, have the same form:
+
+```{r echo=TRUE, eval=FALSE}
+object_name <- value
+```
+
+When reading that code say “object name gets value” in your head. You will make lots of **assignments** and `<-` is a pain to type.
+
+### What’s in a name?
+
+Object names must start with a letter, and can only contain letters, numbers, `_` and `.`. You want your object names to be descriptive, so you’ll need a convention for multiple words. I recommend **snake_case** where you separate lowercase words with `_`.
+
+```{r echo=TRUE, eval=FALSE}
+i_use_snake_case
+
+otherPeopleUseCamelCase
+
+some.people.use.periods
+
+And_aFew.People_RENOUNCEconvention
+```
+
+You can inspect an object by typing its name. Type the name of the object under the code line and run the following code or hit the **Ctrl+Enter** keys (Windows) or **Cmd+Enter** (Mac) inside the code box to display its value.
+
+```{r object4, exercise=TRUE}
+this_is_a_really_long_name <- 2.5
+
+```
+
+Make yet another assignment and let’s try to inspect it:
+
+```{r object5, exercise=TRUE}
+r_rocks <- 2 ^ 3
+
+R_rock
+```
+
+There’s an implied contract between you and R: it will do the tedious computation for you, but in return, you must be completely precise in your instructions. **Typos matter. Case matters**.
+
+### Calling functions
+
+R has a large collection of built-in functions that are called like this:
+
+```{r echo=TRUE, eval=FALSE}
+function_name(arg1 = val1, arg2 = val2, ...)
+```
+
+Let’s try using the function `seq()` which makes a sequences of numbers. The first argument is called `from` and refers to the number used to start the sequence. The second argument is called `to` and refers to the last number of the sequence.
+
+Run the following code or hit the **Ctrl+Enter** keys (Windows) or **Cmd+Enter** (Mac) inside the code box to display its value.
+
+```{r seq1, exercise=TRUE}
+seq(from = 1, to = 10)
+```
+
+Fill the following code to obtain a sequence of numbers **from 5 to 20**.
+
+```{r seq2, exercise=TRUE}
+seq(from = , to = )
+```
+
+Even if it is always adviced to use argument names explicitely, it is possible to use fill the argument implicitely without argument name. In this case the arguments will be matched by position.
+
+Run the following code or hit the **Ctrl+Enter** keys (Windows) or **Cmd+Enter** (Mac) inside the code box to display its value.
+
+```{r seq3, exercise=TRUE}
+seq(1, 10)
+```
+
+The name of the function is always followed by an opening braket `(` and has to finish with a closing braket `)`.
+
+Quotation marks and parentheses must always come in a pair but it’s still possible to mess up and end up with a mismatch. If this happens, R will show you the continuation character `+`:
+
+```{r echo=TRUE, eval=FALSE}
+> x <- "hello
++
+```
+
+The `+` tells you that R is waiting for more input; it doesn’t think you’re done yet. Usually that means you’ve forgotten either a `"` or a `)`. Either add the missing pair, or press ESCAPE to abort the expression and try again.
+
+### Exercises
+
+1. Store the result of the function `seq(1, 10)` in an object with the assigment arrow and multiply this object by 2:
+
+```{r exercise1, exercise=TRUE}
+
+```
+
+```{r exercise1-solution}
+my_seq <- seq(1, 10)
+
+my_seq * 2
+```
+
+2. Store the result of the function `seq(1, 10)` in an object with the assigment arrow and store the value 2 in another object with the assigment arrow. Then multiply these two objects:
+
+```{r exercise2, exercise=TRUE}
+
+```
+
+```{r exercise2-solution}
+my_seq <- seq(1, 10)
+
+val_two <- 2
+
+my_seq * val_two
+```
+
+## Chapter 3: Vector Basics
+
+### Introducing vectors
+
+In the final excercise of the previous section, you have seen that an object (storing the results of the `seq()` function) has more than one value. We refer to this kind of object as a vector.
+
+If you want to create your own new vector, you can do that using the `c()` function. In which case c stands for combine and will create a vector with all the elements included in the brakets:
+
+```{r echo=TRUE, eval=FALSE}
+> my_vector <- c(4, 5, 6)
+> my_vector
+[1] 4 5 6
+```
+
+You can access the individual elements within a vector by using square brackets `[]` along with a number that refers to the location within the vector. These index values start at 1, which is different from many other programming languages that start at zero. Let’s say we want to see the value in the second place of the vector:
+
+```{r vector1, exercise=TRUE}
+my_vector <- c(4, 5, 6)
+
+my_vector[2]
+```
+
+You can also look at a range of positions, by putting the start and end locations with a colon in between:
+
+```{r echo=TRUE, eval=FALSE}
+> my_vector[2:3]
+[1] 5 6
+```
+
+You can also change the values of specific locations using the same indexing:
+
+```{r echo=TRUE, eval=FALSE}
+> my_vector[3] <- 7
+> my_vector
+[1] 4 5 7
+```
+
+### Math with vectors
+
+You can apply mathematical operations to the elements of a vector just as you would with a single number:
+
+```{r vector2, exercise=TRUE}
+my_vector <- c(4, 5, 6)
+my_vector_times_ten <- my_vector * 10
+my_vector_times_ten
+```
+
+You can also apply mathematical operations on pairs of vectors. In this case, each matching element is used for the operation.
+
+```{r vector3, exercise=TRUE}
+my_first_vector <- c(1, 2, 3)
+my_second_vector <- c(10, 20, 20)
+my_first_vector + my_second_vector
+```
+
+We can also apply logical operations across vectors; again, this will return a vector with the operation applied to the pairs of values at each position.
+
+```{r vector4, exercise=TRUE}
+vector_a <- c(1,2,3)
+vector_b <- c(1,2,4)
+vector_a == vector_b
+```
+
+Most functions will work with vectors just as they would with a single number. For example, let’s say we wanted to obtain the trigonometric sine for each of a set of values. We could create a vector and pass it to the `sin()` function, which will return as many sine values as there are input values:
+
+```{r vector5, exercise=TRUE}
+my_angle_values <- c(0, 1, 2)
+my_sin_values <- sin(my_angle_values)
+my_sin_values
+```
+
+Importantly, vectors can be made of numeric values but they can also be made of characters string between quotation marks (e.g., `"hello world"`), boolean such as `TRUE` or `FALSE`, or any kind of objects even multiple vectors. The only requirement is to respect the same type of object inside a vector.
+
+In the following example, subset the 2nd value of the vector `leinster_county`:
+
+```{r vector6, exercise=TRUE}
+leinster_county <- c("Carlow", "Dublin", "Kildare", "Kilkenny", "Laois", "Longford", "Louth", "Meath", "Offaly", "Westmeath", "Wexford", "Wicklow")
+```
+
+However, functions applied to vectors have specific requirement regarding the type of elements in the vector. Try to run the following code:
+
+```{r vector7, exercise=TRUE}
+sin(leinster_county)
+```
+
+### Exercises
+
+1. Create a vector containing your age, height, and years since your leaving cert. Store the first element of this vector in a new object called `age`. Store the third element of this vector in a new object called `years_from_lc`. Subtract `age` with `years_from_lc`:
+
+```{r exercise3, exercise=TRUE}
+
+```
+
+```{r exercise3-solution}
+my_details <- c(35, 1.8, 15)
+
+age <- my_details[1]
+
+years_from_lc <- my_details[3]
+
+age - years_from_lc
+```
+
+2. Create a vector containing the names of the 4 provinces of Ireland, store this vector in an object and apply the function `nchar()` to this object:
+
+```{r exercise4, exercise=TRUE}
+
+```
+
+```{r exercise4-solution, exercise=TRUE}
+provinces <- c("Connaught", "Leinster", "Munster", "Ulster")
+
+nchar(provinces)
+```
+
+## Chapter 4: Data Frames
+
+Often in a dataset we will have a number of different variables that we want to work with. Instead of having a different named object that stores each one, it is often useful to combine all of the separate variables into a single object, which is referred to as a **data frame**.
+
+If you are familiar with a spreadsheet (say from Microsoft Excel) then you already have a basic understanding of a data frame.
+
+Let’s have a look at the size and population of the 12 counties in the province of Leinster. We could start by creating an object for each one, making sure that they are in the same order for each of the variables:
+
+```{r echo=TRUE, eval=FALSE}
+leinster_county_name <- c("Carlow", "Dublin", "Kildare", "Kilkenny", "Laois", "Longford", "Louth", "Meath", "Offaly", "Westmeath", "Wexford", "Wicklow")
+
+leinster_county_size <- c(896, 921, 1693, 2061, 1719, 1091, 820, 2342, 2000, 1838, 2352, 2024)
+
+leinster_county_population <- c(56932, 1347359, 222504, 99232, 84697, 40873, 128884, 195044, 77961, 88770, 149722, 142425)
+```
+
+We can then combine these into a single data frame, using the `data.frame()` function. I like to use "_df" in the names of data frames just to make clear that it’s a data frame, so we will call this one “leinster_df”:
+
+```{r echo=TRUE, eval=FALSE}
+leinster_df <- data.frame(
+  name = leinster_county_name, 
+  size = leinster_county_size, 
+  population = leinster_county_population
+)
+```
+
+We can view the data frame by using the `View()` function or display just a sample with the `head()` function:
+
+```{r dataframe1, exercise=TRUE}
+head(leinster_df)
+```
+
+### The `$` operator
+
+Each of the columns in the data frame contains one of the variables, with the name that we gave it when we created the data frame. We can access each of those columns using the `$` operator. For example, if we wanted to access the population variable, we would combine the name of the data frame with the name of the variable as follows:
+
+```{r dataframe2, exercise=TRUE}
+leinster_df$population
+```
+
+This is just like any other vector, in that we can refer to its individual values using square brackets as we did with regular vectors:
+
+```{r dataframe3, exercise=TRUE}
+leinster_df$population[3]
+```
+
+The easiest way to obtain a value from a data frame is to only use the square brakets `[]`. Contrary to the subset of a vector, subseting a data frame involves a row number and a column number as follow `dataframe_name[row_number, col_number]`. For example:
+
+```{r dataframe4, exercise=TRUE}
+leinster_df[2, 1]
+```
+
+If one of `row_number` or `col_number` is not included, R will display all the values for the element indexed (i.e, all the rows if `row_number` is missing and all the columns if `col_number`):
+
+```{r dataframe5, exercise=TRUE}
+leinster_df[2, ]
+```
+
+```{r dataframe6, exercise=TRUE}
+leinster_df[, 1]
+```
+
+### Dataframe structure
+
+Because R can automatically convert type of vectors when manipulating a dataframe, it is always usfull to check its structure with the `str()` function:
+
+```{r dataframe7, exercise=TRUE}
+str(leinster_df)
+```
+
+Frist `str()` displays a summary of your object. If everything is going well we have a "data.frame" type object with 12 observations (rows) and 3 variables (columns). You can see that, as expected, size and populatiob have the class "num" for numeric. However the variable name is not a class "character" but "factor". A "factor" is a vector made of character string which are ordered according specicif level (here the alphabetical level). Whereas vectors of characters and factors are very similar, certain functions are only using one type or the other.
+
+If you want to convert a variable, use the functions `as.character()`, `as.factor()`, `as.numeric()`. For example:
+
+```{r dataframe8, exercise=TRUE}
+leinster_df$name <- as.character(leinster_df$name)
+str(leinster_df)
+```
+
+### Exercises
+
+1. Print the value of the population of County Kildare:
+
+```{r exercise5, exercise=TRUE}
+
+```
+
+```{r exercise5-solution, exercise=TRUE}
+leinster_df$population[3]
+#or
+leinster_df[3,3]
+```
+
+2. Print the value of the size of County Kilkenny:
+
+```{r exercise6, exercise=TRUE}
+
+```
+
+```{r exercise6-solution, exercise=TRUE}
+leinster_df$size[4]
+#or
+leinster_df[4,2]
+```
+
+## Chapter 5: Loading Data
+
+One of the most commonly used data file formats is called `csv`. It is actually a text file where all the variables are separated by comma's (or another delimiter) and each record is a new line. You can copy the url in the code below and check for yourself in your browser. To read in data from a csv file you can use the `read.csv()` function which is part of base R (no packages needed). It returns a data frame.
+
+```{r readdata1, exercise=TRUE}
+url <- "https://raw.githubusercontent.com/handataprof/learnr_dcu/master/m3dm_r_basics/2019.csv"
+rawData <- read.csv(url)
+class(rawData)
+```
+
+You have now loaded the data and saved it in a variable called `rawData`. If you want to have a first glance at the data, you can apply the `head()` function. It will return the first six records of the data frame.
+
+```{r readdata2, exercise=TRUE}
+head(rawData)
+```
+
+## Conclusion
+
+The focus of this tutorial was primarily on introducing basic R concepts. We’ve given you what we feel is a minimally viable set of tools to explore data in R. Does this tutorial contain everything you need to know? Absolutely not. To try to include everything in this tutorial would make the tutorial so large it wouldn’t be useful! As we said earlier, the best way to add to your toolbox is to get into RStudio and run and write code as much as possible.
+

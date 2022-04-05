@@ -10,3 +10,5 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
         <li class="toc-logo"><a href="https://www.businessdatasolutions.nl/" target="blank"><img src="images/logo-name.png"></a></li>
+bookdown::pdf_book:
+  keep_tex: true
