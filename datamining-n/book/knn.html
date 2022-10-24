@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Mining in Python - 2&nbsp; Lazy learning with k-Nearest Neighbors</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./nb.html" rel="next">
+<link href="./setup.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lazy learning with k-Nearest Neighbors</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Mining in Python</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setting up your data science environment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./knn.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lazy learning with k-Nearest Neighbors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nb.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#business-case-diagnosing-breast-cancer" id="toc-business-case-diagnosing-breast-cancer" class="nav-link active" data-scroll-target="#business-case-diagnosing-breast-cancer"> <span class="header-section-number">2.1</span> Business Case: Diagnosing Breast Cancer</a></li>
+  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding"> <span class="header-section-number">2.2</span> Data Understanding</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"> <span class="header-section-number">2.3</span> Preparation</a></li>
+  <li><a href="#modeling-and-evaluation" id="toc-modeling-and-evaluation" class="nav-link" data-scroll-target="#modeling-and-evaluation"> <span class="header-section-number">2.4</span> Modeling and Evaluation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="knn" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lazy learning with k-Nearest Neighbors</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<section id="business-case-diagnosing-breast-cancer" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="business-case-diagnosing-breast-cancer"><span class="header-section-number">2.1</span> Business Case: Diagnosing Breast Cancer</h2>
+<p>Breast cancer is the top cancer in women both in the developed and the developing world. In the Netherlands it is the most pervasive form of cancer <span class="citation" data-cites="noauthor_who_nodate">(<a href="references.html#ref-noauthor_who_nodate" role="doc-biblioref"><span>“<span>WHO</span> <span></span> <span>Cancer</span> Country Profiles 2020”</span> n.d.</a>)</span>. In order to improve breast cancer outcome and survival early detection remains the most important instrument for breast cancer control. If machine learning could automate the identification of cancer, it would improve efficiency of the detection process and might also increase its effectiveness by providing greater detection accuracy.</p>
+</section>
+<section id="data-understanding" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data-understanding"><span class="header-section-number">2.2</span> Data Understanding</h2>
+<p>The data we will be using comes from the University of Wisconsin and is available online as an open source dataset <span class="citation" data-cites="noauthor_uci_cancer_nodate">(<a href="references.html#ref-noauthor_uci_cancer_nodate" role="doc-biblioref"><span>“<span>UCI</span> <span>Machine</span> <span>Learning</span> <span>Repository</span>: <span>Breast</span> <span>Cancer</span> <span>Wisconsin</span> (<span>Diagnostic</span>) <span>Data</span> <span>Set</span>”</span> n.d.</a>)</span>. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.</p>
+<p>For convenience the data in csv format is stored on Github. We can access it directly using a function dedicated to reading csv from the <code>readr</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rawDF <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the <code>str()</code> function we can have some basic information about the dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(rawDF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spec_tbl_df [569 × 32] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ id               : num [1:569] 87139402 8910251 905520 868871 9012568 ...
+ $ diagnosis        : chr [1:569] "B" "B" "B" "B" ...
+ $ radius_mean      : num [1:569] 12.3 10.6 11 11.3 15.2 ...
+ $ texture_mean     : num [1:569] 12.4 18.9 16.8 13.4 13.2 ...
+ $ perimeter_mean   : num [1:569] 78.8 69.3 70.9 73 97.7 ...
+ $ area_mean        : num [1:569] 464 346 373 385 712 ...
+ $ smoothness_mean  : num [1:569] 0.1028 0.0969 0.1077 0.1164 0.0796 ...
+ $ compactness_mean : num [1:569] 0.0698 0.1147 0.078 0.1136 0.0693 ...
+ $ concavity_mean   : num [1:569] 0.0399 0.0639 0.0305 0.0464 0.0339 ...
+ $ points_mean      : num [1:569] 0.037 0.0264 0.0248 0.048 0.0266 ...
+ $ symmetry_mean    : num [1:569] 0.196 0.192 0.171 0.177 0.172 ...
+ $ dimension_mean   : num [1:569] 0.0595 0.0649 0.0634 0.0607 0.0554 ...
+ $ radius_se        : num [1:569] 0.236 0.451 0.197 0.338 0.178 ...
+ $ texture_se       : num [1:569] 0.666 1.197 1.387 1.343 0.412 ...
+ $ perimeter_se     : num [1:569] 1.67 3.43 1.34 1.85 1.34 ...
+ $ area_se          : num [1:569] 17.4 27.1 13.5 26.3 17.7 ...
+ $ smoothness_se    : num [1:569] 0.00805 0.00747 0.00516 0.01127 0.00501 ...
+ $ compactness_se   : num [1:569] 0.0118 0.03581 0.00936 0.03498 0.01485 ...
+ $ concavity_se     : num [1:569] 0.0168 0.0335 0.0106 0.0219 0.0155 ...
+ $ points_se        : num [1:569] 0.01241 0.01365 0.00748 0.01965 0.00915 ...
+ $ symmetry_se      : num [1:569] 0.0192 0.035 0.0172 0.0158 0.0165 ...
+ $ dimension_se     : num [1:569] 0.00225 0.00332 0.0022 0.00344 0.00177 ...
+ $ radius_worst     : num [1:569] 13.5 11.9 12.4 11.9 16.2 ...
+ $ texture_worst    : num [1:569] 15.6 22.9 26.4 15.8 15.7 ...
+ $ perimeter_worst  : num [1:569] 87 78.3 79.9 76.5 104.5 ...
+ $ area_worst       : num [1:569] 549 425 471 434 819 ...
+ $ smoothness_worst : num [1:569] 0.139 0.121 0.137 0.137 0.113 ...
+ $ compactness_worst: num [1:569] 0.127 0.252 0.148 0.182 0.174 ...
+ $ concavity_worst  : num [1:569] 0.1242 0.1916 0.1067 0.0867 0.1362 ...
+ $ points_worst     : num [1:569] 0.0939 0.0793 0.0743 0.0861 0.0818 ...
+ $ symmetry_worst   : num [1:569] 0.283 0.294 0.3 0.21 0.249 ...
+ $ dimension_worst  : num [1:569] 0.0677 0.0759 0.0788 0.0678 0.0677 ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   id = col_double(),
+  ..   diagnosis = col_character(),
+  ..   radius_mean = col_double(),
+  ..   texture_mean = col_double(),
+  ..   perimeter_mean = col_double(),
+  ..   area_mean = col_double(),
+  ..   smoothness_mean = col_double(),
+  ..   compactness_mean = col_double(),
+  ..   concavity_mean = col_double(),
+  ..   points_mean = col_double(),
+  ..   symmetry_mean = col_double(),
+  ..   dimension_mean = col_double(),
+  ..   radius_se = col_double(),
+  ..   texture_se = col_double(),
+  ..   perimeter_se = col_double(),
+  ..   area_se = col_double(),
+  ..   smoothness_se = col_double(),
+  ..   compactness_se = col_double(),
+  ..   concavity_se = col_double(),
+  ..   points_se = col_double(),
+  ..   symmetry_se = col_double(),
+  ..   dimension_se = col_double(),
+  ..   radius_worst = col_double(),
+  ..   texture_worst = col_double(),
+  ..   perimeter_worst = col_double(),
+  ..   area_worst = col_double(),
+  ..   smoothness_worst = col_double(),
+  ..   compactness_worst = col_double(),
+  ..   concavity_worst = col_double(),
+  ..   points_worst = col_double(),
+  ..   symmetry_worst = col_double(),
+  ..   dimension_worst = col_double()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>The dataset has 32 variables (columns) and 569 observations (rows).</p>
+</section>
+<section id="preparation" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.3</span> Preparation</h2>
+<p>The first variable, <code>id</code>, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cleanDF <span class="ot">&lt;-</span> rawDF[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cleanDF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 31
+  diagnosis radius_mean textur…¹ perim…² area_…³ smoot…⁴ compa…⁵ conca…⁶ point…⁷
+  &lt;chr&gt;           &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 B                12.3     12.4    78.8    464.  0.103   0.0698  0.0399  0.037 
+2 B                10.6     19.0    69.3    346.  0.0969  0.115   0.0639  0.0264
+3 B                11.0     16.8    70.9    373.  0.108   0.0780  0.0305  0.0248
+4 B                11.3     13.4    73      385.  0.116   0.114   0.0464  0.0480
+5 B                15.2     13.2    97.6    712.  0.0796  0.0693  0.0339  0.0266
+6 B                11.6     19.0    74.2    410.  0.0855  0.0772  0.0548  0.0143
+# … with 22 more variables: symmetry_mean &lt;dbl&gt;, dimension_mean &lt;dbl&gt;,
+#   radius_se &lt;dbl&gt;, texture_se &lt;dbl&gt;, perimeter_se &lt;dbl&gt;, area_se &lt;dbl&gt;,
+#   smoothness_se &lt;dbl&gt;, compactness_se &lt;dbl&gt;, concavity_se &lt;dbl&gt;,
+#   points_se &lt;dbl&gt;, symmetry_se &lt;dbl&gt;, dimension_se &lt;dbl&gt;, radius_worst &lt;dbl&gt;,
+#   texture_worst &lt;dbl&gt;, perimeter_worst &lt;dbl&gt;, area_worst &lt;dbl&gt;,
+#   smoothness_worst &lt;dbl&gt;, compactness_worst &lt;dbl&gt;, concavity_worst &lt;dbl&gt;,
+#   points_worst &lt;dbl&gt;, symmetry_worst &lt;dbl&gt;, dimension_worst &lt;dbl&gt;, and …
+# ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+<p>The variable named <code>diagnosis</code> contains the outcomes we would like to predict - ‘B’ for ‘Benign’ and ‘M’ for ‘Malignant’. The variable we would like to predict is called the ‘label’. We can look at the counts and proportions for both outcomes, using the <code>tables()</code> and <code>prop.tables()</code>functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cntDiag <span class="ot">&lt;-</span> <span class="fu">table</span>(cleanDF<span class="sc">$</span>diagnosis)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>propDiag <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">prop.table</span>(cntDiag) <span class="sc">*</span> <span class="dv">100</span> , <span class="at">digits =</span> <span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>cntDiag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  B   M 
+357 212 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>propDiag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   B    M 
+62.7 37.3 </code></pre>
+</div>
+</div>
+<p>The variable is now coded as a type <code>character</code>. Many models require that the label is of type <code>factor</code>. This is easily solved using the <code>factor()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cleanDF<span class="sc">$</span>diagnosis <span class="ot">&lt;-</span> <span class="fu">factor</span>(cleanDF<span class="sc">$</span>diagnosis, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"M"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Benign"</span>, <span class="st">"Malignant"</span>)) <span class="sc">%&gt;%</span> <span class="fu">relevel</span>(<span class="st">"Malignant"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cleanDF, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 31
+   diagnosis radius_mean textu…¹ perim…² area_…³ smoot…⁴ compa…⁵ conca…⁶ point…⁷
+   &lt;fct&gt;           &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+ 1 Benign           12.3    12.4    78.8    464.  0.103   0.0698  0.0399  0.037 
+ 2 Benign           10.6    19.0    69.3    346.  0.0969  0.115   0.0639  0.0264
+ 3 Benign           11.0    16.8    70.9    373.  0.108   0.0780  0.0305  0.0248
+ 4 Benign           11.3    13.4    73      385.  0.116   0.114   0.0464  0.0480
+ 5 Benign           15.2    13.2    97.6    712.  0.0796  0.0693  0.0339  0.0266
+ 6 Benign           11.6    19.0    74.2    410.  0.0855  0.0772  0.0548  0.0143
+ 7 Benign           11.5    23.9    74.5    404.  0.0926  0.102   0.111   0.0411
+ 8 Malignant        13.8    23.8    91.6    598.  0.132   0.177   0.156   0.0918
+ 9 Benign           10.5    19.3    67.4    336.  0.0999  0.0858  0.0300  0.0120
+10 Benign           11.1    15.0    71.5    374.  0.103   0.0910  0.0540  0.0334
+# … with 22 more variables: symmetry_mean &lt;dbl&gt;, dimension_mean &lt;dbl&gt;,
+#   radius_se &lt;dbl&gt;, texture_se &lt;dbl&gt;, perimeter_se &lt;dbl&gt;, area_se &lt;dbl&gt;,
+#   smoothness_se &lt;dbl&gt;, compactness_se &lt;dbl&gt;, concavity_se &lt;dbl&gt;,
+#   points_se &lt;dbl&gt;, symmetry_se &lt;dbl&gt;, dimension_se &lt;dbl&gt;, radius_worst &lt;dbl&gt;,
+#   texture_worst &lt;dbl&gt;, perimeter_worst &lt;dbl&gt;, area_worst &lt;dbl&gt;,
+#   smoothness_worst &lt;dbl&gt;, compactness_worst &lt;dbl&gt;, concavity_worst &lt;dbl&gt;,
+#   points_worst &lt;dbl&gt;, symmetry_worst &lt;dbl&gt;, dimension_worst &lt;dbl&gt;, and …
+# ℹ Use `colnames()` to see all variable names</code></pre>
+</div>
+</div>
+<p>The features consist of three different measurements of ten characteristics. We will take three characteristics and have a closer look.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cleanDF[<span class="fu">c</span>(<span class="st">"radius_mean"</span>, <span class="st">"area_mean"</span>, <span class="st">"smoothness_mean"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  radius_mean       area_mean      smoothness_mean  
+ Min.   : 6.981   Min.   : 143.5   Min.   :0.05263  
+ 1st Qu.:11.700   1st Qu.: 420.3   1st Qu.:0.08637  
+ Median :13.370   Median : 551.1   Median :0.09587  
+ Mean   :14.127   Mean   : 654.9   Mean   :0.09636  
+ 3rd Qu.:15.780   3rd Qu.: 782.7   3rd Qu.:0.10530  
+ Max.   :28.110   Max.   :2501.0   Max.   :0.16340  </code></pre>
+</div>
+</div>
+<p>You’ll notice that the three variables have very different ranges and as a consequence <code>area_mean</code> will have a larger impact on the distance calculation than the <code>smootness_mean</code>. This could potentially cause problems for modeling. To solve this we’ll apply normalization to rescale all features to a standard range of values.</p>
+<p>We will write our own normalization function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>normalize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="co"># Function takes in a vector</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> ((x <span class="sc">-</span> <span class="fu">min</span>(x)) <span class="sc">/</span> (<span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x))) <span class="co"># distance of item value - minimum vector value divided by the range of all vector values</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>testSet1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>testSet2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">*</span> <span class="dv">10</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"testSet1:"</span>, testSet1, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>testSet1: 1 2 3 4 5 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"testSet2:"</span>, testSet2, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>testSet2: 10 20 30 40 50 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Normalized testSet1:"</span>, <span class="fu">normalize</span>(testSet1), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Normalized testSet1: 0 0.25 0.5 0.75 1 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Normalized testSet2:"</span>, <span class="fu">normalize</span>(testSet2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Normalized testSet2: 0 0.25 0.5 0.75 1</code></pre>
+</div>
+</div>
+<p>We’ll apply the <code>normalize()</code> function to each feature in the dataset (so, not on the label) using the <code>sapply()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>nCols <span class="ot">&lt;-</span> <span class="fu">dim</span>(cleanDF)[<span class="dv">2</span>]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>cleanDF_n <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">2</span><span class="sc">:</span>nCols,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">function</span>(x) {</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">normalize</span>(cleanDF[,x])</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cleanDF_n[<span class="fu">c</span>(<span class="st">"radius_mean"</span>, <span class="st">"area_mean"</span>, <span class="st">"smoothness_mean"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  radius_mean       area_mean      smoothness_mean 
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.2233   1st Qu.:0.1174   1st Qu.:0.3046  
+ Median :0.3024   Median :0.1729   Median :0.3904  
+ Mean   :0.3382   Mean   :0.2169   Mean   :0.3948  
+ 3rd Qu.:0.4164   3rd Qu.:0.2711   3rd Qu.:0.4755  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  </code></pre>
+</div>
+</div>
+<p>When we take the variables we selected earlier and look at the summary parameters again, we’ll see that the normalization was successful.</p>
+<p>We can now split our data into training and test sets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>trainDF_feat <span class="ot">&lt;-</span> cleanDF_n[<span class="dv">1</span><span class="sc">:</span><span class="dv">469</span>,  ]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>testDF_feat <span class="ot">&lt;-</span> cleanDF_n[<span class="dv">470</span><span class="sc">:</span><span class="dv">569</span>,  ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When creating the training and test sets, we’ve excluded the labels. We’ll create separate training and tests sets for them too.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>trainDF_labels <span class="ot">&lt;-</span> cleanDF[<span class="dv">1</span><span class="sc">:</span><span class="dv">469</span>,  <span class="dv">1</span>]</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>testDF_labels <span class="ot">&lt;-</span> cleanDF[<span class="dv">470</span><span class="sc">:</span><span class="dv">569</span>,  <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can train and evaluate our kNN model.</p>
+</section>
+<section id="modeling-and-evaluation" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="modeling-and-evaluation"><span class="header-section-number">2.4</span> Modeling and Evaluation</h2>
+<p>To train the knn model we only need one single function from the <code>class</code> package. It takes the set with training features and the set with training label. The trained model is applied to the set with test features and the function gives back a set of predictions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>cleanDF_test_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> <span class="fu">as.matrix</span>(trainDF_feat), <span class="at">test =</span> <span class="fu">as.matrix</span>(testDF_feat), <span class="at">cl =</span> <span class="fu">as.matrix</span>(trainDF_labels), <span class="at">k =</span> <span class="dv">21</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cleanDF_test_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Benign    Benign    Benign    Benign    Malignant Benign   
+Levels: Benign Malignant</code></pre>
+</div>
+</div>
+<p>Now that we have a set of predicted labels we can compare these with the actual labels. A diffusion table shows how well the model performed.</p>
+<div class="cell" data-layout-align="center" data-fig.asp="0.75">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/diffusion.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here is our own table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confusionMatrix</span>(cleanDF_test_pred, testDF_labels[[<span class="dv">1</span>]], <span class="at">positive =</span> <span class="cn">NULL</span>, <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">"Prediction"</span>, <span class="st">"True"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in confusionMatrix.default(cleanDF_test_pred, testDF_labels[[1]], :
+Levels are not in the same order for reference and data. Refactoring data to
+match.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+           True
+Prediction  Malignant Benign
+  Malignant        37      0
+  Benign            2     61
+                                          
+               Accuracy : 0.98            
+                 95% CI : (0.9296, 0.9976)
+    No Information Rate : 0.61            
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.9576          
+                                          
+ Mcnemar's Test P-Value : 0.4795          
+                                          
+            Sensitivity : 0.9487          
+            Specificity : 1.0000          
+         Pos Pred Value : 1.0000          
+         Neg Pred Value : 0.9683          
+             Prevalence : 0.3900          
+         Detection Rate : 0.3700          
+   Detection Prevalence : 0.3700          
+      Balanced Accuracy : 0.9744          
+                                          
+       'Positive' Class : Malignant       
+                                          </code></pre>
+</div>
+</div>
+<p><strong>Questions:</strong></p>
+<ol type="1">
+<li><em>How would you assess the overall performance of the model?</em></li>
+<li><em>What would you consider as more costly: high false negatives or high false positives levels? Why?</em></li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-noauthor_uci_cancer_nodate" class="csl-entry" role="doc-biblioentry">
+<span>“<span>UCI</span> <span>Machine</span> <span>Learning</span> <span>Repository</span>: <span>Breast</span> <span>Cancer</span> <span>Wisconsin</span> (<span>Diagnostic</span>) <span>Data</span> <span>Set</span>.”</span> n.d. Accessed January 7, 2021. <a href="https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)">https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic)</a>.
+</div>
+<div id="ref-noauthor_who_nodate" class="csl-entry" role="doc-biblioentry">
+<span>“<span>WHO</span> <span></span> <span>Cancer</span> Country Profiles 2020.”</span> n.d. <em>WHO</em>. Accessed January 7, 2021. <a href="http://www.who.int/cancer/country-profiles/en/">http://www.who.int/cancer/country-profiles/en/</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setting up your data science environment</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./nb.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

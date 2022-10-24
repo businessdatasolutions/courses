@@ -1,0 +1,25 @@
+project:
+  type: book
+  output-dir: book
+
+book:
+  title: "Data Mining in Python"
+  author: "Witek ten Hove"
+  date: "10/24/2022"
+  chapters:
+    - index.qmd
+    - setup.qmd
+    - knn.qmd
+    - nb.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

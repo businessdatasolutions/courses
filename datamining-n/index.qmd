@@ -1,15 +1,3 @@
---- 
-title: "Data Mining"
-author: "Witek ten hove"
-date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-documentclass: book
-bibliography: [lit.bib]
-biblio-style: apalike
-link-citations: yes
-description: "This is a compagnon to the course Data Mining."
----
-
 # Preface {-}
 
 ```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
@@ -20,7 +8,7 @@ knitr::include_graphics(rep('images/crisp.png'))
 Before starting this module make sure you have:
 
 * access to the book *Provost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.*
-* installed Python, R and RStudio
+* installed [Anaconda](https://www.anaconda.com/)
 * a Github account
 
 ## Purpose of this course {-}

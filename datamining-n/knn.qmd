@@ -1,0 +1,136 @@
+# Lazy learning with k-Nearest Neighbors {#knn}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(googlesheets4)
+library(class)
+library(caret)
+```
+
+## Business Case: Diagnosing Breast Cancer
+
+Breast cancer is the top cancer in women both in the developed and the developing world. In the Netherlands it is the most pervasive form of cancer [@noauthor_who_nodate]. In order to improve breast cancer outcome and survival early detection remains the most important instrument for breast cancer control. If machine learning could automate the identification of cancer, it would improve efficiency of the detection process and might also increase its effectiveness by providing greater detection accuracy.
+
+## Data Understanding
+The data we will be using comes from the University of Wisconsin and is available online as an open source dataset [@noauthor_uci_cancer_nodate]. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.
+
+For convenience the data in csv format is stored on Github. We can access it directly using a function dedicated to reading csv from the `readr` package.
+
+```{r message=FALSE, warning=FALSE}
+url <- "https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"
+rawDF <- read_csv(url)
+```
+
+Using the `str()` function we can have some basic information about the dataset.
+
+```{r}
+str(rawDF)
+```
+
+The dataset has `r dim(rawDF)[2]` variables (columns) and `r dim(rawDF)[1]` observations (rows). 
+
+## Preparation
+The first variable, `id`, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.
+
+```{r}
+cleanDF <- rawDF[-1]
+head(cleanDF)
+```
+The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts and proportions for both outcomes, using the `tables()` and `prop.tables()`functions.
+
+```{r}
+cntDiag <- table(cleanDF$diagnosis)
+propDiag <- round(prop.table(cntDiag) * 100 , digits = 1)
+
+cntDiag
+propDiag
+```
+
+The variable is now coded as a type `character`. Many models require that the label is of type `factor`. This is easily solved using the `factor()` function.
+
+```{r}
+cleanDF$diagnosis <- factor(cleanDF$diagnosis, levels = c("B", "M"), labels = c("Benign", "Malignant")) %>% relevel("Malignant")
+head(cleanDF, 10)
+```
+The features consist of three different measurements of ten characteristics. We will take three characteristics and have a closer look.
+
+```{r}
+summary(cleanDF[c("radius_mean", "area_mean", "smoothness_mean")])
+```
+
+You'll notice that the three variables have very different ranges and as a consequence `area_mean` will have a larger impact on the distance calculation than the `smootness_mean`. This could potentially cause problems for modeling. To solve this we'll apply normalization to rescale all features to a standard range of values.
+
+We will write our own normalization function.
+
+```{r}
+normalize <- function(x) { # Function takes in a vector
+  return ((x - min(x)) / (max(x) - min(x))) # distance of item value - minimum vector value divided by the range of all vector values
+}
+
+testSet1 <- c(1:5)
+testSet2 <- c(1:5) * 10
+
+cat("testSet1:", testSet1, "\n")
+cat("testSet2:", testSet2, "\n")
+
+cat("Normalized testSet1:", normalize(testSet1), "\n")
+cat("Normalized testSet2:", normalize(testSet2))
+```
+
+We'll apply the `normalize()` function to each feature in the dataset (so, not on the label) using the `sapply()` function.
+
+```{r}
+nCols <- dim(cleanDF)[2]
+cleanDF_n <- sapply(2:nCols,
+                    function(x) {
+  normalize(cleanDF[,x])
+}) %>% as.data.frame()
+
+summary(cleanDF_n[c("radius_mean", "area_mean", "smoothness_mean")])
+```
+
+When we take the variables we selected earlier and look at the summary parameters again, we'll see that the normalization was successful.
+
+We can now split our data into training and test sets.
+
+```{r}
+trainDF_feat <- cleanDF_n[1:469,  ]
+testDF_feat <- cleanDF_n[470:569,  ]
+```
+
+When creating the training and test sets, we've excluded the labels. We'll create separate training and tests sets for them too.
+
+```{r}
+trainDF_labels <- cleanDF[1:469,  1]
+testDF_labels <- cleanDF[470:569,  1]
+```
+
+Now we can train and evaluate our kNN model.
+
+## Modeling and Evaluation
+
+To train the knn model we only need one single function from the `class` package. It takes the set with training features and the set with training label. The trained model is applied to the set with test features and the function gives back a set of predictions.
+
+```{r}
+cleanDF_test_pred <- knn(train = as.matrix(trainDF_feat), test = as.matrix(testDF_feat), cl = as.matrix(trainDF_labels), k = 21)
+head(cleanDF_test_pred)
+```
+
+Now that we have a set of predicted labels we can compare these with the actual labels. A diffusion table shows how well the model performed.
+
+```{r difftable-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg', message=TRUE, warning=TRUE, out.width='80%'}
+knitr::include_graphics(rep('images/diffusion.png'))
+```
+
+Here is our own table:
+```{r}
+confusionMatrix(cleanDF_test_pred, testDF_labels[[1]], positive = NULL, dnn = c("Prediction", "True"))
+```
+
+**Questions:** 
+
+1. *How would you assess the overall performance of the model?*
+3. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
+
