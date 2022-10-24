@@ -20,8 +20,8 @@ knitr::include_graphics(rep('images/crisp.png'))
 Before starting this module make sure you have:
 
 * access to the book *Provost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.*
-* installed Python, R and RStudio
-* a Github account
+* installed R and RStudio
+* a [Github](https://github.com/) account
 
 ## Purpose of this course {-}
 
@@ -41,7 +41,7 @@ After a successful completion of the course, a student:
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 weeknr <- c("2", "3-4", "5-6", "7")
-module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Learning with Naive Bayes classification", "Project Application")
+module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Learning with Naive Bayes Classification", "Project Application")
 reading <- c("Provost / Fawcett Ch.3", "Provost / Fawcett Ch.6 + 7", "Provost / Fawcett Ch.9", "")
 headers <- c("Week nr.", "Module name", "Readings")
 programmeDF <- data.frame(weeknr, module, reading)
