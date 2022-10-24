@@ -78,16 +78,7 @@ plt.show()
 
 ## Preparation
 
-After you've glimpsed over the data and have a certain understanding of its structure and content, you are now ready to prepare the data for further processing. For the naive bayes model you'll need to have a dataframe with wordcounts.
-
-```{python}
-vectorizer = TfidfVectorizer()
-vectors = vectorizer.fit_transform(rawDF.text)
-wordsDF = pd.DataFrame(vectors.toarray(), columns=vectorizer.get_feature_names_out())
-wordsDF.head()
-```
-
-To save on computation time you can set a limit on the number of features (columns) in the wordsDF dataframe.
+After you've glimpsed over the data and have a certain understanding of its structure and content, you are now ready to prepare the data for further processing. For the naive bayes model you'll need to have a dataframe with wordcounts. To save on computation time you can set a limit on the number of features (columns) in the wordsDF dataframe.
 
 ```{python}
 vectorizer = TfidfVectorizer(max_features=1000)

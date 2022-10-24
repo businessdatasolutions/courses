@@ -1,17 +1,18 @@
-# Preface {-}
+# Preface {.unnumbered}
 
 ```{r title-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='CRISP-DM Model taken from: https://commons.wikimedia.org/wiki/File:CRISP-DM_Process_Diagram.png', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics(rep('images/crisp.png'))
 ```
-## Prerequisites {-}
+
+## Prerequisites {.unnumbered}
 
 Before starting this module make sure you have:
 
-* access to the book *Provost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.*
-* installed [Anaconda](https://www.anaconda.com/)
-* a Github account
+-   access to the book *Provost, F., & Fawcett, T. (2013). Data Science for Business: What you need to know about data mining and data-analytic thinking. O'Reilly Media, Inc.*
+-   installed [Anaconda](https://www.anaconda.com/)
+-   a Github account
 
-## Purpose of this course {-}
+## Purpose of this course {.unnumbered}
 
 The general learning outcome of this course is:
 
@@ -21,15 +22,15 @@ The course will provide you with a few essential data mining skills. The focus w
 
 After a successful completion of the course, a student:
 
-* is able to prepare data for a given non-linear model
-* train en test a non-linear model
-* evaluate the quality of a trained model
+-   is able to prepare data for a given non-linear model
+-   train en test a non-linear model
+-   evaluate the quality of a trained model
 
-## Structure of the course {-}
+## Structure of the course {.unnumbered}
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 weeknr <- c("2", "3-4", "5-6", "7")
-module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Kearning with Naive Bayes classification", "Project Application")
+module <- c("Onboarding and Introduction to the Course", "Lazy Learning with kNN", "Probabilistic Learning with Naive Bayes classification", "Project Application")
 reading <- c("Provost / Fawcett Ch.3", "Provost / Fawcett Ch.6 + 7", "Provost / Fawcett Ch.9", "")
 headers <- c("Week nr.", "Module name", "Readings")
 programmeDF <- data.frame(weeknr, module, reading)
@@ -43,7 +44,7 @@ knitr::kable(
 
 Through the whole of the program you'll be cooperating within a team where you will combine and compare the results of the different case studies. At the end of the course you will present with your team what you have learned from analyzing and comparing the different case studies.
 
-# About the author {-}
+# About the author {.unnumbered}
 
 ![](images/me.png)
 
@@ -52,8 +53,3 @@ Witek ten Hove is a senior instructor and researcher at [HAN University of Appli
 Through his extensive business experience in Finance and International Trade and thorough knowledge of modern data technologies, he is able to make connections between technology and business. As an open source evangelist he firmly believe in the power of knowledge sharing. His mission is to inspire business professionals and help them exploit the full potential of smart technologies.
 
 He is the owner of [Ten Hove Business Data Solutions](http://www.businessdatasolutions.nl/), a consultancy and training company helping organizations to achieve maximum business value through data driven solutions.
-
-
-
-
-

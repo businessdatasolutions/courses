@@ -11,10 +11,10 @@ library(e1071)
 ```
 
 ## Business Case: Filtering Spam
-In 2020 spam account for more than 50% of total e-mail traffic [@noauthor_spam_nodate]. This illustrates the value of a good spam filter. Naive Bayes spam filtering is a standard technique for handling spam. It is one of the oldest ways of doing spam filtering, with roots in the 1990s.
+In 2020 spam accounted for more than 50% of total e-mail traffic [@noauthor_spam_nodate]. This illustrates the value of a good spam filter. Naive Bayes spam filtering is a standard technique for handling spam. It is one of the oldest ways of doing spam filtering, with roots in the 1990s.
 
 ## Data Understanding
-The data we'll use comes from the SMS Spam Collection [@noauthor_uci_spam_nodate]. It contains a set SMS messages that are label 'ham' or 'spam'. and is a standard data set for testing spam filtering methods.
+The data we'll use comes from the SMS Spam Collection [@noauthor_uci_spam_nodate]. It contains a set of SMS messages that are labeled 'ham' or 'spam' and is a standard data set for testing spam filtering methods.
 
 ```{r}
 url <- "datasets/smsspam.csv"
@@ -24,7 +24,7 @@ head(rawDF)
 
 The dataset has `r dim(rawDF)[2]` variables (columns) and `r dim(rawDF)[1]` observations (rows).
 
-The variable `type` is of class `character`. As it indicates whether the message belongs to the category ham or spam we should convert it to a factor variable.
+The variable `type` is of class `character`. As it indicates whether the message belongs to the category ham or spam we should convert it to a `factor` variable.
 
 ```{r}
 rawDF$type <- rawDF$type %>% factor %>% relevel("spam")
