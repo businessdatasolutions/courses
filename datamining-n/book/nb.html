@@ -381,7 +381,7 @@ Name: type, dtype: int64</code></pre>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>accuracyScore <span class="op">=</span> accuracy_score(yTrue, yPred)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy: </span><span class="sc">{</span>accuracyScore<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9827709978463748</code></pre>
+<pre><code>Accuracy: 0.9734386216798278</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> confusion_matrix(yTrue, yPred)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>labelNames <span class="op">=</span> pd.Series([<span class="st">'ham'</span>, <span class="st">'spam'</span>])</span>
@@ -390,13 +390,13 @@ Name: type, dtype: int64</code></pre>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     index<span class="op">=</span><span class="st">'Is '</span> <span class="op">+</span> labelNames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Predicted ham  Predicted spam
-Is ham            1230               2
-Is spam             22             139</code></pre>
+Is ham            1206               1
+Is spam             36             150</code></pre>
 </div>
 </div>
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li><em>What do you think is the role of the <code>alpha</code> parameter in the MultinomialNB() function?</em></li>
+<li><em>What do you think is the role of the <code>alpha</code> parameter in the <code>MultinomialNB()</code> function?</em></li>
 <li><em>How would you assess the overall performance of the model?</em></li>
 <li><em>What would you consider as more costly: high false negatives or high false positives levels? Why?</em></li>
 </ol>

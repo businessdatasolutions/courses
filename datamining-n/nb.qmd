@@ -132,6 +132,6 @@ pd.DataFrame(matrix,
 
 **Questions:**
 
-1.  *What do you think is the role of the `alpha` parameter in the MultinomialNB() function?*
+1.  *What do you think is the role of the `alpha` parameter in the `MultinomialNB()` function?*
 2.  *How would you assess the overall performance of the model?*
 3.  *What would you consider as more costly: high false negatives or high false positives levels? Why?*
