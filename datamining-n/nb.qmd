@@ -44,6 +44,11 @@ To see how the types of sms messages are distributed you can compare the counts 
 ```{python}
 rawDF.type.value_counts()
 ```
+Often you'll prefer the relative counts.
+
+```{python}
+rawDF.type.value_counts(normalize=True)
+```
 
 You can also visually inspect the data by creating wordclouds for each sms type.
 
@@ -101,7 +106,7 @@ xTrain, xTest, yTrain, yTest = train_test_split(wordsDF, rawDF.type)
 
 ## Modeling and Evaluation
 
-We have now everything in place to start training our model and evaluate against our test dataset. The `naiveBayes()` function is part of the `e1071` package. It takes in the features and labels of our training dataset and returns a trained model.
+We have now everything in place to start training our model and evaluate against our test dataset. The `MultinomialNB().fit()` function is part of the `scikit learn` package. It takes in the features and labels of our training dataset and returns a trained naive bayes model.
 
 ```{python}
 bayes = MultinomialNB()
@@ -109,7 +114,7 @@ bayes.fit(xTrain, yTrain)
 
 ```
 
-The model can be applied to the test features using the `predict()` funtion which generates a vector of predictions. Using a confusion matrix we can analyze the performance of our model.
+The model can be applied to the test features using the `predict()` function which generates a array of predictions. Using a confusion matrix we can analyze the performance of our model.
 
 ```{r difftable1-fig, echo=FALSE, fig.align='center', fig.asp=.75, fig.cap='Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg', message=TRUE, warning=TRUE, out.width='80%'}
 knitr::include_graphics(rep('images/diffusion.png'))
