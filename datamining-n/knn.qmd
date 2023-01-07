@@ -33,7 +33,6 @@ Using the `info()` function we can have some basic information about the dataset
 rawDF.info()
 ```
 
-The dataset has `python rawDF.shape()[0]` variables (columns). 
 
 ## Preparation
 The first variable, `id`, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.
