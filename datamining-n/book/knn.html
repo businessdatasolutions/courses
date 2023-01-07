@@ -298,7 +298,7 @@ memory usage: 142.4+ KB</code></pre>
 </section>
 <section id="preparation" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.3</span> Preparation</h2>
-<p>The first variable, <code>id</code>, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.</p>
+<p>The first variable, <code>id</code>, contains unique patient IDs. The IDs do not possess any relevant information for making predictions, so we will delete it from the dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cleanDF <span class="op">=</span> rawDF.drop([<span class="st">'id'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>cleanDF.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -313,7 +313,7 @@ memory usage: 142.4+ KB</code></pre>
 [5 rows x 31 columns]</code></pre>
 </div>
 </div>
-<p>The variable named <code>diagnosis</code> contains the outcomes we would like to predict - ‘B’ for ‘Benign’ and ‘M’ for ‘Malignant’. The variable we would like to predict is called the ‘label’. We can look at the counts both outcomes, using the <code>value_counts()</code> function. When we set the normalize setting to <code>True</code> we get the the proportions.</p>
+<p>The variable named <code>diagnosis</code> contains the outcomes we would like to predict - ‘B’ for ‘Benign’ and ‘M’ for ‘Malignant’. The variable we would like to predict is called the ‘label’. We can look at the counts for both outcomes, using the <code>value_counts()</code> function. When we set the normalize setting to <code>True</code> we get the the proportions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cntDiag <span class="op">=</span> cleanDF[<span class="st">'diagnosis'</span>].value_counts()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>propDiag <span class="op">=</span> cleanDF[<span class="st">'diagnosis'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
@@ -330,7 +330,7 @@ M    0.372583
 Name: diagnosis, dtype: float64</code></pre>
 </div>
 </div>
-<p>Looking again at the results from the <code>info()</code> function we notice that The variable <code>diagnosis</code> is coded as text (<code>object</code>). Many models require that the label is of type <code>category</code>. The `<code>pandas</code> library contains a function that can transform a <code>object</code> type to <code>category</code>.</p>
+<p>Looking again at the results from the <code>info()</code> function you’ll notice that the variable <code>diagnosis</code> is coded as text (<code>object</code>). Many models require that the label is of type <code>category</code>. The <code>pandas</code> library has a function that can transform a <code>object</code> type to <code>category</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>catType <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">"B"</span>, <span class="st">"M"</span>], ordered<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>cleanDF[<span class="st">'diagnosis'</span>] <span class="op">=</span> cleanDF[<span class="st">'diagnosis'</span>].astype(catType)</span>
@@ -367,7 +367,7 @@ max      28.110000  2501.000000         0.163400</code></pre>
 </div>
 </div>
 <p>You’ll notice that the three variables have very different ranges and as a consequence <code>area_mean</code> will have a larger impact on the distance calculation than the <code>smootness_mean</code>. This could potentially cause problems for modeling. To solve this we’ll apply normalization to rescale all features to a standard range of values.</p>
-<p>We will write our own normalization function.</p>
+<p>We will write our own normalization function,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize(x):</span>
@@ -382,9 +382,9 @@ max      28.110000  2501.000000         0.163400</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>testSet1: [1 2 3 4 5]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'testSet2: </span><span class="sc">{</span>testSet1<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'testSet2: </span><span class="sc">{</span>testSet2<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>testSet2: [1 2 3 4 5]</code></pre>
+<pre><code>testSet2: [10 20 30 40 50]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Normalized testSet1: </span><span class="sc">{</span>normalize(testSet1)<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -414,13 +414,14 @@ min       0.000000    0.000000         0.000000
 max       1.000000    1.000000         1.000000</code></pre>
 </div>
 </div>
-<p>When we take the variables we selected earlier and look at the summary parameters again, we’ll see that the normalization was successful.</p>
+<p>When we take the variables we’ve selected earlier and look at the summary parameters again, we’ll see that the normalization was successful.</p>
 <p>We can now split our data into training and test sets.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> cleanDF[<span class="st">'diagnosis'</span>]</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">123</span>, stratify<span class="op">=</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Here, X_train and y_train are the features and labels of the training data, respectively, and X_test and y_test are the features and labels of the test data. Now we can train and evaluate our kNN model.</p>
+<p>Here, X_train and y_train are the features and labels of the training data, respectively, and X_test and y_test are the features and labels of the test data.</p>
+<p>Now we can train and evaluate our kNN model.</p>
 </section>
 <section id="modeling-and-evaluation" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="modeling-and-evaluation"><span class="header-section-number">2.4</span> Modeling and Evaluation</h2>
@@ -471,7 +472,7 @@ max       1.000000    1.000000         1.000000</code></pre>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>disp <span class="op">=</span> ConfusionMatrixDisplay(confusion_matrix<span class="op">=</span>cm, display_labels<span class="op">=</span>knn.classes_)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>disp.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay object at 0x1a52bba30&gt;</code></pre>
+<pre><code>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay object at 0x1afa408b0&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">

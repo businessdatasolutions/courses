@@ -35,13 +35,13 @@ rawDF.info()
 
 
 ## Preparation
-The first variable, `id`, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.
+The first variable, `id`, contains unique patient IDs. The IDs do not possess any relevant information for making predictions, so we will delete it from the dataset.
 
 ```{python}
 cleanDF = rawDF.drop(['id'], axis=1)
 cleanDF.head()
 ```
-The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts both outcomes, using the `value_counts()` function. When we set the normalize setting to `True` we get the the proportions.
+The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts for both outcomes, using the `value_counts()` function. When we set the normalize setting to `True` we get the the proportions.
 
 ```{python}
 cntDiag = cleanDF['diagnosis'].value_counts()
@@ -50,7 +50,7 @@ cntDiag
 propDiag
 ```
 
-Looking again at the results from the `info()` function we notice that The variable `diagnosis` is coded as text (`object`). Many models require that the label is of type `category`. The ``pandas` library contains a function that can transform a `object` type to `category`.
+Looking again at the results from the `info()` function you'll notice that the variable `diagnosis` is coded as text (`object`). Many models require that the label is of type `category`. The `pandas` library has a function that can transform a `object` type to `category`.
 
 ```{python}
 catType = CategoricalDtype(categories=["B", "M"], ordered=False)
@@ -65,7 +65,7 @@ cleanDF[['radius_mean', 'area_mean', 'smoothness_mean']].describe()
 
 You'll notice that the three variables have very different ranges and as a consequence `area_mean` will have a larger impact on the distance calculation than the `smootness_mean`. This could potentially cause problems for modeling. To solve this we'll apply normalization to rescale all features to a standard range of values.
 
-We will write our own normalization function.
+We will write our own normalization function,
 
 ```{python}
 
@@ -78,7 +78,7 @@ testSet2 = np.arange(1,6) * 10
 
 
 print(f'testSet1: {testSet1}\n')
-print(f'testSet2: {testSet1}\n')
+print(f'testSet2: {testSet2}\n')
 print(f'Normalized testSet1: {normalize(testSet1)}\n')
 print(f'Normalized testSet2: {normalize(testSet2)}\n')
 
@@ -94,7 +94,7 @@ X = X.apply(normalize, axis=0)
 X[['radius_mean', 'area_mean', 'smoothness_mean']].describe()
 ```
 
-When we take the variables we selected earlier and look at the summary parameters again, we'll see that the normalization was successful.
+When we take the variables we've selected earlier and look at the summary parameters again, we'll see that the normalization was successful.
 
 We can now split our data into training and test sets.
 
@@ -105,6 +105,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 ```
 
 Here, X_train and y_train are the features and labels of the training data, respectively, and X_test and y_test are the features and labels of the test data.
+
 Now we can train and evaluate our kNN model.
 
 ## Modeling and Evaluation
