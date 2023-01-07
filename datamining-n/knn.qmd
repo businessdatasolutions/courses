@@ -2,11 +2,15 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-library(tidyverse)
-library(googlesheets4)
-library(class)
-library(caret)
+```{python message=FALSE, warning=FALSE, include=FALSE}
+import pandas as pd
+from pandas.api.types import CategoricalDtype
+from IPython.display import display, Markdown
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
 ```
 
 ## Business Case: Diagnosing Breast Cancer
@@ -16,106 +20,119 @@ Breast cancer is the top cancer in women both in the developed and the developin
 ## Data Understanding
 The data we will be using comes from the University of Wisconsin and is available online as an open source dataset [@noauthor_uci_cancer_nodate]. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.
 
-For convenience the data in csv format is stored on Github. We can access it directly using a function dedicated to reading csv from the `readr` package.
+For convenience the data in csv format is stored on Github. We can access it directly using a function for reading csv from the `pandas` library
 
-```{r message=FALSE, warning=FALSE}
-url <- "https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"
-rawDF <- read_csv(url)
+```{python message=FALSE, warning=FALSE}
+url = "https://raw.githubusercontent.com/businessdatasolutions/courses/main/data%20mining/gitbook/datasets/breastcancer.csv"
+rawDF = pd.read_csv(url)
 ```
 
-Using the `str()` function we can have some basic information about the dataset.
+Using the `info()` function we can have some basic information about the dataset.
 
-```{r}
-str(rawDF)
+```{python}
+rawDF.info()
 ```
 
-The dataset has `r dim(rawDF)[2]` variables (columns) and `r dim(rawDF)[1]` observations (rows). 
+The dataset has `python rawDF.shape()[0]` variables (columns). 
 
 ## Preparation
 The first variable, `id`, contains unique patient IDs. The IDs do not contain any relevant information for making predictions, so we will delete it from the dataset.
 
-```{r}
-cleanDF <- rawDF[-1]
-head(cleanDF)
+```{python}
+cleanDF = rawDF.drop(['id'], axis=1)
+cleanDF.head()
 ```
-The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts and proportions for both outcomes, using the `tables()` and `prop.tables()`functions.
+The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts both outcomes, using the `value_counts()` function. When we set the normalize setting to `True` we get the the proportions.
 
-```{r}
-cntDiag <- table(cleanDF$diagnosis)
-propDiag <- round(prop.table(cntDiag) * 100 , digits = 1)
-
+```{python}
+cntDiag = cleanDF['diagnosis'].value_counts()
+propDiag = cleanDF['diagnosis'].value_counts(normalize=True)
 cntDiag
 propDiag
 ```
 
-The variable is now coded as a type `character`. Many models require that the label is of type `factor`. This is easily solved using the `factor()` function.
+Looking again at the results from the `info()` function we notice that The variable `diagnosis` is coded as text (`object`). Many models require that the label is of type `category`. The ``pandas` library contains a function that can transform a `object` type to `category`.
 
-```{r}
-cleanDF$diagnosis <- factor(cleanDF$diagnosis, levels = c("B", "M"), labels = c("Benign", "Malignant")) %>% relevel("Malignant")
-head(cleanDF, 10)
+```{python}
+catType = CategoricalDtype(categories=["B", "M"], ordered=False)
+cleanDF['diagnosis'] = cleanDF['diagnosis'].astype(catType)
+cleanDF['diagnosis']
 ```
 The features consist of three different measurements of ten characteristics. We will take three characteristics and have a closer look.
 
-```{r}
-summary(cleanDF[c("radius_mean", "area_mean", "smoothness_mean")])
+```{python}
+cleanDF[['radius_mean', 'area_mean', 'smoothness_mean']].describe()
 ```
 
 You'll notice that the three variables have very different ranges and as a consequence `area_mean` will have a larger impact on the distance calculation than the `smootness_mean`. This could potentially cause problems for modeling. To solve this we'll apply normalization to rescale all features to a standard range of values.
 
 We will write our own normalization function.
 
-```{r}
-normalize <- function(x) { # Function takes in a vector
-  return ((x - min(x)) / (max(x) - min(x))) # distance of item value - minimum vector value divided by the range of all vector values
-}
+```{python}
 
-testSet1 <- c(1:5)
-testSet2 <- c(1:5) * 10
+def normalize(x):
+  return((x - min(x)) / (max(x) - min(x))) # distance of item value - minimum vector value divided by the range of all vector values
 
-cat("testSet1:", testSet1, "\n")
-cat("testSet2:", testSet2, "\n")
+testSet1 = np.arange(1,6)
+testSet2 = np.arange(1,6) * 10
 
-cat("Normalized testSet1:", normalize(testSet1), "\n")
-cat("Normalized testSet2:", normalize(testSet2))
+
+
+print(f'testSet1: {testSet1}\n')
+print(f'testSet2: {testSet1}\n')
+print(f'Normalized testSet1: {normalize(testSet1)}\n')
+print(f'Normalized testSet2: {normalize(testSet2)}\n')
+
 ```
 
-We'll apply the `normalize()` function to each feature in the dataset (so, not on the label) using the `sapply()` function.
+and apply it to all the numerical variables in the dataframe.
 
-```{r}
-nCols <- dim(cleanDF)[2]
-cleanDF_n <- sapply(2:nCols,
-                    function(x) {
-  normalize(cleanDF[,x])
-}) %>% as.data.frame()
+```{python}
 
-summary(cleanDF_n[c("radius_mean", "area_mean", "smoothness_mean")])
+excluded = ['diagnosis'] # list of columns to exclude
+X = cleanDF.loc[:, ~cleanDF.columns.isin(excluded)]
+X = X.apply(normalize, axis=0)
+X[['radius_mean', 'area_mean', 'smoothness_mean']].describe()
 ```
 
 When we take the variables we selected earlier and look at the summary parameters again, we'll see that the normalization was successful.
 
 We can now split our data into training and test sets.
 
-```{r}
-trainDF_feat <- cleanDF_n[1:469,  ]
-testDF_feat <- cleanDF_n[470:569,  ]
+
+```{python}
+y = cleanDF['diagnosis']
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=123, stratify=y)
 ```
 
-When creating the training and test sets, we've excluded the labels. We'll create separate training and tests sets for them too.
-
-```{r}
-trainDF_labels <- cleanDF[1:469,  1]
-testDF_labels <- cleanDF[470:569,  1]
-```
-
+Here, X_train and y_train are the features and labels of the training data, respectively, and X_test and y_test are the features and labels of the test data.
 Now we can train and evaluate our kNN model.
 
 ## Modeling and Evaluation
+KNN is a instance-based learning algorithm. It stores all of the training data and makes predictions based on the similarity between the input instance and the stored instances. The prediction is based on the majority class among the K nearest neighbors of the input instance.
 
-To train the knn model we only need one single function from the `class` package. It takes the set with training features and the set with training label. The trained model is applied to the set with test features and the function gives back a set of predictions.
+The distance between instances is typically measured using the Euclidean distance. However, other distance measures such as the Manhattan distance or the Minkowski distance can also be used.
 
-```{r}
-cleanDF_test_pred <- knn(train = as.matrix(trainDF_feat), test = as.matrix(testDF_feat), cl = as.matrix(trainDF_labels), k = 21)
-head(cleanDF_test_pred)
+The pseudocode for the KNN algorithm is as follows:
+
+<div class='p-2' style='background-color:#f0f3f4;'>
+<pre><code class=''>
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> instance <span class="hljs-keyword">in</span> the test <span class="hljs-keyword">set</span>:
+    <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> instance <span class="hljs-keyword">in</span> the training <span class="hljs-keyword">set</span>:
+        calculate the distance between the two instances
+    sort the distances <span class="hljs-keyword">in</span> ascending <span class="hljs-keyword">order</span>
+    find the K nearest neighbors
+    predict the <span class="hljs-keyword">class</span> based <span class="hljs-keyword">on</span> the majority <span class="hljs-keyword">class</span> among the K nearest neighbors
+</code></pre>
+</div>
+
+To train the knn model we only need one single function from the `sklearn` library. The `fit()` function trains the model on the training data. The trained model is applied to the set with test features and the `predict()` function gives back a set of predicted values for y. 
+
+```{python}
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+# make predictions on the test set
+y_pred = knn.predict(X_test)
 ```
 
 Now that we have a set of predicted labels we can compare these with the actual labels. A diffusion table shows how well the model performed.
@@ -125,12 +142,21 @@ knitr::include_graphics(rep('images/diffusion.png'))
 ```
 
 Here is our own table:
-```{r}
-confusionMatrix(cleanDF_test_pred, testDF_labels[[1]], positive = NULL, dnn = c("Prediction", "True"))
+```{python}
+cm = confusion_matrix(y_test, y_pred, labels=knn.classes_)
+cm
 ```
+
+```{python}
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=knn.classes_)
+disp.plot()
+plt.show()
+```
+
 
 **Questions:** 
 
 1. *How would you assess the overall performance of the model?*
-3. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
+2. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
+3. *Try to improve the model by changing some parameters of the `KNeighborsClassifier()` function*
 
