@@ -18,7 +18,7 @@ Here's a general set of instructions for setting up a development environment th
 
 5.  Finally, you can install Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
 
-Below you will find more detailed video instructions on installing and using the elements of your development environment.
+Below you will find more detailed video instructions on installing and using the different tools in your development environment.
 
 ## Working with Git and Github
 
