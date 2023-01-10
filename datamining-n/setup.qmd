@@ -5,15 +5,26 @@ library(plotly)
 
 # Setting up your data science environment {#setup}
 
-## Working with Quarto
+Here's a general set of instructions for setting up a development environment that includes GitHub, Anaconda, and RStudio:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/shVSmYna3GM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+1.  First, you'll need to install Git on your computer. Git is a version control system that allows you to track changes in your code and collaborate with other developers. You can download the latest version of Git from the official website: [**https://git-scm.com/downloads**](https://git-scm.com/downloads)
 
-</iframe>
+2.  Next, create a GitHub account if you don't already have one. GitHub is a web-based platform for version control and collaboration that uses Git. You can sign up for a free account at [**https://github.com/**](https://github.com/).
+
+3.  Anaconda is a distribution of Python and R that makes it easy to manage dependencies and packages for data science. You can download the latest version of Anaconda from the official website: [**https://www.anaconda.com/products/distribution**](https://www.anaconda.com/products/distribution).
+
+4.  After installing Anaconda, you can create a new environment for your data science project by opening Anaconda Navigator, then click on the Environments tab, and then click on the create button.
+    You can then set the name of the environment, and the version of python or R you want to use.
+
+5.  Finally, you can install Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
+
+Below you will find more detailed video instructions on installing and using the elements of your development environment.
 
 ## Working with Git and Github
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8Dd7KRpKeaE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8Dd7KRpKeaE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/TQN2ZFoGYmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
@@ -26,5 +37,11 @@ library(plotly)
 </iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MUZtVEDKXsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+## Working with Quarto
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/shVSmYna3GM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
 </iframe>
