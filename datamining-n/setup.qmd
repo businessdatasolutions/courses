@@ -13,8 +13,7 @@ Here's a general set of instructions for setting up a development environment th
 
 3.  Anaconda is a distribution of Python and R that makes it easy to manage dependencies and packages for data science. You can download the latest version of Anaconda from the official website: [**https://www.anaconda.com/products/distribution**](https://www.anaconda.com/products/distribution).
 
-4.  After installing Anaconda, you can create a new environment for your data science project by opening Anaconda Navigator, then click on the Environments tab, and then click on the create button.
-    You can then set the name of the environment, and the version of python or R you want to use.
+4.  After installing Anaconda, you can create a new environment for your data science project by opening Anaconda Navigator, then click on the Environments tab, and then click on the create button. You can then set the name of the environment, and the version of Python or R you want to use.
 
 5.  Finally, you can install Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
 
