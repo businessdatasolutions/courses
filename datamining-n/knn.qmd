@@ -1,6 +1,8 @@
 # Lazy learning with k-Nearest Neighbors {#knn}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
 
 ```{python message=FALSE, warning=FALSE, include=FALSE}
 import pandas as pd
@@ -18,6 +20,7 @@ import matplotlib.pyplot as plt
 Breast cancer is the top cancer in women both in the developed and the developing world. In the Netherlands it is the most pervasive form of cancer [@noauthor_who_nodate]. In order to improve breast cancer outcome and survival early detection remains the most important instrument for breast cancer control. If machine learning could automate the identification of cancer, it would improve efficiency of the detection process and might also increase its effectiveness by providing greater detection accuracy.
 
 ## Data Understanding
+
 The data we will be using comes from the University of Wisconsin and is available online as an open source dataset [@noauthor_uci_cancer_nodate]. It includes measurements from digitized images from from fine-needle aspirates of breast mass. The values represent cell nuclei features.
 
 For convenience the data in csv format is stored on Github. We can access it directly using a function for reading csv from the `pandas` library
@@ -33,14 +36,15 @@ Using the `info()` function we can have some basic information about the dataset
 rawDF.info()
 ```
 
-
 ## Preparation
+
 The first variable, `id`, contains unique patient IDs. The IDs do not possess any relevant information for making predictions, so we will delete it from the dataset.
 
 ```{python}
 cleanDF = rawDF.drop(['id'], axis=1)
 cleanDF.head()
 ```
+
 The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts for both outcomes, using the `value_counts()` function. When we set the normalize setting to `True` we get the the proportions.
 
 ```{python}
@@ -57,6 +61,7 @@ catType = CategoricalDtype(categories=["B", "M"], ordered=False)
 cleanDF['diagnosis'] = cleanDF['diagnosis'].astype(catType)
 cleanDF['diagnosis']
 ```
+
 The features consist of three different measurements of ten characteristics. We will take three characteristics and have a closer look.
 
 ```{python}
@@ -98,7 +103,6 @@ When we take the variables we've selected earlier and look at the summary parame
 
 We can now split our data into training and test sets.
 
-
 ```{python}
 y = cleanDF['diagnosis']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=123, stratify=y)
@@ -109,13 +113,15 @@ Here, X_train and y_train are the features and labels of the training data, resp
 Now we can train and evaluate our kNN model.
 
 ## Modeling and Evaluation
+
 KNN is a instance-based learning algorithm. It stores all of the training data and makes predictions based on the similarity between the input instance and the stored instances. The prediction is based on the majority class among the K nearest neighbors of the input instance.
 
 The distance between instances is typically measured using the Euclidean distance. However, other distance measures such as the Manhattan distance or the Minkowski distance can also be used.
 
 The pseudocode for the KNN algorithm is as follows:
 
-<div class='p-2' style='background-color:#f0f3f4;'>
+::: {.p-2 style="background-color:#f0f3f4;"}
+```{=html}
 <pre><code class=''>
 <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> instance <span class="hljs-keyword">in</span> the test <span class="hljs-keyword">set</span>:
     <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> instance <span class="hljs-keyword">in</span> the training <span class="hljs-keyword">set</span>:
@@ -124,9 +130,10 @@ The pseudocode for the KNN algorithm is as follows:
     find the K nearest neighbors
     predict the <span class="hljs-keyword">class</span> based <span class="hljs-keyword">on</span> the majority <span class="hljs-keyword">class</span> among the K nearest neighbors
 </code></pre>
-</div>
+```
+:::
 
-To train the knn model we only need one single function from the `sklearn` library. The `fit()` function trains the model on the training data. The trained model is applied to the set with test features and the `predict()` function gives back a set of predicted values for y. 
+To train the knn model we only need one single function from the `sklearn` library. The `fit()` function trains the model on the training data. The trained model is applied to the set with test features and the `predict()` function gives back a set of predicted values for y.
 
 ```{python}
 knn = KNeighborsClassifier(n_neighbors=5)
@@ -142,6 +149,7 @@ knitr::include_graphics(rep('images/diffusion.png'))
 ```
 
 Here is our own table:
+
 ```{python}
 cm = confusion_matrix(y_test, y_pred, labels=knn.classes_)
 cm
@@ -153,10 +161,8 @@ disp.plot()
 plt.show()
 ```
 
+**Questions:**
 
-**Questions:** 
-
-1. *How would you assess the overall performance of the model?*
-2. *What would you consider as more costly: high false negatives or high false positives levels? Why?*
-3. *Try to improve the model by changing some parameters of the `KNeighborsClassifier()` function*
-
+1.  *How would you assess the overall performance of the model?*
+2.  *What would you consider as more costly: high false negatives or high false positives levels? Why?*
+3.  *Try to improve the model by changing some parameters of the `KNeighborsClassifier()` function*

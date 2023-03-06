@@ -246,7 +246,7 @@ div.csl-indent {
 <h2 data-number="3.2" class="anchored" data-anchor-id="data-understanding"><span class="header-section-number">3.2</span> Data Understanding</h2>
 <p>The data you’ll be using comes from the SMS Spam Collection <span class="citation" data-cites="noauthor_uci_spam_nodate">(<a href="references.html#ref-noauthor_uci_spam_nodate" role="doc-biblioref"><span>“<span>UCI</span> <span>Machine</span> <span>Learning</span> <span>Repository</span>: <span>SMS</span> <span>Spam</span> <span>Collection</span> <span>Data</span> <span>Set</span>”</span> n.d.</a>)</span>. It contains a set of SMS messages that are labeled ‘ham’ or ‘spam’. and is a standard data set for testing spam filtering methods.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"datasets/smsspam.csv"</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/smsspam.csv"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rawDF <span class="op">=</span> pd.read_csv(url)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rawDF.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -379,7 +379,7 @@ Name: type, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>accuracyScore <span class="op">=</span> accuracy_score(yTrue, yPred)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy: </span><span class="sc">{</span>accuracyScore<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9741564967695621</code></pre>
+<pre><code>Accuracy: 0.9720028715003589</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> confusion_matrix(yTrue, yPred)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>labelNames <span class="op">=</span> pd.Series([<span class="st">'ham'</span>, <span class="st">'spam'</span>])</span>
@@ -388,13 +388,13 @@ Name: type, dtype: float64</code></pre>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     index<span class="op">=</span><span class="st">'Is '</span> <span class="op">+</span> labelNames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Predicted ham  Predicted spam
-Is ham            1196               5
-Is spam             31             161</code></pre>
+Is ham            1211               5
+Is spam             34             143</code></pre>
 </div>
 </div>
 <p><strong>Questions:</strong></p>
 <ol type="1">
-<li><em>What do you think is the role of the <code>alpha</code> parameter in the <code>MultinomialNB()</code> function?</em></li>
+<li><em>What do you think is the role of the <code>alpha</code> parameter in the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html"><code>MultinomialNB()</code></a> function?</em></li>
 <li><em>How would you assess the overall performance of the model?</em></li>
 <li><em>What would you consider as more costly: high false negatives or high false positives levels? Why?</em></li>
 </ol>

@@ -26,7 +26,7 @@ In 2020 spam accounted for more than 50% of total e-mail traffic [@noauthor_spam
 The data you'll be using comes from the SMS Spam Collection [@noauthor_uci_spam_nodate]. It contains a set of SMS messages that are labeled 'ham' or 'spam'. and is a standard data set for testing spam filtering methods.
 
 ```{python}
-url = "datasets/smsspam.csv"
+url = "https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/smsspam.csv"
 rawDF = pd.read_csv(url)
 rawDF.head()
 ```
@@ -44,6 +44,7 @@ To see how the types of sms messages are distributed you can compare the counts 
 ```{python}
 rawDF.type.value_counts()
 ```
+
 Often you'll prefer the relative counts.
 
 ```{python}
@@ -128,6 +129,6 @@ pd.DataFrame(matrix,
 
 **Questions:**
 
-1.  *What do you think is the role of the `alpha` parameter in the `MultinomialNB()` function?*
+1.  *What do you think is the role of the `alpha` parameter in the [`MultinomialNB()`](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) function?*
 2.  *How would you assess the overall performance of the model?*
 3.  *What would you consider as more costly: high false negatives or high false positives levels? Why?*
