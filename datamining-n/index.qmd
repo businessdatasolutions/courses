@@ -44,6 +44,38 @@ knitr::kable(
 
 Through the whole of the program you'll be cooperating within a team where you will combine and compare the results of the different case studies. At the end of the course you will present with your team what you have learned from analyzing and comparing the different case studies.
 
+## Essential Math
+
+### For k-Nearest Neighbors (kNN)
+
+An essential element of the K-Nearest Neighbor model is *distance.*There are several methods to establish the distance between two points. One is the Euclidean distance. Let point $p$ have [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinates "Cartesian coordinates") $(p_1,p_2)$ and let point $q$ have coordinates $(q_1,q_2)$. Then the distance between $p$ and $q$ is given by:
+
+$$
+d(p,q) = \sqrt{\sum_{i=1}^2{(p_i-q_i)^2}}
+$$
+
+For higher dimensions $n$ this becomes:
+
+$$
+d(p,q) = \sqrt{\sum_{i=1}^n{(p_i-q_i)^2}}
+$$
+
+Important math topics:
+
+-   Order of operation: deduct or square first?
+-   Variables and types: what are the variables in the above formulas and of what type are they?
+-   Functions: which are the dependent and which the independent variables?
+-   Summations: what is the value of $\sum_{i=3}^4{(i^2)}$
+-   Exponents: what is the value of $(\sum_{i=3}^4{(i^2)})^{-\frac{1}{2}}$
+
+### For Naive Bayes
+
+-   Probability math
+
+-   Descriptive statistics
+
+-   Vectors
+
 # About the author {.unnumbered}
 
 ![](images/me.png)
