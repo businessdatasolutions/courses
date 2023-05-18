@@ -46,7 +46,7 @@ Through the whole of the program you'll be cooperating within a team where you w
 
 ## Essential Math
 
-### For k-Nearest Neighbors (kNN)
+### For k-Nearest Neighbors
 
 An essential element of the K-Nearest Neighbor model is *distance.* Several methods exist to calculate the distance between two points. One is the Euclidean distance. Let point $p$ have [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinates) $(p_1,p_2)$ and let point $q$ have coordinates $(q_1,q_2)$. Then the distance between $p$ and $q$ is given by:
 
