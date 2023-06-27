@@ -1,0 +1,33 @@
+# Data Exploration {#exploration}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PExdWWcxmro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+
+Links:
+
+1.  <https://www.kaggle.com/>
+2.  <https://datasetsearch.research.google>
+3.  <https://data.fivethirtyeight.com/>
+4.  <https://data.gov/>
+5.  <https://github.com/search?q=dataset>
+6.  <https://data.nasa.gov/>
+7.  [selected datasets](https://github.com/HAN-M3DM-Data-Mining/assignments/tree/master/datasets)
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+index <- c("1", "2")
+topic <- c("Finding Data", "Descriptive Statistics")
+tasks <- c("Explore the different sources of data that may be used in data mining, and how to extract and access this data.", "Calculate basic descriptive statistics that are commonly used in data mining, and understand how they are used to summarize datasets.")
+activities <- c("Think-Pair-Share: students will individually brainstorm potential sources of data, pair up with a partner to discuss, and then share with the class.", " Jigsaw: students will be grouped into teams and tasked to gather data from various sources, conduct descriptive statistics, and report their findings to the rest of the class.")
+student <- c("'We learned about various data sources and perspectives of different students during the brainstorming activity.' 
+", "'We learned the importance of teamwork, critical thinking, and communication skills by working together to conduct descriptive statistics on our assigned data set.'")
+teacher <- c("'Our objective here is to generate a list of possible sources of data that we can use for data mining. As a teacher, I want you to participate actively in brainstorming and support each other's thoughts. As students, you will be able to collaborate and gain insights from your peers.'", "'The goal here is to give every student a chance to delve deeper into specific aspects of data mining. As a teacher, my role is to facilitate the group and ensure everyone is participating. As students, you are expected to synthesize, analyze, and present your findings through a collaborative effort.'")
+headers <- c("","Topic", "Tasks", "Activities", "Student", "Teacher")
+outlineDF <- data.frame(index, topic, tasks, activities, student, teacher)
+colnames(outlineDF) <- headers
+
+knitr::kable(
+  outlineDF, longtable = TRUE, booktabs = TRUE,
+  caption = 'Lesson outline'
+)
+```

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Mining in Python - 3&nbsp; Probabilistic Learning with Naive Bayes Classification</title>
+<title>Data Mining in Python - 4&nbsp; Probabilistic Learning with Naive Bayes Classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +47,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,8 +73,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -139,7 +110,8 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -150,11 +122,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nb.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -162,57 +139,69 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Data Mining in Python</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setting up your data science environment</span></a>
+  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Setting up your data science environment</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./knn.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lazy learning with k-Nearest Neighbors</span></a>
+  <a href="./exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Exploration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nb.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></a>
+  <a href="./knn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lazy Learning with k-Nearest Neighbors</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./nb.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#business-case-filtering-spam" id="toc-business-case-filtering-spam" class="nav-link active" data-scroll-target="#business-case-filtering-spam"><span class="toc-section-number">3.1</span>  Business Case: Filtering Spam</a></li>
-  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding"><span class="toc-section-number">3.2</span>  Data Understanding</a></li>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="toc-section-number">3.3</span>  Preparation</a></li>
-  <li><a href="#modeling-and-evaluation" id="toc-modeling-and-evaluation" class="nav-link" data-scroll-target="#modeling-and-evaluation"><span class="toc-section-number">3.4</span>  Modeling and Evaluation</a></li>
+  <li><a href="#business-case-filtering-spam" id="toc-business-case-filtering-spam" class="nav-link active" data-scroll-target="#business-case-filtering-spam"><span class="header-section-number">4.1</span> Business Case: Filtering Spam</a></li>
+  <li><a href="#data-understanding" id="toc-data-understanding" class="nav-link" data-scroll-target="#data-understanding"><span class="header-section-number">4.2</span> Data Understanding</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">4.3</span> Preparation</a></li>
+  <li><a href="#modeling-and-evaluation" id="toc-modeling-and-evaluation" class="nav-link" data-scroll-target="#modeling-and-evaluation"><span class="header-section-number">4.4</span> Modeling and Evaluation</a></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +210,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="naivebayes" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></span></h1>
+<h1 class="title"><span id="naivebayes" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Probabilistic Learning with Naive Bayes Classification</span></span></h1>
 </div>
 
 
@@ -238,12 +227,48 @@ div.csl-indent {
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O2L2Uv9pdDA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
 </iframe>
-<section id="business-case-filtering-spam" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="business-case-filtering-spam"><span class="header-section-number">3.1</span> Business Case: Filtering Spam</h2>
+<p>Naïve Bayes is commonly used algorithm in data mining. It works by using statistical probabilities to classify data points based on their observed characteristics.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Lesson outline</caption>
+<colgroup>
+<col style="width: 0%">
+<col style="width: 1%">
+<col style="width: 13%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Tasks</th>
+<th style="text-align: left;">Activities</th>
+<th style="text-align: left;">Student</th>
+<th style="text-align: left;">Teacher</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Naive Bayes</td>
+<td style="text-align: left;">Build a k-nearest neighbors model and explain how it may be used to predict the values of data points.</td>
+<td style="text-align: left;">Follow along: students will participate in a guided demo of a data mining process building a model using Naive Bayes and evaluating its accuracy using a Confusion Matrix.</td>
+<td style="text-align: left;">‘We learned about the Naive Bayes algorithm, its advantages and limitations, as well as how to interpret a confusion matrix to evaluate the accuracy of a model.’</td>
+<td style="text-align: left;">‘Our goal here is to understand how data mining algorithms work and how they can be applied to real-world problems. As a teacher, my role is to clarify any doubts and ensure that everyone is actively participating. As students, you will be challenged to apply your knowledge to a problem and think critically.’</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="business-case-filtering-spam" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="business-case-filtering-spam"><span class="header-section-number">4.1</span> Business Case: Filtering Spam</h2>
 <p>In 2020 spam accounted for more than 50% of total e-mail traffic <span class="citation" data-cites="noauthor_spam_nodate">(<a href="references.html#ref-noauthor_spam_nodate" role="doc-biblioref"><span>“Spam Statistics: Spam e-Mail Traffic Share 2019”</span> n.d.</a>)</span>. This illustrates the value of a good spam filter. Naive Bayes spam filtering is a standard technique for handling spam. It is one of the oldest ways of doing spam filtering, with roots in the 1990s.</p>
 </section>
-<section id="data-understanding" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="data-understanding"><span class="header-section-number">3.2</span> Data Understanding</h2>
+<section id="data-understanding" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="data-understanding"><span class="header-section-number">4.2</span> Data Understanding</h2>
 <p>The data you’ll be using comes from the SMS Spam Collection <span class="citation" data-cites="noauthor_uci_spam_nodate">(<a href="references.html#ref-noauthor_uci_spam_nodate" role="doc-biblioref"><span>“<span>UCI</span> <span>Machine</span> <span>Learning</span> <span>Repository</span>: <span>SMS</span> <span>Spam</span> <span>Collection</span> <span>Data</span> <span>Set</span>”</span> n.d.</a>)</span>. It contains a set of SMS messages that are labeled ‘ham’ or ‘spam’. and is a standard data set for testing spam filtering methods.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/smsspam.csv"</span></span>
@@ -283,18 +308,20 @@ Categories (2, object): ['ham', 'spam']</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rawDF.<span class="bu">type</span>.value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ham     4825
+<pre><code>type
+ham     4825
 spam     747
-Name: type, dtype: int64</code></pre>
+Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <p>Often you’ll prefer the relative counts.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rawDF.<span class="bu">type</span>.value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>ham     0.865937
+<pre><code>type
+ham     0.865937
 spam    0.134063
-Name: type, dtype: float64</code></pre>
+Name: proportion, dtype: float64</code></pre>
 </div>
 </div>
 <p>You can also visually inspect the data by creating wordclouds for each sms type.</p>
@@ -317,7 +344,7 @@ Name: type, dtype: float64</code></pre>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>wc2.imshow(wordcloudSpam)</span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="nb_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="nb_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><strong>Question:</strong></p>
@@ -325,8 +352,8 @@ Name: type, dtype: float64</code></pre>
 <li><em>What differences do you notice?</em></li>
 </ul>
 </section>
-<section id="preparation" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="preparation"><span class="header-section-number">3.3</span> Preparation</h2>
+<section id="preparation" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="preparation"><span class="header-section-number">4.3</span> Preparation</h2>
 <p>After you’ve glimpsed over the data and have a certain understanding of its structure and content, you are now ready to prepare the data for further processing. For the naive bayes model you’ll need to have a dataframe with wordcounts. To save on computation time you can set a limit on the number of features (columns) in the wordsDF dataframe.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vectorizer <span class="op">=</span> TfidfVectorizer(max_features<span class="op">=</span><span class="dv">1000</span>)</span>
@@ -350,8 +377,8 @@ Name: type, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>xTrain, xTest, yTrain, yTest <span class="op">=</span> train_test_split(wordsDF, rawDF.<span class="bu">type</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="modeling-and-evaluation" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="modeling-and-evaluation"><span class="header-section-number">3.4</span> Modeling and Evaluation</h2>
+<section id="modeling-and-evaluation" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="modeling-and-evaluation"><span class="header-section-number">4.4</span> Modeling and Evaluation</h2>
 <p>We have now everything in place to start training our model and evaluate against our test dataset. The <code>MultinomialNB().fit()</code> function is part of the <code>scikit learn</code> package. It takes in the features and labels of our training dataset and returns a trained naive bayes model.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>bayes <span class="op">=</span> MultinomialNB()</span>
@@ -366,7 +393,7 @@ Name: type, dtype: float64</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/diffusion.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<p></p><figcaption class="figure-caption">Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg</figcaption><p></p>
+<figcaption class="figure-caption">Standard diffusion table. Taken from: https://emj.bmj.com/content/emermed/36/7/431/F1.large.jpg</figcaption>
 </figure>
 </div>
 </div>
@@ -379,11 +406,7 @@ Name: type, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>accuracyScore <span class="op">=</span> accuracy_score(yTrue, yPred)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy: </span><span class="sc">{</span>accuracyScore<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<<<<<<< HEAD
-<pre><code>Accuracy: 0.9748743718592965</code></pre>
-=======
-<pre><code>Accuracy: 0.9720028715003589</code></pre>
->>>>>>> main
+<pre><code>Accuracy: 0.9741564967695621</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> confusion_matrix(yTrue, yPred)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>labelNames <span class="op">=</span> pd.Series([<span class="st">'ham'</span>, <span class="st">'spam'</span>])</span>
@@ -392,13 +415,8 @@ Name: type, dtype: float64</code></pre>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     index<span class="op">=</span><span class="st">'Is '</span> <span class="op">+</span> labelNames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Predicted ham  Predicted spam
-<<<<<<< HEAD
-Is ham            1182               2
-Is spam             33             176</code></pre>
-=======
-Is ham            1211               5
-Is spam             34             143</code></pre>
->>>>>>> main
+Is ham            1181               0
+Is spam             36             176</code></pre>
 </div>
 </div>
 <p><strong>Questions:</strong></p>
@@ -409,11 +427,11 @@ Is spam             34             143</code></pre>
 </ol>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-noauthor_spam_nodate" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-noauthor_spam_nodate" class="csl-entry" role="listitem">
 <span>“Spam Statistics: Spam e-Mail Traffic Share 2019.”</span> n.d. <em>Statista</em>. Accessed January 10, 2021. <a href="https://www.statista.com/statistics/420391/spam-email-traffic-share/">https://www.statista.com/statistics/420391/spam-email-traffic-share/</a>.
 </div>
-<div id="ref-noauthor_uci_spam_nodate" class="csl-entry" role="doc-biblioentry">
+<div id="ref-noauthor_uci_spam_nodate" class="csl-entry" role="listitem">
 <span>“<span>UCI</span> <span>Machine</span> <span>Learning</span> <span>Repository</span>: <span>SMS</span> <span>Spam</span> <span>Collection</span> <span>Data</span> <span>Set</span>.”</span> n.d. Accessed January 9, 2021. <a href="https://archive.ics.uci.edu/ml/datasets/sms+spam+collection">https://archive.ics.uci.edu/ml/datasets/sms+spam+collection</a>.
 </div>
 </div>
@@ -447,9 +465,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -514,6 +546,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -556,7 +674,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./knn.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lazy learning with k-Nearest Neighbors</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Lazy Learning with k-Nearest Neighbors</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
