@@ -1,8 +1,6 @@
-# Data Exploration {#exploration}
+# Data Understanding {#understand}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PExdWWcxmro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PExdWWcxmro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 Links:
 
@@ -13,6 +11,8 @@ Links:
 5.  <a href="https://github.com/search?q=dataset" target="_blank">github.com/search?q=dataset</a>
 6.  <a href="https://data.nasa.gov/" target="_blank">data.nasa.gov/</a>
 7.  <a href="https://github.com/HAN-M3DM-Data-Mining/assignments/tree/master/datasets" target="_blank">selected datasets</a>
+
+Once you have accessed your dataset you'll want to get familiar with the content and gain insights into its quality and structure. Data analysts or data scientists collect and examine the data to understand its relevance to the project's goals. They explore the data using various techniques, such as descriptive statistics, data visualization, and data profiling. The goal is to identify patterns, relationships, and potential issues within the dataset, which helps in formulating initial hypotheses and refining the project's objectives.
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 index <- c("1", "2")

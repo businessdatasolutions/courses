@@ -9,7 +9,7 @@ book:
   chapters:
     - index.qmd
     - setup.qmd
-    - exploration.qmd
+    - understand.qmd
     - knn.qmd
     - nb.qmd
     - references.qmd
