@@ -29,8 +29,11 @@ knitr::kable(
   caption = 'Lesson outline'
 )
 ```
+ETL stands for Extract, Transform, and Load. It is a process used in data integration and data warehousing to extract data from various sources, transform it into a consistent format, and load it into a target system. The "Extract" phase involves gathering data from multiple sources, such as databases, spreadsheets, or APIs. In the "Transform" phase, the data is cleaned, validated, and standardized to ensure consistency and quality. Finally, in the "Load" phase, the transformed data is loaded into a target system, such as a data warehouse or a business intelligence tool, making it accessible for analysis and reporting. ETL is a crucial step in data management to ensure accurate and usable data for decision-making.
 
 Once you have accessed your dataset you'll want to get familiar with the content and gain insights into its quality and structure. Data analysts or data scientists collect and examine the data to understand its relevance to the project's goals. They explore the data using various techniques, such as descriptive statistics, data visualization, and data profiling. The goal is to identify patterns, relationships, and potential issues within the dataset, which helps in formulating initial hypotheses and refining the project's objectives.
+
+Below is a very trivial example.
 
 ```{python}
 import pandas as pd
