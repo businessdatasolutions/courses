@@ -19,7 +19,7 @@ Here's a general set of instructions for setting up a development environment th
 
     1.  Spyder IDE is included in your Anaconda installation. You might want to add the [**Notebook plugin**](https://docs.spyder-ide.org/current/plugins/notebook.html){target="_blank"}.
 
-    2.  [**Visual Studio code**](https://code.visualstudio.com/){target="_blank"}with appropriate [**extensions**](https://github.com/microsoft/vscode-jupyter){target="_blank"}.
+    2.  [**Visual Studio code**](https://code.visualstudio.com/){target="_blank"} with appropriate [**extensions**](https://github.com/microsoft/vscode-jupyter){target="_blank"}.
 
     3.  Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
 
