@@ -15,7 +15,13 @@ Here's a general set of instructions for setting up a development environment th
 
 4.  After installing Anaconda, you can create a new environment for your data science project by opening Anaconda Navigator, then click on the Environments tab, and then click on the create button. You can then set the name of the environment, and the version of Python or R you want to use.
 
-5.  Finally, you can install Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
+5.  Finally, you can install your preferred IDE:
+
+    1.  Spyder IDE is included in your Anaconda installation. You might want to add the [**Notebook plugin**](https://docs.spyder-ide.org/current/plugins/notebook.html){target="_blank"}.
+
+    2.  [**Visual Studio code**](https://code.visualstudio.com/){target="_blank"}with appropriate [**extensions**](https://github.com/microsoft/vscode-jupyter){target="_blank"}.
+
+    3.  Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
 
 Below you will find more detailed video instructions on installing and using the different tools in your development environment.
 
