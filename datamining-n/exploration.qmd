@@ -6,13 +6,13 @@
 
 Links:
 
-1.  <https://www.kaggle.com/>
-2.  <https://datasetsearch.research.google>
-3.  <https://data.fivethirtyeight.com/>
-4.  <https://data.gov/>
-5.  <https://github.com/search?q=dataset>
-6.  <https://data.nasa.gov/>
-7.  [selected datasets](https://github.com/HAN-M3DM-Data-Mining/assignments/tree/master/datasets)
+1.  <a href="https://www.kaggle.com/" target="_blank">www.kaggle.com/</a>
+2.  <a href="https://datasetsearch.research.google.com" target="_blank">datasetsearch.research.google...</a>
+3.  <a href="https://data.fivethirtyeight.com/" target="_blank">data.fivethirtyeight.com/</a>
+4.  <a href="https://data.gov/" target="_blank">data.gov/</a>
+5.  <a href="https://github.com/search?q=dataset" target="_blank">github.com/search?q=dataset</a>
+6.  <a href="https://data.nasa.gov/" target="_blank">data.nasa.gov/</a>
+7.  <a href="https://github.com/HAN-M3DM-Data-Mining/assignments/tree/master/datasets" target="_blank">selected datasets</a>
 
 ```{r echo=FALSE, message=TRUE, warning=TRUE}
 index <- c("1", "2")
