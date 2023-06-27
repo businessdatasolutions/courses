@@ -131,5 +131,12 @@
     "title": "References",
     "section": "",
     "text": "“Spam Statistics: Spam e-Mail Traffic Share 2019.” n.d.\nStatista. Accessed January 10, 2021. https://www.statista.com/statistics/420391/spam-email-traffic-share/.\n\n\n“UCI Machine Learning\nRepository: Breast Cancer\nWisconsin (Diagnostic) Data\nSet.” n.d. Accessed January 7, 2021. https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic).\n\n\n“UCI Machine Learning\nRepository: SMS Spam\nCollection Data Set.” n.d.\nAccessed January 9, 2021. https://archive.ics.uci.edu/ml/datasets/sms+spam+collection.\n\n\n“WHO  Cancer Country\nProfiles 2020.” n.d. WHO. Accessed January 7, 2021. http://www.who.int/cancer/country-profiles/en/."
+  },
+  {
+    "objectID": "understand.html#extract-transform-load-etl",
+    "href": "understand.html#extract-transform-load-etl",
+    "title": "2  Data Understanding",
+    "section": "2.1 Extract, Transform, Load (ETL)",
+    "text": "2.1 Extract, Transform, Load (ETL)\n\nimport pandas as pd\nfrom IPython.display import display, Markdown\nimport plotly.express as px\n\nurl = \"https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/ai.csv\"\nrawDF = pd.read_csv(url).sort_values(by=['year', 'Domain'])\nfig = px.scatter(rawDF, x=\"year\", y=\"Training_computation_petaflop\", color=\"Domain\", log_y=True, hover_name=\"Entity\")\nfig.update_traces(marker={'size': 12})"
   }
 ]
