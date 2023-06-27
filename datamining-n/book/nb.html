@@ -406,7 +406,7 @@ Name: proportion, dtype: float64</code></pre>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>accuracyScore <span class="op">=</span> accuracy_score(yTrue, yPred)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Accuracy: </span><span class="sc">{</span>accuracyScore<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.9676956209619526</code></pre>
+<pre><code>Accuracy: 0.9734386216798278</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> confusion_matrix(yTrue, yPred)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>labelNames <span class="op">=</span> pd.Series([<span class="st">'ham'</span>, <span class="st">'spam'</span>])</span>
@@ -415,8 +415,8 @@ Name: proportion, dtype: float64</code></pre>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     index<span class="op">=</span><span class="st">'Is '</span> <span class="op">+</span> labelNames)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Predicted ham  Predicted spam
-Is ham            1182               4
-Is spam             41             166</code></pre>
+Is ham            1199               6
+Is spam             31             157</code></pre>
 </div>
 </div>
 <p><strong>Questions:</strong></p>

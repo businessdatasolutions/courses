@@ -1,6 +1,8 @@
 # Probabilistic Learning with Naive Bayes Classification {#naivebayes}
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/O2L2Uv9pdDA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O2L2Uv9pdDA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
 
 Naïve Bayes is commonly used algorithm in data mining. It works by using statistical probabilities to classify data points based on their observed characteristics.
 
