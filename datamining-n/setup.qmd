@@ -21,7 +21,7 @@ Here's a general set of instructions for setting up a development environment th
 
     2.  [**Visual Studio code**](https://code.visualstudio.com/){target="_blank"} with appropriate [**extensions**](https://github.com/microsoft/vscode-jupyter){target="_blank"}.
 
-    3.  Rstudio by downloading the Rstudio installer from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download). RStudio is the editor that you'll use for writing and testing your code.
+    3.  Rstudio can be downloaded from [**https://rstudio.com/products/rstudio/download/#download**](https://rstudio.com/products/rstudio/download/#download){target="_blank"}.
 
 Below you will find more detailed video instructions on installing and using the different tools in your development environment.
 
