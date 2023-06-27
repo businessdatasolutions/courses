@@ -25,6 +25,7 @@ knitr::kable(
 
 ```{python message=FALSE, warning=FALSE, include=FALSE}
 import pandas as pd
+from pandas.plotting import scatter_matrix
 from pandas.api.types import CategoricalDtype
 from IPython.display import display, Markdown
 import numpy as np
@@ -53,6 +54,18 @@ Using the `info()` function we can have some basic information about the dataset
 
 ```{python}
 rawDF.info()
+```
+
+```{python}
+selDF = rawDF.filter(regex='mean').iloc[:,:6]
+fig = scatter_matrix(selDF, alpha=0.2, figsize=(6, 6), diagonal="hist")
+for ax in fig.flatten():
+    ax.xaxis.label.set_rotation(90)
+    ax.yaxis.label.set_rotation(0)
+    ax.yaxis.label.set_ha('right')
+plt.tight_layout()
+plt.gcf().subplots_adjust(wspace=0, hspace=0)
+plt.show()
 ```
 
 ## Preparation
