@@ -46,7 +46,7 @@ rawDF = pd.read_csv(url).sort_values(by=['year', 'Domain'])
 # Transform
 rawDF = rawDF.sort_values(by=['year', 'Domain'])
 # Load
-fig = px.scatter(rawDF, x="year", y="Training_computation_petaflop", color="Domain", log_y=True, hover_name="Entity")
+fig = px.scatter(rawDF, x="year", y="Training_computation_petaflop", color="Domain", log_y=True, hover_name="Entity", title="Computation used to train notable artificial intelligence systems")
 fig.update_traces(marker={'size': 12})
 ```
 
