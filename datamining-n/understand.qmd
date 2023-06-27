@@ -37,7 +37,7 @@ import pandas as pd
 from IPython.display import display, Markdown
 import plotly.express as px
 
-url = "ai.csv"
+url = "https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/ai.csv"
 rawDF = pd.read_csv(url).sort_values(by=['year', 'Domain'])
 fig = px.scatter(rawDF, x="year", y="Training_computation_petaflop", color="Domain", log_y=True, hover_name="Entity")
 fig.update_traces(marker={'size': 12})
