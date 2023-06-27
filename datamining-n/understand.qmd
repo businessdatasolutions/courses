@@ -47,7 +47,7 @@ import plotly.express as px
 url = "https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/ai.csv"
 rawDF = pd.read_csv(url).sort_values(by=['year', 'Domain'])
 # Transform
-rawDF = rawDF).sort_values(by=['year', 'Domain'])
+rawDF = rawDF.sort_values(by=['year', 'Domain'])
 # Load
 fig = px.scatter(rawDF, x="year", y="Training_computation_petaflop", color="Domain", log_y=True, hover_name="Entity")
 fig.update_traces(marker={'size': 12})

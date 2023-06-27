@@ -138,5 +138,12 @@
     "title": "2  Data Understanding",
     "section": "2.1 Extract, Transform, Load (ETL)",
     "text": "2.1 Extract, Transform, Load (ETL)\n\nimport pandas as pd\nfrom IPython.display import display, Markdown\nimport plotly.express as px\n\nurl = \"https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/ai.csv\"\nrawDF = pd.read_csv(url).sort_values(by=['year', 'Domain'])\nfig = px.scatter(rawDF, x=\"year\", y=\"Training_computation_petaflop\", color=\"Domain\", log_y=True, hover_name=\"Entity\")\nfig.update_traces(marker={'size': 12})"
+  },
+  {
+    "objectID": "understand.html#etl",
+    "href": "understand.html#etl",
+    "title": "2  Data Understanding",
+    "section": "2.1 ETL",
+    "text": "2.1 ETL\nETL stands for Extract, Transform, and Load. It is a process used in data integration and data warehousing to extract data from various sources, transform it into a consistent format, and load it into a target system. The “Extract” phase involves gathering data from multiple sources, such as databases, spreadsheets, or APIs. In the “Transform” phase, the data is cleaned, validated, and standardized to ensure consistency and quality. Finally, in the “Load” phase, the transformed data is loaded into a target system, such as a data warehouse or a business intelligence tool, making it accessible for analysis and reporting. ETL is a crucial step in data management to ensure accurate and usable data for decision-making.\nBelow is a very trivial example.\n\nimport pandas as pd\nfrom IPython.display import display, Markdown\nimport plotly.express as px\n\n# Extract\nurl = \"https://raw.githubusercontent.com/businessdatasolutions/courses/main/datamining-n/datasets/ai.csv\"\nrawDF = pd.read_csv(url).sort_values(by=['year', 'Domain'])\n# Transform\nrawDF = rawDF.sort_values(by=['year', 'Domain'])\n# Load\nfig = px.scatter(rawDF, x=\"year\", y=\"Training_computation_petaflop\", color=\"Domain\", log_y=True, hover_name=\"Entity\")\nfig.update_traces(marker={'size': 12})"
   }
 ]
