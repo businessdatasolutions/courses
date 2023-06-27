@@ -41,12 +41,12 @@ Below you will find more detailed video instructions on installing and using the
 
 </iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MUZtVEDKXsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MUZtVEDKXsk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-</iframe>
+## Visual Studio Code
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DA6ZAHBPF1U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Working with Quarto
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/shVSmYna3GM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/shVSmYna3GM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

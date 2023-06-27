@@ -52,8 +52,8 @@
     "objectID": "setup.html#working-with-quarto",
     "href": "setup.html#working-with-quarto",
     "title": "1  Setting up your data science environment",
-    "section": "1.3 Working with Quarto",
-    "text": "1.3 Working with Quarto"
+    "section": "1.4 Working with Quarto",
+    "text": "1.4 Working with Quarto"
   },
   {
     "objectID": "exploration.html",
@@ -124,5 +124,12 @@
     "title": "References",
     "section": "",
     "text": "“Spam Statistics: Spam e-Mail Traffic Share 2019.” n.d.\nStatista. Accessed January 10, 2021. https://www.statista.com/statistics/420391/spam-email-traffic-share/.\n\n\n“UCI Machine Learning\nRepository: Breast Cancer\nWisconsin (Diagnostic) Data\nSet.” n.d. Accessed January 7, 2021. https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic).\n\n\n“UCI Machine Learning\nRepository: SMS Spam\nCollection Data Set.” n.d.\nAccessed January 9, 2021. https://archive.ics.uci.edu/ml/datasets/sms+spam+collection.\n\n\n“WHO  Cancer Country\nProfiles 2020.” n.d. WHO. Accessed January 7, 2021. http://www.who.int/cancer/country-profiles/en/."
+  },
+  {
+    "objectID": "setup.html#visual-studio-code",
+    "href": "setup.html#visual-studio-code",
+    "title": "1  Setting up your data science environment",
+    "section": "1.3 Visual Studio Code",
+    "text": "1.3 Visual Studio Code"
   }
 ]
