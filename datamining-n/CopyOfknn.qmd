@@ -1,0 +1,32 @@
+# Lazy Learning with k-Nearest Neighbors {#knn}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+K-nearest neighbors is an algorithm that is commonly used in data mining. It works by identifying the k-nearest data points to a given point, and using their values to predict the value of the point in question.
+
+```{r echo=FALSE, message=TRUE, warning=TRUE}
+index <- c("2")
+topic <- c("K-Nearest Neighbors")
+tasks <- c("Build a k-nearest neighbors model and explain how it may be used to predict the values of data points.")
+activities <- c("Follow along: students will participate in a guided demo of a data mining process building a model using K-Nearest Neighbors and evaluating its accuracy using a Confusion Matrix.")
+student <- c("'We learned about the KNN algorithm, its advantages and limitations, as well as how to interpret a confusion matrix to evaluate the accuracy of a model.'")
+teacher <- c("'Our goal here is to understand how data mining algorithms work and how they can be applied to real-world problems. As a teacher, my role is to clarify any doubts and ensure that everyone is actively participating. As students, you will be challenged to apply your knowledge to a problem and think critically.'")
+headers <- c("","Topic", "Tasks", "Activities", "Student", "Teacher")
+outlineDF <- data.frame(index, topic, tasks, activities, student, teacher)
+colnames(outlineDF) <- headers
+
+knitr::kable(
+  outlineDF, longtable = TRUE, booktabs = TRUE,
+  caption = 'Lesson outline'
+)
+```
+
+```{python message=FALSE, warning=FALSE, include=FALSE}
+import pandas as pd
+from pandas.plotting import scatter_matrix
+from pandas.api.types import CategoricalDtype
+from IPython.display import display, Markdown
+import numpy as np
+```

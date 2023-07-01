@@ -33,6 +33,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
+
 ```
 
 ## Business Case: Diagnosing Breast Cancer
@@ -56,32 +57,37 @@ Using the `info()` function we can have some basic information about the dataset
 rawDF.info()
 ```
 
+We can also check visually for patterns.
+
 ```{python}
-selDF = rawDF.filter(regex='mean').iloc[:,:6]
+selDF = rawDF.filter(regex="mean").iloc[:, :6]
 fig = scatter_matrix(selDF, alpha=0.2, figsize=(6, 6), diagonal="hist")
 for ax in fig.flatten():
     ax.xaxis.label.set_rotation(90)
     ax.yaxis.label.set_rotation(0)
-    ax.yaxis.label.set_ha('right')
+    ax.yaxis.label.set_ha("right")
 plt.tight_layout()
 plt.gcf().subplots_adjust(wspace=0, hspace=0)
 plt.show()
 ```
+**Question:**
+
+-   *What patterns do you observe and to what extend are they surprising?*
 
 ## Preparation
 
 The first variable, `id`, contains unique patient IDs. The IDs do not possess any relevant information for making predictions, so we will delete it from the dataset.
 
 ```{python}
-cleanDF = rawDF.drop(['id'], axis=1)
+cleanDF = rawDF.drop(["id"], axis=1)
 cleanDF.head()
 ```
 
 The variable named `diagnosis` contains the outcomes we would like to predict - 'B' for 'Benign' and 'M' for 'Malignant'. The variable we would like to predict is called the 'label'. We can look at the counts for both outcomes, using the `value_counts()` function. When we set the normalize setting to `True` we get the the proportions.
 
 ```{python}
-cntDiag = cleanDF['diagnosis'].value_counts()
-propDiag = cleanDF['diagnosis'].value_counts(normalize=True)
+cntDiag = cleanDF["diagnosis"].value_counts()
+propDiag = cleanDF["diagnosis"].value_counts(normalize=True)
 cntDiag
 propDiag
 ```
@@ -90,14 +96,14 @@ Looking again at the results from the `info()` function you'll notice that the v
 
 ```{python}
 catType = CategoricalDtype(categories=["B", "M"], ordered=False)
-cleanDF['diagnosis'] = cleanDF['diagnosis'].astype(catType)
-cleanDF['diagnosis']
+cleanDF["diagnosis"] = cleanDF["diagnosis"].astype(catType)
+cleanDF["diagnosis"]
 ```
 
 The features consist of three different measurements of ten characteristics. We will take three characteristics and have a closer look.
 
 ```{python}
-cleanDF[['radius_mean', 'area_mean', 'smoothness_mean']].describe()
+cleanDF[["radius_mean", "area_mean", "smoothness_mean"]].describe()
 ```
 
 You'll notice that the three variables have very different ranges and as a consequence `area_mean` will have a larger impact on the distance calculation than the `smootness_mean`. This could potentially cause problems for modeling. To solve this we'll apply normalization to rescale all features to a standard range of values.
@@ -106,18 +112,21 @@ We will write our own normalization function,
 
 ```{python}
 
+
 def normalize(x):
-  return((x - min(x)) / (max(x) - min(x))) # distance of item value - minimum vector value divided by the range of all vector values
-
-testSet1 = np.arange(1,6)
-testSet2 = np.arange(1,6) * 10
-
+    return (x - min(x)) / (
+        max(x) - min(x)
+    )  # distance of item value - minimum vector value divided by the range of all vector values
 
 
-print(f'testSet1: {testSet1}\n')
-print(f'testSet2: {testSet2}\n')
-print(f'Normalized testSet1: {normalize(testSet1)}\n')
-print(f'Normalized testSet2: {normalize(testSet2)}\n')
+testSet1 = np.arange(1, 6)
+testSet2 = np.arange(1, 6) * 10
+
+
+print(f"testSet1: {testSet1}\n")
+print(f"testSet2: {testSet2}\n")
+print(f"Normalized testSet1: {normalize(testSet1)}\n")
+print(f"Normalized testSet2: {normalize(testSet2)}\n")
 
 ```
 
@@ -125,10 +134,11 @@ and apply it to all the numerical variables in the dataframe.
 
 ```{python}
 
-excluded = ['diagnosis'] # list of columns to exclude
-X = cleanDF.loc[:, ~cleanDF.columns.isin(excluded)]
+excluded = ["diagnosis"]  # list of columns to exclude
+# X = cleanDF.loc[:, ~cleanDF.columns.isin(excluded)]
+X = cleanDF.drop(excluded, axis=1)
 X = X.apply(normalize, axis=0)
-X[['radius_mean', 'area_mean', 'smoothness_mean']].describe()
+X[["radius_mean", "area_mean", "smoothness_mean"]].describe()
 ```
 
 When we take the variables we've selected earlier and look at the summary parameters again, we'll see that the normalization was successful.
@@ -136,8 +146,10 @@ When we take the variables we've selected earlier and look at the summary parame
 We can now split our data into training and test sets.
 
 ```{python}
-y = cleanDF['diagnosis']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=123, stratify=y)
+y = cleanDF["diagnosis"]
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
 ```
 
 Here, X_train and y_train are the features and labels of the training data, respectively, and X_test and y_test are the features and labels of the test data.
@@ -167,11 +179,13 @@ The pseudocode for the KNN algorithm is as follows:
 
 To train the knn model we only need one single function from the `sklearn` library. The `fit()` function trains the model on the training data. The trained model is applied to the set with test features and the `predict()` function gives back a set of predicted values for y.
 
+NOTE: Somehow `predict()` generates error with number columns larger than 15. This is a new issue. It used to work.
+
 ```{python}
 knn = KNeighborsClassifier(n_neighbors=5)
-knn.fit(X_train, y_train)
-# make predictions on the test set
-y_pred = knn.predict(X_test)
+knn.fit(X_train.iloc[:,:15], y_train)
+# # make predictions on the test set
+y_pred = knn.predict((X_test.iloc[:,:15]))
 ```
 
 Now that we have a set of predicted labels we can compare these with the actual labels. A diffusion table shows how well the model performed.
