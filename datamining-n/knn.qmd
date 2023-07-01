@@ -72,7 +72,7 @@ plt.show()
 ```
 **Question:**
 
--   *What patterns do you observe and to what extend are they surprising?*
+-   *What patterns do you observe and to what extend are they surprising??*
 
 ## Preparation
 
