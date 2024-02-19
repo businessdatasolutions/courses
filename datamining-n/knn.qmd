@@ -1,6 +1,7 @@
 # Lazy Learning with k-Nearest Neighbors {#knn}
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MDniRwXizWo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
 </iframe>
 
 K-nearest neighbors is an algorithm that is commonly used in data mining. It works by identifying the k-nearest data points to a given point, and using their values to predict the value of the point in question.
@@ -21,7 +22,6 @@ knitr::kable(
   caption = 'Lesson outline'
 )
 ```
-
 
 ```{python message=FALSE, warning=FALSE, include=FALSE}
 import pandas as pd
@@ -70,9 +70,10 @@ plt.tight_layout()
 plt.gcf().subplots_adjust(wspace=0, hspace=0)
 plt.show()
 ```
+
 **Question:**
 
--   *What patterns do you observe and to what extend are they surprising??*
+-   *What patterns do you observe and to what extend are they surprising?*
 
 ## Preparation
 
