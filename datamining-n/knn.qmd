@@ -112,8 +112,6 @@ You'll notice that the three variables have very different ranges and as a conse
 We will write our own normalization function,
 
 ```{python}
-
-
 def normalize(x):
     return (x - min(x)) / (
         max(x) - min(x)
@@ -134,7 +132,6 @@ print(f"Normalized testSet2: {normalize(testSet2)}\n")
 and apply it to all the numerical variables in the dataframe.
 
 ```{python}
-
 excluded = ["diagnosis"]  # list of columns to exclude
 # X = cleanDF.loc[:, ~cleanDF.columns.isin(excluded)]
 X = cleanDF.drop(excluded, axis=1)
